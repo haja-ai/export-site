@@ -1,19 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 
 export default function ProductCard({ product, index = 0 }) {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
-
-  if (!mounted) return <div className="p-6 min-h-[320px]" />;
-
   return (
     <Link
       href={`/products/${product.slug}`}
       className="product-card group"
-      style={{ animationDelay: `${index * 0.1}s` }}
     >
       <div className="p-6">
         {/* Product Image */}

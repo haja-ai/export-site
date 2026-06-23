@@ -1,4 +1,4 @@
-# Xiaoxiang Wheelchair & Dongbang Motor — B2B Export Website
+# MiniElephant Electric Wheelchair & Dongbang Motor — B2B Export Website
 
 A professional B2B export independent website built with Next.js 16 (App Router, Tailwind CSS v4).
 
@@ -85,7 +85,7 @@ git push -u origin main
 
 3. **Set custom domain** (optional):
    - In Vercel dashboard → Project → Domains
-   - Add your custom domain (e.g., `xiaoxiang-dpg.com`)
+   - Add your custom domain (e.g., `minielephant-dpg.com`)
 
 ## 📧 Email Configuration (Optional)
 
@@ -96,13 +96,13 @@ The inquiry form uses [Resend](https://resend.com) free tier (100 emails/day).
 3. Set environment variables in Vercel:
    - `RESEND_API_KEY=re_xxxxxxxxxxxx`
    - `FROM_EMAIL=onboarding@resend.dev` (or your domain)
-   - `NOTIFICATION_EMAIL=export@xiaoxiang-dpg.com`
+   - `NOTIFICATION_EMAIL=export@minielephant-dpg.com`
 
 Without Resend configured, inquiries are logged to the server console.
 
 ## 🛍️ Products Included
 
-### Electric Wheelchairs (Xiaoxiang)
+### Electric Wheelchairs (MiniElephant)
 | Model | Weight | Range | Key Feature |
 |-------|--------|-------|-------------|
 | X1 Lite | 19 kg | 20 km | Ultra-light, compact fold |

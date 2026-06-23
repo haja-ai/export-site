@@ -1,9 +1,9 @@
 /**
  * Email sending API route.
- * 
+ *
  * Uses Resend (free tier: 100 emails/day) if RESEND_API_KEY is set.
  * Falls back to logging the email to console (for development).
- * 
+ *
  * To use Resend:
  * 1. Sign up at https://resend.com
  * 2. Add your API key to environment: RESEND_API_KEY=re_xxx
@@ -28,7 +28,7 @@ export async function POST(request) {
     const resendApiKey = process.env.RESEND_API_KEY;
     const fromEmail = process.env.FROM_EMAIL || 'onboarding@resend.dev';
     const notificationEmail =
-      process.env.NOTIFICATION_EMAIL || 'export@xiaoxiang-dpg.com';
+      process.env.NOTIFICATION_EMAIL || 'johnson@semwheelchair.com';
 
     // Build email HTML
     const emailHtml = `
@@ -44,14 +44,14 @@ export async function POST(request) {
     .field { margin-bottom: 12px; }
     .field-label { font-weight: bold; color: #555; font-size: 12px; text-transform: uppercase; }
     .field-value { color: #333; }
-    .message-box { background: white; padding: 15px; border-radius: 6px; border-left: 4px solid #0d7377; margin-top: 15px; }
+    .message-box { background: white; padding: 15px; border-radius: 6px; border-left: 4px solid #14B8A6; margin-top: 15px; }
     .footer { font-size: 12px; color: #999; text-align: center; padding: 15px; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h1>🔔 New B2B Inquiry Received</h1>
+      <h1>New B2B Inquiry Received</h1>
     </div>
     <div class="body">
       <div class="field">
@@ -73,7 +73,7 @@ export async function POST(request) {
       </div>
     </div>
     <div class="footer">
-      This inquiry was submitted via the Xiaoxiang-DPG B2B export website.
+      This inquiry was submitted via the MiniElephant B2B export website (semwheelchair.com).
       <br>Respond within 24 hours to maintain service quality.
     </div>
   </div>
@@ -89,7 +89,7 @@ export async function POST(request) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: `Xiaoxiang-DPG B2B <${fromEmail}>`,
+          from: `MiniElephant B2B <${fromEmail}>`,
           to: [notificationEmail],
           replyTo: email,
           subject: `New B2B Inquiry from ${name}${company ? ` — ${company}` : ''}`,

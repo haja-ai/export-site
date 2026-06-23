@@ -1,153 +1,112 @@
-'use client';
-
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import { useState, useMemo, Suspense } from 'react';
-import { wheelchairs, motors } from '@/lib/products';
+import { wheelchairs } from '@/lib/products';
+import ProductCard from '../components/ProductCard';
 
-const allProducts = [...wheelchairs, ...motors];
-
-function ProductsContent() {
-  const searchParams = useSearchParams();
-  const initialCategory = searchParams.get('category') || 'all';
-  const [activeCategory, setActiveCategory] = useState(initialCategory);
-
-  const filteredProducts = useMemo(() => {
-    if (activeCategory === 'wheelchair') return wheelchairs;
-    if (activeCategory === 'motor') return motors;
-    return allProducts;
-  }, [activeCategory]);
-
-  return (
-    <>
-      {/* Filter Bar */}
-      <section className="sticky top-16 lg:top-20 bg-white border-b border-gray-200 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-4 py-4 overflow-x-auto scrollbar-hide">
-            {[
-              { id: 'all', label: 'All Products' },
-              { id: 'wheelchair', label: 'Electric Wheelchairs' },
-              { id: 'motor', label: 'Industrial Motors' },
-            ].map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
-                  activeCategory === cat.id
-                    ? 'bg-teal text-white shadow-md'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Product Grid */}
-      <section className="py-12 lg:py-16 bg-gray-50 min-h-[60vh]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {filteredProducts.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-gray-500 text-lg">No products found in this category.</p>
-            </div>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProducts.map((product) => (
-                <Link
-                  key={product.slug}
-                  href={`/products/${product.slug}`}
-                  className={`product-card group ${product.bgColor} border border-gray-100`}
-                >
-                  <div className="p-6 lg:p-8">
-                    <div className={`w-14 h-14 rounded-xl ${product.accentBg} bg-opacity-20 flex items-center justify-center mb-5`}>
-                      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        {product.category === 'wheelchair' ? (
-                          <>
-                            <circle cx="12" cy="5" r="2.5" />
-                            <path d="M5 22l3-9h8l3 9" />
-                            <path d="M8 13c0 3.3 2.7 6 6 6s6-2.7 6-6" />
-                            <path d="M4 13h4" />
-                            <path d="M16 13h4" />
-                          </>
-                        ) : (
-                          <>
-                            <circle cx="12" cy="12" r="4" />
-                            <path d="M12 4V2" />
-                            <path d="M12 22v-2" />
-                            <path d="M20 12h2" />
-                            <path d="M2 12h2" />
-                            <path d="M17.66 6.34l1.41-1.41" />
-                            <path d="M4.93 19.07l1.41-1.41" />
-                            <path d="M6.34 6.34L4.93 4.93" />
-                            <path d="M19.07 19.07l-1.41-1.41" />
-                          </>
-                        )}
-                      </svg>
-                    </div>
-
-                    <span className={`text-xs font-semibold uppercase tracking-wider ${product.accentColor}`}>
-                      {product.brand}
-                    </span>
-                    <h3 className="text-xl font-bold text-charcoal mt-1 mb-2 group-hover:text-teal transition-colors">
-                      {product.name}
-                    </h3>
-                    <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed mb-4">
-                      {product.tagline}
-                    </p>
-
-                    <div className="grid grid-cols-2 gap-2 mb-4">
-                      {product.specs.slice(0, 4).map((spec) => (
-                        <div key={spec.label} className="text-xs">
-                          <span className="text-gray-400">{spec.label}:</span>{' '}
-                          <span className="text-gray-700 font-medium">{spec.value}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center gap-2 text-sm font-medium text-teal mt-auto">
-                      <span>View Details</span>
-                      <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-    </>
-  );
-}
+export const metadata = {
+  title: 'Electric Wheelchair Products | MiniRedone Series | MiniElephant',
+  description:
+    'Explore all 10 MiniRedone electric wheelchair models. Magnesium alloy frames, dual 350W motors, 30km range. Lightweight folding designs for B2B export. Request quotation.',
+  openGraph: {
+    title: 'Electric Wheelchair Products | MiniRedone Series',
+    description:
+      '10 MiniRedone electric wheelchair models — from 42KG lightweight to 900mm extra-wide. Magnesium alloy, 30km range.',
+    url: 'https://www.semwheelchair.com/products',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.semwheelchair.com/products',
+  },
+};
 
 export default function ProductsPage() {
   return (
     <div>
       {/* Header */}
-      <section className="bg-gradient-to-br from-charcoal to-teal text-white py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl lg:text-5xl font-bold mb-4">Our Products</h1>
-          <p className="text-lg text-gray-300 max-w-2xl">
-            Explore our complete range of electric wheelchairs and industrial
-            electric motors. All products meet international quality standards.
+      <section className="bg-gradient-to-br from-gray-900 to-gray-800 py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-teal-light font-semibold text-sm uppercase tracking-widest">
+            Our Products
+          </span>
+          <h1 className="text-3xl lg:text-5xl font-bold text-white mt-3 mb-4">
+            MiniRedone Series
+          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            10 electric wheelchair models engineered for diverse needs — from ultra-light portability
+            to premium high-back comfort. All featuring magnesium alloy frames.
           </p>
         </div>
       </section>
 
-      <Suspense
-        fallback={
-          <section className="py-12 lg:py-16 bg-gray-50 min-h-[60vh]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-              <p className="text-gray-500">Loading products...</p>
-            </div>
-          </section>
-        }
-      >
-        <ProductsContent />
-      </Suspense>
+      {/* Product Grid */}
+      <section className="py-16 lg:py-24 bg-cream">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {wheelchairs.map((product, i) => (
+              <ProductCard key={product.slug} product={product} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Spec Comparison */}
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 text-center mb-2">
+            Product Comparison
+          </h2>
+          <p className="text-gray-500 text-center mb-10 max-w-xl mx-auto">
+            Quick overview of core specifications across the MiniRedone line.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm text-left">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="py-3 px-4 font-semibold text-gray-900">Model</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Net Weight</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Max Load</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Range</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Seat Size</th>
+                  <th className="py-3 px-4 font-semibold text-gray-900">Key Feature</th>
+                </tr>
+              </thead>
+              <tbody>
+                {wheelchairs.map((p, i) => (
+                  <tr key={p.slug} className={`border-b border-gray-100 ${i % 2 === 0 ? 'bg-gray-50' : ''}`}>
+                    <td className="py-3 px-4 font-medium text-teal">
+                      <Link href={`/products/${p.slug}`} className="hover:underline">
+                        {p.name}
+                      </Link>
+                    </td>
+                    <td className="py-3 px-4 text-gray-600">{p.specs[0].value}</td>
+                    <td className="py-3 px-4 text-gray-600">{p.specs[1].value}</td>
+                    <td className="py-3 px-4 text-gray-600">{p.specs[2].value}</td>
+                    <td className="py-3 px-4 text-gray-600 text-xs">{p.specs[8]?.value || '—'}</td>
+                    <td className="py-3 px-4 text-gray-500 text-xs">{p.keyDifference}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-12 lg:py-16 bg-gradient-to-r from-teal to-teal-dark">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+            Need Help Choosing a Model?
+          </h2>
+          <p className="text-teal-light/80 max-w-xl mx-auto mb-6">
+            Our export specialists can recommend the best MiniRedone model for your market and customer needs.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center px-8 py-4 bg-white text-teal font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            Request a Quote
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

@@ -41,14 +41,14 @@ export default function Nav() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-teal to-teal-dark flex items-center justify-center text-white font-bold text-lg shadow-sm">
+            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-teal to-teal-dark flex items-center justify-center text-white font-bold text-xl shadow-sm">
               ME
             </div>
             <div className="hidden sm:block">
-              <span className="text-sm font-bold text-gray-900 block leading-tight group-hover:text-teal transition-colors">
+              <span className="text-base font-bold text-gray-900 block leading-tight group-hover:text-teal transition-colors">
                 MiniElephant
               </span>
-              <span className="text-[10px] text-gray-500 tracking-wider uppercase">
+              <span className="text-[11px] text-gray-500 tracking-wider uppercase">
                 Electric Wheelchair
               </span>
             </div>

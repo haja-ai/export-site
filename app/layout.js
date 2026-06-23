@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
               {/* Brand */}
               <div className="lg:col-span-1">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-teal to-teal-dark flex items-center justify-center text-white font-bold text-lg">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-teal to-teal-dark flex items-center justify-center text-white font-bold text-xl">
                     ME
                   </div>
                   <div>

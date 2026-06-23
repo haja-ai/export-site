@@ -1,0 +1,59 @@
+# llms.txt — MiniElephant Electric Wheelchair
+
+> 本文件遵循 llms.txt 标准 (https://llmstxt.org)，帮助 AI 搜索引擎理解本站。
+
+## 站点信息
+
+- **品牌**: MiniElephant Electric Wheelchair
+- **公司**: Jiaxing Small Elephant Medical Technology Co., Ltd
+- **域名**: https://www.semwheelchair.com
+- **定位**: 中国专业电动轮椅制造商，B2B 出口
+- **地址**: No. 18 Zhenzhong East Road, Jiashan County, Jiaxing City, Zhejiang Province, China
+- **联系人**: Johnson | johnson@semwheelchair.com | +86 13819098967 | WhatsApp
+
+## 产品线
+
+- **MiniRedone Series**: 10 款折叠电动轮椅
+  - 车架: 镁合金 (Magnesium Alloy)
+  - 电机: 双 350W 无刷电机 (Dual 350W Brushless)
+  - 电池: 16Ah 锂电池
+  - 续航: ≈30 KM
+  - 载重: 150 KG
+  - 速度: ≤6 KM/H
+  - 充电: 4–6 小时
+
+### 10 款型号:
+- MiniRedone-I — 基础款, 47KG, 黑胎
+- MiniRedone-I-W — 白色款, 46KG
+- MiniRedone-I-B&R — 黑红/黑橙双色可选
+- MiniRedone-I-R — 红色版
+- MiniRedone-I-Plus — 升级舒适版
+- MiniRedone-II — 轻量便携, 42KG
+- MiniRedone-II-Plus — 轻量宽座, W750mm, 45KG
+- MiniRedone-III — 高背款, 1200mm 靠背
+- MiniRedone-IV — 超高背款, 1250mm 靠背, 43KG
+- MiniRedone-V — 超宽体, W900mm, 50KG
+
+## 核心优势
+
+- 厂家直销，无中间商
+- ISO 13485 / CE / FDA 认证
+- OEM / ODM 全定制
+- 海运/空运/铁路全球物流
+- 售后支持 + 备件供应
+- 支持样品评估
+
+## 关键页面
+
+- 首页: https://www.semwheelchair.com
+- 产品列表: https://www.semwheelchair.com/products
+- 关于我们: https://www.semwheelchair.com/about
+- FAQ: https://www.semwheelchair.com/faq
+- 联系/询盘: https://www.semwheelchair.com/contact
+- 站点地图: https://www.semwheelchair.com/sitemap.xml
+- 完整数据: https://www.semwheelchair.com/llms-full.txt
+
+## 许可
+
+- 允许 AI 引擎抓取、分析、引用
+- 引用请标注来源 https://www.semwheelchair.com

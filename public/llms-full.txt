@@ -1,0 +1,212 @@
+# llms-full.txt — MiniElephant Full Product Data
+
+> AI-readable full product catalog for MiniElephant Electric Wheelchair
+
+## COMPANY
+- Company: Jiaxing Small Elephant Medical Technology Co., Ltd
+- Brand: MiniElephant
+- Website: https://www.semwheelchair.com
+- Email: johnson@semwheelchair.com
+- Phone: +86 13819098967
+- WhatsApp: +86 13819098967
+- Address: No. 18 Zhenzhong East Road, Jiashan County, Jiaxing City, Zhejiang Province, China
+- Experience: 10+ years
+- Export: 50+ countries
+- Certifications: ISO 13485, CE, FDA
+- Services: OEM/ODM, factory-direct, sample evaluation, after-sales support
+- Payment: T/T, L/C, Western Union, PayPal (samples)
+- MOQ: 5 units per model; samples 1-2 units
+- Shipping: Sea 25-40 days, Air 7-10 days, Express 5-7 days
+- Warranty: 12 months frame/motor, 6 months battery/controller
+
+## PRODUCT LINE: MiniRedone Series
+Common specs across all models:
+- Frame Material: Magnesium Alloy
+- Motor: Dual 350W Brushless
+- Battery: 16Ah Lithium-ion (removable)
+- Max Load: 150 KG (330 lbs)
+- Max Speed: ≤6 KM/H
+- Range: ≈30 KM
+- Charging Time: 4–6 hours
+- Foldable: Yes
+
+
+### MiniElephant MiniRedone-I
+- **Tagline**: The reliable workhorse — base folding electric wheelchair
+- **Net Weight**: 47 KG
+- **Max Load**: 150 KG
+- **Range**: ≈30 KM
+- **Max Speed**: ≤6 KM/H
+- **Battery**: 16Ah Lithium-ion
+- **Motor**: Dual 350W Brushless
+- **Frame**: Magnesium Alloy
+- **Folded Dimensions**: L850×W675×H780 mm
+- **Seat Dimensions**: L1080×W675×H1020 mm
+- **Key Difference**: Base model, black tires
+- **Description**: The reliable workhorse — base folding electric wheelchair. Black pneumatic tires. Adjustable armrests and footplates. Smart joystick controller with speed adjustment. Anti-tip wheels for enhanced safety.
+
+### MiniElephant MiniRedone-I-W
+- **Tagline**: White edition — clean, modern, and stylish
+- **Net Weight**: 46 KG
+- **Max Load**: 150 KG
+- **Range**: ≈30 KM
+- **Max Speed**: ≤6 KM/H
+- **Battery**: 16Ah Lithium-ion
+- **Motor**: Dual 350W Brushless
+- **Frame**: Magnesium Alloy
+- **Folded Dimensions**: L830×W675×H780 mm
+- **Seat Dimensions**: L1005×W675×H1020 mm
+- **Key Difference**: White variant, slightly lighter at 46KG
+- **Description**: White edition — clean, modern, and stylish. Same reliable magnesium alloy frame and dual 350W motors. Compact folded dimensions.
+
+### MiniElephant MiniRedone-I-B&R
+- **Tagline**: Available in Black & Red or Black & Orange
+- **Net Weight**: 46 KG
+- **Max Load**: 150 KG
+- **Range**: ≈30 KM
+- **Max Speed**: ≤6 KM/H
+- **Battery**: 16Ah Lithium-ion
+- **Motor**: Dual 350W Brushless
+- **Frame**: Magnesium Alloy
+- **Folded Dimensions**: L830×W675×H780 mm
+- **Seat Dimensions**: L1005×W675×H1020 mm
+- **Key Difference**: Red/Orange color options
+- **Description**: Available in Black & Red or Black & Orange. Padded armrests with adjustable height. Breathable fabric seat.
+
+### MiniElephant MiniRedone-I-R
+- **Tagline**: Red edition — bold, vibrant, and full of energy
+- **Net Weight**: 46 KG
+- **Max Load**: 150 KG
+- **Range**: ≈30 KM
+- **Max Speed**: ≤6 KM/H
+- **Battery**: 16Ah Lithium-ion
+- **Motor**: Dual 350W Brushless
+- **Frame**: Magnesium Alloy
+- **Folded Dimensions**: L830×W675×H780 mm
+- **Seat Dimensions**: L1005×W675×H1020 mm
+- **Key Difference**: Red edition
+- **Description**: Red edition — bold, vibrant, and full of energy. Comfortable padded armrests. LED battery indicator on controller.
+
+### MiniElephant MiniRedone-I-Plus
+- **Tagline**: Upgraded base model with enhanced comfort
+- **Net Weight**: ~47 KG
+- **Max Load**: 150 KG
+- **Range**: ≈30 KM
+- **Max Speed**: ≤6 KM/H
+- **Battery**: 16Ah Lithium-ion
+- **Motor**: Dual 350W Brushless
+- **Frame**: Magnesium Alloy
+- **Folded Dimensions**: L850×W675×H780 mm
+- **Seat Dimensions**: L1080×W675×H1020 mm
+- **Key Difference**: Upgraded base model with enhanced comfort features
+- **Description**: Upgraded base model with enhanced comfort. Memory foam seat cushion. Enhanced joystick controller. Quick-release folding mechanism.
+
+### MiniElephant MiniRedone-II
+- **Tagline**: Lightweight champion
+- **Net Weight**: 42 KG
+- **Max Load**: 150 KG
+- **Range**: ≈30 KM
+- **Max Speed**: ≤6 KM/H
+- **Battery**: 16Ah Lithium-ion
+- **Motor**: Dual 350W Brushless
+- **Frame**: Magnesium Alloy
+- **Folded Dimensions**: L830×W675×H945 mm
+- **Seat Dimensions**: L1005×W675×H945 mm
+- **Key Difference**: Lighter weight at 42KG
+- **Description**: Lightweight champion. Ultra-light 42KG frame — easiest to lift and transport. Ergonomic seat with breathable fabric.
+
+### MiniElephant MiniRedone-II-Plus
+- **Tagline**: Lightweight with wider 750mm seat for extra comfort
+- **Net Weight**: 45 KG
+- **Max Load**: 150 KG
+- **Range**: ≈30 KM
+- **Max Speed**: ≤6 KM/H
+- **Battery**: 16Ah Lithium-ion
+- **Motor**: Dual 350W Brushless
+- **Frame**: Magnesium Alloy
+- **Folded Dimensions**: L830×W675×H930 mm
+- **Seat Dimensions**: L1005×W750×H930 mm
+- **Key Difference**: Wider seat (W750mm) at 45KG
+- **Description**: Lightweight with wider 750mm seat for extra comfort. Reinforced frame for larger users. Padded armrests with width adjustment.
+
+### MiniElephant MiniRedone-III
+- **Tagline**: Premium high-back model — ultimate comfort and support
+- **Net Weight**: 47 KG
+- **Max Load**: 150 KG
+- **Range**: ≈30 KM
+- **Max Speed**: ≤6 KM/H
+- **Battery**: 16Ah Lithium-ion
+- **Motor**: Dual 350W Brushless
+- **Frame**: Magnesium Alloy
+- **Folded Dimensions**: L850×W675×H850 mm
+- **Seat Dimensions**: L1080×W675×H1200 mm
+- **Key Difference**: Premium/high back (1200mm seat height)
+- **Description**: Premium high-back model — ultimate comfort and support. 1200mm back height. Memory foam seat and back cushion. Reclining backrest option. Adjustable headrest.
+
+### MiniElephant MiniRedone-IV
+- **Tagline**: Tallest backrest at 1250mm for full spinal support
+- **Net Weight**: 43 KG
+- **Max Load**: 150 KG
+- **Range**: ≈30 KM
+- **Max Speed**: ≤6 KM/H
+- **Battery**: 16Ah Lithium-ion
+- **Motor**: Dual 350W Brushless
+- **Frame**: Magnesium Alloy
+- **Folded Dimensions**: L830×W675×H1250 mm
+- **Seat Dimensions**: L1005×W675×H1250 mm
+- **Key Difference**: Tall backrest (1250mm) at 43KG
+- **Description**: Tallest backrest at 1250mm for full spinal support. Lightweight 43KG despite tall profile. Breathable mesh back fabric.
+
+### MiniElephant MiniRedone-V
+- **Tagline**: Widest model with 900mm seat width
+- **Net Weight**: 50 KG
+- **Max Load**: 150 KG
+- **Range**: ≈30 KM
+- **Max Speed**: ≤6 KM/H
+- **Battery**: 16Ah Lithium-ion
+- **Motor**: Dual 350W Brushless
+- **Frame**: Magnesium Alloy
+- **Folded Dimensions**: L830×W900×H1200 mm
+- **Seat Dimensions**: L1005×W900×H1200 mm
+- **Key Difference**: Wide/extra comfort (W900mm seat)
+- **Description**: Widest model with 900mm seat width. 1200mm backrest. Wide-base stability. Extra-wide padded armrests with premium upholstery.
+
+## FAQ
+
+Q: What is the minimum order quantity (MOQ)?
+A: Standard MOQ is 5 units per model. Sample orders accept 1–2 units.
+
+Q: How long does shipping take?
+A: Sea: 25–40 days. Air: 7–10 days. Express (DHL/UPS/FedEx): 5–7 days for samples.
+
+Q: Do you offer OEM / ODM services?
+A: Yes — custom branding, packaging, colors, seat fabric, and design modifications.
+
+Q: What certifications do your wheelchairs have?
+A: ISO 13485, CE (EU), FDA (US).
+
+Q: What is the warranty period?
+A: 12 months frame/motor, 6 months battery/controller. Extended warranty available for bulk orders.
+
+Q: Can I get a sample before bulk order?
+A: Yes, samples shipped within 3–5 working days after payment.
+
+Q: What payment methods do you accept?
+A: T/T, L/C, Western Union, PayPal (samples).
+
+## SITEMAP
+- Home: https://www.semwheelchair.com
+- Products: https://www.semwheelchair.com/products
+- MiniRedone-I: https://www.semwheelchair.com/products/miniredone-i
+- MiniRedone-I-W: https://www.semwheelchair.com/products/miniredone-i-w
+- MiniRedone-I-B&R: https://www.semwheelchair.com/products/miniredone-i-br
+- MiniRedone-I-R: https://www.semwheelchair.com/products/miniredone-i-r
+- MiniRedone-I-Plus: https://www.semwheelchair.com/products/miniredone-i-plus
+- MiniRedone-II: https://www.semwheelchair.com/products/miniredone-ii
+- MiniRedone-II-Plus: https://www.semwheelchair.com/products/miniredone-ii-plus
+- MiniRedone-III: https://www.semwheelchair.com/products/miniredone-iii
+- MiniRedone-IV: https://www.semwheelchair.com/products/miniredone-iv
+- MiniRedone-V: https://www.semwheelchair.com/products/miniredone-v
+- About: https://www.semwheelchair.com/about
+- FAQ: https://www.semwheelchair.com/faq
+- Contact: https://www.semwheelchair.com/contact

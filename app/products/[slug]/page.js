@@ -4,7 +4,7 @@ import { getProductBySlug } from '@/lib/products';
 import ProductJsonLd from '../../components/ProductJsonLd';
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
+  const slug = params.slug;
   const product = getProductBySlug(slug);
   if (!product) return { title: 'Product Not Found' };
 
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ProductDetailPage({ params }) {
-  const { slug } = await params;
+  const slug = params.slug;
   const product = getProductBySlug(slug);
 
   if (!product) notFound();

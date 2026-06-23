@@ -10,7 +10,7 @@ export default function ProductCard({ product, index = 0 }) {
     >
       <div className="p-6">
         {/* Product Image */}
-        <div className="w-full aspect-[4/3] rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-100 flex items-center justify-center mb-5 overflow-hidden">
+        <div className="w-full aspect-[3/4] rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-100 flex items-center justify-center mb-5 overflow-hidden">
           {product.images ? (
             <img src={product.images[0]} alt={product.name} className="w-full h-full object-contain p-2" loading="lazy" />
           ) : (

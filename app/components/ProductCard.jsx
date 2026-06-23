@@ -16,18 +16,22 @@ export default function ProductCard({ product, index = 0 }) {
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       <div className="p-6">
-        {/* Placeholder image */}
-        <div className="w-full aspect-[4/3] rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-100 flex items-center justify-center mb-5">
-          <div className="text-center">
-            <svg className="w-16 h-16 mx-auto text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-              <circle cx="12" cy="5" r="2.5" />
-              <path d="M5 22l3-9h8l3 9" />
-              <path d="M8 13c0 3.3 2.7 6 6 6s6-2.7 6-6" />
-              <path d="M4 13h4" />
-              <path d="M16 13h4" />
-            </svg>
-            <p className="text-[10px] text-gray-400 mt-2">{product.name}</p>
-          </div>
+        {/* Product Image */}
+        <div className="w-full aspect-[4/3] rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-100 flex items-center justify-center mb-5 overflow-hidden">
+          {product.image ? (
+            <img src={product.image} alt={product.name} className="w-full h-full object-cover" loading="lazy" />
+          ) : (
+            <div className="text-center">
+              <svg className="w-16 h-16 mx-auto text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                <circle cx="12" cy="5" r="2.5" />
+                <path d="M5 22l3-9h8l3 9" />
+                <path d="M8 13c0 3.3 2.7 6 6 6s6-2.7 6-6" />
+                <path d="M4 13h4" />
+                <path d="M16 13h4" />
+              </svg>
+              <p className="text-[10px] text-gray-400 mt-2">{product.name}</p>
+            </div>
+          )}
         </div>
         <span className="text-xs font-semibold uppercase tracking-wider text-teal">
           MiniRedone Series

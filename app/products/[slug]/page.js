@@ -63,18 +63,22 @@ export default async function ProductDetailPage({ params }) {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Product Image */}
             <div>
-              <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 flex items-center justify-center">
-                <div className="text-center">
-                  <svg className="w-24 h-24 mx-auto text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.8">
-                    <circle cx="12" cy="5" r="2.5" />
-                    <path d="M5 22l3-9h8l3 9" />
-                    <path d="M8 13c0 3.3 2.7 6 6 6s6-2.7 6-6" />
-                    <path d="M4 13h4" />
-                    <path d="M16 13h4" />
-                  </svg>
-                  <p className="text-sm text-gray-400 mt-3 mb-1 font-medium">{product.fullName}</p>
-                  <p className="text-xs text-gray-400">{product.category}</p>
-                </div>
+              <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden">
+                {product.image ? (
+                  <img src={product.image} alt={product.fullName} className="w-full h-full object-contain" />
+                ) : (
+                  <div className="text-center">
+                    <svg className="w-24 h-24 mx-auto text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.8">
+                      <circle cx="12" cy="5" r="2.5" />
+                      <path d="M5 22l3-9h8l3 9" />
+                      <path d="M8 13c0 3.3 2.7 6 6 6s6-2.7 6-6" />
+                      <path d="M4 13h4" />
+                      <path d="M16 13h4" />
+                    </svg>
+                    <p className="text-sm text-gray-400 mt-3 mb-1 font-medium">{product.fullName}</p>
+                    <p className="text-xs text-gray-400">{product.category}</p>
+                  </div>
+                )}
               </div>
             </div>
 

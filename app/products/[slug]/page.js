@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getProductBySlug } from '@/lib/products';
+import { getProductBySlug, wheelchairs } from '@/lib/products';
 import ProductJsonLd from '../../components/ProductJsonLd';
 
+export async function generateStaticParams() {
+  return wheelchairs.map((p) => ({ slug: p.slug }));
+}
+
 export async function generateMetadata({ params }) {
-  const slug = params.slug;
+  const { slug } = await params;
   const product = getProductBySlug(slug);
   if (!product) return { title: 'Product Not Found' };
 
@@ -17,7 +21,7 @@ export async function generateMetadata({ params }) {
       title: `${product.fullName} — ${product.tagline}`,
       description: `${specs}. Magnesium alloy frame, dual 350W motors. Factory-direct pricing.`,
       url: `https://www.semwheelchair.com/products/${slug}`,
-      type: 'product',
+      type: 'website',
       images: [{ url: 'https://www.semwheelchair.com/og-image.jpg', width: 1200, height: 630 }],
     },
     alternates: {
@@ -27,7 +31,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ProductDetailPage({ params }) {
-  const slug = params.slug;
+  const { slug } = await params;
   const product = getProductBySlug(slug);
 
   if (!product) notFound();

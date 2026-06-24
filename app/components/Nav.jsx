@@ -15,6 +15,9 @@ const navLinks = [
 
 export default function Nav() {
   const pathname = usePathname();
+  // PulseFitHero has its own nav on homepage — hide this one
+  if (pathname === '/') return null;
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);

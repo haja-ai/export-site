@@ -118,6 +118,22 @@ export function PulseFitHero({
         )}
       </motion.header>
 
+      {/* Banner floating behind text */}
+      {bannerImage && (
+        <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden" style={{ top: "120px" }}>
+          <div className="w-full h-full relative">
+            <img
+              src={bannerImage}
+              alt=""
+              className="w-full h-full object-cover object-top opacity-30"
+            />
+            <div className="absolute inset-0" style={{
+              background: "linear-gradient(180deg, rgba(232,240,255,0.8) 0%, rgba(232,240,255,0) 40%, rgba(255,255,255,0) 60%, #FFFFFF 100%)",
+            }} />
+          </div>
+        </div>
+      )}
+
       {/* Main Content */}
       {children ? (
         <div className="relative z-10 flex-1 flex items-center justify-center w-full">{children}</div>
@@ -245,22 +261,6 @@ export function PulseFitHero({
               </motion.div>
             )}
           </motion.div>
-        </div>
-      )}
-
-      {/* Banner Image — directly below hero text, with fade from hero gradient */}
-      {bannerImage && (
-        <div className="relative w-full">
-          <div className="absolute top-0 left-0 right-0 h-32 z-10 pointer-events-none"
-            style={{
-              background: "linear-gradient(180deg, #E8F0FF 0%, rgba(232,240,255,0) 100%)",
-            }}
-          />
-          <img
-            src={bannerImage}
-            alt="Product lineup"
-            className="w-full h-auto object-contain block"
-          />
         </div>
       )}
 

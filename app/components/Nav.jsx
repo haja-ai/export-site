@@ -43,7 +43,7 @@ export default function Nav() {
         left: 0,
         right: 0,
         zIndex: 50,
-        background: scrolled || !mounted ? 'rgba(255,255,255,0.9)' : 'transparent',
+        background: scrolled || !mounted ? 'rgba(255,255,255,0.9)' : 'linear-gradient(180deg, #E8F0FF 0%, #F5F9FF 50%, #FFFFFF 100%)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
         borderBottom: scrolled ? '1px solid rgba(0,0,0,0.06)' : 'none',

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function PageHeader({ badge, title, description }) {
   return (
     <section
-      className="relative overflow-hidden pt-24 pb-16 lg:pt-28 lg:pb-20"
+      className="relative overflow-hidden -mt-20 lg:-mt-24 pt-24 pb-16 lg:pt-28 lg:pb-20"
       style={{
         background: "linear-gradient(180deg, #E8F0FF 0%, #F5F9FF 50%, #FFFFFF 100%)",
       }}

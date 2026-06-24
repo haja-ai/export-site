@@ -2,8 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { wheelchairs } from '@/lib/products';
 import ProductCard from '../components/ProductCard';
+import PulseFitPage from '../components/PulseFitPage';
 
-import PageHeader from '../components/PageHeader';
+
 
 export const metadata = {
   title: 'Electric Wheelchair Products | MiniRedone Series | MiniElephant',
@@ -23,12 +24,8 @@ export const metadata = {
 
 export default function ProductsPage() {
   return (
-    <div>
-      <PageHeader
-        badge="Our Products"
-        title="MiniRedone Series"
-        description="10 electric wheelchair models engineered for diverse needs — from ultra-light portability to premium high-back comfort. All featuring magnesium alloy frames."
-      />
+    <PulseFitPage badge="Our Products" title="MiniRedone Series" description="10 electric wheelchair models engineered for diverse needs — from ultra-light portability to premium high-back comfort. All featuring magnesium alloy frames.">
+      
 
       {/* Product Grid */}
       <section className="py-16 lg:py-24 bg-cream">
@@ -100,6 +97,5 @@ export default function ProductsPage() {
           </Link>
         </div>
       </section>
-    </div>
-  );
+    </PulseFitPage>  );
 }

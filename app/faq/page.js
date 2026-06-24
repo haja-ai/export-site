@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import PageHeader from '../components/PageHeader';
+import PulseFitPage from '../components/PulseFitPage';
+
 
 export const metadata = {
   title: 'FAQ | Electric Wheelchair | MiniElephant',
@@ -69,12 +70,8 @@ const faqs = [
 
 export default function FaqPage() {
   return (
-    <div>
-      <PageHeader
-        badge="Help Center"
-        title="Frequently Asked Questions"
-        description="Find answers to common questions about our electric wheelchairs, ordering, shipping, and more."
-      />
+    <PulseFitPage badge="Help Center" title="Frequently Asked Questions" description="Find answers to common questions about our electric wheelchairs, ordering, shipping, and more.">
+      
       {/* FAQ Content */}
       <section className="py-16 lg:py-24 bg-cream">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -121,6 +118,5 @@ export default function FaqPage() {
           </Link>
         </div>
       </section>
-    </div>
-  );
+    </PulseFitPage>  );
 }

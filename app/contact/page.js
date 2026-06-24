@@ -1,6 +1,7 @@
 import ContactForm from '../components/ContactForm';
-import PageHeader from '../components/PageHeader';
 import Link from 'next/link';
+import PulseFitPage from '../components/PulseFitPage';
+
 
 export const metadata = {
   title: 'Contact Us | Get a Quote | MiniElephant Electric Wheelchair',
@@ -20,12 +21,8 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <div>
-      <PageHeader
-        badge="Get in Touch"
-        title="Contact & Inquiry"
-        description="Submit your inquiry below and our export team will respond within 24 hours."
-      />
+    <PulseFitPage badge="Get in Touch" title="Contact & Inquiry" description="Submit your inquiry below and our export team will respond within 24 hours.">
+      
       <section className="py-16 lg:py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-12">
@@ -133,6 +130,5 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </PulseFitPage>  );
 }

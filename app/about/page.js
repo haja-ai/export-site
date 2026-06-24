@@ -1,7 +1,8 @@
-import PageHeader from '../components/PageHeader';
 import Link from 'next/link';
 import CertificatesSection from '../components/CertificatesSection';
 import { getRecentArticles } from '@/lib/news';
+import PulseFitPage from '../components/PulseFitPage';
+
 
 export const metadata = {
   title: 'About Us | MiniElephant Electric Wheelchair Manufacturer',
@@ -21,12 +22,8 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div>
-      <PageHeader
-        badge="Our Story"
-        title="About MiniElephant"
-        description="Professional electric wheelchair manufacturer committed to mobility innovation and quality."
-      />
+    <PulseFitPage badge="Our Story" title="About MiniElephant" description="Professional electric wheelchair manufacturer committed to mobility innovation and quality.">
+      
 
       {/* Company Info */}
       <section className="py-16 lg:py-24 bg-white">
@@ -131,6 +128,5 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
-    </div>
-  );
+    </PulseFitPage>  );
 }

@@ -1,6 +1,7 @@
-import PageHeader from '../components/PageHeader';
 import Link from 'next/link';
 import { newsArticles } from '@/lib/news';
+import PulseFitPage from '../components/PulseFitPage';
+
 
 export const metadata = {
   title: 'News & Insights | MiniElephant Electric Wheelchair',
@@ -19,12 +20,8 @@ export const metadata = {
 
 export default function NewsPage() {
   return (
-    <div>
-      <PageHeader
-        badge="News & Insights"
-        title="MiniElephant Updates"
-        description="Product launches, industry insights, and B2B buyer guides. Stay informed about electric wheelchair innovations."
-      />
+    <PulseFitPage badge="News & Insights" title="MiniElephant Updates" description="Product launches, industry insights, and B2B buyer guides. Stay informed about electric wheelchair innovations.">
+      
 
       {/* Article List */}
       <section className="py-16 lg:py-24 bg-cream">
@@ -101,6 +98,5 @@ export default function NewsPage() {
           </Link>
         </div>
       </section>
-    </div>
-  );
+    </PulseFitPage>  );
 }

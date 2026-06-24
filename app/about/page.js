@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getRecentArticles } from '@/lib/news';
 
 export const metadata = {
@@ -20,16 +21,26 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div>
-      {/* Header */}
-      <section className="bg-gradient-to-br from-gray-900 to-gray-800 py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Banner Header */}
+      <section className="relative h-[300px] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/about-banner.jpg"
+            alt="About MiniElephant"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-gray-900/20" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-teal-light font-semibold text-sm uppercase tracking-widest">
             Our Story
           </span>
           <h1 className="text-3xl lg:text-5xl font-bold text-white mt-3 mb-4">
             About MiniElephant
           </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-200 max-w-2xl mx-auto text-lg">
             Professional electric wheelchair manufacturer committed to mobility innovation and quality.
           </p>
         </div>

@@ -74,7 +74,10 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://wa.me" />
+        <link rel="preconnect" href="https://i.pravatar.cc" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://wa.me" />
+        <link rel="dns-prefetch" href="https://i.pravatar.cc" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9D6EMGBXL"></script>
         <script dangerouslySetInnerHTML={{
           __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-J9D6EMGBXL');`,
@@ -171,16 +174,25 @@ export default function RootLayout({ children }) {
                 </p>
               </div>
 
-              {/* Products */}
+              {/* Products — two columns for 10 models */}
               <div>
                 <h3 className="text-white font-semibold text-sm mb-3">Electric Wheelchair Models</h3>
-                <ul className="space-y-2 text-sm">
-                  <li><a href="/products/miniredone-i" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I — 47KG Base Model</a></li>
-                  <li><a href="/products/miniredone-ii" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-II — 42KG Lightweight</a></li>
-                  <li><a href="/products/miniredone-ii-plus" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-II-Plus — Wide Seat</a></li>
-                  <li><a href="/products/miniredone-iii" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-III — High Back</a></li>
-                  <li><a href="/products/miniredone-v" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-V — Extra Wide 900mm</a></li>
-                </ul>
+                <div className="grid grid-cols-2 gap-x-4">
+                  <ul className="space-y-2 text-sm">
+                    <li><a href="/products/miniredone-i" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I — 47KG</a></li>
+                    <li><a href="/products/miniredone-i-w" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I-W — 46KG</a></li>
+                    <li><a href="/products/miniredone-i-br" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I-B&amp;R</a></li>
+                    <li><a href="/products/miniredone-i-r" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I-R</a></li>
+                    <li><a href="/products/miniredone-i-plus" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I-Plus</a></li>
+                  </ul>
+                  <ul className="space-y-2 text-sm">
+                    <li><a href="/products/miniredone-ii" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-II — 42KG</a></li>
+                    <li><a href="/products/miniredone-ii-plus" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-II-Plus</a></li>
+                    <li><a href="/products/miniredone-iii" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-III</a></li>
+                    <li><a href="/products/miniredone-iv" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-IV</a></li>
+                    <li><a href="/products/miniredone-v" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-V</a></li>
+                  </ul>
+                </div>
               </div>
 
               {/* Quick Links */}

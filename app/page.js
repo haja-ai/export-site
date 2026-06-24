@@ -70,20 +70,6 @@ export default function HomePage() {
       <link rel="preload" as="image" href="/images/miniredone-ii-plus.png" fetchPriority="high" />
       <PageHero />
 
-      {/* Banner — below hero text, with opacity fade from hero gradient */}
-      <section className="relative w-full overflow-hidden" style={{ marginTop: "-80px" }}>
-        <div className="absolute top-0 left-0 right-0 h-32 z-10 pointer-events-none"
-          style={{
-            background: "linear-gradient(180deg, #E8F0FF 0%, rgba(232,240,255,0) 100%)",
-          }}
-        />
-        <img
-          src="/images/hero-banner.png"
-          alt="MiniElephant Electric Wheelchair product lineup"
-          className="w-full h-auto object-contain block"
-        />
-      </section>
-
       {/* Stats Section */}
       <section className="py-12 lg:py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

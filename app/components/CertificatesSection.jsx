@@ -14,8 +14,8 @@ const certificates = [
     id: 'iso',
     name: 'ISO 13485',
     desc: 'Medical devices quality management system certification',
-    image: '/images/cert-iso13485-1.png',
-    fullSize: '/images/cert-iso13485-1.png',
+    image: '/images/cert-iso13485-2.png',
+    fullSize: '/images/cert-iso13485-2.png',
   },
   {
     id: 'fda',

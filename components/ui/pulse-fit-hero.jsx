@@ -21,6 +21,7 @@ export function PulseFitHero({
   disclaimer,
   socialProof,
   programs = [],
+  bannerImage,
   className,
   children,
 }) {
@@ -244,6 +245,22 @@ export function PulseFitHero({
               </motion.div>
             )}
           </motion.div>
+        </div>
+      )}
+
+      {/* Banner Image — directly below hero text, with fade from hero gradient */}
+      {bannerImage && (
+        <div className="relative w-full">
+          <div className="absolute top-0 left-0 right-0 h-32 z-10 pointer-events-none"
+            style={{
+              background: "linear-gradient(180deg, #E8F0FF 0%, rgba(232,240,255,0) 100%)",
+            }}
+          />
+          <img
+            src={bannerImage}
+            alt="Product lineup"
+            className="w-full h-auto object-contain block"
+          />
         </div>
       )}
 

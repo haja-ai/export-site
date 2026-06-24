@@ -70,6 +70,15 @@ export default function HomePage() {
       <link rel="preload" as="image" href="/images/miniredone-ii-plus.png" fetchPriority="high" />
       <PageHero />
 
+      {/* Banner */}
+      <section className="relative w-full overflow-hidden bg-white">
+        <img
+          src="/images/hero-banner.png"
+          alt="MiniElephant Electric Wheelchair - Full product lineup overview"
+          className="w-full h-auto object-contain"
+        />
+      </section>
+
       {/* Stats Section */}
       <section className="py-12 lg:py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -4,13 +4,13 @@ import PulseFitPage from '../components/PulseFitPage';
 
 
 export const metadata = {
-  title: 'Contact Us | Get a Quote | MiniElephant Electric Wheelchair',
+  title: 'Contact Us | Get a Quote | Electric Wheelchair Manufacturer | MiniElephant',
   description:
-    'Contact MiniElephant for electric wheelchair inquiry, quotation, and OEM/ODM requests. Phone: +86 13819098967, Email: johnson@semwheelchair.com. Response within 24 hours.',
+    'Contact MiniElephant electric wheelchair manufacturer for B2B inquiry, quotation, and OEM/ODM requests. Factory-direct pricing. Phone: +86 13819098967, Email: johnson@semwheelchair.com. Response within 24 hours.',
   openGraph: {
-    title: 'Contact MiniElephant — Request a Quotation',
+    title: 'Contact MiniElephant — Electric Wheelchair Manufacturer Quotation',
     description:
-      'Get a customized quotation for electric wheelchairs. OEM/ODM inquiries welcome. Fast response within 24 hours.',
+      'Get a customized quotation for folding electric wheelchairs. OEM/ODM inquiries welcome. Factory-direct B2B pricing. Fast response within 24 hours.',
     url: 'https://www.semwheelchair.com/contact',
     type: 'website',
   },
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-900">Phone / WhatsApp</p>
-                  <a href="tel:+861****8967" className="text-sm text-teal hover:underline">
+                  <a href="tel:+8613819098967" className="text-sm text-teal hover:underline">
                     +86 13819098967
                   </a>
                   <p className="text-xs text-gray-400 mt-0.5">Contact: Johnson</p>

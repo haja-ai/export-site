@@ -5,13 +5,13 @@ import PulseFitPage from '../components/PulseFitPage';
 
 
 export const metadata = {
-  title: 'About Us | MiniElephant Electric Wheelchair Manufacturer',
+  title: 'About Us | MiniElephant Electric Wheelchair Manufacturer | Folding Wheelchair Factory',
   description:
-    'Jiaxing Small Elephant Medical Technology Co., Ltd — professional electric wheelchair manufacturer with 10+ years experience. ISO certified, OEM/ODM available, 50+ countries exported.',
+    'Jiaxing Small Elephant Medical Technology Co., Ltd — professional electric wheelchair manufacturer & supplier with 10+ years experience. ISO 13485, CE, FDA certified factory in Zhejiang, China. OEM/ODM available, 50+ countries exported. Lightweight magnesium alloy folding wheelchairs.',
   openGraph: {
-    title: 'About MiniElephant — Professional Electric Wheelchair Manufacturer',
+    title: 'About MiniElephant — Professional Electric Wheelchair Manufacturer & Factory',
     description:
-      '10+ years of experience in electric wheelchair manufacturing. ISO certified factory in Zhejiang, China.',
+      '10+ years of electric wheelchair manufacturing experience. ISO/CE/FDA certified factory in Zhejiang, China. Specializing in lightweight magnesium alloy folding wheelchairs.',
     url: 'https://www.semwheelchair.com/about',
     type: 'website',
   },

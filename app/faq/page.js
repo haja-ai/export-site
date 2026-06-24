@@ -3,12 +3,12 @@ import PulseFitPage from '../components/PulseFitPage';
 
 
 export const metadata = {
-  title: 'FAQ | Electric Wheelchair | MiniElephant',
+  title: 'FAQ | Electric Wheelchair Manufacturer | MiniElephant Folding Wheelchairs',
   description:
-    'Frequently asked questions about MiniElephant electric wheelchairs. Shipping, warranty, OEM/ODM, battery, maintenance, and more. Find answers quickly.',
+    'Frequently asked questions about MiniElephant electric wheelchairs — B2B export, shipping times, OEM/ODM customization, warranty, battery specifications, and more. Find answers from the manufacturer.',
   openGraph: {
-    title: 'FAQ — MiniElephant Electric Wheelchair',
-    description: 'Find answers about electric wheelchair shipping, warranty, customization, and more.',
+    title: 'FAQ — MiniElephant Electric Wheelchair Manufacturer',
+    description: 'Find answers about electric wheelchair shipping, OEM customization, warranty, battery range, and more from the manufacturer.',
     url: 'https://www.semwheelchair.com/faq',
     type: 'website',
   },

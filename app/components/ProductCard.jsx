@@ -12,7 +12,16 @@ export default function ProductCard({ product, index = 0 }) {
         {/* Product Image */}
         <div className="w-full aspect-[3/4] rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-100 flex items-center justify-center mb-5 overflow-hidden">
           {product.images ? (
-            <img src={product.images[0]} alt={`${product.fullName} — ${product.tagline}`} className="w-full h-full object-contain p-2" loading={index < 4 ? "eager" : "lazy"} decoding={index < 4 ? "async" : "auto"} />
+            <img
+              src={product.images[0]}
+              alt={`${product.fullName} — ${product.tagline} | MiniElephant Lightweight Electric Wheelchair`}
+              width={400}
+              height={533}
+              loading={index < 4 ? "eager" : "lazy"}
+              decoding={index < 4 ? "async" : "async"}
+              fetchPriority={index < 4 ? "high" : "auto"}
+              className="w-full h-full object-contain p-2"
+            />
           ) : (
             <div className="text-center">
               <svg className="w-16 h-16 mx-auto text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">

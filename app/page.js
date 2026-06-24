@@ -6,16 +6,16 @@ import ProductCard from './components/ProductCard';
 const featuredProducts = [wheelchairs[0], wheelchairs[5], wheelchairs[7], wheelchairs[9]];
 
 export const metadata = {
-  title: 'MiniElephant Electric Wheelchair | Premium B2B Electric Wheelchairs Manufacturer',
+  title: 'MiniElephant Electric Wheelchair | Premium B2B Electric Wheelchairs Manufacturer | Lightweight Folding Wheelchairs',
   description:
-    'Professional electric wheelchair manufacturer. Lightweight folding wheelchairs with magnesium alloy frame, 30km range. B2B export to 50+ countries. OEM/ODM welcome.',
+    'Professional electric wheelchair manufacturer & supplier of lightweight folding wheelchairs with magnesium alloy frames. Dual 350W motors, 30km range, 150KG load capacity. B2B export to 50+ countries. ISO, CE, FDA certified. OEM/ODM available. Factory-direct pricing.',
   openGraph: {
-    title: 'MiniElephant Electric Wheelchair | Premium B2B Electric Wheelchairs Manufacturer',
+    title: 'MiniElephant Electric Wheelchair | Premium B2B Electric Wheelchairs Manufacturer | Lightweight Folding Wheelchairs',
     description:
-      'Lightweight folding electric wheelchairs with magnesium alloy frame, 30km range, 150KG load. Factory-direct B2B pricing from China manufacturer.',
+      'Lightweight folding electric wheelchairs with magnesium alloy frames, dual 350W motors, 30km range, 150KG load. Factory-direct B2B pricing from China manufacturer. ISO/CE/FDA certified.',
     url: 'https://www.semwheelchair.com',
     type: 'website',
-    images: [{ url: 'https://www.semwheelchair.com/og-image.jpg', width: 1200, height: 630, alt: 'MiniElephant MiniRedone Series Electric Wheelchairs' }],
+    images: [{ url: 'https://www.semwheelchair.com/og-image.jpg', width: 1200, height: 630, alt: 'MiniElephant MiniRedone Series Lightweight Folding Electric Wheelchairs' }],
   },
   alternates: {
     canonical: 'https://www.semwheelchair.com',
@@ -93,11 +93,10 @@ export default function HomePage() {
                 Our Products
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-3">
-                Featured Wheelchair Models
+                Featured Electric Wheelchair Models
               </h2>
               <p className="text-gray-500 max-w-xl">
-                Explore our complete MiniRedone series — from lightweight portability to premium
-                high-back comfort.
+                Explore our complete MiniRedone series of folding electric wheelchairs — from ultra-lightweight 42KG portable designs to premium high-back comfort models. All feature magnesium alloy frames and dual 350W motors.
               </p>
             </div>
             <Link
@@ -127,10 +126,10 @@ export default function HomePage() {
               Why MiniElephant
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-4">
-              Why Choose Us
+              Why Choose Our Electric Wheelchair Factory
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
-              We deliver value beyond products — partnership, quality, and peace of mind.
+              We deliver value beyond products — partnership, quality, and peace of mind. As a direct electric wheelchair manufacturer with ISO, CE, and FDA certification, we offer factory-direct pricing, OEM/ODM customization, and reliable after-sales support.
             </p>
           </div>
 
@@ -160,17 +159,17 @@ export default function HomePage() {
                 About Us
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                Professional Manufacturer of Electric Wheelchairs
+                Professional Manufacturer of Electric Wheelchairs — Magnesium Alloy Folding Wheelchair Factory
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Jiaxing Small Elephant Medical Technology Co., Ltd is a professional manufacturer
-                specializing in electric wheelchairs. With over 10 years of experience, our
+                specializing in folding electric wheelchairs. With over 10 years of experience, our
                 MiniElephant brand has become synonymous with quality, innovation, and reliability in
                 the mobility aid industry.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                Our MiniRedone series features 10 models covering every need — from lightweight
-                portable designs to premium high-back comfort wheelchairs. All models feature
+                Our MiniRedone series features 10 electric wheelchair models covering every need — from lightweight
+                42KG portable designs to premium high-back comfort and extra-wide (900mm) wheelchairs. All models feature
                 magnesium alloy frames, dual 350W brushless motors, and 30km range.
               </p>
               <Link
@@ -203,15 +202,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section — Contact for Quotation */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Ready to Partner with Us?
+            Ready to Partner with Our Electric Wheelchair Factory?
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto mb-8">
-            Contact our export team today for a customized quotation. We typically respond within 24
-            hours.
+            Contact our B2B export team today for a customized quotation on MiniRedone folding electric wheelchairs. OEM/ODM customization available. We typically respond within 24 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary text-base px-8 py-4">

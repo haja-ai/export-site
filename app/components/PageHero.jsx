@@ -19,8 +19,8 @@ export default function PageHero() {
         label: "Get a Quote",
         onClick: () => window.location.href = '/contact',
       }}
-      title="Freedom to Move, Power to Live"
-      subtitle="Factory-direct magnesium alloy electric wheelchairs. Dual 350W motors, 30km range, 150KG load. Exported to 50+ countries with OEM/ODM service."
+      title="Factory-Direct Electric Wheelchair Manufacturer | MiniRedone Lightweight Folding Wheelchairs"
+      subtitle="Premium electric wheelchairs with magnesium alloy frames — dual 350W motors, 30km range, 150KG load. Factory-direct B2B export to 50+ countries. OEM/ODM customization available."
       primaryAction={{
         label: "See the MiniRedone Series",
         onClick: () => window.location.href = '/products',

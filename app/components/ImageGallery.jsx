@@ -28,10 +28,13 @@ export default function ImageGallery({ images, alt }) {
       <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden mb-3">
         <img
           src={images[active]}
-          alt={`${alt} — Product view ${active + 1}`}
+          alt={`${alt} — Product view ${active + 1} | MiniElephant Electric Wheelchair`}
+          width={800}
+          height={600}
           className="w-full h-full object-contain"
           loading="eager"
-          fetchPriority={active === 0 ? "high" : "auto"}
+          fetchPriority={active === 0 ? "high" : "high"}
+          decoding="async"
         />
       </div>
 

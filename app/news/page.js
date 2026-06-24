@@ -4,12 +4,12 @@ import PulseFitPage from '../components/PulseFitPage';
 
 
 export const metadata = {
-  title: 'News & Insights | MiniElephant Electric Wheelchair',
+  title: 'News & Insights | Electric Wheelchair Manufacturer | MiniElephant',
   description:
-    'Stay updated with MiniElephant news, product launches, industry insights, and B2B buyer guides for electric wheelchairs.',
+    'Stay updated with MiniElephant electric wheelchair manufacturer news, product launches, B2B buyer guides, and industry insights on lightweight folding wheelchairs.',
   openGraph: {
-    title: 'News & Insights — MiniElephant Electric Wheelchair',
-    description: 'Product launches, industry insights, and B2B buyer guides for electric wheelchairs.',
+    title: 'News & Insights — MiniElephant Electric Wheelchair Manufacturer',
+    description: 'Electric wheelchair product launches, B2B buyer guides, and industry insights from MiniElephant manufacturer.',
     url: 'https://www.semwheelchair.com/news',
     type: 'website',
   },

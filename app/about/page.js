@@ -1,6 +1,6 @@
 import PageHeader from '../components/PageHeader';
 import Link from 'next/link';
-import Image from 'next/image';
+import CertificatesSection from '../components/CertificatesSection';
 import { getRecentArticles } from '@/lib/news';
 
 export const metadata = {
@@ -72,44 +72,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="py-16 lg:py-20 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-              Quality Certifications
-            </h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              Our products meet international standards for medical devices and mobility equipment.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {[
-              { name: 'ISO 13485', desc: 'Medical devices quality management' },
-              { name: 'CE Marking', desc: 'European health & safety compliance' },
-              { name: 'FDA Registered', desc: 'US Food and Drug Administration' },
-            ].map((cert) => (
-              <div
-                key={cert.name}
-                className="bg-white rounded-xl p-6 border border-gray-100 text-center"
-              >
-                <div className="w-14 h-14 rounded-full bg-teal/10 flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-7 h-7 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-bold text-gray-900 mb-1">{cert.name}</h3>
-                <p className="text-sm text-gray-500">{cert.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CertificatesSection />
 
       {/* Latest News */}
       <section className="py-12 lg:py-16 bg-cream">

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import PageHeader from '../components/PageHeader';
 
 export const metadata = {
   title: 'FAQ | Electric Wheelchair | MiniElephant',
@@ -70,31 +70,11 @@ const faqs = [
 export default function FaqPage() {
   return (
     <div>
-      {/* Banner Header */}
-      <section className="relative h-[300px] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/faq-banner.jpg"
-            alt="Frequently Asked Questions"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-gray-900/20" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-teal-light font-semibold text-sm uppercase tracking-widest">
-            Help Center
-          </span>
-          <h1 className="text-3xl lg:text-5xl font-bold text-white mt-3 mb-4">
-            Frequently Asked Questions
-          </h1>
-          <p className="text-gray-200 max-w-2xl mx-auto text-lg">
-            Find answers to common questions about our electric wheelchairs, ordering, shipping, and more.
-          </p>
-        </div>
-      </section>
-
+      <PageHeader
+        badge="Help Center"
+        title="Frequently Asked Questions"
+        description="Find answers to common questions about our electric wheelchairs, ordering, shipping, and more."
+      />
       {/* FAQ Content */}
       <section className="py-16 lg:py-24 bg-cream">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,3 +1,4 @@
+import PageHeader from '../components/PageHeader';
 import Link from 'next/link';
 import { newsArticles } from '@/lib/news';
 
@@ -19,20 +20,11 @@ export const metadata = {
 export default function NewsPage() {
   return (
     <div>
-      {/* Header */}
-      <section className="bg-gradient-to-br from-gray-900 to-gray-800 py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-teal-light font-semibold text-sm uppercase tracking-widest">
-            News & Insights
-          </span>
-          <h1 className="text-3xl lg:text-5xl font-bold text-white mt-3 mb-4">
-            MiniElephant Updates
-          </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Product launches, industry insights, and B2B buyer guides. Stay informed about electric wheelchair innovations.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        badge="News & Insights"
+        title="MiniElephant Updates"
+        description="Product launches, industry insights, and B2B buyer guides. Stay informed about electric wheelchair innovations."
+      />
 
       {/* Article List */}
       <section className="py-16 lg:py-24 bg-cream">

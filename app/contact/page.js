@@ -76,7 +76,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-900">Phone / WhatsApp</p>
-                  <a href="tel:+8613819098967" className="text-sm text-teal hover:underline">
+                  <a href="tel:+861****8967" className="text-sm text-teal hover:underline">
                     +86 13819098967
                   </a>
                   <p className="text-xs text-gray-400 mt-0.5">Contact: Johnson</p>

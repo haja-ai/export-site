@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { getRecentArticles } from '@/lib/news';
 
 export const metadata = {
   title: 'About Us | MiniElephant Electric Wheelchair Manufacturer',
@@ -112,6 +113,46 @@ export default function AboutPage() {
                 <h3 className="font-bold text-gray-900 mb-1">{cert.name}</h3>
                 <p className="text-sm text-gray-500">{cert.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Latest News */}
+      <section className="py-12 lg:py-16 bg-cream">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <span className="text-teal font-semibold text-sm uppercase tracking-widest">Latest Updates</span>
+              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mt-2">News & Insights</h2>
+            </div>
+            <Link href="/news" className="text-teal font-semibold text-sm hover:text-teal-dark transition-colors inline-flex items-center gap-1 shrink-0">
+              View All
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {getRecentArticles(3).map((article) => (
+              <Link
+                key={article.slug}
+                href={`/news/${article.slug}`}
+                className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md hover:border-teal/20 transition-all group"
+              >
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {article.tags.slice(0, 2).map((tag) => (
+                    <span key={tag} className="text-[10px] bg-teal/10 text-teal px-2 py-0.5 rounded-full font-medium">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal transition-colors line-clamp-2">
+                  {article.title}
+                </h3>
+                <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed">{article.summary}</p>
+                <time className="text-xs text-gray-400 mt-3 block">{article.date}</time>
+              </Link>
             ))}
           </div>
         </div>

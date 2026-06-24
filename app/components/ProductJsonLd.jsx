@@ -4,6 +4,7 @@ export default function ProductJsonLd({ product }) {
     '@type': 'Product',
     name: product.fullName,
     description: `${product.tagline}. ${product.description}`,
+    image: product.images ? product.images.map(img => `https://www.semwheelchair.com${img}`) : undefined,
     brand: {
       '@type': 'Brand',
       name: 'MiniElephant',
@@ -25,6 +26,12 @@ export default function ProductJsonLd({ product }) {
     },
     sku: product.slug,
     category: 'Electric Wheelchair',
+    material: 'Magnesium Alloy',
+    weight: {
+      '@type': 'QuantitativeValue',
+      value: product.specs.find(s => s.label === 'Net Weight')?.value?.replace(' KG', '').replace('~', '') || '47',
+      unitCode: 'KGM',
+    },
   };
 
   return (

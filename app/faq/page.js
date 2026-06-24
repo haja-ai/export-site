@@ -69,8 +69,23 @@ const faqs = [
 ];
 
 export default function FaqPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  };
+
   return (
-    <PulseFitPage badge="Help Center" title="Frequently Asked Questions" description="Find answers to common questions about our electric wheelchairs, ordering, shipping, and more.">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <PulseFitPage badge="Help Center" title="Frequently Asked Questions" description="Find answers to common questions about our electric wheelchairs, ordering, shipping, and more.">
       
       {/* FAQ Content */}
       <section className="py-16 lg:py-24 bg-cream">
@@ -118,5 +133,7 @@ export default function FaqPage() {
           </Link>
         </div>
       </section>
-    </PulseFitPage>  );
+    </PulseFitPage>
+    </>
+  );
 }

@@ -12,10 +12,10 @@ export const metadata = {
   openGraph: {
     title: 'MiniElephant Electric Wheelchair | Premium B2B Electric Wheelchairs Manufacturer',
     description:
-      'Lightweight folding electric wheelchairs with magnesium alloy frame, 30km range. Factory-direct B2B pricing.',
+      'Lightweight folding electric wheelchairs with magnesium alloy frame, 30km range, 150KG load. Factory-direct B2B pricing from China manufacturer.',
     url: 'https://www.semwheelchair.com',
     type: 'website',
-    images: [{ url: 'https://www.semwheelchair.com/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.semwheelchair.com/og-image.jpg', width: 1200, height: 630, alt: 'MiniElephant MiniRedone Series Electric Wheelchairs' }],
   },
   alternates: {
     canonical: 'https://www.semwheelchair.com',
@@ -65,6 +65,9 @@ const stats = [
 export default function HomePage() {
   return (
     <div>
+      {/* Preload hero images for faster LCP */}
+      <link rel="preload" as="image" href="/images/miniredone-i.png" fetchPriority="high" />
+      <link rel="preload" as="image" href="/images/miniredone-ii-plus.png" fetchPriority="high" />
       <PageHero />
 
       {/* Stats Section */}

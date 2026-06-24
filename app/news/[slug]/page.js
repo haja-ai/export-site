@@ -34,6 +34,42 @@ export default async function NewsArticlePage({ params }) {
 
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.semwheelchair.com/" },
+            { "@type": "ListItem", "position": 2, "name": "News", "item": "https://www.semwheelchair.com/news" },
+            { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://www.semwheelchair.com/news/${slug}` }
+          ]
+        }),
+      }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": article.title,
+          "description": article.summary,
+          "datePublished": article.date,
+          "author": {
+            "@type": "Organization",
+            "name": "Jiaxing Small Elephant Medical Technology Co., Ltd"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "https://www.semwheelchair.com/#organization",
+            "name": "Jiaxing Small Elephant Medical Technology Co., Ltd",
+            "logo": { "@type": "ImageObject", "url": "https://www.semwheelchair.com/logo.png" }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://www.semwheelchair.com/news/${slug}`
+          },
+          "url": `https://www.semwheelchair.com/news/${slug}`,
+          "keywords": article.tags ? article.tags.join(', ') : undefined
+        }),
+      }} />
       {/* Breadcrumb */}
       <div className="bg-cream border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

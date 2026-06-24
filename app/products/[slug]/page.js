@@ -23,7 +23,17 @@ export async function generateMetadata({ params }) {
       description: `${specs}. Magnesium alloy frame, dual 350W motors. Factory-direct pricing.`,
       url: `https://www.semwheelchair.com/products/${slug}`,
       type: 'website',
-      images: [{ url: 'https://www.semwheelchair.com/og-image.jpg', width: 1200, height: 630 }],
+      images: product.images && product.images.length > 0
+        ? [{ url: `https://www.semwheelchair.com${product.images[0]}`, width: 800, height: 600, alt: product.fullName }]
+        : [{ url: 'https://www.semwheelchair.com/og-image.jpg', width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.fullName} — ${product.tagline}`,
+      description: `${product.tagline}. ${specs}`,
+      images: product.images && product.images.length > 0
+        ? [`https://www.semwheelchair.com${product.images[0]}`]
+        : ['https://www.semwheelchair.com/og-image.jpg'],
     },
     alternates: {
       canonical: `https://www.semwheelchair.com/products/${slug}`,
@@ -40,6 +50,17 @@ export default async function ProductDetailPage({ params }) {
   return (
     <div>
       <ProductJsonLd product={product} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.semwheelchair.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.semwheelchair.com/products" },
+            { "@type": "ListItem", "position": 3, "name": product.name, "item": `https://www.semwheelchair.com/products/${slug}` }
+          ]
+        }),
+      }} />
 
       {/* Breadcrumb */}
       <div className="bg-cream border-b border-gray-100">

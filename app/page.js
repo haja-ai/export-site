@@ -64,7 +64,7 @@ const stats = [
 
 export default function HomePage() {
   return (
-    <div className="-mt-16 lg:-mt-20"> {/* Cancel layout padding for fullscreen hero */}
+    <div>
       <PageHero />
 
       {/* Stats Section */}

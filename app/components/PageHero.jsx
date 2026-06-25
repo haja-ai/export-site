@@ -44,7 +44,7 @@ export default function PageHero() {
         { image: "/images/miniredone-iii.png", category: "PREMIUM", title: "MiniRedone-III · High Back", href: '/products/miniredone-iii' },
         { image: "/images/miniredone-v.png", category: "EXTRA WIDE", title: "MiniRedone-V · W900mm", href: '/products/miniredone-v' },
       ]}
-      bannerImage="/images/hero-banner.png"
+      bannerImage="/images/wheelchair-banner.png"
     />
   );
 }

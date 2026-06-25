@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from 'next/link';
 
 export default function PulseFitPage({ children, badge, title, description, logo = "MiniElephant" }) {

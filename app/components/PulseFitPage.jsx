@@ -28,20 +28,21 @@ export default function PulseFitPage({ children, badge, title, description, logo
         className="relative z-20 flex flex-row justify-between items-center px-8 lg:px-16"
         style={{ paddingTop: "32px", paddingBottom: "32px" }}
       >
-        <Link href="/" style={{ textDecoration: 'none' }}>
-          <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "24px", color: "#1a1a1a" }}>
+        <Link href="/" style={{ textDecoration: 'none' }} className="flex items-center gap-3">
+          <img src="/logo-elephant.png" alt="MiniElephant Electric Wheelchair" style={{ height: "54px", width: "auto" }} />
+          <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "28px", color: "#1a1a1a", letterSpacing: "-0.01em" }}>
             {logo}
-          </div>
+          </span>
         </Link>
 
-        <nav className="hidden lg:flex flex-row items-center gap-8" aria-label="Main navigation">
+        <nav className="hidden lg:flex flex-row items-center gap-10" aria-label="Main navigation">
           {navLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               style={{
                 fontFamily: "Inter, sans-serif",
-                fontSize: "16px",
+                fontSize: "18px",
                 fontWeight: 400,
                 color: "#4a5568",
                 textDecoration: 'none',
@@ -60,7 +61,7 @@ export default function PulseFitPage({ children, badge, title, description, logo
             background: "#FFFFFF",
             border: "1px solid #e2e8f0",
             fontFamily: "Inter, sans-serif",
-            fontSize: "16px",
+            fontSize: "17px",
             fontWeight: 500,
             color: "#1a1a1a",
             boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
@@ -86,10 +87,10 @@ export default function PulseFitPage({ children, badge, title, description, logo
             </span>
           )}
           <h1
+            className="text-[2.25rem] sm:text-[2.75rem] lg:text-[3.25rem]"
             style={{
               fontFamily: "Inter, sans-serif",
               fontWeight: 700,
-              fontSize: "clamp(36px, 5vw, 56px)",
               lineHeight: "1.1",
               color: "#1a1a1a",
               letterSpacing: "-0.02em",
@@ -99,10 +100,10 @@ export default function PulseFitPage({ children, badge, title, description, logo
           </h1>
           {description && (
             <p
+              className="text-[1rem] lg:text-[1.125rem]"
               style={{
                 fontFamily: "Inter, sans-serif",
                 fontWeight: 400,
-                fontSize: "clamp(16px, 2vw, 20px)",
                 lineHeight: "1.6",
                 color: "#4a5568",
                 maxWidth: "600px",

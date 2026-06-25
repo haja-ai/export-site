@@ -74,22 +74,23 @@ export function PulseFitHero({
         className="relative z-20 flex flex-row justify-between items-center px-8 lg:px-16"
         style={{ paddingTop: "32px", paddingBottom: "32px" }}
       >
-        {/* Logo — link to home */}
-        <Link href="/" style={{ textDecoration: 'none' }}>
-          <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "24px", color: "#FFFFFF" }}>
+        {/* Logo — elephant icon + wordmark, link to home */}
+        <Link href="/" style={{ textDecoration: 'none' }} className="flex items-center gap-3">
+          <img src="/logo-elephant.png" alt="MiniElephant Electric Wheelchair" style={{ height: "54px", width: "auto" }} />
+          <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "28px", color: "#FFFFFF", letterSpacing: "-0.01em" }}>
             {logo}
-          </div>
+          </span>
         </Link>
 
         {/* Navigation — use Next.js Link instead of button+onClick for SEO crawlability */}
-        <nav className="hidden lg:flex flex-row items-center gap-8" aria-label="Main navigation">
+        <nav className="hidden lg:flex flex-row items-center gap-10" aria-label="Main navigation">
           {navigation.map((item, index) => (
             item.href ? (
               <Link
                 key={index}
                 href={item.href}
                 className="flex flex-row items-center gap-1 hover:opacity-70 transition-opacity"
-                style={{ fontFamily: "Inter, sans-serif", fontSize: "16px", fontWeight: 400, color: "rgba(255,255,255,0.92)", textDecoration: 'none' }}
+                style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 400, color: "rgba(255,255,255,0.92)", textDecoration: 'none' }}
               >
                 {item.label}
                 {item.hasDropdown && (
@@ -103,7 +104,7 @@ export function PulseFitHero({
                 key={index}
                 onClick={item.onClick}
                 className="flex flex-row items-center gap-1 hover:opacity-70 transition-opacity"
-                style={{ fontFamily: "Inter, sans-serif", fontSize: "16px", fontWeight: 400, color: "rgba(255,255,255,0.92)" }}
+                style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 400, color: "rgba(255,255,255,0.92)" }}
               >
                 {item.label}
                 {item.hasDropdown && (
@@ -124,7 +125,7 @@ export function PulseFitHero({
               className="px-6 py-3 rounded-full transition-all hover:scale-105 hidden sm:inline-block"
               style={{
                 background: "#FFFFFF", border: "1px solid #e2e8f0",
-                fontFamily: "Inter, sans-serif", fontSize: "16px", fontWeight: 500,
+                fontFamily: "Inter, sans-serif", fontSize: "17px", fontWeight: 500,
                 color: "#1a1a1a", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
                 textDecoration: 'none',
               }}
@@ -137,7 +138,7 @@ export function PulseFitHero({
               className="px-6 py-3 rounded-full transition-all hover:scale-105"
               style={{
                 background: "#FFFFFF", border: "1px solid #e2e8f0",
-                fontFamily: "Inter, sans-serif", fontSize: "16px", fontWeight: 500,
+                fontFamily: "Inter, sans-serif", fontSize: "17px", fontWeight: 500,
                 color: "#1a1a1a", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
               }}
             >
@@ -165,9 +166,9 @@ export function PulseFitHero({
             <motion.h1 variants={{
               hidden: { opacity: 0, y: 24 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-            }} style={{
+            }} className="text-[1.875rem] sm:text-[2.25rem] lg:text-[2.75rem]" style={{
               fontFamily: "Inter, sans-serif", fontWeight: 700,
-              fontSize: "clamp(36px, 6vw, 72px)", lineHeight: "1.1",
+              lineHeight: "1.12",
               color: "#1a1a1a", letterSpacing: "-0.02em",
             }}>
               {title}
@@ -176,9 +177,9 @@ export function PulseFitHero({
             <motion.p variants={{
               hidden: { opacity: 0, y: 24 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-            }} style={{
+            }} className="text-[1rem] lg:text-[1.0625rem]" style={{
               fontFamily: "Inter, sans-serif", fontWeight: 400,
-              fontSize: "clamp(16px, 2vw, 20px)", lineHeight: "1.6",
+              lineHeight: "1.6",
               color: "#4a5568", maxWidth: "600px",
             }}>
               {subtitle}

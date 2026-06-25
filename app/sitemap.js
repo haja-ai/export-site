@@ -27,13 +27,8 @@ const newsPages = newsArticles.map((a) => ({
   lastModified: '2026-06-15',
 }));
 
-// Add additional product variants that aren't in the main list
-const additionalUrls = [
-  { url: '/products/miniredone-i-r', priority: '0.8', changefreq: 'weekly', lastModified: '2026-06-24' },
-];
-
 export default async function sitemap() {
-  const allPages = [...staticPages, ...productPages, ...newsPages, ...additionalUrls];
+  const allPages = [...staticPages, ...productPages, ...newsPages];
 
   return allPages.map((page) => ({
     url: `${BASE_URL}${page.url}`,

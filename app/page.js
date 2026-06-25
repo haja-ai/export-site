@@ -68,7 +68,7 @@ export default function HomePage() {
       <AnimatedStats />
 
       {/* Featured Products */}
-      <section className="py-16 lg:py-24 bg-cream">
+      <section className="py-16 lg:py-24 bg-[#F8F9FA]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
             <div>
@@ -121,7 +121,7 @@ export default function HomePage() {
           <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {advantages.map((item, i) => (
               <FadeUpItem key={item.title} index={i}>
-                <div className="bg-cream rounded-xl p-6 border border-gray-100 hover:border-teal/20 hover:shadow-md transition-all duration-300">
+                <div className="bg-[#F8F9FA] rounded-xl p-6 border border-gray-100 hover:border-teal/20 hover:shadow-md transition-all duration-300">
                   <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center text-teal mb-4">
                     {item.icon}
                   </div>
@@ -135,7 +135,7 @@ export default function HomePage() {
       </section>
 
       {/* Company Highlights */}
-      <section className="py-16 lg:py-24 bg-cream">
+      <section className="py-16 lg:py-24 bg-[#F8F9FA]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>

@@ -60,6 +60,12 @@ export function PulseFitHero({
           </div>
         </div>
       )}
+      {/* Top scrim : a cinematic dark band that melts the nav into the banner top */}
+      <div className="absolute top-0 left-0 right-0 z-10 pointer-events-none" style={{
+        height: "200px",
+        background: "linear-gradient(180deg, rgba(17,24,39,0.85) 0%, rgba(17,24,39,0.5) 30%, rgba(17,24,39,0.12) 65%, rgba(17,24,39,0) 100%)",
+      }} />
+
       {/* Header */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
@@ -70,7 +76,7 @@ export function PulseFitHero({
       >
         {/* Logo — link to home */}
         <Link href="/" style={{ textDecoration: 'none' }}>
-          <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "24px", color: "#1a1a1a" }}>
+          <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "24px", color: "#FFFFFF" }}>
             {logo}
           </div>
         </Link>
@@ -83,7 +89,7 @@ export function PulseFitHero({
                 key={index}
                 href={item.href}
                 className="flex flex-row items-center gap-1 hover:opacity-70 transition-opacity"
-                style={{ fontFamily: "Inter, sans-serif", fontSize: "16px", fontWeight: 400, color: "#4a5568", textDecoration: 'none' }}
+                style={{ fontFamily: "Inter, sans-serif", fontSize: "16px", fontWeight: 400, color: "rgba(255,255,255,0.92)", textDecoration: 'none' }}
               >
                 {item.label}
                 {item.hasDropdown && (
@@ -97,7 +103,7 @@ export function PulseFitHero({
                 key={index}
                 onClick={item.onClick}
                 className="flex flex-row items-center gap-1 hover:opacity-70 transition-opacity"
-                style={{ fontFamily: "Inter, sans-serif", fontSize: "16px", fontWeight: 400, color: "#4a5568" }}
+                style={{ fontFamily: "Inter, sans-serif", fontSize: "16px", fontWeight: 400, color: "rgba(255,255,255,0.92)" }}
               >
                 {item.label}
                 {item.hasDropdown && (

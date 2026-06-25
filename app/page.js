@@ -61,8 +61,8 @@ export default function HomePage() {
   return (
     <div>
       {/* Preload hero images for faster LCP */}
-      <link rel="preload" as="image" href="/images/miniredone-i.png" fetchPriority="high" />
-      <link rel="preload" as="image" href="/images/miniredone-ii-plus.png" fetchPriority="high" />
+      <link rel="preload" as="image" href="/images/miniredone-i.webp" fetchPriority="high" />
+      <link rel="preload" as="image" href="/images/miniredone-ii-plus.webp" fetchPriority="high" />
       <PageHero />
 
       <AnimatedStats />

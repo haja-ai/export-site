@@ -29,12 +29,12 @@ export default function PageHero() {
         href: '/contact',
       }}
       programs={[
-        { image: "/images/miniredone-i.png", category: "BASE MODEL", title: "MiniRedone-I · 47KG", href: '/products/miniredone-i' },
-        { image: "/images/miniredone-ii-plus.png", category: "LIGHTWEIGHT", title: "MiniRedone-II · 42KG", href: '/products/miniredone-ii' },
-        { image: "/images/miniredone-iii.png", category: "PREMIUM", title: "MiniRedone-III · High Back", href: '/products/miniredone-iii' },
-        { image: "/images/miniredone-v.png", category: "EXTRA WIDE", title: "MiniRedone-V · W900mm", href: '/products/miniredone-v' },
+        { image: "/images/miniredone-i.webp", category: "BASE MODEL", title: "MiniRedone-I · 47KG", href: '/products/miniredone-i' },
+        { image: "/images/miniredone-ii-plus.webp", category: "LIGHTWEIGHT", title: "MiniRedone-II · 42KG", href: '/products/miniredone-ii' },
+        { image: "/images/miniredone-iii.webp", category: "PREMIUM", title: "MiniRedone-III · High Back", href: '/products/miniredone-iii' },
+        { image: "/images/miniredone-v.webp", category: "EXTRA WIDE", title: "MiniRedone-V · W900mm", href: '/products/miniredone-v' },
       ]}
-      bannerImage="/images/wheelchair-banner.png"
+      bannerImage="/images/wheelchair-banner.webp"
     />
   );
 }

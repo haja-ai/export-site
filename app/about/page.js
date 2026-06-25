@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import CertificatesSection from '../components/CertificatesSection';
+import IntellectualPropertySection from '../components/IntellectualPropertySection';
 import { getRecentArticles } from '@/lib/news';
 import PulseFitPage from '../components/PulseFitPage';
 import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
@@ -72,6 +73,8 @@ export default function AboutPage() {
       </section>
 
       <CertificatesSection />
+
+      <IntellectualPropertySection />
 
       {/* Latest News */}
       <section className="py-12 lg:py-16 bg-cream">

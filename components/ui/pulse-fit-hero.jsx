@@ -63,7 +63,7 @@ export function PulseFitHero({
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-20 flex flex-row justify-between items-center px-8 lg:px-16"
         style={{ paddingTop: "32px", paddingBottom: "32px" }}
       >
@@ -162,33 +162,42 @@ export function PulseFitHero({
       ) : (
         <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+            }}
             className="flex flex-col items-center text-center max-w-4xl"
             style={{ gap: "32px" }}
           >
-            <h1 style={{
+            <motion.h1 variants={{
+              hidden: { opacity: 0, y: 24 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+            }} style={{
               fontFamily: "Inter, sans-serif", fontWeight: 700,
               fontSize: "clamp(36px, 6vw, 72px)", lineHeight: "1.1",
               color: "#1a1a1a", letterSpacing: "-0.02em",
             }}>
               {title}
-            </h1>
+            </motion.h1>
 
-            <p style={{
+            <motion.p variants={{
+              hidden: { opacity: 0, y: 24 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+            }} style={{
               fontFamily: "Inter, sans-serif", fontWeight: 400,
               fontSize: "clamp(16px, 2vw, 20px)", lineHeight: "1.6",
               color: "#4a5568", maxWidth: "600px",
             }}>
               {subtitle}
-            </p>
+            </motion.p>
 
             {(primaryAction || secondaryAction) && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+              <motion.div variants={{
+                hidden: { opacity: 0, scale: 0.95 },
+                visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+              }}
                 className="flex flex-col sm:flex-row items-center gap-4"
               >
                 {primaryAction && (

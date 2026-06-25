@@ -1,6 +1,0 @@
-set -a
-ANTHROPIC_AUTH_TOKEN="sk-419e1f78bf844e4b9680b51614217b6b"
-ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
-CLAUDE_CODE_EFFORT_LEVEL="max"
-HTTP_PROXY="http://127.0.0.1:7892"
-HTTPS_PROXY="http://127.0.0.1:7892"

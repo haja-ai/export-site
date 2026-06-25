@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { wheelchairs } from '@/lib/products';
 import ProductCard from '../components/ProductCard';
 import PulseFitPage from '../components/PulseFitPage';
+import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
 
@@ -30,24 +31,28 @@ export default function ProductsPage() {
       {/* Product Grid */}
       <section className="py-16 lg:py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {wheelchairs.map((product, i) => (
-              <ProductCard key={product.slug} product={product} index={i} />
+              <FadeUpItem key={product.slug} index={i}>
+                <ProductCard product={product} index={i} />
+              </FadeUpItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
       {/* Spec Comparison */}
       <section className="py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 text-center mb-2">
-            Product Comparison
-          </h2>
-          <p className="text-gray-500 text-center mb-10 max-w-xl mx-auto">
-            Quick overview of core specifications across the MiniRedone line.
-          </p>
-          <div className="overflow-x-auto">
+          <FadeIn>
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 text-center mb-2">
+              Product Comparison
+            </h2>
+            <p className="text-gray-500 text-center mb-10 max-w-xl mx-auto">
+              Quick overview of core specifications across the MiniRedone line.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1} className="overflow-x-auto">
             <table className="w-full text-sm text-left">
               <thead>
                 <tr className="border-b border-gray-200">
@@ -76,13 +81,14 @@ export default function ProductsPage() {
                 ))}
               </tbody>
             </table>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-12 lg:py-16 bg-gradient-to-r from-teal to-teal-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <FadeIn>
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
             Need Help Choosing a Model?
           </h2>
@@ -95,6 +101,7 @@ export default function ProductsPage() {
           >
             Request a Quote
           </Link>
+          </FadeIn>
         </div>
       </section>
     </PulseFitPage>  );

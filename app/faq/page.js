@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PulseFitPage from '../components/PulseFitPage';
+import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
 export const metadata = {
@@ -90,10 +91,10 @@ export default function FaqPage() {
       {/* FAQ Content */}
       <section className="py-16 lg:py-24 bg-cream">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-4">
+          <StaggerGrid className="space-y-4">
             {faqs.map((faq, i) => (
+              <FadeUpItem key={i} index={i}>
               <details
-                key={i}
                 className="group bg-white rounded-xl border border-gray-200 overflow-hidden"
               >
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-gray-50 transition-colors list-none">
@@ -111,14 +112,16 @@ export default function FaqPage() {
                   <p className="text-gray-600 leading-relaxed">{faq.a}</p>
                 </div>
               </details>
+              </FadeUpItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-12 lg:py-16 bg-gradient-to-r from-teal to-teal-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <FadeIn>
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
             Still Have Questions?
           </h2>
@@ -131,6 +134,7 @@ export default function FaqPage() {
           >
             Contact Us
           </Link>
+          </FadeIn>
         </div>
       </section>
     </PulseFitPage>

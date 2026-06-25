@@ -1,6 +1,7 @@
 import ContactForm from '../components/ContactForm';
 import Link from 'next/link';
 import PulseFitPage from '../components/PulseFitPage';
+import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
 export const metadata = {
@@ -27,7 +28,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact Info */}
-            <div className="lg:col-span-2 space-y-6">
+            <FadeIn className="lg:col-span-2 space-y-6">
               <h2 className="text-xl font-bold text-gray-900 mb-6">Contact Information</h2>
 
               <div className="flex items-start gap-3">
@@ -114,10 +115,10 @@ export default function ContactPage() {
                   })}
                 </div>
               </div>
-            </div>
+            </FadeIn>
 
             {/* Inquiry Form */}
-            <div className="lg:col-span-3">
+            <FadeIn delay={0.15} className="lg:col-span-3">
               <div className="bg-white rounded-2xl border border-gray-200 p-6 lg:p-8">
                 <h2 className="text-xl font-bold text-gray-900 mb-1">Submit Your Inquiry</h2>
                 <p className="text-sm text-gray-500 mb-6">
@@ -126,7 +127,7 @@ export default function ContactPage() {
                 </p>
                 <ContactForm />
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>

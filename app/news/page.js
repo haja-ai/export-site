@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { newsArticles } from '@/lib/news';
 import PulseFitPage from '../components/PulseFitPage';
+import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
 export const metadata = {
@@ -26,10 +27,10 @@ export default function NewsPage() {
       {/* Article List */}
       <section className="py-16 lg:py-24 bg-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-8">
-            {newsArticles.map((article) => (
+          <StaggerGrid className="space-y-8">
+            {newsArticles.map((article, i) => (
+              <FadeUpItem key={article.slug} index={i}>
               <article
-                key={article.slug}
                 className="bg-white rounded-2xl border border-gray-200 p-6 lg:p-8 hover:shadow-md transition-shadow"
               >
                 {/* Tags */}
@@ -76,14 +77,16 @@ export default function NewsPage() {
                   )}
                 </div>
               </article>
+              </FadeUpItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-12 lg:py-16 bg-gradient-to-r from-teal to-teal-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <FadeIn>
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
             Want to Feature Your Market?
           </h2>
@@ -96,6 +99,7 @@ export default function NewsPage() {
           >
             Get in Touch
           </Link>
+          </FadeIn>
         </div>
       </section>
     </PulseFitPage>  );

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import CertificatesSection from '../components/CertificatesSection';
 import { getRecentArticles } from '@/lib/news';
 import PulseFitPage from '../components/PulseFitPage';
+import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
 export const metadata = {
@@ -29,7 +30,7 @@ export default function AboutPage() {
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
+            <FadeIn>
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
                 Jiaxing Small Elephant Medical Technology Co., Ltd
               </h2>
@@ -48,23 +49,24 @@ export default function AboutPage() {
                 export to over 50 countries. We hold ISO, CE, and FDA certifications, ensuring our
                 products meet the highest international standards.
               </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
+            </FadeIn>
+            <StaggerGrid className="grid grid-cols-2 gap-4">
               {[
                 { label: 'Established', value: '2013' },
                 { label: 'Employees', value: '100+' },
                 { label: 'Products', value: '10+ Models' },
                 { label: 'Export Markets', value: '50+ Countries' },
-              ].map((item) => (
+              ].map((item, i) => (
+                <FadeUpItem key={item.label} index={i}>
                 <div
-                  key={item.label}
                   className="bg-cream rounded-xl p-6 border border-gray-100 text-center"
                 >
                   <div className="text-2xl font-bold text-teal mb-1">{item.value}</div>
                   <div className="text-sm text-gray-500">{item.label}</div>
                 </div>
+                </FadeUpItem>
               ))}
-            </div>
+            </StaggerGrid>
           </div>
         </div>
       </section>
@@ -74,7 +76,7 @@ export default function AboutPage() {
       {/* Latest News */}
       <section className="py-12 lg:py-16 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-8">
+          <FadeIn className="flex items-end justify-between mb-8">
             <div>
               <span className="text-teal font-semibold text-sm uppercase tracking-widest">Latest Updates</span>
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mt-2">News & Insights</h2>
@@ -85,11 +87,11 @@ export default function AboutPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {getRecentArticles(3).map((article) => (
+          </FadeIn>
+          <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {getRecentArticles(3).map((article, i) => (
+              <FadeUpItem key={article.slug} index={i}>
               <Link
-                key={article.slug}
                 href={`/news/${article.slug}`}
                 className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md hover:border-teal/20 transition-all group"
               >
@@ -106,14 +108,16 @@ export default function AboutPage() {
                 <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed">{article.summary}</p>
                 <time className="text-xs text-gray-400 mt-3 block">{article.date}</time>
               </Link>
+              </FadeUpItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-12 lg:py-16 bg-gradient-to-r from-teal to-teal-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <FadeIn>
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
             Want to Learn More?
           </h2>
@@ -126,6 +130,7 @@ export default function AboutPage() {
           >
             Get in Touch
           </Link>
+          </FadeIn>
         </div>
       </section>
     </PulseFitPage>  );

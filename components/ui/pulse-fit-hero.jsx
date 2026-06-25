@@ -32,11 +32,33 @@ export function PulseFitHero({
         className
       )}
       style={{
-        background: "linear-gradient(180deg, #E8F0FF 0%, #F5F9FF 50%, #FFFFFF 100%)",
+        background: "#FFFFFF",
       }}
       role="banner"
       aria-label="Hero section"
     >
+      {/* Full-bleed banner image with subtle overlay */}
+      {bannerImage && (
+        <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+          <div className="w-full h-full relative">
+            <img
+              src={bannerImage}
+              alt=""
+              className="w-full h-full object-cover"
+            />
+            {/* Subtle overlay for readability */}
+            <div className="absolute inset-0" style={{
+              background: `
+                linear-gradient(180deg,
+                  rgba(255,255,255,0.92) 0%,
+                  rgba(255,255,255,0.75) 50%,
+                  rgba(255,255,255,0.92) 100%
+                )
+              `,
+            }} />
+          </div>
+        </div>
+      )}
       {/* Header */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}

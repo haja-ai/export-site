@@ -1,18 +1,16 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #FAF8F5;
-  --color-foreground: #1A1A2E;
-  --color-cream: #FAF8F5;
-  --color-cream-dark: #F5F0EB;
-  --color-teal: #14B8A6;
-  --color-teal-dark: #0D9488;
-  --color-teal-light: #5EEAD4;
-  --color-gold: #F59E0B;
-  --color-gold-light: #FCD34D;
-  --color-card: #FFFFFF;
-  --color-muted: #6B7280;
+  --color-background: #FFFFFF;
+  --color-foreground: #1A1A1A;
+  --color-surface: #F8F9FA;
+  --color-surface-alt: #F0F1F3;
+  --color-accent: #1A1A1A;
+  --color-accent-light: #333333;
+  --color-muted: #525D6E;
+  --color-muted-light: #6B7280;
   --color-border: #E5E7EB;
+  --color-border-light: #F3F4F6;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -32,31 +30,22 @@ body {
 
 .btn-primary {
   @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-white transition-all duration-200;
-  background: linear-gradient(135deg, #14B8A6, #0D9488);
+  background: #1A1A1A;
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, #0D9488, #0F766E);
+  background: #333333;
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(20, 184, 166, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 .btn-secondary {
   @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-all duration-200;
-  border: 2px solid #14B8A6;
-  color: #14B8A6;
+  border: 2px solid #1A1A1A;
+  color: #1A1A1A;
 }
 .btn-secondary:hover {
-  background: #14B8A6;
+  background: #1A1A1A;
   color: white;
   transform: translateY(-1px);
-}
-.btn-gold {
-  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-white transition-all duration-200;
-  background: linear-gradient(135deg, #F59E0B, #D97706);
-}
-.btn-gold:hover {
-  background: linear-gradient(135deg, #D97706, #B45309);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
 }
 .product-card {
   @apply rounded-xl overflow-hidden transition-all duration-300 bg-white border border-gray-100;
@@ -72,7 +61,7 @@ body {
 }
 .form-input {
   @apply w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-400;
-  @apply focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal;
+  @apply focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-gray-400;
   @apply transition-all duration-200;
 }
 .form-label {
@@ -82,11 +71,11 @@ body {
   @apply text-red-500 text-sm mt-1;
 }
 .nav-link {
-  @apply relative text-gray-600 hover:text-teal font-medium transition-colors duration-200;
+  @apply relative text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200;
 }
 .nav-link::after {
   content: "";
-  @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-teal transition-all duration-200 rounded-full;
+  @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-gray-900 transition-all duration-200 rounded-full;
 }
 .nav-link:hover::after {
   @apply w-full;

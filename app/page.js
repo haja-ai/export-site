@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { wheelchairs } from '@/lib/products';
 import PageHero from './components/PageHero';
 import ProductCard from './components/ProductCard';
+import AnimatedStats from './components/AnimatedStats';
 
 const featuredProducts = [wheelchairs[0], wheelchairs[5], wheelchairs[7], wheelchairs[9]];
 
@@ -55,13 +56,6 @@ const advantages = [
   },
 ];
 
-const stats = [
-  { label: 'Countries Exported', value: '50+' },
-  { label: 'Happy Users', value: '100K+' },
-  { label: 'Years Experience', value: '10+' },
-  { label: 'ISO Certified', value: 'Yes' },
-];
-
 export default function HomePage() {
   return (
     <div>
@@ -70,19 +64,7 @@ export default function HomePage() {
       <link rel="preload" as="image" href="/images/miniredone-ii-plus.png" fetchPriority="high" />
       <PageHero />
 
-      {/* Stats Section */}
-      <section className="py-12 lg:py-16 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            {stats.map((stat) => (
-              <div key={stat.label} className="animate-fade-in-up">
-                <div className="text-3xl lg:text-4xl font-bold text-teal mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-500">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AnimatedStats />
 
       {/* Featured Products */}
       <section className="py-16 lg:py-24 bg-cream">

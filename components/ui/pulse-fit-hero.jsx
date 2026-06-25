@@ -60,23 +60,17 @@ export function PulseFitHero({
           </div>
         </div>
       )}
-      {/* Top scrim : a cinematic dark band that melts the nav into the banner top */}
-      <div className="absolute top-0 left-0 right-0 z-10 pointer-events-none" style={{
-        height: "200px",
-        background: "linear-gradient(180deg, rgba(17,24,39,0.85) 0%, rgba(17,24,39,0.5) 30%, rgba(17,24,39,0.12) 65%, rgba(17,24,39,0) 100%)",
-      }} />
-
-      {/* Header */}
+      {/* Header — white bar : black logo + dark nav + brand CTA */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-20 flex flex-row justify-between items-center px-8 lg:px-16"
-        style={{ paddingTop: "32px", paddingBottom: "32px" }}
+        className="relative z-20 bg-white border-b border-gray-100 flex flex-row justify-between items-center px-8 lg:px-16"
+        style={{ paddingTop: "12px", paddingBottom: "12px" }}
       >
-        {/* Logo — full brand logo, link to home */}
+        {/* Logo — full brand logo (black), link to home */}
         <Link href="/" style={{ textDecoration: 'none' }} className="flex items-center">
-          <img src="/logo-white.png" alt="MiniElephant Electric Wheelchair" style={{ height: "58px", width: "auto" }} />
+          <img src="/logo-black.png" alt="MiniElephant Electric Wheelchair" style={{ height: "64px", width: "auto" }} />
         </Link>
 
         {/* Navigation — use Next.js Link instead of button+onClick for SEO crawlability */}
@@ -87,7 +81,7 @@ export function PulseFitHero({
                 key={index}
                 href={item.href}
                 className="flex flex-row items-center gap-1 hover:opacity-70 transition-opacity"
-                style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 400, color: "rgba(255,255,255,0.92)", textDecoration: 'none' }}
+                style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 400, color: "#1a1a1a", textDecoration: 'none' }}
               >
                 {item.label}
                 {item.hasDropdown && (
@@ -101,7 +95,7 @@ export function PulseFitHero({
                 key={index}
                 onClick={item.onClick}
                 className="flex flex-row items-center gap-1 hover:opacity-70 transition-opacity"
-                style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 400, color: "rgba(255,255,255,0.92)" }}
+                style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 400, color: "#1a1a1a" }}
               >
                 {item.label}
                 {item.hasDropdown && (
@@ -121,9 +115,9 @@ export function PulseFitHero({
               href={ctaButton.href}
               className="px-6 py-3 rounded-full transition-all hover:scale-105 hidden sm:inline-block"
               style={{
-                background: "#FFFFFF", border: "1px solid #e2e8f0",
-                fontFamily: "Inter, sans-serif", fontSize: "17px", fontWeight: 500,
-                color: "#1a1a1a", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+                background: "#14B8A6",
+                                fontFamily: "Inter, sans-serif", fontSize: "16px", fontWeight: 600,
+                                color: "#FFFFFF", boxShadow: "0 2px 10px rgba(20,184,166,0.30)",
                 textDecoration: 'none',
               }}
             >
@@ -134,9 +128,9 @@ export function PulseFitHero({
               onClick={ctaButton.onClick}
               className="px-6 py-3 rounded-full transition-all hover:scale-105"
               style={{
-                background: "#FFFFFF", border: "1px solid #e2e8f0",
-                fontFamily: "Inter, sans-serif", fontSize: "17px", fontWeight: 500,
-                color: "#1a1a1a", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+                background: "#14B8A6",
+                                fontFamily: "Inter, sans-serif", fontSize: "16px", fontWeight: 600,
+                                color: "#FFFFFF", boxShadow: "0 2px 10px rgba(20,184,166,0.30)",
               }}
             >
               {ctaButton.label}

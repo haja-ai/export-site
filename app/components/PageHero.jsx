@@ -19,7 +19,7 @@ export default function PageHero() {
         href: '/contact',
       }}
       title="Factory-Direct Electric Wheelchair Manufacturer | MiniRedone Lightweight Folding Wheelchairs"
-      subtitle="Premium electric wheelchairs with magnesium alloy frames — dual 350W motors, 30km range, 150KG load. Factory-direct B2B export to 50+ countries. OEM/ODM customization available."
+      subtitle="Premium electric wheelchairs with magnesium alloy frames. Dual 350W motors, 30km range, 150KG load. Factory-direct B2B export to 50+ countries. OEM/ODM customization available."
       primaryAction={{
         label: "See the MiniRedone Series",
         href: '/products',
@@ -27,16 +27,6 @@ export default function PageHero() {
       secondaryAction={{
         label: "Request Factory Pricing",
         href: '/contact',
-      }}
-      disclaimer="ISO 13485 · CE · FDA Certified · OEM/ODM Welcome"
-      socialProof={{
-        avatars: [
-          "https://i.pravatar.cc/150?img=1",
-          "https://i.pravatar.cc/150?img=2",
-          "https://i.pravatar.cc/150?img=3",
-          "https://i.pravatar.cc/150?img=4",
-        ],
-        text: "Trusted by partners in 50+ countries",
       }}
       programs={[
         { image: "/images/miniredone-i.png", category: "BASE MODEL", title: "MiniRedone-I · 47KG", href: '/products/miniredone-i' },

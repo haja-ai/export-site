@@ -1,0 +1,9 @@
+{
+  "project": {
+    "name": "MiniElephant Electric Wheelchair"
+  },
+  "permissions": {
+    "allow": ["Read", "Edit", "Write", "Bash"],
+    "ask": ["Bash(git push*)"]
+  }
+}

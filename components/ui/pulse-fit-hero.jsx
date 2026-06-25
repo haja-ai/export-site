@@ -74,12 +74,9 @@ export function PulseFitHero({
         className="relative z-20 flex flex-row justify-between items-center px-8 lg:px-16"
         style={{ paddingTop: "32px", paddingBottom: "32px" }}
       >
-        {/* Logo — elephant icon + wordmark, link to home */}
-        <Link href="/" style={{ textDecoration: 'none' }} className="flex items-center gap-3">
-          <img src="/logo-elephant.png" alt="MiniElephant Electric Wheelchair" style={{ height: "54px", width: "auto" }} />
-          <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "28px", color: "#FFFFFF", letterSpacing: "-0.01em" }}>
-            {logo}
-          </span>
+        {/* Logo — full brand logo, link to home */}
+        <Link href="/" style={{ textDecoration: 'none' }} className="flex items-center">
+          <img src="/logo-white.png" alt="MiniElephant Electric Wheelchair" style={{ height: "58px", width: "auto" }} />
         </Link>
 
         {/* Navigation — use Next.js Link instead of button+onClick for SEO crawlability */}

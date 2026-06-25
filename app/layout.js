@@ -168,9 +168,9 @@ export default function RootLayout({ children }) {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 text-left">
               {/* Brand */}
               <div>
-                <div className="flex items-center gap-2.5 mb-3">
-                  <img src="/logo-elephant.png" alt="MiniElephant" style={{ height: "36px", width: "auto" }} />
-                  <h3 className="text-white font-bold text-lg">MiniElephant</h3>
+                <div className="mb-3">
+                  <img src="/logo-white.png" alt="MiniElephant Electric Wheelchair" style={{ height: "46px", width: "auto" }} />
+                  <h3 className="sr-only">MiniElephant</h3>
                 </div>
                 <p className="text-sm text-gray-400 leading-relaxed">
                   Professional electric wheelchair manufacturer. Factory-direct B2B export of lightweight folding wheelchairs with magnesium alloy frames.

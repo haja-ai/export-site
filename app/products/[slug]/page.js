@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
     title: `${product.fullName} | MiniRedone Series | MiniElephant Electric Wheelchair`,
     description: `${product.tagline}. ${specs}. B2B export from China manufacturer. OEM/ODM available.`,
     openGraph: {
-      title: `${product.fullName} — ${product.tagline}`,
+      title: `${product.fullName} : ${product.tagline}`,
       description: `${specs}. Magnesium alloy frame, dual 350W motors. Factory-direct pricing.`,
       url: `https://www.semwheelchair.com/products/${slug}`,
       type: 'website',
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${product.fullName} — ${product.tagline}`,
+      title: `${product.fullName} : ${product.tagline}`,
       description: `${product.tagline}. ${specs}`,
       images: product.images && product.images.length > 0
         ? [`https://www.semwheelchair.com${product.images[0]}`]

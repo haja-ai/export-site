@@ -5,9 +5,9 @@ import PulseFitPage from '../components/PulseFitPage';
 export const metadata = {
   title: 'FAQ | Electric Wheelchair Manufacturer | MiniElephant Folding Wheelchairs',
   description:
-    'Frequently asked questions about MiniElephant electric wheelchairs — B2B export, shipping times, OEM/ODM customization, warranty, battery specifications, and more. Find answers from the manufacturer.',
+    'Frequently asked questions about MiniElephant electric wheelchairs : B2B export, shipping times, OEM/ODM customization, warranty, battery specifications, and more. Find answers from the manufacturer.',
   openGraph: {
-    title: 'FAQ — MiniElephant Electric Wheelchair Manufacturer',
+    title: 'FAQ : MiniElephant Electric Wheelchair Manufacturer',
     description: 'Find answers about electric wheelchair shipping, OEM customization, warranty, battery range, and more from the manufacturer.',
     url: 'https://www.semwheelchair.com/faq',
     type: 'website',
@@ -20,11 +20,11 @@ export const metadata = {
 const faqs = [
   {
     q: 'What is the minimum order quantity (MOQ)?',
-    a: 'Our standard MOQ for MiniRedone electric wheelchairs is 5 units per model. For sample orders, we accept 1–2 units for evaluation. Contact our sales team for mixed-model orders and volume discounts.',
+    a: 'Our standard MOQ for MiniRedone electric wheelchairs is 5 units per model. For sample orders, we accept 1-2 units for evaluation. Contact our sales team for mixed-model orders and volume discounts.',
   },
   {
     q: 'How long does shipping take?',
-    a: 'Shipping time depends on your location and chosen method. By sea: 25–40 days to most ports. By air: 7–10 days. By express (DHL/UPS/FedEx): 5–7 days for sample orders. We ship from Zhejiang, China.',
+    a: 'Shipping time depends on your location and chosen method. By sea: 25-40 days to most ports. By air: 7-10 days. By express (DHL/UPS/FedEx): 5-7 days for sample orders. We ship from Zhejiang, China.',
   },
   {
     q: 'Do you offer OEM / ODM services?',
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: 'What is the battery range and charging time?',
-    a: 'All MiniRedone models use a 16Ah lithium-ion battery with approximately 30km range under normal conditions. Full charging time is 4–6 hours. The battery is removable for convenient charging.',
+    a: 'All MiniRedone models use a 16Ah lithium-ion battery with approximately 30km range under normal conditions. Full charging time is 4-6 hours. The battery is removable for convenient charging.',
   },
   {
     q: 'Can the wheelchair be used outdoors?',
@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     q: 'Is the wheelchair foldable for transport?',
-    a: 'All MiniRedone models are folding wheelchairs. Folded dimensions vary by model (approximately L830–850 × W675–900 × H780–1250 mm). The lightweight magnesium alloy frame makes lifting and loading easy.',
+    a: 'All MiniRedone models are folding wheelchairs. Folded dimensions vary by model (approximately L830-850 × W675-900 × H780-1250 mm). The lightweight magnesium alloy frame makes lifting and loading easy.',
   },
   {
     q: 'What payment methods do you accept?',
@@ -60,7 +60,7 @@ const faqs = [
   },
   {
     q: 'Can I get a sample before placing a bulk order?',
-    a: 'Absolutely. We encourage sample evaluation before bulk orders. Sample units are shipped within 3–5 working days after payment. Sample pricing and shipping costs will be quoted by our sales team.',
+    a: 'Absolutely. We encourage sample evaluation before bulk orders. Sample units are shipped within 3-5 working days after payment. Sample pricing and shipping costs will be quoted by our sales team.',
   },
   {
     q: 'What is the maximum user weight capacity?',

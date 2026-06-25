@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ImageGallery({ images, alt }) {
   const [active, setActive] = useState(0);
@@ -26,16 +27,23 @@ export default function ImageGallery({ images, alt }) {
     <div>
       {/* Main image */}
       <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden mb-3">
-        <img
-          src={images[active]}
-          alt={`${alt} — Product view ${active + 1} | MiniElephant Electric Wheelchair`}
-          width={800}
-          height={600}
-          className="w-full h-full object-contain"
-          loading="eager"
-          fetchPriority={active === 0 ? "high" : "high"}
-          decoding="async"
-        />
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={active}
+            src={images[active]}
+            alt={`${alt} - Product view ${active + 1} | MiniElephant Electric Wheelchair`}
+            width={800}
+            height={600}
+            className="w-full h-full object-contain"
+            initial={{ opacity: 0, scale: 1.02 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            loading="eager"
+            fetchPriority={active === 0 ? "high" : "high"}
+            decoding="async"
+          />
+        </AnimatePresence>
       </div>
 
       {/* Thumbnail strip */}
@@ -53,7 +61,7 @@ export default function ImageGallery({ images, alt }) {
             >
               <img
                 src={img}
-                alt={`${alt} — Angle ${i + 1}`}
+                alt={`${alt} - Angle ${i + 1}`}
                 className="w-full h-full object-cover"
               />
             </button>

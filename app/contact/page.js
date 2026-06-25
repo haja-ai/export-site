@@ -8,7 +8,7 @@ export const metadata = {
   description:
     'Contact MiniElephant electric wheelchair manufacturer for B2B inquiry, quotation, and OEM/ODM requests. Factory-direct pricing. Phone: +86 13819098967, Email: johnson@semwheelchair.com. Response within 24 hours.',
   openGraph: {
-    title: 'Contact MiniElephant — Electric Wheelchair Manufacturer Quotation',
+    title: 'Contact MiniElephant : Electric Wheelchair Manufacturer Quotation',
     description:
       'Get a customized quotation for folding electric wheelchairs. OEM/ODM inquiries welcome. Factory-direct B2B pricing. Fast response within 24 hours.',
     url: 'https://www.semwheelchair.com/contact',

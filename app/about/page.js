@@ -7,9 +7,9 @@ import PulseFitPage from '../components/PulseFitPage';
 export const metadata = {
   title: 'About Us | MiniElephant Electric Wheelchair Manufacturer | Folding Wheelchair Factory',
   description:
-    'Jiaxing Small Elephant Medical Technology Co., Ltd — professional electric wheelchair manufacturer & supplier with 10+ years experience. ISO 13485, CE, FDA certified factory in Zhejiang, China. OEM/ODM available, 50+ countries exported. Lightweight magnesium alloy folding wheelchairs.',
+    'Jiaxing Small Elephant Medical Technology Co., Ltd : professional electric wheelchair manufacturer & supplier with 10+ years experience. ISO 13485, CE, FDA certified factory in Zhejiang, China. OEM/ODM available, 50+ countries exported. Lightweight magnesium alloy folding wheelchairs.',
   openGraph: {
-    title: 'About MiniElephant — Professional Electric Wheelchair Manufacturer & Factory',
+    title: 'About MiniElephant : Professional Electric Wheelchair Manufacturer & Factory',
     description:
       '10+ years of electric wheelchair manufacturing experience. ISO/CE/FDA certified factory in Zhejiang, China. Specializing in lightweight magnesium alloy folding wheelchairs.',
     url: 'https://www.semwheelchair.com/about',
@@ -39,7 +39,7 @@ export default function AboutPage() {
                 lightweight, durable, and accessible mobility solutions for users worldwide.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                We specialize in the MiniRedone series — 10 models of folding electric wheelchairs
+                We specialize in the MiniRedone series : 10 models of folding electric wheelchairs
                 built on a common magnesium alloy frame platform. With dual 350W brushless motors and
                 a 30km range, every MiniRedone wheelchair delivers reliable daily mobility.
               </p>

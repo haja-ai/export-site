@@ -44,7 +44,7 @@ export const metadata = {
     url: 'https://www.semwheelchair.com',
     siteName: 'MiniElephant Electric Wheelchair',
     locale: 'en_US',
-    images: [{ url: 'https://www.semwheelchair.com/og-image.jpg', width: 1200, height: 630, alt: 'MiniElephant Electric Wheelchair — MiniRedone Lightweight Folding Wheelchair Series' }],
+    images: [{ url: 'https://www.semwheelchair.com/og-image.jpg', width: 1200, height: 630, alt: 'MiniElephant Electric Wheelchair : MiniRedone Lightweight Folding Wheelchair Series' }],
     determiner: '',
   },
   twitter: {
@@ -151,7 +151,7 @@ export default function RootLayout({ children }) {
             "@id": "https://www.semwheelchair.com/#website",
             "url": "https://www.semwheelchair.com",
             "name": "MiniElephant Electric Wheelchair",
-            "description": "Premium B2B electric wheelchair manufacturer. Factory-direct magnesium alloy lightweight folding wheelchairs. MiniRedone series — dual 350W motors, 30km range, ISO/CE/FDA certified. OEM/ODM available.",
+            "description": "Premium B2B electric wheelchair manufacturer. Factory-direct magnesium alloy lightweight folding wheelchairs. MiniRedone series : dual 350W motors, 30km range, ISO/CE/FDA certified. OEM/ODM available.",
             "publisher": { "@id": "https://www.semwheelchair.com/#organization" },
             "potentialAction": {
               "@type": "SearchAction",
@@ -174,19 +174,19 @@ export default function RootLayout({ children }) {
                 </p>
               </div>
 
-              {/* Products — two columns for 10 models */}
+              {/* Products : two columns for 10 models */}
               <div>
                 <h3 className="text-white font-semibold text-sm mb-3">Electric Wheelchair Models</h3>
                 <div className="grid grid-cols-2 gap-x-4">
                   <ul className="space-y-2 text-sm">
-                    <li><a href="/products/miniredone-i" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I — 47KG</a></li>
-                    <li><a href="/products/miniredone-i-w" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I-W — 46KG</a></li>
+                    <li><a href="/products/miniredone-i" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I : 47KG</a></li>
+                    <li><a href="/products/miniredone-i-w" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I-W : 46KG</a></li>
                     <li><a href="/products/miniredone-i-br" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I-B&amp;R</a></li>
                     <li><a href="/products/miniredone-i-r" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I-R</a></li>
                     <li><a href="/products/miniredone-i-plus" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-I-Plus</a></li>
                   </ul>
                   <ul className="space-y-2 text-sm">
-                    <li><a href="/products/miniredone-ii" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-II — 42KG</a></li>
+                    <li><a href="/products/miniredone-ii" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-II : 42KG</a></li>
                     <li><a href="/products/miniredone-ii-plus" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-II-Plus</a></li>
                     <li><a href="/products/miniredone-iii" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-III</a></li>
                     <li><a href="/products/miniredone-iv" className="text-gray-400 hover:text-teal transition-colors">MiniRedone-IV</a></li>

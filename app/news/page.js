@@ -8,7 +8,7 @@ export const metadata = {
   description:
     'Stay updated with MiniElephant electric wheelchair manufacturer news, product launches, B2B buyer guides, and industry insights on lightweight folding wheelchairs.',
   openGraph: {
-    title: 'News & Insights — MiniElephant Electric Wheelchair Manufacturer',
+    title: 'News & Insights : MiniElephant Electric Wheelchair Manufacturer',
     description: 'Electric wheelchair product launches, B2B buyer guides, and industry insights from MiniElephant manufacturer.',
     url: 'https://www.semwheelchair.com/news',
     type: 'website',

@@ -11,9 +11,9 @@ export const metadata = {
   description:
     'Explore all 10 MiniRedone electric wheelchair models for B2B export. Magnesium alloy frames, dual 350W motors, 30km range. Lightweight folding designs from 42KG to extra-wide 900mm. ISO/CE/FDA certified. Request factory quotation.',
   openGraph: {
-    title: 'Electric Wheelchair Products | MiniRedone Series — Lightweight Folding Wheelchairs',
+    title: 'Electric Wheelchair Products | MiniRedone Series : Lightweight Folding Wheelchairs',
     description:
-      '10 MiniRedone electric wheelchair models — from 42KG lightweight to 900mm extra-wide. Magnesium alloy frames, dual 350W motors, 30km range. Factory-direct B2B pricing.',
+      '10 MiniRedone electric wheelchair models : from 42KG lightweight to 900mm extra-wide. Magnesium alloy frames, dual 350W motors, 30km range. Factory-direct B2B pricing.',
     url: 'https://www.semwheelchair.com/products',
     type: 'website',
   },
@@ -24,7 +24,7 @@ export const metadata = {
 
 export default function ProductsPage() {
   return (
-    <PulseFitPage badge="Our Products" title="MiniRedone Series" description="10 electric wheelchair models engineered for diverse needs — from ultra-light portability to premium high-back comfort. All featuring magnesium alloy frames.">
+    <PulseFitPage badge="Our Products" title="MiniRedone Series" description="10 electric wheelchair models engineered for diverse needs : from ultra-light portability to premium high-back comfort. All featuring magnesium alloy frames.">
       
 
       {/* Product Grid */}
@@ -70,7 +70,7 @@ export default function ProductsPage() {
                     <td className="py-3 px-4 text-gray-600">{p.specs[0].value}</td>
                     <td className="py-3 px-4 text-gray-600">{p.specs[1].value}</td>
                     <td className="py-3 px-4 text-gray-600">{p.specs[2].value}</td>
-                    <td className="py-3 px-4 text-gray-600 text-xs">{p.specs[8]?.value || '—'}</td>
+                    <td className="py-3 px-4 text-gray-600 text-xs">{p.specs[8]?.value || ':'}</td>
                     <td className="py-3 px-4 text-gray-500 text-xs">{p.keyDifference}</td>
                   </tr>
                 ))}

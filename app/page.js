@@ -3,6 +3,7 @@ import { wheelchairs } from '@/lib/products';
 import PageHero from './components/PageHero';
 import ProductCard from './components/ProductCard';
 import AnimatedStats from './components/AnimatedStats';
+import { StaggerGrid, FadeUpItem } from './components/ScrollReveal';
 
 const featuredProducts = [wheelchairs[0], wheelchairs[5], wheelchairs[7], wheelchairs[9]];
 
@@ -26,12 +27,12 @@ export const metadata = {
 const advantages = [
   {
     title: 'Factory-Direct Pricing',
-    desc: 'No middlemen. You deal directly with the manufacturer. Competitive pricing with volume discounts.',
+    desc: 'No middlemen — you deal directly with the manufacturer. Competitive pricing with volume discounts.',
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>,
   },
   {
     title: 'Certified Quality',
-    desc: 'ISO, CE, FDA. Our products meet the strictest international standards for medical devices.',
+    desc: 'ISO, CE, FDA — our products meet the strictest international standards for medical devices.',
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>,
   },
   {
@@ -78,25 +79,27 @@ export default function HomePage() {
                 Featured Electric Wheelchair Models
               </h2>
               <p className="text-gray-500 max-w-xl">
-                Explore our complete MiniRedone series of folding electric wheelchairs, from ultra-lightweight 42KG portable designs to premium high-back comfort models. All feature magnesium alloy frames and dual 350W motors.
+                Explore our complete MiniRedone series of folding electric wheelchairs — from ultra-lightweight 42KG portable designs to premium high-back comfort models. All feature magnesium alloy frames and dual 350W motors.
               </p>
             </div>
             <Link
               href="/products"
               className="text-teal font-semibold text-sm hover:text-teal-dark transition-colors inline-flex items-center gap-1 shrink-0"
             >
-              Browse Models
+              View All Models
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredProducts.map((product, i) => (
-              <ProductCard key={product.slug} product={product} index={i} />
+              <FadeUpItem key={product.slug} index={i}>
+                <ProductCard product={product} index={i} />
+              </FadeUpItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
@@ -111,24 +114,23 @@ export default function HomePage() {
               Why Choose Our Electric Wheelchair Factory
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
-              We deliver value beyond products: partnership, quality, and peace of mind. As a direct electric wheelchair manufacturer with ISO, CE, and FDA certification, we offer factory-direct pricing, OEM/ODM customization, and reliable after-sales support.
+              We deliver value beyond products — partnership, quality, and peace of mind. As a direct electric wheelchair manufacturer with ISO, CE, and FDA certification, we offer factory-direct pricing, OEM/ODM customization, and reliable after-sales support.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            {advantages.map((item) => (
-              <div
-                key={item.title}
-                className="bg-cream rounded-xl p-6 border border-gray-100 hover:border-teal/20 hover:shadow-md transition-all duration-300"
-              >
-                <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center text-teal mb-4">
-                  {item.icon}
+          <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {advantages.map((item, i) => (
+              <FadeUpItem key={item.title} index={i}>
+                <div className="bg-cream rounded-xl p-6 border border-gray-100 hover:border-teal/20 hover:shadow-md transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center text-teal mb-4">
+                    {item.icon}
+                  </div>
+                  <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-              </div>
+              </FadeUpItem>
             ))}
-          </div>
+          </StaggerGrid>
         </div>
       </section>
 
@@ -137,8 +139,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                Professional Manufacturer of Electric Wheelchairs. Magnesium Alloy Folding Wheelchair Factory
+              <span className="text-teal font-semibold text-sm uppercase tracking-widest">
+                About Us
+              </span>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-6">
+                Professional Manufacturer of Electric Wheelchairs — Magnesium Alloy Folding Wheelchair Factory
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Jiaxing Small Elephant Medical Technology Co., Ltd is a professional manufacturer
@@ -147,7 +152,7 @@ export default function HomePage() {
                 the mobility aid industry.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                Our MiniRedone series features 10 electric wheelchair models covering every need, from lightweight
+                Our MiniRedone series features 10 electric wheelchair models covering every need — from lightweight
                 42KG portable designs to premium high-back comfort and extra-wide (900mm) wheelchairs. All models feature
                 magnesium alloy frames, dual 350W brushless motors, and 30km range.
               </p>
@@ -181,7 +186,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section: Contact for Quotation */}
+      {/* CTA Section — Contact for Quotation */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -195,7 +200,7 @@ export default function HomePage() {
               Get a Quote
             </Link>
             <Link href="/products" className="btn-secondary text-base px-8 py-4">
-              Browse Models
+              Browse Products
             </Link>
           </div>
         </div>

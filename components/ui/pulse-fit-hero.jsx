@@ -160,7 +160,7 @@ export function PulseFitHero({
       {children ? (
         <div className="relative z-10 flex-1 flex items-center justify-center w-full">{children}</div>
       ) : (
-        <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4">
+        <div className="relative z-10 flex-1 flex flex-col items-center sm:items-start justify-center px-4 sm:px-8 lg:px-16">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -168,7 +168,7 @@ export function PulseFitHero({
               hidden: {},
               visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
             }}
-            className="flex flex-col items-center text-center max-w-4xl"
+            className="flex flex-col items-center sm:items-start text-center sm:text-left max-w-3xl"
             style={{ gap: "32px" }}
           >
             <motion.h1 variants={{

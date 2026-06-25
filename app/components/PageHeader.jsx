@@ -19,9 +19,9 @@ export default function PageHeader({ badge, title, description }) {
       />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           {badge && (
             <span className="inline-block text-sm font-semibold uppercase tracking-widest text-teal mb-3">

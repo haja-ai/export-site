@@ -92,7 +92,7 @@ export async function POST(request) {
           from: `MiniElephant B2B <${fromEmail}>`,
           to: [notificationEmail],
           replyTo: email,
-          subject: `New B2B Inquiry from ${name}${company ? ` — ${company}` : ''}`,
+          subject: `New B2B Inquiry from ${name}${company ? ` -${company}` : ''}`,
           html: emailHtml,
         }),
       });

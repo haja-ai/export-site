@@ -41,3 +41,10 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# Security - never commit API keys
+.tmp_key_*
+*.key
+*.secret
+.env
+.claude/

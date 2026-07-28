@@ -7,9 +7,9 @@ import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
 export const metadata = {
-  title: 'About Us | MiniElephant Electric Wheelchair Manufacturer | Folding Wheelchair Factory',
+  title: 'About Us | Electric Wheelchair Manufacturer & Factory',
   description:
-    'Jiaxing Small Elephant Medical Technology Co., Ltd : professional electric wheelchair manufacturer & supplier with 10+ years experience. ISO 13485, CE, FDA certified factory in Zhejiang, China. OEM/ODM available, 50+ countries exported. Lightweight magnesium alloy folding wheelchairs.',
+    'Professional electric wheelchair manufacturer since 2013. ISO 13485, CE, FDA certified. 20+ patents, 50+ export countries. MiniRedone magnesium alloy folding wheelchairs.',
   openGraph: {
     title: 'About MiniElephant : Professional Electric Wheelchair Manufacturer & Factory',
     description:
@@ -24,12 +24,13 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <PulseFitPage badge="Our Story" title="About MiniElephant" description="Professional electric wheelchair manufacturer committed to mobility innovation and quality.">
+    <PulseFitPage bannerImage="/images/banner-about.webp"
+    badge="Our Story" title="About MiniElephant" description="Professional electric wheelchair manufacturer committed to mobility innovation and quality.">
       
 
       {/* Company Info */}
       <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-6 sm:px-8 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <FadeIn>
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
@@ -78,7 +79,7 @@ export default function AboutPage() {
 
       {/* Latest News */}
       <section className="py-12 lg:py-16 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-6 sm:px-8 lg:px-16">
           <FadeIn className="flex items-end justify-between mb-8">
             <div>
               <span className="text-teal font-semibold text-sm uppercase tracking-widest">Latest Updates</span>
@@ -119,7 +120,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="py-12 lg:py-16 bg-gradient-to-r from-teal to-teal-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="px-6 sm:px-8 lg:px-16 text-center">
           <FadeIn>
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
             Want to Learn More?

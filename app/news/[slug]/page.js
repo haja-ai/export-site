@@ -72,7 +72,7 @@ export default async function NewsArticlePage({ params }) {
       }} />
       {/* Breadcrumb */}
       <div className="bg-cream border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="px-6 sm:px-8 lg:px-16 py-4">
           <nav className="flex items-center gap-2 text-sm text-gray-500" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-teal transition-colors">Home</Link>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,6 +102,19 @@ export default async function NewsArticlePage({ params }) {
             <time className="text-sm text-gray-400">{article.date}</time>
             <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mt-2 mb-4">{article.title}</h1>
           </div>
+
+          {/* Banner Image */}
+          {article.bannerImage && (
+            <div className="mb-8 -mx-4 sm:-mx-6 lg:-mx-8 rounded-xl overflow-hidden">
+              <img
+                src={article.bannerImage}
+                alt={article.title}
+                className="w-full h-auto max-h-[400px] object-cover"
+                loading="eager"
+                fetchPriority="high"
+              />
+            </div>
+          )}
 
           {/* Content */}
           <div

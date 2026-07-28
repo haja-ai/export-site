@@ -25,11 +25,12 @@ export default function ContactForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch('/api/inquiry', {
+      const res = await fetch('/api/inquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
+      if (!res.ok) throw new Error('API returned ' + res.status);
       setSubmitted(true);
     } catch (err) {
       console.error('Submit failed:', err);

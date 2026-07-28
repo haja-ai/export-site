@@ -17,7 +17,7 @@ export default function PageHeader({ badge, title, description }) {
           backgroundSize: '32px 32px',
         }}
       />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative px-6 sm:px-8 lg:px-16 text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}

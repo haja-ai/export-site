@@ -4,9 +4,9 @@ import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
 export const metadata = {
-  title: 'FAQ | Electric Wheelchair Manufacturer | MiniElephant Folding Wheelchairs',
+  title: 'FAQ | Electric Wheelchair Manufacturer | B2B Guide',
   description:
-    'Frequently asked questions about MiniElephant electric wheelchairs : B2B export, shipping times, OEM/ODM customization, warranty, battery specifications, and more. Find answers from the manufacturer.',
+    'B2B electric wheelchair FAQ: weight, range, motors, shipping, OEM/ODM, certification, warranty, pricing for MiniRedone wheelchairs.',
   openGraph: {
     title: 'FAQ : MiniElephant Electric Wheelchair Manufacturer',
     description: 'Find answers about electric wheelchair shipping, OEM customization, warranty, battery range, and more from the manufacturer.',
@@ -86,7 +86,8 @@ export default function FaqPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <PulseFitPage badge="Help Center" title="Frequently Asked Questions" description="Find answers to common questions about our electric wheelchairs, ordering, shipping, and more.">
+      <PulseFitPage bannerImage="/images/banner-faq.webp"
+    badge="Help Center" title="Frequently Asked Questions" description="Find answers to common questions about our electric wheelchairs, ordering, shipping, and more.">
       
       {/* FAQ Content */}
       <section className="py-16 lg:py-24 bg-cream">
@@ -120,7 +121,7 @@ export default function FaqPage() {
 
       {/* CTA */}
       <section className="py-12 lg:py-16 bg-gradient-to-r from-teal to-teal-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="px-6 sm:px-8 lg:px-16 text-center">
           <FadeIn>
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
             Still Have Questions?

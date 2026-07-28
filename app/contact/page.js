@@ -5,9 +5,9 @@ import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
 export const metadata = {
-  title: 'Contact Us | Get a Quote | Electric Wheelchair Manufacturer | MiniElephant',
+  title: 'Contact Us | Get a Quote | Electric Wheelchair Manufacturer',
   description:
-    'Contact MiniElephant electric wheelchair manufacturer for B2B inquiry, quotation, and OEM/ODM requests. Factory-direct pricing. Phone: +86 13819098967, Email: johnson@semwheelchair.com. Response within 24 hours.',
+    'Contact MiniElephant for B2B inquiry, quotation, OEM/ODM. Factory-direct pricing, response within 24 hours. Phone: +86 13819098967, Email: johnson@semwheelchair.com.',
   openGraph: {
     title: 'Contact MiniElephant : Electric Wheelchair Manufacturer Quotation',
     description:
@@ -22,10 +22,11 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <PulseFitPage badge="Get in Touch" title="Contact & Inquiry" description="Submit your inquiry below and our export team will respond within 24 hours.">
+    <PulseFitPage bannerImage="/images/banner-contact.webp"
+    badge="Get in Touch" title="Contact & Inquiry" description="Submit your inquiry below and our export team will respond within 24 hours.">
       
       <section className="py-16 lg:py-24 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-6 sm:px-8 lg:px-16">
           <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact Info */}
             <FadeIn className="lg:col-span-2 space-y-6">

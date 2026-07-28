@@ -1,0 +1,39 @@
+==============================================================================================================
+  PAGE METADATA ANALYSIS
+  Project: C:\Users\Administrator\Desktop\export-site
+==============================================================================================================
+Page                                     Title                                               Chars  OG Img  Robots
+--------------------------------------------------------------------------------------------------------------
+about/page.js                            About Us | Electric Wheelchair Manufacturer & F..      77       ❌       ❌
+contact/page.js                          Contact Us | Get a Quote | Electric Wheelchair ..      89       ❌       ❌
+faq/page.js                              FAQ | Electric Wheelchair Manufacturer | MiniEl..      77       ❌       ❌
+news/[slug]/page.js                      ~Electric Wheelchair Battery Guide | MiniElepha..      53       ❌       ❌
+news/page.js                             News & Insights | Electric Wheelchair Manufactu..      86       ❌       ❌
+page.js                                  MiniElephant Electric Wheelchair | B2B Lightwei..     101       ✅       ❌
+products/[slug]/page.js                  ~MiniRedone-I | MiniRedone Series | MiniElephan..      67       ❌       ❌
+products/page.js                         Electric Wheelchair Products | MiniRedone Serie..      97       ❌       ❌
+--------------------------------------------------------------------------------------------------------------
+
+TITLES OVER 60 CHARS (7 pages):
+     about/page.js                              77 chars  |  About Us | Electric Wheelchair Manufacturer & Factory in China | MiniElephant
+     contact/page.js                            89 chars  |  Contact Us | Get a Quote | Electric Wheelchair Manufacturer & B2B Supplier | MiniElephant
+     faq/page.js                                77 chars  |  FAQ | Electric Wheelchair Manufacturer | MiniElephant B2B Folding Wheelchairs
+     news/page.js                               86 chars  |  News & Insights | Electric Wheelchair Manufacturer & B2B Industry Guide | MiniElephant
+     page.js                                   101 chars  |  MiniElephant Electric Wheelchair | B2B Lightweight Folding Electric Wheelchair Manufacturer & Factory
+     products/[slug]/page.js                    67 chars  |  ~MiniRedone-I | MiniRedone Series | MiniElephant Electric Wheelchair
+     products/page.js                           97 chars  |  Electric Wheelchair Products | MiniRedone Series | Lightweight Folding Wheelchairs for B2B Export
+
+PAGES MISSING OG IMAGES (7 pages):
+     about/page.js
+     contact/page.js
+     faq/page.js
+     news/[slug]/page.js
+     news/page.js
+     products/[slug]/page.js
+     products/page.js
+
+Root layout has export const metadata: NO
+  -> Suggestion: add title.template pattern + fallback OG image + robots
+app/not-found.js: MISSING
+
+==============================================================================================================

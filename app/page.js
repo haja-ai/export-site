@@ -3,18 +3,18 @@ import { wheelchairs } from '@/lib/products';
 import PageHero from './components/PageHero';
 import ProductCard from './components/ProductCard';
 import AnimatedStats from './components/AnimatedStats';
-import { StaggerGrid, FadeUpItem } from './components/ScrollReveal';
-
+import { StaggerGrid, FadeUpItem, FadeIn } from './components/ScrollReveal';
+import WhyChooseUs from './components/WhyChooseUs';
 const featuredProducts = [wheelchairs[0], wheelchairs[5], wheelchairs[7], wheelchairs[9]];
 
 export const metadata = {
-  title: 'MiniElephant Electric Wheelchair | Premium B2B Electric Wheelchairs Manufacturer | Lightweight Folding Wheelchairs',
+  title: 'Electric Wheelchair Manufacturer | MiniElephant Lightweight Wheelchairs',
   description:
-    'Professional electric wheelchair manufacturer & supplier of lightweight folding wheelchairs with magnesium alloy frames. Dual 350W motors, 30km range, 150KG load capacity. B2B export to 50+ countries. ISO, CE, FDA certified. OEM/ODM available. Factory-direct pricing.',
+    'Professional electric wheelchair manufacturer of lightweight folding electric wheelchairs with magnesium alloy frames. Dual 350W motors, 30km range. B2B export of premium electric wheelchairs, ISO/CE/FDA certified. Electric wheelchair OEM/ODM available.',
   openGraph: {
-    title: 'MiniElephant Electric Wheelchair | Premium B2B Electric Wheelchairs Manufacturer | Lightweight Folding Wheelchairs',
+    title: 'MiniElephant Electric Wheelchair | B2B Magnesium Alloy Wheelchair Factory',
     description:
-      'Lightweight folding electric wheelchairs with magnesium alloy frames, dual 350W motors, 30km range, 150KG load. Factory-direct B2B pricing from China manufacturer. ISO/CE/FDA certified.',
+      'Lightweight folding electric wheelchairs with magnesium alloy frames, dual 350W motors, 30km range. Factory-direct B2B pricing. ISO/CE/FDA certified.',
     url: 'https://www.semwheelchair.com',
     type: 'website',
     images: [{ url: 'https://www.semwheelchair.com/og-image.jpg', width: 1200, height: 630, alt: 'MiniElephant MiniRedone Series Lightweight Folding Electric Wheelchairs' }],
@@ -69,8 +69,9 @@ export default function HomePage() {
 
       {/* Featured Products */}
       <section className="py-16 lg:py-24 bg-[#F8F9FA]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-6 sm:px-8 lg:px-16">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+            <FadeIn>
             <div>
               <span className="text-teal font-semibold text-sm uppercase tracking-widest">
                 Our Products
@@ -82,6 +83,7 @@ export default function HomePage() {
                 Explore our complete MiniRedone series of folding electric wheelchairs — from ultra-lightweight 42KG portable designs to premium high-back comfort models. All feature magnesium alloy frames and dual 350W motors.
               </p>
             </div>
+            </FadeIn>
             <Link
               href="/products"
               className="text-teal font-semibold text-sm hover:text-teal-dark transition-colors inline-flex items-center gap-1 shrink-0"
@@ -104,39 +106,11 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="text-teal font-semibold text-sm uppercase tracking-widest">
-              Why MiniElephant
-            </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-4">
-              Why Choose Our Electric Wheelchair Factory
-            </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">
-              We deliver value beyond products — partnership, quality, and peace of mind. As a direct electric wheelchair manufacturer with ISO, CE, and FDA certification, we offer factory-direct pricing, OEM/ODM customization, and reliable after-sales support.
-            </p>
-          </div>
-
-          <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {advantages.map((item, i) => (
-              <FadeUpItem key={item.title} index={i}>
-                <div className="bg-[#F8F9FA] rounded-xl p-6 border border-gray-100 hover:border-teal/20 hover:shadow-md transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center text-teal mb-4">
-                    {item.icon}
-                  </div>
-                  <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-                </div>
-              </FadeUpItem>
-            ))}
-          </StaggerGrid>
-        </div>
-      </section>
+      <WhyChooseUs advantages={advantages} />
 
       {/* Company Highlights */}
       <section className="py-16 lg:py-24 bg-[#F8F9FA]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-6 sm:px-8 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <span className="text-teal font-semibold text-sm uppercase tracking-widest">
@@ -188,7 +162,8 @@ export default function HomePage() {
 
       {/* CTA Section — Contact for Quotation */}
       <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="px-6 sm:px-8 lg:px-16 text-center">
+          <FadeIn>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Ready to Partner with Our Electric Wheelchair Factory?
           </h2>
@@ -203,6 +178,7 @@ export default function HomePage() {
               Browse Products
             </Link>
           </div>
+          </FadeIn>
         </div>
       </section>
     </div>

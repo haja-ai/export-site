@@ -1,16 +1,13 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { wheelchairs } from '@/lib/products';
 import ProductCard from '../components/ProductCard';
 import PulseFitPage from '../components/PulseFitPage';
 import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
-
-
 export const metadata = {
-  title: 'Electric Wheelchair Products | MiniRedone Series | Lightweight Folding Wheelchairs | MiniElephant',
+  title: 'Electric Wheelchair Products | MiniRedone Series | B2B Export',
   description:
-    'Explore all 10 MiniRedone electric wheelchair models for B2B export. Magnesium alloy frames, dual 350W motors, 30km range. Lightweight folding designs from 42KG to extra-wide 900mm. ISO/CE/FDA certified. Request factory quotation.',
+    'Explore all 10 MiniRedone electric wheelchair models for B2B export. Magnesium alloy frames, dual 350W motors, 30km range. ISO/CE/FDA certified.',
   openGraph: {
     title: 'Electric Wheelchair Products | MiniRedone Series : Lightweight Folding Wheelchairs',
     description:
@@ -18,36 +15,33 @@ export const metadata = {
     url: 'https://www.semwheelchair.com/products',
     type: 'website',
   },
-  alternates: {
-    canonical: 'https://www.semwheelchair.com/products',
-  },
+  alternates: { canonical: 'https://www.semwheelchair.com/products' },
 };
 
 export default function ProductsPage() {
   return (
-    <PulseFitPage badge="Our Products" title="MiniRedone Series" description="10 electric wheelchair models engineered for diverse needs : from ultra-light portability to premium high-back comfort. All featuring magnesium alloy frames.">
-      
-
+    <PulseFitPage
+      bannerImage="/images/banner-products.webp"
+      badge="Our Products"
+      title="MiniRedone Series"
+      description="10 electric wheelchair models for diverse needs : from ultra-light portability to premium high-back comfort. All magnesium alloy frames."
+    >
       {/* Product Grid */}
-      <section className="py-16 lg:py-24 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <StaggerGrid className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="py-12 lg:py-20 bg-cream">
+        <div className="px-6 sm:px-8 lg:px-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {wheelchairs.map((product, i) => (
-              <FadeUpItem key={product.slug} index={i}>
-                <ProductCard product={product} index={i} />
-              </FadeUpItem>
+              <ProductCard key={product.slug} product={product} index={i} animate />
             ))}
-          </StaggerGrid>
+          </div>
         </div>
       </section>
 
       {/* Spec Comparison */}
-      <section className="py-16 lg:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 lg:py-20 bg-white">
+        <div className="px-6 sm:px-8 lg:px-16">
           <FadeIn>
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 text-center mb-2">
-              Product Comparison
-            </h2>
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 text-center mb-2">Product Comparison</h2>
             <p className="text-gray-500 text-center mb-10 max-w-xl mx-auto">
               Quick overview of core specifications across the MiniRedone line.
             </p>
@@ -68,14 +62,12 @@ export default function ProductsPage() {
                 {wheelchairs.map((p, i) => (
                   <tr key={p.slug} className={`border-b border-gray-100 ${i % 2 === 0 ? 'bg-gray-50' : ''}`}>
                     <td className="py-3 px-4 font-medium text-teal">
-                      <Link href={`/products/${p.slug}`} className="hover:underline">
-                        {p.name}
-                      </Link>
+                      <Link href={`/products/${p.slug}`} className="hover:underline">{p.name}</Link>
                     </td>
                     <td className="py-3 px-4 text-gray-600">{p.specs[0].value}</td>
                     <td className="py-3 px-4 text-gray-600">{p.specs[1].value}</td>
                     <td className="py-3 px-4 text-gray-600">{p.specs[2].value}</td>
-                    <td className="py-3 px-4 text-gray-600 text-xs">{p.specs[8]?.value || ':'}</td>
+                    <td className="py-3 px-4 text-gray-600 text-xs">{p.specs[8]?.value || '—'}</td>
                     <td className="py-3 px-4 text-gray-500 text-xs">{p.keyDifference}</td>
                   </tr>
                 ))}
@@ -87,22 +79,18 @@ export default function ProductsPage() {
 
       {/* CTA */}
       <section className="py-12 lg:py-16 bg-gradient-to-r from-teal to-teal-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="px-6 sm:px-8 lg:px-16 text-center">
           <FadeIn>
-          <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
-            Need Help Choosing a Model?
-          </h2>
-          <p className="text-teal-light/80 max-w-xl mx-auto mb-6">
-            Our export specialists can recommend the best MiniRedone model for your market and customer needs.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-white text-teal font-semibold rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            Request a Quote
-          </Link>
+            <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">Need Help Choosing a Model?</h2>
+            <p className="text-teal-light/80 max-w-xl mx-auto mb-6">
+              Our export specialists can recommend the best MiniRedone model for your market and customer needs.
+            </p>
+            <Link href="/contact" className="inline-flex items-center px-8 py-4 bg-white text-teal font-semibold rounded-lg hover:bg-gray-100 transition-colors">
+              Request a Quote
+            </Link>
           </FadeIn>
         </div>
       </section>
-    </PulseFitPage>  );
+    </PulseFitPage>
+  );
 }

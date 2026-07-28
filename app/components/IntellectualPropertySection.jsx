@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 const trademarks = [
@@ -37,7 +37,23 @@ const stats = [
 
 export default function IntellectualPropertySection() {
   const [active, setActive] = useState(null);
+  const scrollRef = useRef(null);
   const reduce = useReducedMotion();
+
+  // Auto-scroll patent carousel
+  useEffect(() => {
+    if (reduce || !scrollRef.current) return;
+    const el = scrollRef.current;
+    let direction = 1;
+    const interval = setInterval(() => {
+      if (!el) return;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (el.scrollLeft >= maxScroll - 5) direction = -1;
+      if (el.scrollLeft <= 5) direction = 1;
+      el.scrollLeft += direction * 1.5;
+    }, 40);
+    return () => clearInterval(interval);
+  }, [reduce]);
 
   const fade = reduce
     ? {}
@@ -50,8 +66,8 @@ export default function IntellectualPropertySection() {
 
   return (
     <>
-      <section className="py-20 lg:py-28 bg-gradient-to-b from-slate-950 to-slate-900 text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-slate-950 to-slate-900 text-white">
+        <div className="px-6 sm:px-8 lg:px-16">
           {/* Heading (no eyebrow by design) */}
           <motion.div {...fade} className="max-w-2xl mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Intellectual Property</h2>
@@ -103,12 +119,12 @@ export default function IntellectualPropertySection() {
               <h3 className="text-lg font-semibold text-slate-200">Patent Certificates</h3>
               <span className="text-xs text-slate-500 hidden sm:inline">Scroll to explore →</span>
             </div>
-            <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4">
+            <div ref={scrollRef} className="flex gap-5 overflow-x-scroll pb-4 -mx-4 px-4" style={{scrollbarWidth:'none',msOverflowStyle:'none'}}>
               {patents.map((p) => (
                 <button
                   key={p.id}
                   onClick={() => setActive(p)}
-                  className="group snap-start shrink-0 w-44 sm:w-52 text-left rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-teal/50 transition-all duration-300"
+                  className="group shrink-0 w-44 sm:w-52 text-left rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-teal/50 transition-all duration-300"
                 >
                   <div className="aspect-[3/4] bg-white overflow-hidden">
                     <img

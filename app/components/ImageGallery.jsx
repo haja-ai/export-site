@@ -8,7 +8,7 @@ export default function ImageGallery({ images, alt }) {
 
   if (!images || images.length === 0) {
     return (
-      <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 flex items-center justify-center">
+      <div className="w-full aspect-[3/4] max-h-[600px] rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 flex items-center justify-center">
         <div className="text-center">
           <svg className="w-24 h-24 mx-auto text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.8">
             <circle cx="12" cy="5" r="2.5" />
@@ -26,7 +26,7 @@ export default function ImageGallery({ images, alt }) {
   return (
     <div>
       {/* Main image */}
-      <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden mb-3">
+      <div className="w-full aspect-[3/4] max-h-[600px] rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 flex items-center justify-center overflow-hidden mb-3">
         <AnimatePresence mode="wait">
           <motion.img
             key={active}
@@ -53,7 +53,7 @@ export default function ImageGallery({ images, alt }) {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`w-20 h-16 shrink-0 rounded-lg border-2 overflow-hidden transition-all ${
+              className={`w-16 h-20 shrink-0 rounded-lg border-2 overflow-hidden transition-all ${
                 i === active
                   ? 'border-teal ring-1 ring-teal'
                   : 'border-gray-200 hover:border-gray-300'

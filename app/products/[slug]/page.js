@@ -16,8 +16,8 @@ export async function generateMetadata({ params }) {
   const specs = product.specs.map((s) => `${s.label}: ${s.value}`).join(', ');
 
   return {
-    title: `${product.fullName} | MiniRedone Series | MiniElephant Electric Wheelchair`,
-    description: `${product.tagline}. ${specs}. B2B export from China manufacturer. OEM/ODM available.`,
+    title: `${product.fullName} | ${product.specs[0]?.value || 'Lightweight'} Folding Wheelchair`,
+    description: `${product.tagline} ${product.specs[0]?.value || ''}, ${product.specs[1]?.value || '150KG'} load, dual 350W motors. B2B export, OEM/ODM.`,
     openGraph: {
       title: `${product.fullName} : ${product.tagline}`,
       description: `${specs}. Magnesium alloy frame, dual 350W motors. Factory-direct pricing.`,
@@ -64,7 +64,7 @@ export default async function ProductDetailPage({ params }) {
 
       {/* Breadcrumb */}
       <div className="bg-cream border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="px-6 sm:px-8 lg:px-16 py-4">
           <nav className="flex items-center gap-2 text-sm text-gray-500" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-teal transition-colors">Home</Link>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,7 +81,7 @@ export default async function ProductDetailPage({ params }) {
 
       {/* Product Detail */}
       <section className="py-12 lg:py-16 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-6 sm:px-8 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Product Image */}
             <div>
@@ -161,7 +161,7 @@ export default async function ProductDetailPage({ params }) {
 
       {/* Related Products */}
       <section className="py-12 lg:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-6 sm:px-8 lg:px-16">
           <h2 className="text-xl font-bold text-gray-900 mb-6">Explore Other Models</h2>
           <div className="flex flex-wrap gap-3">
             {[

@@ -24,14 +24,14 @@ export default function PulseFitPage({
     <section className="relative flex flex-col">
       {/* Banner hero region — mirrors the homepage first-screen feel */}
       <div className="relative flex flex-col overflow-hidden min-h-[460px] sm:min-h-[520px] lg:min-h-[600px]">
-        {/* Banner image */}
-        <img src={bannerImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        {/* Banner image — optimized for fast loading */}
+        <img src={bannerImage} alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" fetchPriority="high" />
         {/* Cinematic overlay : dark enough for white text, and the nav melts into the banner top */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(15,23,42,0.82) 0%, rgba(15,23,42,0.48) 42%, rgba(15,23,42,0.66) 100%)",
+              "linear-gradient(180deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.48) 38%, rgba(255,255,255,0.80) 72%, #FFFFFF 100%)",
           }}
         />
 
@@ -45,7 +45,7 @@ export default function PulseFitPage({
         >
           {/* Full brand logo */}
           <Link href="/" style={{ textDecoration: 'none' }} className="flex items-center">
-            <img src="/logo-white.png" alt="MiniElephant Electric Wheelchair" style={{ height: "64px", width: "auto" }} />
+            <img src="/logo-black.png" alt="MiniElephant Electric Wheelchair" style={{ height: "80px", width: "auto" }} />
           </Link>
 
           <nav className="hidden lg:flex flex-row items-center gap-10" aria-label="Main navigation">
@@ -57,7 +57,7 @@ export default function PulseFitPage({
                   fontFamily: "Inter, sans-serif",
                   fontSize: "18px",
                   fontWeight: 400,
-                  color: "rgba(255,255,255,0.92)",
+                  color: "#1a1a1a",
                   textDecoration: 'none',
                 }}
                 className="hover:opacity-70 transition-opacity"
@@ -105,7 +105,7 @@ export default function PulseFitPage({
                 fontFamily: "Inter, sans-serif",
                 fontWeight: 700,
                 lineHeight: "1.12",
-                color: "#FFFFFF",
+                color: "#1a1a1a",
                 letterSpacing: "-0.02em",
               }}
             >
@@ -118,7 +118,7 @@ export default function PulseFitPage({
                   fontFamily: "Inter, sans-serif",
                   fontWeight: 400,
                   lineHeight: "1.6",
-                  color: "rgba(255,255,255,0.88)",
+                  color: "#4a5568",
                   maxWidth: "620px",
                 }}
               >

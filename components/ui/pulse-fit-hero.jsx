@@ -43,7 +43,7 @@ export function PulseFitHero({
           <div className="w-full h-full relative">
             <img
               src={bannerImage}
-              alt=""
+              alt={title || "MiniElephant Electric Wheelchair Banner"}
               className="w-full h-full object-cover"
             />
             {/* Soft overlay : banner stays visible behind the nav so they read as one surface, while text stays legible */}
@@ -76,7 +76,7 @@ export function PulseFitHero({
       >
         {/* Logo — full brand logo, link to home */}
         <Link href="/" style={{ textDecoration: 'none' }} className="flex items-center">
-          <img src="/logo-white.png" alt="MiniElephant Electric Wheelchair" style={{ height: "64px", width: "auto" }} />
+          <img src="/logo-black.png" alt="MiniElephant Electric Wheelchair" style={{ height: "80px", width: "auto" }} />
         </Link>
 
         {/* Navigation — use Next.js Link instead of button+onClick for SEO crawlability */}
@@ -293,18 +293,11 @@ export function PulseFitHero({
           className="relative z-10 w-full overflow-hidden"
           style={{ paddingTop: "60px", paddingBottom: "60px" }}
         >
-          <div className="absolute left-0 top-0 bottom-0 z-10 pointer-events-none"
-            style={{ width: "150px", background: "linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)" }} />
-          <div className="absolute right-0 top-0 bottom-0 z-10 pointer-events-none"
-            style={{ width: "150px", background: "linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)" }} />
-
           <motion.div
-            className="flex items-center"
-            animate={{ x: [0, -((programs.length * 380) / 2)] }}
-            transition={{ x: { repeat: Infinity, repeatType: "loop", duration: programs.length * 3, ease: "linear" } }}
-            style={{ gap: "24px", paddingLeft: "24px" }}
+            className="flex items-center justify-center"
+            style={{ gap: "24px", paddingLeft: "24px", paddingRight: "24px" }}
           >
-            {[...programs, ...programs].map((program, index) => (
+            {programs.map((program, index) => (
               program.href ? (
                 <Link
                   key={index}

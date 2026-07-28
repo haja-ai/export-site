@@ -7,53 +7,51 @@ export default function ProductCard({ product, index = 0, animate = false }) {
   const reduce = useReducedMotion();
 
   const cardContent = (
-    <div className="p-6">
+    <>
       {/* Product Image */}
-      <div className="w-full aspect-[3/4] rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-100 flex items-center justify-center mb-5 overflow-hidden">
+      <div className="relative aspect-[4/3] bg-gradient-to-b from-gray-50 to-white rounded-t-2xl overflow-hidden">
         {product.images ? (
           <img
             src={product.images[0]}
-            alt={`${product.fullName}: ${product.tagline} | MiniElephant Lightweight Electric Wheelchair`}
-            width={400}
-            height={533}
-            loading={index < 4 ? "eager" : "lazy"}
-            decoding={index < 4 ? "async" : "async"}
-            fetchPriority={index < 4 ? "high" : "auto"}
-            className="w-full h-full object-contain p-2"
+            alt={`${product.fullName}: ${product.tagline}`}
+            width={400} height={300}
+            loading="lazy"
+            className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
-          <div className="text-center">
-            <svg className="w-16 h-16 mx-auto text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-              <circle cx="12" cy="5" r="2.5" />
-              <path d="M5 22l3-9h8l3 9" />
-              <path d="M8 13c0 3.3 2.7 6 6 6s6-2.7 6-6" />
-              <path d="M4 13h4" />
-              <path d="M16 13h4" />
-            </svg>
-            <p className="text-[10px] text-gray-400 mt-2">{product.name}</p>
-          </div>
+          <div className="w-full h-full flex items-center justify-center text-gray-300 text-sm">No Image</div>
+        )}
+        {/* Overlay label: Weight badge */}
+        {product.specs?.[0] && (
+          <span className="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-bold text-gray-900 px-2.5 py-1 rounded-lg shadow-sm">
+            {product.specs[0].value}
+          </span>
         )}
       </div>
-      <span className="text-xs font-semibold uppercase tracking-wider text-teal">
-        MiniRedone Series
-      </span>
-      <h3 className="text-lg font-bold text-gray-900 mt-1 mb-2 group-hover:text-teal transition-colors">
-        {product.name}
-      </h3>
-      <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed">
-        {product.tagline}
-      </p>
-      <div className="flex flex-wrap gap-2 mt-4">
-        {product.specs.slice(0, 3).map((spec) => (
-          <span key={spec.label} className="text-[11px] bg-gray-50 text-gray-600 px-2.5 py-1 rounded-full border border-gray-100">
-            {spec.label}: {spec.value}
-          </span>
-        ))}
+
+      {/* Info */}
+      <div className="p-4 pt-3 flex flex-col flex-1">
+        <span className="text-[11px] font-semibold uppercase tracking-widest text-teal">MiniRedone Series</span>
+        <h3 className="text-lg font-bold text-gray-900 mt-0.5 mb-1 group-hover:text-teal transition-colors">
+          {product.name}
+        </h3>
+        <p className="text-sm text-gray-400 leading-snug line-clamp-2 flex-1">
+          {product.tagline}
+        </p>
+        {/* Key specs in a compact row */}
+        <div className="flex gap-3 mt-3 pt-3 border-t border-gray-100 text-xs text-gray-500">
+          {product.specs?.slice(0, 3).map((s) => (
+            <span key={s.label} className="flex items-baseline gap-1">
+              <span className="font-semibold text-gray-700">{s.value}</span>
+              <span>{s.label.replace('Net ', '')}</span>
+            </span>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 
-  const className = "product-card group";
+  const baseClass = "product-card group bg-white rounded-2xl border border-gray-100 hover:border-teal/20 hover:shadow-lg transition-[box-shadow,transform,color,background-color,border-color] duration-300 flex flex-col overflow-hidden";
 
   if (animate && !reduce) {
     return (
@@ -62,12 +60,8 @@ export default function ProductCard({ product, index = 0, animate = false }) {
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{
-          duration: 0.6,
-          delay: index * 0.08,
-          ease: [0.16, 1, 0.3, 1],
-        }}
-        className={className}
+        transition={{ duration: 0.5, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
+        className={baseClass}
       >
         {cardContent}
       </motion.a>
@@ -75,10 +69,7 @@ export default function ProductCard({ product, index = 0, animate = false }) {
   }
 
   return (
-    <Link
-      href={`/products/${product.slug}`}
-      className={className}
-    >
+    <Link href={`/products/${product.slug}`} className={baseClass}>
       {cardContent}
     </Link>
   );

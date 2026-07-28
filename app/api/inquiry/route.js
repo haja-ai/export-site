@@ -1,3 +1,5 @@
+import { sendInquiryEmail } from '@/lib/sendEmail';
+
 // In-memory store for inquiries (in production, use a database)
 const inquiries = [];
 
@@ -44,14 +46,9 @@ export async function POST(request) {
 
     inquiries.push(inquiry);
 
-    // Try to send email notification (non-blocking)
+    // Send email notification directly (no HTTP self-call)
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-      await fetch(`${baseUrl}/api/send-email`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(inquiry),
-      });
+      await sendInquiryEmail(inquiry);
     } catch (emailError) {
       // Email sending failure should not block the inquiry submission
       console.error('Failed to send email notification:', emailError);

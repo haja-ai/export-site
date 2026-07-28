@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, useReducedMotion } from "framer-motion";
 
 export default function AnimatedStats() {
-  const [counts, setCounts] = useState({ c: 0, u: 0, y: 0 });
+  const [counts, setCounts] = useState({ c: 50, u: 100, y: 10 });
   const ref = useRef(null);
   const started = useRef(false);
   const reduce = useReducedMotion();
@@ -49,7 +49,7 @@ export default function AnimatedStats() {
 
   return (
     <section ref={ref} className="py-12 lg:py-16 bg-white border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-6 sm:px-8 lg:px-16">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           {stats.map((stat, i) => (
             <motion.div

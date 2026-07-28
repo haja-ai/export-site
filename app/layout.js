@@ -22,11 +22,11 @@ const navLinks = [
 
 export const metadata = {
   title: {
-    default: 'MiniElephant Electric Wheelchair | Premium B2B Electric Wheelchairs Manufacturer | Lightweight Folding Wheelchairs',
-    template: '%s | MiniElephant Electric Wheelchair',
+    default: 'MiniElephant Electric Wheelchair | B2B Magnesium Alloy Wheelchair Manufacturer',
+    template: '%s | MiniElephant',
   },
   description:
-    'Professional electric wheelchair manufacturer & supplier of lightweight folding wheelchairs with magnesium alloy frames. Dual 350W motors, 30km range, 150KG load capacity. B2B export to 50+ countries. ISO, CE, FDA certified. OEM/ODM available. Factory-direct pricing.',
+    'Professional electric wheelchair manufacturer of lightweight folding wheelchairs with magnesium alloy frames. Dual 350W motors, 30km range, 150KG load. B2B export, ISO/CE/FDA certified. OEM/ODM.',
   keywords:
     'electric wheelchair, electric wheelchair manufacturer, folding electric wheelchair, lightweight wheelchair, magnesium alloy wheelchair, MiniElephant, MiniRedone, wheelchair supplier, B2B wheelchair export, China wheelchair manufacturer, mobility scooter, power wheelchair, OEM wheelchair, ODM wheelchair, electric wheelchair factory, Zhejiang wheelchair, portable wheelchair, dual motor wheelchair, 30km range wheelchair, 150kg capacity wheelchair, ISO 13485 wheelchair, CE certified wheelchair',
   robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
@@ -61,6 +61,14 @@ export const metadata = {
     'theme-color': '#14B8A6',
     'google-site-verification': '',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-48x48.png', type: 'image/png', sizes: '48x48' },
+      { url: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -70,8 +78,6 @@ export default function RootLayout({ children }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#14B8A6" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://wa.me" />
         <link rel="preconnect" href="https://i.pravatar.cc" />
@@ -131,17 +137,6 @@ export default function RootLayout({ children }) {
             },
             "isoCertifications": ["ISO 13485", "CE", "FDA"],
             "knowsAbout": ["Electric Wheelchair Manufacturing", "Lightweight Mobility Devices", "Magnesium Alloy Wheelchairs", "Folding Electric Wheelchairs"],
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "MiniRedone Electric Wheelchair Series",
-              "itemListElement": [
-                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "MiniRedone-I" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "MiniRedone-II" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "MiniRedone-III" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "MiniRedone-IV" } },
-                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "MiniRedone-V" } }
-              ]
-            }
           }),
         }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{
@@ -164,12 +159,12 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <main className="flex-1">{children}</main>
         <footer className="bg-gray-900 text-gray-400 py-12 px-4">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-[1600px] mx-auto">
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 text-left">
               {/* Brand */}
               <div>
                 <div className="mb-3">
-                  <img src="/logo-white.png" alt="MiniElephant Electric Wheelchair" style={{ height: "46px", width: "auto" }} />
+                  <img src="/logo-white.png" alt="MiniElephant Electric Wheelchair" style={{ height: "60px", width: "auto" }} />
                   <h3 className="sr-only">MiniElephant</h3>
                 </div>
                 <p className="text-sm text-gray-400 leading-relaxed">

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProductBySlug, wheelchairs } from '@/lib/products';
-import ProductJsonLd from '../../components/ProductJsonLd';
-import ImageGallery from '../../components/ImageGallery';
+import ProductJsonLd from '@/app/components/ProductJsonLd';
+import ImageGallery from '@/app/components/ImageGallery';
 
 export async function generateStaticParams() {
   return wheelchairs.map((p) => ({ slug: p.slug }));

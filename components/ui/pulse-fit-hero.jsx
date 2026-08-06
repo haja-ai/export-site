@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from "framer-motion";
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function PulseFitHero({
@@ -22,325 +23,286 @@ export function PulseFitHero({
   socialProof,
   programs = [],
   bannerImage,
+  bannerVideo,
+  bannerPoster,
   className,
   children,
 }) {
+  const titleRef = useRef(null);
+  const productsRef = useRef(null);
+
+  const { scrollYProgress: titleProgress } = useScroll({
+    target: titleRef,
+    offset: ["start end", "end start"],
+  });
+  const titleOpacity = useTransform(titleProgress, [0, 0.25, 0.6, 1], [0, 1, 1, 0]);
+  const titleY = useTransform(titleProgress, [0, 0.25, 0.6, 1], [60, 0, 0, -40]);
+
+  const { scrollYProgress: productsProgress } = useScroll({
+    target: productsRef,
+    offset: ["start end", "end start"],
+  });
+  const productsOpacity = useTransform(productsProgress, [0, 0.2, 0.65, 1], [0, 1, 1, 0]);
+  const productsY = useTransform(productsProgress, [0, 0.2, 0.65, 1], [70, 0, 0, -40]);
+
   return (
-    <section
-      className={cn(
-        "relative w-full min-h-screen flex flex-col overflow-hidden",
-        className
-      )}
-      style={{
-        background: "#FFFFFF",
-      }}
-      role="banner"
-      aria-label="Hero section"
-    >
-      {/* Full-bleed banner image with subtle overlay */}
-      {bannerImage && (
-        <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
-          <div className="w-full h-full relative">
-            <img
-              src={bannerImage}
-              alt={title || "MiniElephant Electric Wheelchair Banner"}
-              className="w-full h-full object-cover"
-            />
-            {/* Soft overlay : banner stays visible behind the nav so they read as one surface, while text stays legible */}
-            <div className="absolute inset-0" style={{
-              background: `
-                linear-gradient(180deg,
-                  rgba(255,255,255,0.62) 0%,
-                  rgba(255,255,255,0.48) 38%,
-                  rgba(255,255,255,0.80) 72%,
-                  #FFFFFF 100%
-                )
-              `,
-            }} />
-          </div>
-        </div>
-      )}
-      {/* Top scrim : a cinematic dark band that melts the nav into the banner top */}
-      <div className="absolute top-0 left-0 right-0 z-10 pointer-events-none" style={{
-        height: "200px",
-        background: "linear-gradient(180deg, rgba(17,24,39,0.85) 0%, rgba(17,24,39,0.5) 30%, rgba(17,24,39,0.12) 65%, rgba(17,24,39,0) 100%)",
-      }} />
+    <>
+            {/* Header / nav */}
+        <motion.header
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="sticky top-0 left-0 right-0 z-50 flex flex-row justify-between items-center px-8 lg:px-16"
+          style={{ paddingTop: "16px", paddingBottom: "16px", background: "#FFFFFF", borderBottom: "1px solid #e5e7eb" }}
+        >
+          <Link href="/" style={{ textDecoration: 'none' }} className="flex items-center">
+            <img src="/logo-black.png" alt="MiniElephant Electric Wheelchair" style={{ height: "56px", width: "auto" }} />
+          </Link>
 
-      {/* Header */}
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-20 flex flex-row justify-between items-center px-8 lg:px-16"
-        style={{ paddingTop: "32px", paddingBottom: "32px" }}
-      >
-        {/* Logo — full brand logo, link to home */}
-        <Link href="/" style={{ textDecoration: 'none' }} className="flex items-center">
-          <img src="/logo-black.png" alt="MiniElephant Electric Wheelchair" style={{ height: "80px", width: "auto" }} />
-        </Link>
+          <nav className="hidden lg:flex flex-row items-center gap-10" aria-label="Main navigation">
+            {navigation.map((item, index) => (
+              item.href ? (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className="flex flex-row items-center gap-1 hover:opacity-70 hover:scale-110 transition-all duration-200"
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "20px", fontWeight: 600, color: "#1a1a1a", textDecoration: 'none' }}
+                >
+                  {item.label}
+                  {item.hasDropdown && (
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                </Link>
+              ) : (
+                <button
+                  key={index}
+                  onClick={item.onClick}
+                  className="flex flex-row items-center gap-1 hover:opacity-70 hover:scale-110 transition-all duration-200"
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 400, color: "#1a1a1a" }}
+                >
+                  {item.label}
+                  {item.hasDropdown && (
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                </button>
+              )
+            ))}
+          </nav>
 
-        {/* Navigation — use Next.js Link instead of button+onClick for SEO crawlability */}
-        <nav className="hidden lg:flex flex-row items-center gap-10" aria-label="Main navigation">
-          {navigation.map((item, index) => (
-            item.href ? (
+          {ctaButton && (
+            ctaButton.href ? (
               <Link
-                key={index}
-                href={item.href}
-                className="flex flex-row items-center gap-1 hover:opacity-70 transition-opacity"
-                style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 400, color: "rgba(255,255,255,0.92)", textDecoration: 'none' }}
+                href={ctaButton.href}
+                className="px-6 py-3 rounded-full transition-all hover:scale-105 hidden sm:inline-block"
+                style={{
+                  background: "#FFFFFF", border: "1px solid #e2e8f0",
+                  fontFamily: "Inter, sans-serif", fontSize: "17px", fontWeight: 500,
+                  color: "#1a1a1a", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+                  textDecoration: 'none',
+                }}
               >
-                {item.label}
-                {item.hasDropdown && (
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                )}
+                {ctaButton.label}
               </Link>
             ) : (
               <button
-                key={index}
-                onClick={item.onClick}
-                className="flex flex-row items-center gap-1 hover:opacity-70 transition-opacity"
-                style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 400, color: "rgba(255,255,255,0.92)" }}
+                onClick={ctaButton.onClick}
+                className="px-6 py-3 rounded-full transition-all hover:scale-105 hidden sm:inline-block"
+                style={{
+                  background: "#FFFFFF", border: "1px solid #e2e8f0",
+                  fontFamily: "Inter, sans-serif", fontSize: "17px", fontWeight: 500,
+                  color: "#1a1a1a", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+                }}
               >
-                {item.label}
-                {item.hasDropdown && (
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                )}
+                {ctaButton.label}
               </button>
             )
-          ))}
-        </nav>
-
-        {/* CTA Button */}
-        {ctaButton && (
-          ctaButton.href ? (
-            <Link
-              href={ctaButton.href}
-              className="px-6 py-3 rounded-full transition-all hover:scale-105 hidden sm:inline-block"
-              style={{
-                background: "#FFFFFF", border: "1px solid #e2e8f0",
-                fontFamily: "Inter, sans-serif", fontSize: "17px", fontWeight: 500,
-                color: "#1a1a1a", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
-                textDecoration: 'none',
-              }}
-            >
-              {ctaButton.label}
-            </Link>
-          ) : (
-            <button
-              onClick={ctaButton.onClick}
-              className="px-6 py-3 rounded-full transition-all hover:scale-105"
-              style={{
-                background: "#FFFFFF", border: "1px solid #e2e8f0",
-                fontFamily: "Inter, sans-serif", fontSize: "17px", fontWeight: 500,
-                color: "#1a1a1a", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
-              }}
-            >
-              {ctaButton.label}
-            </button>
+          )}
+        </motion.header>
+    <div className="relative">
+      {/* ===== Sticky full-screen video/image hero — stays pinned while content scrolls over ===== */}
+      <div
+        className="sticky top-[88px] h-[calc(100vh-88px)] w-full overflow-hidden"
+        style={{ zIndex: 0 }}
+        role="banner"
+        aria-label="Hero section"
+      >
+        {/* Background video */}
+        {bannerVideo ? (
+          <video
+            src={bannerVideo}
+            poster={bannerPoster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          bannerImage && (
+            <img
+              src={bannerImage}
+              alt={title || "MiniElephant Electric Wheelchair Banner"}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           )
         )}
-      </motion.header>
 
-      {/* Main Content */}
-      {children ? (
-        <div className="relative z-10 flex-1 flex items-center justify-center w-full">{children}</div>
-      ) : (
-        <div className="relative z-10 flex-1 flex flex-col items-center sm:items-start justify-center px-4 sm:px-8 lg:px-16">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
-            }}
-            className="flex flex-col items-center sm:items-start text-center sm:text-left max-w-3xl"
-            style={{ gap: "32px" }}
-          >
-            <motion.h1 variants={{
-              hidden: { opacity: 0, y: 24 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-            }} className="text-[1.875rem] sm:text-[2.25rem] lg:text-[2.75rem]" style={{
-              fontFamily: "Inter, sans-serif", fontWeight: 700,
-              lineHeight: "1.12",
-              color: "#1a1a1a", letterSpacing: "-0.02em",
-            }}>
-              {title}
-            </motion.h1>
+        {/* Light overlay: transparent top (landmarks visible), white toward bottom for readability */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: bannerVideo
+            ? `linear-gradient(180deg,
+                rgba(255,255,255,0.04) 0%,
+                rgba(255,255,255,0.10) 30%,
+                rgba(255,255,255,0.42) 55%,
+                rgba(255,255,255,0.78) 80%,
+                rgba(255,255,255,0.97) 100%)`
+            : `linear-gradient(180deg,
+                rgba(255,255,255,0.62) 0%,
+                rgba(255,255,255,0.48) 38%,
+                rgba(255,255,255,0.80) 72%,
+                #FFFFFF 100%)`,
+        }} />
 
-            <motion.p variants={{
-              hidden: { opacity: 0, y: 24 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-            }} className="text-[1rem] lg:text-[1.0625rem]" style={{
-              fontFamily: "Inter, sans-serif", fontWeight: 400,
-              lineHeight: "1.6",
-              color: "#4a5568", maxWidth: "600px",
-            }}>
-              {subtitle}
-            </motion.p>
+        {/* Top scrim for the nav */}
+        <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none" style={{
+          height: "200px",
+          background: "linear-gradient(180deg, rgba(17,24,39,0.85) 0%, rgba(17,24,39,0.5) 30%, rgba(17,24,39,0.12) 65%, rgba(17,24,39,0) 100%)",
+        }} />
 
-            {(primaryAction || secondaryAction) && (
-              <motion.div variants={{
-                hidden: { opacity: 0, scale: 0.95 },
-                visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-              }}
-                className="flex flex-col sm:flex-row items-center gap-4"
-              >
-                {primaryAction && (
-                  primaryAction.href ? (
-                    <Link
-                      href={primaryAction.href}
-                      className="flex flex-row items-center gap-2 px-8 py-4 rounded-full transition-all hover:scale-105"
-                      style={{
-                        background: "#1a1a1a", fontFamily: "Inter, sans-serif",
-                        fontSize: "18px", fontWeight: 500, color: "#FFFFFF",
-                        boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)",
-                        textDecoration: 'none',
-                      }}
-                    >
-                      {primaryAction.label}
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </Link>
-                  ) : (
-                    <button
-                      onClick={primaryAction.onClick}
-                      className="flex flex-row items-center gap-2 px-8 py-4 rounded-full transition-all hover:scale-105"
-                      style={{
-                        background: "#1a1a1a", fontFamily: "Inter, sans-serif",
-                        fontSize: "18px", fontWeight: 500, color: "#FFFFFF",
-                        boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)",
-                      }}
-                    >
-                      {primaryAction.label}
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </button>
-                  )
-                )}
-                {secondaryAction && (
-                  secondaryAction.href ? (
-                    <Link
-                      href={secondaryAction.href}
-                      className="px-8 py-4 rounded-full transition-all hover:scale-105"
-                      style={{
-                        background: "transparent", border: "1px solid #cbd5e0",
-                        fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 500, color: "#1a1a1a",
-                        textDecoration: 'none',
-                      }}
-                    >
-                      {secondaryAction.label}
-                    </Link>
-                  ) : (
-                    <button
-                      onClick={secondaryAction.onClick}
-                      className="px-8 py-4 rounded-full transition-all hover:scale-105"
-                      style={{
-                        background: "transparent", border: "1px solid #cbd5e0",
-                        fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 500, color: "#1a1a1a",
-                      }}
-                    >
-                      {secondaryAction.label}
-                    </button>
-                  )
-                )}
-              </motion.div>
-            )}
 
-            {disclaimer && (
-              <motion.p
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                style={{ fontFamily: "Inter, sans-serif", fontSize: "13px", color: "#718096", fontStyle: "italic" }}
-              >
-                {disclaimer}
-              </motion.p>
-            )}
 
-            {socialProof && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-                className="flex flex-row items-center gap-3"
-              >
-                <div className="flex flex-row -space-x-2">
-                  {socialProof.avatars.map((avatar, index) => (
-                    <img key={index} src={avatar} alt={`User ${index + 1}`}
-                      className="rounded-full border-2 border-white"
-                      style={{ width: "40px", height: "40px", objectFit: "cover" }} />
-                  ))}
-                </div>
-                <span style={{ fontFamily: "Inter, sans-serif", fontSize: "14px", fontWeight: 500, color: "#4a5568" }}>
-                  {socialProof.text}
-                </span>
-              </motion.div>
-            )}
+        {/* Scroll-down cue */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none">
+          <span style={{ fontFamily: "Inter, sans-serif", fontSize: "13px", fontWeight: 500, color: "rgba(255,255,255,0.9)", letterSpacing: "0.08em" }}>
+            SCROLL
+          </span>
+          <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </motion.div>
         </div>
-      )}
+      </div>
 
-      {/* Program Cards Carousel */}
-      {programs.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="relative z-10 w-full overflow-hidden"
-          style={{ paddingTop: "60px", paddingBottom: "60px" }}
-        >
-          <motion.div
-            className="flex items-center justify-center"
-            style={{ gap: "24px", paddingLeft: "24px", paddingRight: "24px" }}
-          >
-            {programs.map((program, index) => (
-              program.href ? (
-                <Link
-                  key={index}
-                  href={program.href}
-                  className="flex-shrink-0 relative overflow-hidden"
-                  style={{ width: "356px", height: "480px", borderRadius: "24px", boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12)", textDecoration: 'none', display: 'block' }}
-                >
-                  <img src={program.image} alt={program.title} loading={index < 2 ? "eager" : "lazy"} fetchPriority={index < 2 ? "high" : "auto"} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%)" }} />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                    <span style={{ fontFamily: "Inter, sans-serif", fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.8)", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-                      {program.category}
-                    </span>
-                    <h3 style={{ fontFamily: "Inter, sans-serif", fontSize: "24px", fontWeight: 600, color: "#FFFFFF" }}>
-                      {program.title}
-                    </h3>
-                  </div>
-                </Link>
-              ) : (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.05, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  onClick={program.onClick}
-                  className="flex-shrink-0 cursor-pointer relative overflow-hidden"
-                  style={{ width: "356px", height: "480px", borderRadius: "24px", boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12)" }}
-                >
-                  <img src={program.image} alt={program.title} loading={index < 2 ? "eager" : "lazy"} fetchPriority={index < 2 ? "high" : "auto"} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%)" }} />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                    <span style={{ fontFamily: "Inter, sans-serif", fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.8)", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-                      {program.category}
-                    </span>
-                    <h3 style={{ fontFamily: "Inter, sans-serif", fontSize: "24px", fontWeight: 600, color: "#FFFFFF" }}>
-                      {program.title}
-                    </h3>
-                  </div>
+      {/* ===== Content that scrolls UP over the pinned video ===== */}
+      <div className="relative" style={{ zIndex: 10 }}>
+        {children ? (
+          <div className="w-full">{children}</div>
+        ) : (
+          <>
+            {/* Title / subtitle / buttons — fade in over the video */}
+            <motion.div
+              ref={titleRef}
+              style={{
+                opacity: titleOpacity,
+                y: titleY,
+                paddingTop: "22vh", paddingBottom: "10vh", gap: "28px",
+              }}
+              className="flex flex-col items-center text-center px-6 sm:px-8 lg:px-16"
+            >
+              <motion.h1 className="text-[1.9rem] sm:text-[2.4rem] lg:text-[3.2rem]" style={{
+                fontFamily: "Inter, sans-serif", fontWeight: 800,
+                lineHeight: "1.12", color: "#FFFFFF", letterSpacing: "-0.02em", maxWidth: "920px",
+                fontSize: "clamp(1.75rem, 4.2vw, 3.4rem)",
+                textShadow: "0 2px 16px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.65)",
+              }}>
+                {title}
+              </motion.h1>
+
+              <motion.p className="text-[1.0625rem] lg:text-[1.125rem]" style={{
+                fontFamily: "Inter, sans-serif", fontWeight: 500,
+                lineHeight: "1.7", color: "rgba(255,255,255,0.92)", maxWidth: "720px",
+                fontSize: "clamp(0.95rem, 1.6vw, 1.2rem)",
+                textShadow: "0 1px 10px rgba(0,0,0,0.55)",
+              }}>
+                {subtitle}
+              </motion.p>
+
+              {(primaryAction || secondaryAction) && (
+                <motion.div className="flex flex-col sm:flex-row items-center gap-4">
+                  {primaryAction && (
+                    primaryAction.href ? (
+                      <Link href={primaryAction.href} className="flex flex-row items-center gap-2 px-8 py-4 rounded-full transition-all hover:scale-105"
+                        style={{ background: "#1a1a1a", fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 500, color: "#FFFFFF", boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)", textDecoration: 'none' }}>
+                        {primaryAction.label}
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                      </Link>
+                    ) : (
+                      <button onClick={primaryAction.onClick} className="flex flex-row items-center gap-2 px-8 py-4 rounded-full transition-all hover:scale-105"
+                        style={{ background: "#1a1a1a", fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 500, color: "#FFFFFF", boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)" }}>
+                        {primaryAction.label}
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                      </button>
+                    )
+                  )}
+                  {secondaryAction && (
+                    secondaryAction.href ? (
+                      <Link href={secondaryAction.href} className="px-8 py-4 rounded-full transition-all hover:scale-105"
+                        style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 600, color: "#FFFFFF", textDecoration: 'none', backdropFilter: "blur(4px)" }}>
+                        {secondaryAction.label}
+                      </Link>
+                    ) : (
+                      <button onClick={secondaryAction.onClick} className="px-8 py-4 rounded-full transition-all hover:scale-105"
+                        style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 600, color: "#FFFFFF", backdropFilter: "blur(4px)" }}>
+                        {secondaryAction.label}
+                      </button>
+                    )
+                  )}
                 </motion.div>
-              )
-            ))}
-          </motion.div>
-        </motion.div>
-      )}
-    </section>
+              )}
+
+              {disclaimer && (
+                <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.6 }}
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "13px", color: "#718096", fontStyle: "italic" }}>
+                  {disclaimer}
+                </motion.p>
+              )}
+            </motion.div>
+
+            {/* Product cards — fade in one by one over the video */}
+            {programs.length > 0 && (
+              <motion.div
+                ref={productsRef}
+                style={{ opacity: productsOpacity, y: productsY }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 px-6 sm:px-8 lg:px-16"
+              >
+                {programs.map((program, index) => (
+                  <div
+                    key={index}
+                    className="relative overflow-hidden"
+                    style={{ borderRadius: "20px", boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)", aspectRatio: '3/4' }}
+                  >
+                    {program.href ? (
+                      <Link href={program.href} style={{ textDecoration: 'none', display: 'block' }} className="w-full h-full relative overflow-hidden group">
+                        <img src={program.image} alt={program.title} loading={index < 2 ? "eager" : "lazy"} fetchPriority={index < 2 ? "high" : "auto"} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%)" }} />
+                        <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1.5">
+                          <span style={{ fontFamily: "Inter, sans-serif", fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.8)", textTransform: "uppercase", letterSpacing: "0.1em" }}>{program.category}</span>
+                          <h3 style={{ fontFamily: "Inter, sans-serif", fontSize: "20px", fontWeight: 600, color: "#FFFFFF" }}>{program.title}</h3>
+                        </div>
+                      </Link>
+                    ) : (
+                      <div onClick={program.onClick} className="w-full h-full cursor-pointer relative overflow-hidden group">
+                        <img src={program.image} alt={program.title} loading={index < 2 ? "eager" : "lazy"} fetchPriority={index < 2 ? "high" : "auto"} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%)" }} />
+                        <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1.5">
+                          <span style={{ fontFamily: "Inter, sans-serif", fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.8)", textTransform: "uppercase", letterSpacing: "0.1em" }}>{program.category}</span>
+                          <h3 style={{ fontFamily: "Inter, sans-serif", fontSize: "20px", fontWeight: 600, color: "#FFFFFF" }}>{program.title}</h3>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </motion.div>
+            )}
+          </>
+        )}
+      </div>
+    </div>
+    </>
   );
 }

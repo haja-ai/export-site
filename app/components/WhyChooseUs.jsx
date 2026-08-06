@@ -12,7 +12,7 @@ const FALLBACK_ICONS = {
 function AdvantageCard({ item, index }) {
   const [imgError, setImgError] = useState(false);
   const imgSlug = item.title.toLowerCase().replace(/[^a-z]/g, '-').replace(/--+/g, '-').replace(/^-|-$/g, '');
-  const imgSrc = `/images/advantage-${imgSlug}.webp`;
+  const imgSrc = `/images/advantage-${imgSlug}.webp?v=2`;
   const fallbackIcon = FALLBACK_ICONS[imgSlug] || FALLBACK_ICONS['default'];
 
   return (

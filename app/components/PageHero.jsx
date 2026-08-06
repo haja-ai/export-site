@@ -35,6 +35,8 @@ export default function PageHero() {
         { image: "/images/miniredone-v.webp", category: "EXTRA WIDE", title: "MiniRedone-V · W900mm", href: '/products/miniredone-v' },
       ]}
       bannerImage="/images/wheelchair-banner.webp"
+      bannerVideo="/videos/factory-aerial.mp4"
+      bannerPoster="/images/factory-aerial-poster.webp"
     />
   );
 }

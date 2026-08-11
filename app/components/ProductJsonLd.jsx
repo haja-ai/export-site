@@ -19,6 +19,7 @@ export default function ProductJsonLd({ product }) {
 
   // Set priceValidUntil ~1 year from product-specific date based on slug
   const validUntil = '2027-06-30';
+  const validFrom = '2026-01-01';
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -42,10 +43,16 @@ export default function ProductJsonLd({ product }) {
       price,
       priceCurrency: 'USD',
       priceValidUntil: validUntil,
+      validFrom,
       availability: 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
       shippingDetails: {
         '@type': 'OfferShippingDetails',
+        shippingRate: {
+          '@type': 'MonetaryAmount',
+          value: 0,
+          currency: 'USD',
+        },
         shippingDestination: {
           '@type': 'DefinedRegion',
           addressCountry: 'US',

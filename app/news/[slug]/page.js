@@ -19,6 +19,9 @@ export async function generateMetadata({ params }) {
       description: article.summary,
       url: `https://www.semwheelchair.com/news/${slug}`,
       type: 'article',
+      images: article.bannerImage
+        ? [{ url: `https://www.semwheelchair.com${article.bannerImage}`, width: 1600, height: 900, alt: article.title }]
+        : undefined,
     },
     alternates: {
       canonical: `https://www.semwheelchair.com/news/${slug}`,

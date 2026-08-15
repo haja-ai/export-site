@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
   if (!article) return { title: 'Article Not Found' };
 
   return {
-    title: `${article.title} | MiniElephant News`,
+    title: article.title,
     description: article.summary,
     openGraph: {
       title: article.title,

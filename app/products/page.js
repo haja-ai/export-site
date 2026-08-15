@@ -5,15 +5,18 @@ import PulseFitPage from '../components/PulseFitPage';
 import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 export const metadata = {
-  title: 'Electric Wheelchair Products | MiniRedone Series | B2B Export',
+  title: 'Electric Wheelchair Products | MiniRedone',
   description:
     'Explore all 10 MiniRedone electric wheelchair models for B2B export. Magnesium alloy frames, dual 350W motors, 30km range. ISO/CE/FDA certified.',
   openGraph: {
-    title: 'Electric Wheelchair Products | MiniRedone Series : Lightweight Folding Wheelchairs',
+    title: 'Electric Wheelchair Products | MiniRedone',
     description:
       '10 MiniRedone electric wheelchair models : from 42KG lightweight to 900mm extra-wide. Magnesium alloy frames, dual 350W motors, 30km range. Factory-direct B2B pricing.',
     url: 'https://www.semwheelchair.com/products',
     type: 'website',
+    images: [
+      { url: 'https://www.semwheelchair.com/images/banner-products.webp', width: 1200, height: 630, alt: 'MiniElephant products page' },
+    ],
   },
   alternates: { canonical: 'https://www.semwheelchair.com/products' },
 };

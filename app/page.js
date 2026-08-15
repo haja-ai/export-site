@@ -8,7 +8,7 @@ import WhyChooseUs from './components/WhyChooseUs';
 const featuredProducts = [wheelchairs[0], wheelchairs[5], wheelchairs[7], wheelchairs[9]];
 
 export const metadata = {
-  title: 'Electric Wheelchair Manufacturer | MiniElephant Folding',
+  title: 'Electric Wheelchair Manufacturer | MiniRedone',
   description:
     'Professional electric wheelchair manufacturer of lightweight folding wheelchairs with magnesium alloy frames. Dual 350W motors, 30km range. ISO/CE/FDA certified.',
   openGraph: {

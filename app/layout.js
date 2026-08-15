@@ -80,10 +80,8 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#14B8A6" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://wa.me" />
-        <link rel="preconnect" href="https://i.pravatar.cc" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://wa.me" />
-        <link rel="dns-prefetch" href="https://i.pravatar.cc" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9D6EMGBXL"></script>
         <script dangerouslySetInnerHTML={{
           __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-J9D6EMGBXL');`,

@@ -4,14 +4,17 @@ import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
 export const metadata = {
-  title: 'FAQ | Electric Wheelchair Manufacturer | B2B Guide',
+  title: 'FAQ | Electric Wheelchair B2B Buying Guide',
   description:
     'B2B electric wheelchair FAQ: weight, range, motors, shipping, OEM/ODM, certification, warranty, pricing for MiniRedone wheelchairs.',
   openGraph: {
-    title: 'FAQ : MiniElephant Electric Wheelchair Manufacturer',
+    title: 'FAQ | Electric Wheelchair Buying Guide',
     description: 'Find answers about electric wheelchair shipping, OEM customization, warranty, battery range, and more from the manufacturer.',
     url: 'https://www.semwheelchair.com/faq',
     type: 'website',
+    images: [
+      { url: 'https://www.semwheelchair.com/images/banner-faq.webp', width: 1200, height: 630, alt: 'MiniElephant faq page' },
+    ],
   },
   alternates: {
     canonical: 'https://www.semwheelchair.com/faq',

@@ -5,15 +5,18 @@ import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
 export const metadata = {
-  title: 'Contact Us | Get a Quote | Electric Wheelchair Manufacturer',
+  title: 'Contact Us | Get an Electric Wheelchair Quote',
   description:
     'Contact MiniElephant for B2B inquiry, quotation, OEM/ODM. Factory-direct pricing, response within 24 hours. Phone: +86 13819098967, Email: johnson@semwheelchair.com.',
   openGraph: {
-    title: 'Contact MiniElephant : Electric Wheelchair Manufacturer Quotation',
+    title: 'Contact MiniElephant | Wheelchair Quote',
     description:
       'Get a customized quotation for folding electric wheelchairs. OEM/ODM inquiries welcome. Factory-direct B2B pricing. Fast response within 24 hours.',
     url: 'https://www.semwheelchair.com/contact',
     type: 'website',
+    images: [
+      { url: 'https://www.semwheelchair.com/images/banner-contact.webp', width: 1200, height: 630, alt: 'MiniElephant contact page' },
+    ],
   },
   alternates: {
     canonical: 'https://www.semwheelchair.com/contact',

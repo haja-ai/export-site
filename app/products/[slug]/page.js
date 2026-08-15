@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
   const specs = product.specs.map((s) => `${s.label}: ${s.value}`).join(', ');
 
   return {
-    title: `${product.fullName} | ${product.specs[0]?.value || 'Lightweight'} Folding Wheelchair`,
+    title: `${product.name} | ${product.specs[0]?.value || 'Lightweight'} Folding Wheelchair`,
     description: `${product.tagline} ${product.specs[0]?.value || ''}, ${product.specs[1]?.value || '150KG'} load, dual 350W motors. B2B export, OEM/ODM.`,
     openGraph: {
       title: `${product.fullName} : ${product.tagline}`,

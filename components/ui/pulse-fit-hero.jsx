@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -30,6 +30,7 @@ export function PulseFitHero({
 }) {
   const titleRef = useRef(null);
   const productsRef = useRef(null);
+  const [videoReady, setVideoReady] = useState(false);
 
   const { scrollYProgress: titleProgress } = useScroll({
     target: titleRef,
@@ -130,19 +131,28 @@ export function PulseFitHero({
         role="banner"
         aria-label="Hero section"
       >
-        {/* Background video */}
+        {/* Background video — poster image renders instantly (LCP), video fades in when ready */}
         {bannerVideo ? (
-          <video
-            src={bannerVideo}
-            poster={bannerPoster}
-            preload="metadata"
-            fetchPriority="low"
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+          <div className="absolute inset-0 w-full h-full">
+            <img
+              src={bannerPoster}
+              alt={title || "MiniElephant Electric Wheelchair"}
+              fetchPriority="high"
+              decoding="async"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoReady ? "opacity-0" : "opacity-100"}`}
+            />
+            <video
+              src={bannerVideo}
+              preload="metadata"
+              fetchPriority="low"
+              autoPlay
+              muted
+              loop
+              playsInline
+              onCanPlay={() => setVideoReady(true)}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoReady ? "opacity-100" : "opacity-0"}`}
+            />
+          </div>
         ) : (
           bannerImage && (
             <img

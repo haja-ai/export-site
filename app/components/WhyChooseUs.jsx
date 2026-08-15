@@ -23,6 +23,8 @@ function AdvantageCard({ item, index }) {
             <img
               src={imgSrc}
               alt={item.title}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-cover group-hover:scale-105 transition-all duration-500 ease-out"
               onError={() => setImgError(true)}
             />

@@ -135,6 +135,8 @@ export function PulseFitHero({
           <video
             src={bannerVideo}
             poster={bannerPoster}
+            preload="metadata"
+            fetchPriority="low"
             autoPlay
             muted
             loop

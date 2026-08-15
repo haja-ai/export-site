@@ -21,8 +21,8 @@ const certificates = [
     id: 'fda',
     name: 'FDA Registration',
     desc: 'US Food and Drug Administration establishment registration',
-    image: '/images/cert-fda.jpg',
-    fullSize: '/images/cert-fda.jpg',
+    image: '/images/cert-fda.webp',
+    fullSize: '/images/cert-fda.webp',
   },
 ];
 

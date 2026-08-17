@@ -49,10 +49,12 @@ const faqs = [
   {
     q: 'Can the wheelchair be used outdoors?',
     a: 'Yes! MiniRedone wheelchairs are designed for both indoor and outdoor use. The pneumatic tires provide good traction on pavement, grass, and gravel. The magnesium alloy frame is weather-resistant.',
+    link: { text: 'Compare outdoor-ready MiniRedone models', href: '/products' },
   },
   {
     q: 'Is the wheelchair foldable for transport?',
     a: 'All MiniRedone models are folding wheelchairs. Folded dimensions vary by model (approximately L830-850 × W675-900 × H780-1250 mm). The lightweight magnesium alloy frame makes lifting and loading easy.',
+    link: { text: 'View folding models by weight', href: '/products' },
   },
   {
     q: 'What payment methods do you accept?',
@@ -114,6 +116,17 @@ export default function FaqPage() {
                 </summary>
                 <div className="px-6 pb-4">
                   <p className="text-gray-600 leading-relaxed">{faq.a}</p>
+                  {faq.link && (
+                    <Link
+                      href={faq.link.href}
+                      className="inline-flex items-center mt-2 text-teal font-semibold hover:text-teal-dark transition-colors"
+                    >
+                      {faq.link.text}
+                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  )}
                 </div>
               </details>
               </FadeUpItem>

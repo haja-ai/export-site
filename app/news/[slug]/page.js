@@ -23,6 +23,14 @@ export async function generateMetadata({ params }) {
         ? [{ url: `https://www.semwheelchair.com${article.bannerImage}`, width: 1600, height: 900, alt: article.title }]
         : undefined,
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.summary,
+      images: article.bannerImage
+        ? [`https://www.semwheelchair.com${article.bannerImage}`]
+        : undefined,
+    },
     alternates: {
       canonical: `https://www.semwheelchair.com/news/${slug}`,
     },

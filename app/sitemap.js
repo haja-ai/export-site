@@ -27,7 +27,7 @@ const newsPages = newsArticles.map((a) => ({
   url: `/news/${a.slug}`,
   priority: '0.7',
   changefreq: 'monthly',
-  lastModified: today,
+  lastModified: a.date || today,
 }));
 
 export default async function sitemap() {

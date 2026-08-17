@@ -32,8 +32,23 @@ export default function ContactForm() {
       });
       if (!res.ok) throw new Error('API returned ' + res.status);
       setSubmitted(true);
+      // GA4 conversion tracking
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'inquiry',
+          event_label: formData.product || 'general',
+          value: 1,
+        });
+      }
     } catch (err) {
       console.error('Submit failed:', err);
+      // GA4 failed attempt
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'inquiry_error', {
+          event_category: 'inquiry',
+          event_label: err.message || 'unknown',
+        });
+      }
     } finally {
       setLoading(false);
     }

@@ -2,11 +2,12 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import * as gh from '@/lib/github-storage';
 
 export const dynamic = 'force-dynamic';
 
 function isAdminMode() {
-  return process.env.NEXT_PUBLIC_ADMIN_MODE === '1';
+  return process.env.NEXT_PUBLIC_ADMIN_MODE === '1' || Boolean(process.env.GITHUB_TOKEN);
 }
 
 function contentPath() {
@@ -53,7 +54,14 @@ function serializeValue(v, indent) {
 export async function GET() {
   if (!isAdminMode()) return NextResponse.json({ error: 'Admin mode disabled' }, { status: 403 });
   try {
-    const src = fs.readFileSync(contentPath(), 'utf-8');
+    let src;
+    let sha = null;
+    if (gh.isConfigured()) {
+      const r = await gh.readFile('lib/site-content.js');
+      src = r.content; sha = r.sha;
+    } else {
+      src = fs.readFileSync(contentPath(), 'utf-8');
+    }
     const content = parseContent(src);
     return NextResponse.json({ ok: true, content });
   } catch (e) {
@@ -70,7 +78,15 @@ export async function PUT(request) {
       return NextResponse.json({ error: 'content must be an object' }, { status: 400 });
     }
 
-    const src = fs.readFileSync(contentPath(), 'utf-8');
+    let src;
+    let sha = null;
+    let mode = 'local';
+    if (gh.isConfigured()) {
+      const r = await gh.readFile('lib/site-content.js');
+      src = r.content; sha = r.sha; mode = 'github';
+    } else {
+      src = fs.readFileSync(contentPath(), 'utf-8');
+    }
     const tailMarker = '// 便捷读取函数';
     const tailIdx = src.indexOf(tailMarker);
     if (tailIdx < 0) throw new Error('Cannot find tail marker');
@@ -80,8 +96,12 @@ export async function PUT(request) {
     const tail = src.slice(tailIdx);
 
     const newSrc = header + 'export const siteContent = ' + serialized + ';\n\n' + tail;
+    if (mode === 'github') {
+      await gh.writeFile('lib/site-content.js', newSrc, 'designer: update page content', sha);
+      return NextResponse.json({ ok: true, mode: 'github' });
+    }
     fs.writeFileSync(contentPath(), newSrc, 'utf-8');
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, mode: 'local' });
   } catch (e) {
     return NextResponse.json({ error: String(e) }, { status: 500 });
   }

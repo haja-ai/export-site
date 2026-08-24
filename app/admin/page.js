@@ -1,8 +1,10 @@
 'use client';
 
+import AdminGate from '../components/AdminGate';
+
 import { useEffect, useState, useCallback } from 'react';
 
-export default function AdminDesigner() {
+function AdminDesignerInner() {
   const [products, setProducts] = useState([]);
   const [selected, setSelected] = useState(null);
   const [draft, setDraft] = useState(null);
@@ -325,4 +327,12 @@ function Input({ value, onChange }) {
 
 function Label({ children }) {
   return <div style={{ fontSize: 12, color: '#6b7280', marginBottom: 4, marginTop: 8 }}>{children}</div>;
+}
+
+export default function AdminDesigner() {
+  return (
+    <AdminGate>
+      <AdminDesignerInner />
+    </AdminGate>
+  );
 }

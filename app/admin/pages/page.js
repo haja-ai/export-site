@@ -1,5 +1,7 @@
 'use client';
 
+import AdminGate from '../../components/AdminGate';
+
 import { useEffect, useState, useCallback } from 'react';
 
 // 页面编辑 tab —— 编辑首页/About/FAQ/Contact/News/Products 的文案
@@ -56,7 +58,7 @@ function FieldTree({ value, onChange, path = [] }) {
   return null;
 }
 
-export default function AdminPages() {
+function AdminPagesInner() {
   const [siteContent, setSiteContent] = useState(null);
   const [draft, setDraft] = useState(null);
   const [activePage, setActivePage] = useState('home');
@@ -180,5 +182,13 @@ export default function AdminPages() {
         />
       </div>
     </div>
+  );
+}
+
+export default function AdminPages() {
+  return (
+    <AdminGate>
+      <AdminPagesInner />
+    </AdminGate>
   );
 }

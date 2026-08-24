@@ -1,22 +1,20 @@
-// Admin API: read + write products data (local design tool)
-// Security: only available when NEXT_PUBLIC_ADMIN_MODE=1 (local dev)
+// Admin API: read + write products data (design tool)
+// Local mode (NEXT_PUBLIC_ADMIN_MODE=1 + local fs) or GitHub mode (GITHUB_TOKEN set, for Vercel)
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import * as gh from '@/lib/github-storage';
 
 export const dynamic = 'force-dynamic';
 
 function isAdminMode() {
-  return process.env.NEXT_PUBLIC_ADMIN_MODE === '1';
+  return process.env.NEXT_PUBLIC_ADMIN_MODE === '1' || Boolean(process.env.GITHUB_TOKEN);
 }
 
 function productsFilePath() {
   return path.join(process.cwd(), 'lib', 'products.js');
 }
 
-// Parse wheelchairs array from products.js source using a minimal JS sandbox.
-// We strip the export keyword and eval the remaining array literal with
-// safe builtins (Date, etc). Products.js is our own file — safe to eval.
 function parseProducts(source) {
   const match = source.match(/export\s+const\s+wheelchairs\s*=\s*([\s\S]*?);\s*\n\s*export\s+const\s+allProducts/);
   if (!match) throw new Error('Cannot locate wheelchairs array in products.js');
@@ -26,7 +24,6 @@ function parseProducts(source) {
   return fn();
 }
 
-// Serialize a product object back to JS source format (compact-ish, valid JS)
 function serializeProduct(p) {
   const lines = [];
   lines.push('  {');
@@ -34,7 +31,6 @@ function serializeProduct(p) {
   lines.push(`    name: ${JSON.stringify(p.name)},`);
   lines.push(`    fullName: ${JSON.stringify(p.fullName)},`);
   lines.push(`    tagline: ${JSON.stringify(p.tagline)},`);
-  // description — keep template-safe (no backticks)
   lines.push(`    description:\n      ${JSON.stringify(p.description || '')},`);
   if (p.b2bPrice) lines.push(`    b2bPrice: ${JSON.stringify(p.b2bPrice)},`);
   lines.push(`    specs: [`);
@@ -55,13 +51,19 @@ function serializeProduct(p) {
   return lines.join('\n');
 }
 
-export async function GET() {
-  if (!isAdminMode()) {
-    return NextResponse.json({ error: 'Admin mode disabled' }, { status: 403 });
+async function loadSource() {
+  if (gh.isConfigured()) {
+    const { content, sha } = await gh.readFile('lib/products.js');
+    return { source: content, sha, mode: 'github' };
   }
+  return { source: fs.readFileSync(productsFilePath(), 'utf-8'), sha: null, mode: 'local' };
+}
+
+export async function GET() {
+  if (!isAdminMode()) return NextResponse.json({ error: 'Admin mode disabled' }, { status: 403 });
   try {
-    const src = fs.readFileSync(productsFilePath(), 'utf-8');
-    const products = parseProducts(src);
+    const { source } = await loadSource();
+    const products = parseProducts(source);
     return NextResponse.json({ ok: true, products });
   } catch (e) {
     return NextResponse.json({ error: String(e) }, { status: 500 });
@@ -69,34 +71,33 @@ export async function GET() {
 }
 
 export async function PUT(request) {
-  if (!isAdminMode()) {
-    return NextResponse.json({ error: 'Admin mode disabled' }, { status: 403 });
-  }
+  if (!isAdminMode()) return NextResponse.json({ error: 'Admin mode disabled' }, { status: 403 });
   try {
     const body = await request.json();
     const { products } = body;
-    if (!Array.isArray(products)) {
-      return NextResponse.json({ error: 'products must be an array' }, { status: 400 });
-    }
+    if (!Array.isArray(products)) return NextResponse.json({ error: 'products must be an array' }, { status: 400 });
 
-    const src = fs.readFileSync(productsFilePath(), 'utf-8');
-    const existing = parseProducts(src);
+    const { source, sha, mode } = await loadSource();
+    const existing = parseProducts(source);
 
-    // Replace each product by slug; keep unknown products untouched
     const bySlug = {};
     for (const p of products) bySlug[p.slug] = p;
     const merged = existing.map(p => bySlug[p.slug] ? { ...p, ...bySlug[p.slug] } : p);
 
-    // Split source: [before wheelchairs array] wheelchairs [tail after array]
-    const beforeMatch = src.match(/^([\s\S]*?export\s+const\s+wheelchairs\s*=\s*\[)/);
-    const tailMatch = src.match(/(\];\s*\n[\s\S]*)$/);
+    const beforeMatch = source.match(/^([\s\S]*?export\s+const\s+wheelchairs\s*=\s*\[)/);
+    const tailMatch = source.match(/(\];\s*\n[\s\S]*)$/);
     if (!beforeMatch || !tailMatch) throw new Error('Cannot split products.js');
     const before = beforeMatch[1];
     const tail = tailMatch[1];
 
     const newSrc = before + '\n' + merged.map(serializeProduct).join('\n') + '\n' + tail;
+
+    if (mode === 'github') {
+      await gh.writeFile('lib/products.js', newSrc, 'designer: update products', sha);
+      return NextResponse.json({ ok: true, count: merged.length, mode: 'github' });
+    }
     fs.writeFileSync(productsFilePath(), newSrc, 'utf-8');
-    return NextResponse.json({ ok: true, count: merged.length });
+    return NextResponse.json({ ok: true, count: merged.length, mode: 'local' });
   } catch (e) {
     return NextResponse.json({ error: String(e) }, { status: 500 });
   }

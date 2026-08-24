@@ -1,49 +1,36 @@
-# MiniElephant 独立站可视化设计器
+# MiniElephant 独立站可视化设计器 — 团队协作版
 
-本地可视化编辑器，用于修改产品图片、标题、描述、规格等，改完可一键部署上线。
+## 同事怎么用（无需安装任何软件）
 
-## 启动
+1. 浏览器打开：**https://www.semwheelchair.com/admin**
+2. 输入管理员密码（找 Johnson 要）
+3. 开始编辑：
+   - **产品编辑**：改 10 款产品的图片、标题、描述、规格、价格
+   - **页面编辑**：点左上角"← 产品编辑器"旁边的链接进 **/admin/pages**，改首页/About/FAQ/Contact/News/Products 文案
+4. 改完点 **💾 Save**（保存到代码仓库）或 **🚀 Save + Deploy**（保存并部署上线）
 
-```bash
-cd C:\Users\Administrator\Desktop\export-site
-NEXT_PUBLIC_ADMIN_MODE=1 npx next dev -p 3001
-```
+## 编辑内容
 
-然后浏览器打开：**http://localhost:3001/admin**
+| 编辑器 | 地址 | 能改什么 |
+|:----|:----|:----|
+| 产品编辑器 | /admin | 产品图片、标题、描述、规格表、卖点、价格 |
+| 页面编辑器 | /admin/pages | 首页 hero 文案/按钮/视频、区块标题、About/FAQ/Contact/News 页面文案 |
 
-> 注意：必须先设置 `NEXT_PUBLIC_ADMIN_MODE=1`，否则 /admin 会返回 403（安全保护）。
-> 生产环境（Vercel）没有这个环境变量，所以 /admin 线上不可用 —— 设计器只在本机使用。
+## 工作原理
 
-## 功能
+- 页面打开 `/admin` → 输入密码 → 登录
+- 保存时通过 **GitHub API** 直接写入代码仓库（lib/products.js / lib/site-content.js / public/images）
+- 部署时通过 **Vercel API** 触发线上更新
+- 全部自动，无需命令行
 
-| 功能 | 说明 |
-|:----|:----|
-| 左侧产品列表 | 10 款 MiniRedone 产品，点击切换编辑 |
-| 图片编辑 | 每张图片有"选择文件"按钮，上传后自动保存到 `public/images/`，可删除/新增 |
-| 标题修改 | Name（导航/卡片标题）、Full Name（页面标题）、Tagline（副标题） |
-| 价格修改 | b2bPrice（美元），影响 JSON-LD 结构化数据 |
-| 描述编辑 | 大文本框，支持长文 |
-| 规格编辑 | 规格表（重量/载重/续航等），可增删行 |
-| 卖点编辑 | Features 列表，可增删 |
-| 实时预览 | 右侧 iframe 实时显示产品页效果 |
-| 保存 | 💾 只保存到本地文件（不部署） |
-| 保存+部署 | 🚀 保存 + git commit + push + Vercel 部署 |
+## 注意事项
 
-## 安全说明
+1. **多人同时编辑**：GitHub 同一文件同时写会冲突——建议同事编辑时先沟通，避免两个人同时改同一个产品
+2. **保存后会推送到线上**：点"Save"就会提交到 GitHub（master 分支），有 git 记录可回溯
+3. **图片**：上传的图片自动压缩保存，无需额外处理
+4. **权限**：管理员密码在 Vercel 环境变量 `ADMIN_PASSWORD` 中，改密码要更新 Vercel
 
-- /admin 页面、/api/admin/* 接口都检查 `NEXT_PUBLIC_ADMIN_MODE=1`，未开启时返回 403
-- 部署 API 需要 `.env` 里的 `VERCEL_TOKEN`（已配置）
-- 只在本机使用，不推送到生产环境可访问
+## 密码管理
 
-## 技术实现
-
-- `app/admin/page.js` — 设计器界面（client component）
-- `app/api/admin/products/route.js` — 读/写 `lib/products.js`
-- `app/api/admin/upload/route.js` — 图片上传到 `public/images/`
-- `app/api/admin/deploy/route.js` — git commit + push + Vercel deploy
-
-## 常见问题
-
-- **admin 打不开（403）**：确认启动命令带了 `NEXT_PUBLIC_ADMIN_MODE=1`
-- **保存后网站没变化**：本地 dev 是热更新；点"🚀 Save + Deploy"才会推线上
-- **图片上传后列表页不显示**：可能需要强制刷新（Ctrl+F5），因为 Vercel 静态图片缓存一年
+- 当前管理员密码在 `.env`（本地）和 Vercel production 环境变量 `ADMIN_PASSWORD`
+- 要改密码：更新 Vercel 环境变量 `ADMIN_PASSWORD` → 重新部署

@@ -192,8 +192,16 @@ function AdminDesignerInner() {
             <div style={{ fontSize: 11, color: '#9ca3af' }}>{p.fullName}</div>
           </button>
         ))}
-        <div style={{ padding: 16, fontSize: 12, color: '#9ca3af' }}>
-          Admin mode local tool. Changes commit + push to GitHub and deploy to Vercel.
+        <div style={{ padding: 16, borderTop: '1px solid #e5e7eb' }}>
+          <a
+            href="/admin/pages"
+            style={{ display: 'block', padding: '10px 12px', background: '#047857', color: '#fff', borderRadius: 8, textAlign: 'center', fontWeight: 600, fontSize: 13, textDecoration: 'none' }}
+          >
+            📄 编辑页面（首页/About/FAQ/News 文案）
+          </a>
+          <div style={{ fontSize: 12, color: '#9ca3af', marginTop: 12 }}>
+            Admin mode local tool. Changes commit + push to GitHub and deploy to Vercel.
+          </div>
         </div>
       </div>
 

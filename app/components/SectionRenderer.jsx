@@ -4,8 +4,11 @@
 // 首页从 site-sections.js 的区块数组渲染
 import Link from 'next/link';
 import { wheelchairs } from '@/lib/products';
+import { getRecentArticles } from '@/lib/news';
 import ProductCard from './ProductCard';
 import WhyChooseUs from './WhyChooseUs';
+import CertificatesSection from './CertificatesSection';
+import IntellectualPropertySection from './IntellectualPropertySection';
 import { PulseFitHero } from "@/components/ui/pulse-fit-hero";
 
 // 区块样式映射
@@ -202,6 +205,80 @@ export default function SectionRenderer({ section, className }) {
           </div>
         </section>
       );
+
+    case 'companyInfo':
+      return (
+        <section className={wrapCls}>
+          <div className="px-6 sm:px-8 lg:px-16">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div>
+                {c.badge && (
+                  <span className="text-teal font-semibold text-sm uppercase tracking-widest">{c.badge}</span>
+                )}
+                <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 mt-2">{c.title}</h2>
+                {(c.paragraphs || []).map((p, i) => (
+                  <p key={i} className="text-gray-600 leading-relaxed mb-4">{p}</p>
+                ))}
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {(c.stats || []).map((item, i) => (
+                  <div key={i} className="bg-cream rounded-xl p-6 border border-gray-100 text-center">
+                    <div className="text-2xl font-bold text-teal mb-1">{item.value}</div>
+                    <div className="text-sm text-gray-500">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+
+    case 'certificates':
+      return <CertificatesSection />;
+
+    case 'intellectualProperty':
+      return <IntellectualPropertySection />;
+
+    case 'newsGrid': {
+      const articles = getRecentArticles(c.count || 3);
+      return (
+        <section className={wrapCls}>
+          <div className="px-6 sm:px-8 lg:px-16">
+            <div className="flex items-end justify-between mb-8">
+              <div>
+                {c.badge && (
+                  <span className="text-teal font-semibold text-sm uppercase tracking-widest">{c.badge}</span>
+                )}
+                <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mt-2">{c.title}</h2>
+              </div>
+              {c.viewAllLabel && (
+                <Link href={c.viewAllHref || '/news'} className="text-teal font-semibold text-sm hover:text-teal-dark transition-colors inline-flex items-center gap-1 shrink-0">
+                  {c.viewAllLabel}
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              )}
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {articles.map((article) => (
+                <Link key={article.slug} href={`/news/${article.slug}`}
+                  className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md hover:border-teal/20 transition-all group">
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {article.tags.slice(0, 2).map((tag) => (
+                      <span key={tag} className="text-[10px] bg-teal/10 text-teal px-2 py-0.5 rounded-full font-medium">{tag}</span>
+                    ))}
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal transition-colors line-clamp-2">{article.title}</h3>
+                  <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed">{article.summary}</p>
+                  <time className="text-xs text-gray-400 mt-3 block">{article.date}</time>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
 
     case 'quote':
       return (

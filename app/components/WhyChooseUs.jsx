@@ -48,15 +48,15 @@ function AdvantageCard({ item, index }) {
   );
 }
 
-export default function WhyChooseUs({ advantages }) {
+export default function WhyChooseUs({ advantages, badge, title, description, className }) {
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className={`py-16 lg:py-24 bg-white ${className || ''}`}>
       <div className="px-6 sm:px-8 lg:px-16">
         <div className="text-center mb-14">
-          <span className="text-teal font-semibold text-sm uppercase tracking-widest">Why MiniElephant</span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-4">Why Choose Our Electric Wheelchair Factory</h2>
+          <span className="text-teal font-semibold text-sm uppercase tracking-widest">{badge || 'Why MiniElephant'}</span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-4">{title || 'Why Choose Our Electric Wheelchair Factory'}</h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            We deliver value beyond products — partnership, quality, and peace of mind. As a direct electric wheelchair manufacturer with ISO, CE, and FDA certification, we offer factory-direct pricing, OEM/ODM customization, and reliable after-sales support.
+            {description || 'We deliver value beyond products — partnership, quality, and peace of mind. As a direct electric wheelchair manufacturer with ISO, CE, and FDA certification, we offer factory-direct pricing, OEM/ODM customization, and reliable after-sales support.'}
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

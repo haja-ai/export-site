@@ -1,6 +1,7 @@
 'use client';
 
 import AdminGate from '../../components/AdminGate';
+import PageContentPreview from '../../components/PageContentPreview';
 
 import { useEffect, useState, useCallback } from 'react';
 
@@ -172,14 +173,14 @@ function AdminPagesInner() {
         </div>
       </div>
 
-      {/* Right: preview */}
-      <div style={{ width: '40%', minWidth: 340, borderLeft: '1px solid #e5e7eb', background: '#fff', display: 'flex', flexDirection: 'column' }}>
-        <div style={{ padding: '10px 16px', borderBottom: '1px solid #e5e7eb', fontWeight: 600, fontSize: 14 }}>Live Preview</div>
-        <iframe
-          src={activePage === 'home' ? '/' : activePage === 'productsPage' ? '/products' : `/${activePage}`}
-          style={{ flex: 1, border: 'none', width: '100%' }}
-          title="page-preview"
-        />
+      {/* Right: live preview (re-renders on every keystroke) */}
+      <div style={{ width: '40%', minWidth: 340, borderLeft: '1px solid #e5e7eb', background: '#f9fafb', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ padding: '10px 16px', borderBottom: '1px solid #e5e7eb', fontWeight: 600, fontSize: 14, background: '#fff' }}>
+          ⚡ Live Preview <span style={{ color: '#047857', fontSize: 11, fontWeight: 400 }}>(real-time)</span>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto' }}>
+          <PageContentPreview pageKey={activePage} content={draft[activePage]} />
+        </div>
       </div>
     </div>
   );

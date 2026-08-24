@@ -1,6 +1,7 @@
 'use client';
 
 import AdminGate from '../components/AdminGate';
+import ProductPreview from '../components/ProductPreview';
 
 import { useEffect, useState, useCallback } from 'react';
 
@@ -303,13 +304,15 @@ function AdminDesignerInner() {
         </div>
       )}
 
-      {/* Right: preview */}
-      <div style={{ width: '42%', minWidth: 380, borderLeft: '1px solid #e5e7eb', background: '#fff', display: 'flex', flexDirection: 'column' }}>
-        <div style={{ padding: '10px 16px', borderBottom: '1px solid #e5e7eb', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontWeight: 600, fontSize: 14 }}>Live Preview</span>
-          <button onClick={refreshPreview} style={{ padding: '4px 10px', background: '#f3f4f6', border: '1px solid #d1d5db', borderRadius: 6, cursor: 'pointer', fontSize: 12 }}>↻ Refresh</button>
+      {/* Right: live preview (re-renders on every keystroke) */}
+      <div style={{ width: '42%', minWidth: 380, borderLeft: '1px solid #e5e7eb', background: '#f9fafb', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ padding: '10px 16px', borderBottom: '1px solid #e5e7eb', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fff' }}>
+          <span style={{ fontWeight: 600, fontSize: 14 }}>⚡ Live Preview <span style={{ color: '#047857', fontSize: 11, fontWeight: 400 }}>(real-time)</span></span>
+          <span style={{ fontSize: 11, color: '#9ca3af' }}>auto-updates</span>
         </div>
-        <iframe src={previewSrc} style={{ flex: 1, border: 'none', width: '100%' }} title="preview" />
+        <div style={{ flex: 1, overflowY: 'auto' }}>
+          <ProductPreview draft={draft} />
+        </div>
       </div>
     </div>
   );

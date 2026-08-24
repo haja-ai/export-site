@@ -11,6 +11,10 @@ export default function AdminDesigner() {
   const [busy, setBusy] = useState(false);
   const [log, setLog] = useState([]);
   const [previewSrc, setPreviewSrc] = useState('');
+  const [tab, setTab] = useState('pages');
+  const [siteContent, setSiteContent] = useState(null);
+  const [draftContent, setDraftContent] = useState(null);
+  const [activePage, setActivePage] = useState('home');
 
   const load = useCallback(async () => {
     setLoading(true);

@@ -3,6 +3,7 @@ import CertificatesSection from '../components/CertificatesSection';
 import IntellectualPropertySection from '../components/IntellectualPropertySection';
 import { getRecentArticles } from '@/lib/news';
 import PulseFitPage from '../components/PulseFitPage';
+import { siteContent as sc } from '@/lib/site-content';
 import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
@@ -27,8 +28,8 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <PulseFitPage bannerImage="/images/banner-about.webp"
-    badge="Our Story" title="About MiniElephant" description="Professional electric wheelchair manufacturer committed to mobility innovation and quality.">
+    <PulseFitPage bannerImage={sc.about.bannerImage}
+    badge={sc.about.badge} title={sc.about.title} description={sc.about.description}>
       
 
       {/* Company Info */}

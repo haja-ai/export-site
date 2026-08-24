@@ -1,8 +1,10 @@
 'use client';
 
 import { PulseFitHero } from "@/components/ui/pulse-fit-hero";
+import { siteContent } from "@/lib/site-content";
 
 export default function PageHero() {
+  const h = siteContent.home.hero;
   return (
     <PulseFitHero
       logo="MiniElephant"
@@ -14,29 +16,15 @@ export default function PageHero() {
         { label: "News", href: '/news' },
         { label: "Contact", href: '/contact' },
       ]}
-      ctaButton={{
-        label: "Get a Quote",
-        href: '/contact',
-      }}
-      title="Factory-Direct Electric Wheelchair Manufacturer | MiniRedone Lightweight Folding Wheelchairs"
-      subtitle="Premium electric wheelchairs with magnesium alloy frames. Dual 350W motors, 30km range, 150KG load. Factory-direct B2B export to 50+ countries. OEM/ODM customization available."
-      primaryAction={{
-        label: "Browse Models",
-        href: '/products',
-      }}
-      secondaryAction={{
-        label: "Get a Quote",
-        href: '/contact',
-      }}
-      programs={[
-        { image: "/images/miniredone-i.webp", category: "BASE MODEL", title: "MiniRedone-I · 47KG", href: '/products/miniredone-i' },
-        { image: "/images/miniredone-ii-plus.webp", category: "LIGHTWEIGHT", title: "MiniRedone-II · 42KG", href: '/products/miniredone-ii' },
-        { image: "/images/miniredone-iii.webp", category: "PREMIUM", title: "MiniRedone-III · High Back", href: '/products/miniredone-iii' },
-        { image: "/images/miniredone-v.webp", category: "EXTRA WIDE", title: "MiniRedone-V · W900mm", href: '/products/miniredone-v' },
-      ]}
+      ctaButton={h.ctaButton}
+      title={h.title}
+      subtitle={h.subtitle}
+      primaryAction={h.primaryAction}
+      secondaryAction={h.secondaryAction}
+      programs={h.programs}
       bannerImage="/images/wheelchair-banner.webp"
-      bannerVideo="/videos/factory-aerial.mp4"
-      bannerPoster="/images/factory-aerial-poster.webp"
+      bannerVideo={h.bannerVideo}
+      bannerPoster={h.bannerPoster}
     />
   );
 }

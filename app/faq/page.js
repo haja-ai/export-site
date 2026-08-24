@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PulseFitPage from '../components/PulseFitPage';
+import { siteContent as sc } from '@/lib/site-content';
 import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
@@ -91,8 +92,8 @@ export default function FaqPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <PulseFitPage bannerImage="/images/banner-faq.webp"
-    badge="Help Center" title="Frequently Asked Questions" description="Find answers to common questions about our electric wheelchairs, ordering, shipping, and more.">
+      <PulseFitPage bannerImage={sc.faq.bannerImage}
+    badge={sc.faq.badge} title={sc.faq.title} description={sc.faq.description}>
       
       {/* FAQ Content */}
       <section className="py-16 lg:py-24 bg-cream">

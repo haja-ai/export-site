@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { wheelchairs } from '@/lib/products';
 import ProductCard from '../components/ProductCard';
 import PulseFitPage from '../components/PulseFitPage';
+import { siteContent as sc } from '@/lib/site-content';
 import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 export const metadata = {
@@ -24,10 +25,10 @@ export const metadata = {
 export default function ProductsPage() {
   return (
     <PulseFitPage
-      bannerImage="/images/banner-products.webp"
-      badge="Our Products"
-      title="MiniRedone Series"
-      description="10 electric wheelchair models for diverse needs : from ultra-light portability to premium high-back comfort. All magnesium alloy frames."
+      bannerImage={sc.productsPage.bannerImage}
+      badge={sc.productsPage.badge}
+      title={sc.productsPage.title}
+      description={sc.productsPage.description}
     >
       {/* Product Grid */}
       <section className="py-12 lg:py-20 bg-cream">

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { siteContent as sc } from '@/lib/site-content';
 import Link from 'next/link';
 import { newsArticles } from '@/lib/news';
 import PulseFitPage from '../components/PulseFitPage';
@@ -28,10 +29,10 @@ export default function NewsPageClient() {
 
   return (
     <PulseFitPage
-      bannerImage="/images/banner-news.webp"
-      badge="News & Insights"
-      title="MiniElephant Updates"
-      description="Product launches, industry insights, and B2B buyer guides. Stay informed about electric wheelchair innovations."
+      bannerImage={sc.news.bannerImage}
+      badge={sc.news.badge}
+      title={sc.news.title}
+      description={sc.news.description}
     >
       {/* Category Filter Tabs */}
       <section className="pt-8 pb-2 bg-cream">

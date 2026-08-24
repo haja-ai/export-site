@@ -1,6 +1,7 @@
 import ContactForm from '../components/ContactForm';
 import Link from 'next/link';
 import PulseFitPage from '../components/PulseFitPage';
+import { siteContent as sc } from '@/lib/site-content';
 import { StaggerGrid, FadeUpItem, FadeIn } from '../components/ScrollReveal';
 
 
@@ -25,8 +26,8 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <PulseFitPage bannerImage="/images/banner-contact.webp"
-    badge="Get in Touch" title="Contact & Inquiry" description="Submit your inquiry below and our export team will respond within 24 hours.">
+    <PulseFitPage bannerImage={sc.contact.bannerImage}
+    badge={sc.contact.badge} title={sc.contact.title} description={sc.contact.description}>
       
       <section className="py-16 lg:py-24 bg-cream">
         <div className="px-6 sm:px-8 lg:px-16">

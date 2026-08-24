@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { wheelchairs } from '@/lib/products';
+import { siteContent } from '@/lib/site-content';
 import PageHero from './components/PageHero';
 import ProductCard from './components/ProductCard';
 import AnimatedStats from './components/AnimatedStats';
@@ -24,38 +25,12 @@ export const metadata = {
   },
 };
 
-const advantages = [
-  {
-    title: 'Factory-Direct Pricing',
-    desc: 'No middlemen — you deal directly with the manufacturer. Competitive pricing with volume discounts.',
-    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>,
-  },
-  {
-    title: 'Certified Quality',
-    desc: 'ISO, CE, FDA — our products meet the strictest international standards for medical devices.',
-    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>,
-  },
-  {
-    title: 'OEM / ODM Available',
-    desc: 'Custom branding, packaging, specifications, and design modifications for your market.',
-    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>,
-  },
-  {
-    title: 'Reliable Logistics',
-    desc: 'Established shipping partnerships ensure timely delivery by sea, air, or rail worldwide.',
-    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10m8-1a1 1 0 01-1 1H5a1 1 0 01-1-1m14-5h2a1 1 0 011 1v3a1 1 0 01-1 1h-2M9 20a2 2 0 100-4 2 2 0 000 4zm8 0a2 2 0 100-4 2 2 0 000 4z" /></svg>,
-  },
-  {
-    title: 'After-Sales Support',
-    desc: 'Dedicated support team for technical questions, warranty claims, and spare parts.',
-    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>,
-  },
-  {
-    title: 'Sample Service',
-    desc: 'Pre-order sample evaluation. We ship samples quickly so you can verify quality firsthand.',
-    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>,
-  },
-];
+const { siteContent: sc } = { siteContent };
+const advTitles = ['Factory-Direct Pricing', 'Certified Quality', 'OEM / ODM Available', 'Reliable Logistics', 'After-Sales Support', 'Sample Service'];
+const advantages = advTitles.map((t) => {
+  const fromContent = sc.home.whyChooseUs.advantages.find(a => a.title === t) || { title: t, desc: '' };
+  return { title: fromContent.title, desc: fromContent.desc, icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> };
+});
 
 export default function HomePage() {
   return (
@@ -74,13 +49,13 @@ export default function HomePage() {
             <FadeIn>
             <div>
               <span className="text-teal font-semibold text-sm uppercase tracking-widest">
-                Our Products
+                {sc.home.featured.badge}
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-3">
-                Featured Electric Wheelchair Models
+                {sc.home.featured.title}
               </h2>
               <p className="text-gray-500 max-w-xl">
-                Explore our complete MiniRedone series of folding electric wheelchairs — from ultra-lightweight 42KG portable designs to premium high-back comfort models. All feature magnesium alloy frames and dual 350W motors.
+                {sc.home.featured.description}
               </p>
             </div>
             </FadeIn>
@@ -88,7 +63,7 @@ export default function HomePage() {
               href="/products"
               className="text-teal font-semibold text-sm hover:text-teal-dark transition-colors inline-flex items-center gap-1 shrink-0"
             >
-              View All Models
+              {sc.home.featured.viewAll}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -117,7 +92,7 @@ export default function HomePage() {
                 About Us
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                Professional Manufacturer of Electric Wheelchairs — Magnesium Alloy Folding Wheelchair Factory
+                {sc.home.aboutSection.title}
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Jiaxing Small Elephant Medical Technology Co., Ltd is a professional manufacturer
@@ -165,14 +140,14 @@ export default function HomePage() {
         <div className="px-6 sm:px-8 lg:px-16 text-center">
           <FadeIn>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Ready to Partner with Our Electric Wheelchair Factory?
+            {sc.home.cta.title}
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto mb-8">
-            Contact our B2B export team today for a customized quotation on MiniRedone folding electric wheelchairs. OEM/ODM customization available. We typically respond within 24 hours.
+            {sc.home.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary text-base px-8 py-4">
-              Get a Quote
+              {sc.home.cta.buttonLabel}
             </Link>
             <Link href="/products" className="btn-secondary text-base px-8 py-4">
               Browse Products

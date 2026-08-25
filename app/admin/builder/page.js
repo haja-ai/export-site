@@ -3,6 +3,7 @@
 // 区块级可视化建站器 — 添加/删除/排序/编辑区块，实时预览
 import { useEffect, useState, useCallback } from 'react';
 import AdminGate from '../../components/AdminGate';
+import AdminNav from '../../components/AdminNav';
 import SectionRenderer from '../../components/SectionRenderer';
 
 const PAGE_KEYS = [
@@ -399,7 +400,8 @@ function ContentEditor({ value, onChange, prefix = '' }) {
 export default function AdminBuilder() {
   return (
     <AdminGate>
-      <BuilderInner />
+      <AdminNav />
+            <BuilderInner />
     </AdminGate>
   );
 }

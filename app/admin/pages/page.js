@@ -1,6 +1,7 @@
 'use client';
 
 import AdminGate from '../../components/AdminGate';
+import AdminNav from '../../components/AdminNav';
 import PageContentPreview from '../../components/PageContentPreview';
 
 import { useEffect, useState, useCallback } from 'react';
@@ -189,7 +190,8 @@ function AdminPagesInner() {
 export default function AdminPages() {
   return (
     <AdminGate>
-      <AdminPagesInner />
+      <AdminNav />
+            <AdminPagesInner />
     </AdminGate>
   );
 }

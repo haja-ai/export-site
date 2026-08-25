@@ -1,6 +1,7 @@
 'use client';
 
 import AdminGate from '../components/AdminGate';
+import AdminNav from '../components/AdminNav';
 import ProductPreview from '../components/ProductPreview';
 
 import { useEffect, useState, useCallback } from 'react';
@@ -343,7 +344,8 @@ function Label({ children }) {
 export default function AdminDesigner() {
   return (
     <AdminGate>
-      <AdminDesignerInner />
+      <AdminNav />
+            <AdminDesignerInner />
     </AdminGate>
   );
 }

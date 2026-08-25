@@ -9,6 +9,7 @@ import ProductCard from './ProductCard';
 import WhyChooseUs from './WhyChooseUs';
 import CertificatesSection from './CertificatesSection';
 import IntellectualPropertySection from './IntellectualPropertySection';
+import ContactForm from './ContactForm';
 import { PulseFitHero } from "@/components/ui/pulse-fit-hero";
 
 // 区块样式映射
@@ -279,6 +280,104 @@ export default function SectionRenderer({ section, className }) {
         </section>
       );
     }
+
+    case 'faqList':
+      return (
+        <section className={wrapCls}>
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            {(c.faqs || []).map((faq, i) => (
+              <details key={i} className="group bg-white rounded-xl border border-gray-200 overflow-hidden mb-3">
+                <summary className="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-gray-50 transition-colors list-none">
+                  <span className="text-gray-900 font-medium pr-4">{faq.q}</span>
+                  <svg className="w-5 h-5 text-gray-400 shrink-0 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="px-6 pb-4">
+                  <p className="text-gray-600 leading-relaxed">{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      );
+
+    case 'contactInfo':
+      return (
+        <section className={wrapCls}>
+          <div className="px-6 sm:px-8 lg:px-16 max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              {c.badge && <span className="text-teal font-semibold text-sm uppercase tracking-widest">{c.badge}</span>}
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-4">{c.title}</h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              {c.email && (
+                <div className="bg-white rounded-xl p-6 border border-gray-200">
+                  <div className="text-sm text-gray-500 mb-1">Email</div>
+                  <a href={`mailto:${c.email}`} className="text-teal font-semibold hover:text-teal-dark">{c.email}</a>
+                </div>
+              )}
+              {c.phone && (
+                <div className="bg-white rounded-xl p-6 border border-gray-200">
+                  <div className="text-sm text-gray-500 mb-1">Phone</div>
+                  <a href={`tel:${c.phone}`} className="text-teal font-semibold hover:text-teal-dark">{c.phone}</a>
+                </div>
+              )}
+              {c.whatsapp && (
+                <div className="bg-white rounded-xl p-6 border border-gray-200">
+                  <div className="text-sm text-gray-500 mb-1">WhatsApp</div>
+                  <a href={`https://wa.me/${c.whatsapp.replace(/[^0-9]/g, '')}`} className="text-teal font-semibold hover:text-teal-dark">{c.whatsapp}</a>
+                </div>
+              )}
+              {c.hours && (
+                <div className="bg-white rounded-xl p-6 border border-gray-200">
+                  <div className="text-sm text-gray-500 mb-1">Working Hours</div>
+                  <div className="text-gray-800 font-medium">{c.hours}</div>
+                </div>
+              )}
+              {c.address && (
+                <div className="bg-white rounded-xl p-6 border border-gray-200 md:col-span-2">
+                  <div className="text-sm text-gray-500 mb-1">Address</div>
+                  <div className="text-gray-800">{c.address}</div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      );
+
+    case 'contactForm':
+      return (
+        <section className={wrapCls}>
+          <div className="px-6 sm:px-8 lg:px-16 max-w-3xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{c.title}</h2>
+              {c.description && <p className="text-gray-500 max-w-xl mx-auto">{c.description}</p>}
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
+              <ContactForm />
+            </div>
+          </div>
+        </section>
+      );
+
+    case 'productCatalog':
+      return (
+        <section className={wrapCls}>
+          <div className="px-6 sm:px-8 lg:px-16">
+            <div className="text-center mb-12">
+              {c.badge && <span className="text-teal font-semibold text-sm uppercase tracking-widest">{c.badge}</span>}
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-4">{c.title}</h2>
+              {c.description && <p className="text-gray-500 max-w-2xl mx-auto">{c.description}</p>}
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              {wheelchairs.map((product, i) => (
+                <ProductCard key={product.slug} product={product} index={i} />
+              ))}
+            </div>
+          </div>
+        </section>
+      );
 
     case 'quote':
       return (

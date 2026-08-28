@@ -1,12 +1,13 @@
 import NewsPageClient from './NewsPageClient';
 
 export const metadata = {
-  title: 'News & Insights | Electric Wheelchair Industry',
+  title: 'MiniElephant | Electric Wheelchair News and Buying Guides',
   description:
-    'Electric wheelchair news, B2B guides and market insights from MiniElephant manufacturer. OEM/ODM, certification, shipping, battery topics.',
+    'Read MiniElephant news, electric wheelchair buying guides, OEM/ODM notes, and practical export insights for distributors and importers.',
   openGraph: {
-    title: 'News & Insights | Electric Wheelchair Industry',
-    description: 'Electric wheelchair product launches, B2B buyer guides, and industry insights from MiniElephant manufacturer.',
+    title: 'MiniElephant | Electric Wheelchair News and Buying Guides',
+    description:
+      'Read MiniElephant news, electric wheelchair buying guides, OEM/ODM notes, and practical export insights for distributors and importers.',
     url: 'https://www.semwheelchair.com/news',
     type: 'website',
     images: [

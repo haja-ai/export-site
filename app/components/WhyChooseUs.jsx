@@ -9,10 +9,19 @@ const FALLBACK_ICONS = {
   'default': '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>',
 };
 
+const ADVANTAGE_IMAGE_MAP = {
+  'factory-direct': '/images/advantage-factory-direct.webp?v=2',
+  'model-comparison': '/images/ref-products.jpg?v=2',
+  'oem-odm': '/images/advantage-oem-odm.webp?v=2',
+  'after-sales-support': '/images/advantage-after-sales-support.webp?v=2',
+  'verified-content': '/images/ref-news.jpg?v=2',
+  'sample-requests': '/images/ref-contact.jpg?v=2',
+};
+
 function AdvantageCard({ item, index }) {
   const [imgError, setImgError] = useState(false);
   const imgSlug = item.title.toLowerCase().replace(/[^a-z]/g, '-').replace(/--+/g, '-').replace(/^-|-$/g, '');
-  const imgSrc = `/images/advantage-${imgSlug}.webp?v=2`;
+  const imgSrc = ADVANTAGE_IMAGE_MAP[imgSlug] || `/images/advantage-${imgSlug}.webp?v=2`;
   const fallbackIcon = FALLBACK_ICONS[imgSlug] || FALLBACK_ICONS['default'];
 
   return (

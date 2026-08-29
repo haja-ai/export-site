@@ -11,11 +11,10 @@ const FALLBACK_ICONS = {
 
 const ADVANTAGE_IMAGE_MAP = {
   'factory-direct': '/images/advantage-factory-direct.webp?v=2',
-  'model-comparison': '/images/ref-products.jpg?v=2',
-  'oem-odm': '/images/advantage-oem-odm.webp?v=2',
+  'model-comparison': '/images/advantage-model-comparison.webp?v=2',
   'after-sales-support': '/images/advantage-after-sales-support.webp?v=2',
-  'verified-content': '/images/ref-news.jpg?v=2',
-  'sample-requests': '/images/ref-contact.jpg?v=2',
+  'verified-content': '/images/advantage-verified-content.webp?v=2',
+  'sample-requests': '/images/advantage-sample-requests.webp?v=2',
 };
 
 function AdvantageCard({ item, index }) {

@@ -10,14 +10,9 @@
 - Phone: +86 13819098967
 - WhatsApp: +86 13819098967
 - Address: No. 18 Zhenzhong East Road, Jiashan County, Jiaxing City, Zhejiang Province, China
-- Experience: 10+ years
-- Export: 50+ countries
-- Certifications: ISO 13485, CE, FDA
-- Services: OEM/ODM, factory-direct, sample evaluation, after-sales support
-- Payment: T/T, L/C, Western Union, PayPal (samples)
-- MOQ: 5 units per model; samples 1-2 units
-- Shipping: Sea 25-40 days, Air 7-10 days, Express 5-7 days
-- Warranty: 12 months frame/motor, 6 months battery/controller
+- Services: B2B export inquiries, sample evaluation, OEM/ODM discussions, and after-sales communication
+- Commercial terms: Confirm MOQ, payment, shipping, warranty scope, and lead time for the specific quotation
+- Compliance documents: Request the exact document, scope, issuing body, and validity for the target market before making a compliance claim
 
 ## PRODUCT LINE: MiniRedone Series
 Common specs across all models:
@@ -182,11 +177,11 @@ A: Sea: 25–40 days. Air: 7–10 days. Express (DHL/UPS/FedEx): 5–7 days for 
 Q: Do you offer OEM / ODM services?
 A: Yes — custom branding, packaging, colors, seat fabric, and design modifications.
 
-Q: What certifications do your wheelchairs have?
-A: ISO 13485, CE (EU), FDA (US).
+Q: What compliance documents are available?
+A: Document availability and scope must be confirmed for the specific model and destination market. The About page displays a Saudi SFDA Medical Device Marketing Authorization with authorization number MDMA-2-2026-4108 and validity from 25/8/2026 to 25/8/2029. Do not interpret this as FDA approval or as a substitute for destination-market requirements.
 
 Q: What is the warranty period?
-A: 12 months frame/motor, 6 months battery/controller. Extended warranty available for bulk orders.
+A: Warranty scope and duration should be confirmed in the quotation and sales documents for the selected model and order.
 
 Q: Can I get a sample before bulk order?
 A: Yes, samples shipped within 3–5 working days after payment.

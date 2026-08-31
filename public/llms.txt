@@ -1,25 +1,53 @@
 # MiniElephant Electric Wheelchair
 
-> Professional electric wheelchair manufacturer. B2B export of lightweight folding electric wheelchairs with magnesium alloy frames.
+> MiniElephant is the brand behind the MiniRedone Series, a range of folding electric wheelchairs presented for B2B buyers, importers, distributors, and OEM/ODM discussions.
 
 ## Company
 
 - **Brand**: MiniElephant
-- **Company**: [Jiaxing Small Elephant Medical Technology Co., Ltd](https://www.semwheelchair.com)
-- **Location**: Zhejiang, China
+- **Product family**: MiniRedone Series
+- **Company**: [Jiaxing Small Elephant Medical Technology Co., Ltd](https://www.semwheelchair.com/about)
+- **Location**: Jiashan, Jiaxing, Zhejiang, China
 - **Contact**: Johnson — [johnson@semwheelchair.com](mailto:johnson@semwheelchair.com) / [WhatsApp](https://wa.me/8613819098967)
+- **Address**: No. 18 Zhenzhong East Road, Jiashan County, Jiaxing City, Zhejiang Province, China
 
-## Products
+## Product Line
 
-The **MiniRedone Series** — 10 folding electric wheelchair models:
+MiniElephant currently presents 10 MiniRedone folding electric wheelchair variants. Product specifications, options, and availability should be confirmed for the selected model and quotation.
 
-- [MiniRedone-I](https://www.semwheelchair.com/products/miniredone-i) — Base model, 47KG
-- [MiniRedone-I-W](https://www.semwheelchair.com/products/miniredone-i-w) — White edition, 46KG
-- [MiniRedone-II](https://www.semwheelchair.com/products/miniredone-ii) — Ultra-light portable, 42KG
-- [MiniRedone-II-Plus](https://www.semwheelchair.com/products/miniredone-ii-plus) — Wide seat, 45KG
-- [MiniRedone-III](https://www.semwheelchair.com/products/miniredone-iii) — Premium high-back
-- [MiniRedone-IV](https://www.semwheelchair.com/products/miniredone-iv) — Tall backrest, 43KG
-- [MiniRedone-V](https://www.semwheelchair.com/products/miniredone-v) — Extra wide, W900mm
+- [MiniRedone-I](https://www.semwheelchair.com/products/miniredone-i) — Base folding electric wheelchair, 47 KG
+- [MiniRedone-I-W](https://www.semwheelchair.com/products/miniredone-i-w) — White edition, 46 KG
+- [MiniRedone-I-B&R](https://www.semwheelchair.com/products/miniredone-i-br) — Black and red/orange color options, 46 KG
+- [MiniRedone-I-R](https://www.semwheelchair.com/products/miniredone-i-r) — Red edition, 46 KG
+- [MiniRedone-I-Plus](https://www.semwheelchair.com/products/miniredone-i-plus) — Enhanced-comfort variant, approximately 47 KG
+- [MiniRedone-II](https://www.semwheelchair.com/products/miniredone-ii) — Lighter design, 42 KG
+- [MiniRedone-II-Plus](https://www.semwheelchair.com/products/miniredone-ii-plus) — Wider 750 mm seat, 45 KG
+- [MiniRedone-III](https://www.semwheelchair.com/products/miniredone-iii) — High-back comfort variant, 47 KG
+- [MiniRedone-IV](https://www.semwheelchair.com/products/miniredone-iv) — Tall backrest design, 43 KG
+- [MiniRedone-V](https://www.semwheelchair.com/products/miniredone-v) — Extra-wide 900 mm seating variant, 50 KG
+
+## Commonly Listed Specifications
+
+The following specifications are listed across the MiniRedone product range. Confirm the exact specification on the individual product page before quoting or publishing:
+
+- **Frame**: Magnesium alloy
+- **Motor configuration**: Dual 350W hub motors
+- **Battery**: 16Ah lithium battery
+- **Approximate range**: 30 km, depending on operating conditions and configuration
+- **Maximum load**: 150 kg
+- **Maximum speed**: ≤6 km/h
+- **Charging time**: 4–6 hours
+- **Design**: Folding electric wheelchair platform
+
+## Buyer Questions
+
+For a reliable electric wheelchair manufacturer evaluation, buyers should request the current model specification, standard/optional configuration, sample terms, packing information, lead time, warranty scope, spare-parts plan, and destination-market compliance documents.
+
+MiniElephant supports B2B inquiries involving model comparison, sample evaluation, distributor supply, and OEM/ODM discussions. Commercial terms and customization details are confirmed in the quotation.
+
+## Compliance Note
+
+Compliance documents must be checked by model, market, issuing body, scope, and validity. The About page displays a **Saudi SFDA Medical Device Marketing Authorization**, authorization number **MDMA-2-2026-4108**, valid from **25/8/2026 to 25/8/2029**. This is not FDA approval or FDA certification, and it does not replace requirements in another destination market.
 
 ## Key Pages
 
@@ -29,15 +57,5 @@ The **MiniRedone Series** — 10 folding electric wheelchair models:
 - [FAQ](https://www.semwheelchair.com/faq)
 - [News & Insights](https://www.semwheelchair.com/news)
 - [Contact & Quotation](https://www.semwheelchair.com/contact)
-- [Sitemap](https://www.semwheelchair.com/sitemap.xml)
 - [Full Product Data](https://www.semwheelchair.com/llms-full.txt)
-
-## Specifications
-
-- **Frame**: Magnesium Alloy
-- **Motors**: Dual 350W Brushless
-- **Battery**: 16Ah Lithium
-- **Range**: ≈30 KM
-- **Load**: 150 KG
-- **Speed**: ≤6 KM/H
-- **Certifications**: ISO 13485, CE, FDA
+- [Sitemap](https://www.semwheelchair.com/sitemap.xml)

@@ -64,7 +64,7 @@ export default function WhyChooseUs({ advantages, badge, title, description, cla
           <span className="text-teal font-semibold text-sm uppercase tracking-widest">{badge || 'Why MiniElephant'}</span>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-4">{title || 'Why Choose Our Electric Wheelchair Factory'}</h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            {description || 'We deliver value beyond products — partnership, quality, and peace of mind. As a direct electric wheelchair manufacturer with ISO, CE, and FDA certification, we offer factory-direct pricing, OEM/ODM customization, and reliable after-sales support.'}
+            {description || 'We deliver value beyond products — partnership, quality, and peace of mind. As a direct electric wheelchair manufacturer, we provide factory-direct communication, OEM/ODM discussions, and buyer-ready product information for market review.'}
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

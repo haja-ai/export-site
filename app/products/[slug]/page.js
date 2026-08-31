@@ -47,6 +47,30 @@ export default async function ProductDetailPage({ params }) {
 
   if (!product) notFound();
 
+  const specValue = (label) => product.specs.find((spec) => spec.label === label)?.value || 'Please confirm in the quotation';
+  const buyerFaqs = [
+    {
+      q: `Who is the ${product.name} electric wheelchair designed for?`,
+      a: `${product.name} is presented as a MiniRedone folding electric wheelchair for distributors, importers, mobility retailers, and OEM/ODM buyers. Its recommended market positioning should be confirmed against the selected configuration and local requirements.`,
+    },
+    {
+      q: `What makes the ${product.name} different from other MiniRedone models?`,
+      a: `${product.keyDifference || product.tagline}. Compare the full specification sheet with other models before selecting a range for your market.`,
+    },
+    {
+      q: `What are the key ${product.name} specifications?`,
+      a: `The listed specification includes ${specValue('Net Weight')} net weight, ${specValue('Max Load')} maximum load, ${specValue('Range')} approximate range, ${specValue('Battery')} battery, and ${specValue('Frame Material')} frame material. Confirm the final configuration before ordering.`,
+    },
+    {
+      q: `Can I request a sample or wholesale quotation for ${product.name}?`,
+      a: `Yes. Contact MiniElephant with your target market, quantity, packaging needs, and destination. Sample terms, MOQ, lead time, shipping, and warranty scope are confirmed in the quotation for the selected model.`,
+    },
+    {
+      q: `Does MiniElephant support OEM or ODM for ${product.name}?`,
+      a: `OEM/ODM discussions are available for suitable projects. Branding, colors, packaging, manuals, configuration changes, MOQ, and approval requirements must be reviewed and confirmed before production.`,
+    },
+  ];
+
   return (
     <div>
       <ProductJsonLd product={product} />
@@ -59,6 +83,17 @@ export default async function ProductDetailPage({ params }) {
             { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://www.semwheelchair.com/products' },
             { '@type': 'ListItem', position: 3, name: product.name, item: `https://www.semwheelchair.com/products/${slug}` },
           ],
+        }),
+      }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: buyerFaqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.q,
+            acceptedAnswer: { '@type': 'Answer', text: faq.a },
+          })),
         }),
       }} />
 
@@ -137,16 +172,20 @@ export default async function ProductDetailPage({ params }) {
 
       <section className="py-12 lg:py-16 bg-white">
         <div className="px-6 sm:px-8 lg:px-16">
+          <div className="max-w-4xl mx-auto mb-14">
+            <h2 className="text-xl font-bold text-gray-900 mb-6">Buyer Questions About {product.name}</h2>
+            <div className="space-y-4">
+              {buyerFaqs.map((faq) => (
+                <div key={faq.q} className="rounded-xl border border-gray-200 bg-cream/40 p-5">
+                  <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
           <h2 className="text-xl font-bold text-gray-900 mb-6">Explore Other Models</h2>
           <div className="flex flex-wrap gap-3">
-            {[
-              { slug: 'miniredone-i', name: 'MiniRedone-I' },
-              { slug: 'miniredone-ii', name: 'MiniRedone-II' },
-              { slug: 'miniredone-ii-plus', name: 'MiniRedone-II-Plus' },
-              { slug: 'miniredone-iii', name: 'MiniRedone-III' },
-              { slug: 'miniredone-iv', name: 'MiniRedone-IV' },
-              { slug: 'miniredone-v', name: 'MiniRedone-V' },
-            ].filter((p) => p.slug !== slug).map((p) => (
+            {wheelchairs.filter((p) => p.slug !== slug).map((p) => (
               <Link key={p.slug} href={`/products/${p.slug}`} className="px-4 py-2 bg-cream border border-gray-200 rounded-full text-sm text-gray-600 hover:border-teal hover:text-teal transition-colors">
                 {p.name}
               </Link>

@@ -31,6 +31,8 @@ export default function OrganizationJsonLd() {
       'https://www.tiktok.com/@electricwheelchai8',
       'https://www.youtube.com/@xiaoxianhuang-z4t',
       'https://www.youtube.com/@xiaoxiangelectricwheelchairuae',
+      'https://www.linkedin.com/in/electricwheelchair-supplier-045232411',
+      'https://www.linkedin.com/in/electric-wheelchair-uae-48b226411',
     ],
   };
 

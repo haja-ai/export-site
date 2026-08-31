@@ -137,6 +137,8 @@ export default function RootLayout({ children }) {
                 'https://www.tiktok.com/@electricwheelchai8',
                 'https://www.youtube.com/@xiaoxianhuang-z4t',
                 'https://www.youtube.com/@xiaoxiangelectricwheelchairuae',
+                'https://www.linkedin.com/in/electricwheelchair-supplier-045232411',
+                'https://www.linkedin.com/in/electric-wheelchair-uae-48b226411',
               ],
               foundingDate: '2013',
               areaServed: 'Worldwide',
@@ -220,6 +222,7 @@ export default function RootLayout({ children }) {
                   <li className="text-gray-400">WhatsApp: <a href="https://wa.me/8613819098967" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">Chat on WhatsApp</a></li>
                   <li className="text-gray-400 text-xs mt-2">Social: <a href="https://www.tiktok.com/@electricwheelchairuae" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">TikTok UAE</a> · <a href="https://www.tiktok.com/@electricwheelchairsa" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">TikTok Saudi</a> · <a href="https://www.tiktok.com/@electricwheelchai8" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">TikTok</a></li>
                   <li className="text-gray-400 text-xs">Video: <a href="https://www.youtube.com/@xiaoxianhuang-z4t" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">YouTube</a> · <a href="https://www.youtube.com/@xiaoxiangelectricwheelchairuae" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">YouTube UAE</a></li>
+                  <li className="text-gray-400 text-xs">LinkedIn: <a href="https://www.linkedin.com/in/electricwheelchair-supplier-045232411" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">Supplier profile</a> · <a href="https://www.linkedin.com/in/electric-wheelchair-uae-48b226411" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">UAE profile</a></li>
                   <li className="text-gray-400 text-xs mt-2">See About Us and product pages for verified specifications and documents.</li>
                 </ul>
               </div>

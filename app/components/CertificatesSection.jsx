@@ -8,6 +8,7 @@ const certificates = [
     name: 'Saudi SFDA Medical Device Marketing Authorization',
     desc: 'Authorization No. MDMA-2-2026-4108 · Issuing date 25/8/2026 · Expiry date 25/8/2029',
     pdf: '/certificates/MDMA-2-2026-4108.pdf',
+    preview: '/certificates/MDMA-2-2026-4108-preview.webp',
     type: 'pdf',
   },
   {
@@ -58,15 +59,17 @@ export default function CertificatesSection() {
               >
                 {cert.type === 'pdf' ? (
                   <a href={cert.pdf} target="_blank" rel="noopener noreferrer" className="block">
-                    <div className="aspect-[3/4] bg-gray-50 flex items-center justify-center p-6 overflow-hidden">
-                      <div className="text-center">
-                        <div className="w-16 h-16 rounded-full bg-red-50 text-red-600 flex items-center justify-center mx-auto mb-3 text-2xl font-bold">PDF</div>
-                        <p className="text-sm text-gray-600">Open certificate PDF</p>
-                      </div>
+                    <div className="aspect-[3/4] bg-gray-50 flex items-center justify-center p-3 overflow-hidden">
+                      <img
+                        src={cert.preview}
+                        alt={`${cert.name} document preview`}
+                        className="w-full h-full object-contain border-2 border-red-500 rounded-sm shadow-sm group-hover:scale-[1.02] transition-transform duration-300"
+                      />
                     </div>
                     <div className="p-4">
                       <h3 className="font-bold text-gray-900 mb-1">{cert.name}</h3>
                       <p className="text-sm text-gray-500 leading-relaxed">{cert.desc}</p>
+                      <p className="text-xs text-red-600 mt-2 font-medium">Open full certificate PDF ↗</p>
                     </div>
                   </a>
                 ) : (

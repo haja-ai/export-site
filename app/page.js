@@ -2,11 +2,11 @@ import { siteSections } from '@/lib/site-sections';
 import SectionRenderer from './components/SectionRenderer';
 
 export const metadata = {
-  title: 'Electric Wheelchair Manufacturer | MiniElephant',
+  title: 'Electric Wheelchair Manufacturer',
   description:
     'MiniElephant manufactures MiniRedone folding electric wheelchairs for distributors, importers, and OEM/ODM buyers. Factory-direct B2B inquiry site.',
   openGraph: {
-    title: 'Electric Wheelchair Manufacturer | MiniElephant',
+    title: 'Electric Wheelchair Manufacturer',
     description:
       'MiniElephant manufactures MiniRedone folding electric wheelchairs for distributors, importers, and OEM/ODM buyers. Factory-direct B2B inquiry site.',
     url: 'https://www.semwheelchair.com',

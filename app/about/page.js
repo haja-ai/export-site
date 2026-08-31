@@ -4,11 +4,11 @@ import PulseFitPage from '../components/PulseFitPage';
 import SectionRenderer from '../components/SectionRenderer';
 
 export const metadata = {
-  title: 'Electric Wheelchair Factory | MiniElephant',
+  title: 'Electric Wheelchair Factory',
   description:
     'Learn about MiniElephant, the manufacturer behind MiniRedone folding electric wheelchairs. Factory location, company profile, and export support.',
   openGraph: {
-    title: 'Electric Wheelchair Factory | MiniElephant',
+    title: 'Electric Wheelchair Factory',
     description:
       'Learn about MiniElephant, the manufacturer behind MiniRedone folding electric wheelchairs. Factory location, company profile, and export support.',
     url: 'https://www.semwheelchair.com/about',

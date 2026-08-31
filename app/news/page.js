@@ -1,11 +1,11 @@
 import NewsPageClient from './NewsPageClient';
 
 export const metadata = {
-  title: 'Electric Wheelchair News & Guides | MiniElephant',
+  title: 'Electric Wheelchair News & Guides',
   description:
     'Read MiniElephant news, electric wheelchair buying guides, OEM/ODM notes, and practical export insights for distributors and importers.',
   openGraph: {
-    title: 'Electric Wheelchair News & Guides | MiniElephant',
+    title: 'Electric Wheelchair News & Guides',
     description:
       'Read MiniElephant news, electric wheelchair buying guides, OEM/ODM notes, and practical export insights for distributors and importers.',
     url: 'https://www.semwheelchair.com/news',

@@ -16,10 +16,10 @@ export async function generateMetadata({ params }) {
   const specs = product.specs.map((s) => `${s.label}: ${s.value}`).join(', ');
 
   return {
-    title: `${product.fullName} | MiniElephant`,
+    title: `${product.fullName}`,
     description: `${product.tagline}. ${specs}. MiniElephant MiniRedone B2B export product page.`,
     openGraph: {
-      title: `${product.fullName} | MiniElephant`,
+      title: `${product.fullName}`,
       description: `${product.tagline}. ${specs}. MiniElephant MiniRedone B2B export product page.`,
       url: `https://www.semwheelchair.com/products/${slug}`,
       type: 'website',
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${product.fullName} | MiniElephant`,
+      title: `${product.fullName}`,
       description: `${product.tagline}. ${specs}`,
       images: product.images && product.images.length > 0
         ? [`https://www.semwheelchair.com${product.images[0]}`]

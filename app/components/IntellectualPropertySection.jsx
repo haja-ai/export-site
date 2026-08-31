@@ -30,9 +30,9 @@ const patents = [
 const EASE = [0.16, 1, 0.3, 1];
 
 const stats = [
-  { v: '20+', l: 'Granted Patents' },
+  { v: '16', l: 'Patent Documents Shown' },
   { v: '2', l: 'Registered Trademarks' },
-  { v: '100%', l: 'In-House R&D' },
+  { v: '10', l: 'MiniRedone Models' },
 ];
 
 export default function IntellectualPropertySection() {
@@ -72,9 +72,8 @@ export default function IntellectualPropertySection() {
           <motion.div {...fade} className="max-w-2xl mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Intellectual Property</h2>
             <p className="text-slate-300 leading-relaxed">
-              Every MiniRedone wheelchair is built on patented in-house engineering. Our designs are
-              protected by patents and trademarks granted by the China National Intellectual Property
-              Administration.
+              The company presents selected patent and trademark documents for buyer review. Please request
+              the exact registration scope and ownership details for any project or destination market.
             </p>
           </motion.div>
 

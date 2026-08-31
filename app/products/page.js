@@ -4,11 +4,11 @@ import PulseFitPage from '../components/PulseFitPage';
 import SectionRenderer from '../components/SectionRenderer';
 
 export const metadata = {
-  title: 'MiniElephant | MiniRedone Folding Electric Wheelchairs Manufacturer',
+  title: 'Electric Wheelchair Models | MiniRedone',
   description:
     'Browse all MiniRedone folding electric wheelchair models from MiniElephant. Compare verified product variants, specifications, and request a wholesale quote.',
   openGraph: {
-    title: 'MiniElephant | MiniRedone Folding Electric Wheelchairs Manufacturer',
+    title: 'Electric Wheelchair Models | MiniRedone',
     description:
       'Browse all MiniRedone folding electric wheelchair models from MiniElephant. Compare verified product variants, specifications, and request a wholesale quote.',
     url: 'https://www.semwheelchair.com/products',

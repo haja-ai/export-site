@@ -4,11 +4,11 @@ import PulseFitPage from '../components/PulseFitPage';
 import SectionRenderer from '../components/SectionRenderer';
 
 export const metadata = {
-  title: 'MiniElephant | Request a Wholesale Quote',
+  title: 'Wholesale Electric Wheelchair Quote | MiniElephant',
   description:
     'Contact MiniElephant for MiniRedone product pricing, samples, OEM/ODM requests, and export inquiries. Our team replies within 24 hours.',
   openGraph: {
-    title: 'MiniElephant | Request a Wholesale Quote',
+    title: 'Wholesale Electric Wheelchair Quote | MiniElephant',
     description:
       'Contact MiniElephant for MiniRedone product pricing, samples, OEM/ODM requests, and export inquiries. Our team replies within 24 hours.',
     url: 'https://www.semwheelchair.com/contact',

@@ -4,11 +4,11 @@ import PulseFitPage from '../components/PulseFitPage';
 import SectionRenderer from '../components/SectionRenderer';
 
 export const metadata = {
-  title: 'MiniElephant | MiniRedone Electric Wheelchair FAQ',
+  title: 'Electric Wheelchair FAQ | MiniElephant',
   description:
     'Find answers about MiniRedone electric wheelchair models, ordering, OEM/ODM, shipping, warranty, and after-sales support.',
   openGraph: {
-    title: 'MiniElephant | MiniRedone Electric Wheelchair FAQ',
+    title: 'Electric Wheelchair FAQ | MiniElephant',
     description:
       'Find answers about MiniRedone electric wheelchair models, ordering, OEM/ODM, shipping, warranty, and after-sales support.',
     url: 'https://www.semwheelchair.com/faq',

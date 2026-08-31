@@ -6,7 +6,7 @@ export default function OrganizationJsonLd() {
     url: 'https://www.semwheelchair.com',
     logo: 'https://www.semwheelchair.com/logo.png',
     description:
-      'Professional electric wheelchair manufacturer. Lightweight folding wheelchairs with magnesium alloy frame, 30km range. B2B export to 50+ countries.',
+      'Factory-direct electric wheelchair manufacturer. MiniRedone folding wheelchairs with magnesium alloy frames for B2B buyers.',
     email: 'johnson@semwheelchair.com',
     telephone: '+86-13819098967',
     address: {

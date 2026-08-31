@@ -26,6 +26,11 @@ export default function OrganizationJsonLd() {
     },
     sameAs: [
       'https://wa.me/8613819098967',
+      'https://www.tiktok.com/@electricwheelchairuae',
+      'https://www.tiktok.com/@electricwheelchairsa',
+      'https://www.tiktok.com/@electricwheelchai8',
+      'https://www.youtube.com/@xiaoxianhuang-z4t',
+      'https://www.youtube.com/@xiaoxiangelectricwheelchairuae',
     ],
   };
 

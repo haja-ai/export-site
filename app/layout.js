@@ -130,7 +130,14 @@ export default function RootLayout({ children }) {
                   availableLanguage: ['English', 'Chinese'],
                 },
               ],
-              sameAs: ['https://wa.me/8613819098967'],
+              sameAs: [
+                'https://wa.me/8613819098967',
+                'https://www.tiktok.com/@electricwheelchairuae',
+                'https://www.tiktok.com/@electricwheelchairsa',
+                'https://www.tiktok.com/@electricwheelchai8',
+                'https://www.youtube.com/@xiaoxianhuang-z4t',
+                'https://www.youtube.com/@xiaoxiangelectricwheelchairuae',
+              ],
               foundingDate: '2013',
               areaServed: 'Worldwide',
               knowsAbout: ['Electric wheelchair manufacturing', 'Foldable mobility products', 'OEM/ODM export'],
@@ -211,6 +218,8 @@ export default function RootLayout({ children }) {
                   <li className="text-gray-400">Email: <a href="mailto:johnson@semwheelchair.com" className="text-teal hover:underline">johnson@semwheelchair.com</a></li>
                   <li className="text-gray-400">Phone: <a href="tel:+8613819098967" className="text-teal hover:underline">+86 13819098967</a></li>
                   <li className="text-gray-400">WhatsApp: <a href="https://wa.me/8613819098967" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">Chat on WhatsApp</a></li>
+                  <li className="text-gray-400 text-xs mt-2">Social: <a href="https://www.tiktok.com/@electricwheelchairuae" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">TikTok UAE</a> · <a href="https://www.tiktok.com/@electricwheelchairsa" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">TikTok Saudi</a> · <a href="https://www.tiktok.com/@electricwheelchai8" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">TikTok</a></li>
+                  <li className="text-gray-400 text-xs">Video: <a href="https://www.youtube.com/@xiaoxianhuang-z4t" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">YouTube</a> · <a href="https://www.youtube.com/@xiaoxiangelectricwheelchairuae" target="_blank" rel="noopener noreferrer" className="text-teal hover:underline">YouTube UAE</a></li>
                   <li className="text-gray-400 text-xs mt-2">See About Us and product pages for verified specifications and documents.</li>
                 </ul>
               </div>

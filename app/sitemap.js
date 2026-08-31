@@ -14,6 +14,8 @@ const staticPages = [
   { url: '/contact', priority: '0.8', changefreq: 'monthly', lastModified: today },
   { url: '/faq', priority: '0.7', changefreq: 'monthly', lastModified: today },
   { url: '/news', priority: '0.8', changefreq: 'weekly', lastModified: today },
+  { url: '/es', priority: '0.7', changefreq: 'monthly', lastModified: today },
+  { url: '/fr', priority: '0.7', changefreq: 'monthly', lastModified: today },
 ];
 
 const productPages = wheelchairs.map((p) => ({

@@ -33,7 +33,9 @@ export const metadata = {
   alternates: {
     canonical: 'https://www.semwheelchair.com',
     languages: {
-      'en-US': 'https://www.semwheelchair.com',
+      'en-US': 'https://www.semwheelchair.com/',
+      'es': 'https://www.semwheelchair.com/es',
+      'fr': 'https://www.semwheelchair.com/fr',
     },
   },
   openGraph: {

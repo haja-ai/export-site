@@ -57,5 +57,7 @@ Compliance documents must be checked by model, market, issuing body, scope, and 
 - [FAQ](https://www.semwheelchair.com/faq)
 - [News & Insights](https://www.semwheelchair.com/news)
 - [Contact & Quotation](https://www.semwheelchair.com/contact)
+- [Spanish buyer information](https://www.semwheelchair.com/es)
+- [French buyer information](https://www.semwheelchair.com/fr)
 - [Full Product Data](https://www.semwheelchair.com/llms-full.txt)
 - [Sitemap](https://www.semwheelchair.com/sitemap.xml)

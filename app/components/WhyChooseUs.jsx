@@ -10,7 +10,7 @@ const FALLBACK_ICONS = {
 };
 
 const ADVANTAGE_IMAGE_MAP = {
-  'factory-direct': '/images/advantage-factory-direct.webp?v=2',
+  'factory-direct': '/images/advantage-factory-direct.webp?v=3',
   'model-comparison': '/images/advantage-model-comparison.webp?v=3',
   'after-sales-support': '/images/advantage-after-sales-support.webp?v=2',
   'verified-content': '/images/advantage-verified-content.webp?v=3',

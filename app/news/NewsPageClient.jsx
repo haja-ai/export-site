@@ -84,7 +84,7 @@ export default function NewsPageClient() {
                         >
                           {article.bannerImage ? (
                             <img
-                              src={`${article.bannerImage}?v=2`}
+                              src={`${article.bannerImage}?v=4`}
                               alt={article.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />

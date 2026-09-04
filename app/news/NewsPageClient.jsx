@@ -74,7 +74,7 @@ export default function NewsPageClient() {
                 const tagColor = getTagColor(article.tags[0] || '');
 
                 return (
-                  <FadeIn key={article.slug} delay={Math.min(i * 0.04, 0.3)}>
+                  <div key={article.slug}>
                     <Link href={`/news/${article.slug}`} className="block group h-full">
                       <article className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col overflow-hidden">
                         {/* Banner Image or Gradient Fallback */}
@@ -129,7 +129,7 @@ export default function NewsPageClient() {
                         </div>
                       </article>
                     </Link>
-                  </FadeIn>
+                  </div>
                 );
               })}
             </div>

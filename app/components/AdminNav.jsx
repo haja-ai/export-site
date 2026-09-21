@@ -10,6 +10,7 @@ export default function AdminNav() {
     { href: '/admin', label: '🛒 产品编辑器', desc: '图片/规格/价格' },
     { href: '/admin/pages', label: '📄 文案编辑器', desc: '页面文字/标题' },
     { href: '/admin/builder', label: '🧩 区块建站器', desc: '布局/添加/删除' },
+    { href: '/admin/reply', label: '✉️ 官方回复', desc: '以网站名义回复客户' },
   ];
 
   return (

@@ -11,6 +11,7 @@ export default function AdminNav() {
     { href: '/admin/pages', label: '📄 文案编辑器', desc: '页面文字/标题' },
     { href: '/admin/builder', label: '🧩 区块建站器', desc: '布局/添加/删除' },
     { href: '/admin/inquiries', label: '✉️ 询盘管理', desc: '客户询盘/官方回复' },
+    { href: '/admin/email', label: '📨 直接发邮件', desc: '历史客户/新收件人' },
   ];
 
   return (

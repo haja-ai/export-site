@@ -28,6 +28,7 @@ function InquiryManager() {
   const [error, setError] = useState('');
   const [subject, setSubject] = useState('Re: Your MiniElephant Electric Wheelchair Inquiry');
   const [message, setMessage] = useState(defaultMessage);
+  const [attachments, setAttachments] = useState([]);
   const [replies, setReplies] = useState([]);
   const [sending, setSending] = useState(false);
   const [notice, setNotice] = useState('');
@@ -68,11 +69,18 @@ function InquiryManager() {
     if (!selected) return;
     setSending(true); setNotice('');
     try {
-      const res = await fetch('/api/admin/reply', { method: 'POST', headers: authHeaders(), body: JSON.stringify({ inquiryId: selected.id, subject, message }) });
+      const form = new FormData();
+      form.append('inquiryId', selected.id);
+      form.append('subject', subject);
+      form.append('message', message);
+      attachments.forEach(file => form.append('attachments', file));
+      const token = localStorage.getItem('admin_token');
+      const res = await fetch('/api/admin/reply', { method: 'POST', headers: { Authorization: `Bearer ${token || ''}` }, body: form });
       const data = await res.json();
       if (!res.ok || !data.ok) throw new Error(data.error || '发送失败');
       setReplies(current => [data.reply, ...current]);
       setItems(current => current.map(item => item.id === selected.id && item.status === 'new' ? { ...item, status: 'contacted' } : item));
+      setAttachments([]);
       setNotice('已用 MiniElephant 官方邮箱发送，并保存了回复记录。');
     } catch (err) { setNotice(err.message); } finally { setSending(false); }
   }
@@ -90,7 +98,7 @@ function InquiryManager() {
         {!selected ? <p style={muted}>请从左侧选择一条询盘。</p> : <>
           <div style={{ display: 'flex', justifyContent: 'space-between', gap: 10, alignItems: 'start' }}><div><h2 style={{ margin: 0, fontSize: 20 }}>{selected.name}</h2><p style={muted}>{selected.email}{selected.company ? ` · ${selected.company}` : ''}{selected.country ? ` · ${selected.country}` : ''}</p></div><select aria-label="询盘状态" value={selected.status} onChange={e => changeStatus(e.target.value)} style={{ ...inputStyle, width: 120 }}>{Object.entries(statusNames).map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select></div>
           <div style={detailsStyle}><b>产品：</b>{selected.product || '未填写'}　 <b>数量：</b>{selected.quantity || '未填写'}<br/><b>WhatsApp：</b>{selected.phone || '未填写'}<hr style={{ border: 0, borderTop: '1px solid #e5e7eb', margin: '12px 0' }}/><div style={{ whiteSpace: 'pre-wrap' }}>{selected.message}</div></div>
-          <form onSubmit={sendReply}><h3 style={{ margin: '22px 0 8px' }}>以 MiniElephant 官方名义回复</h3><p style={muted}>发件人：MiniElephant B2B &lt;contact@semwheelchair.com&gt; · 客户回复会回到 johnson@semwheelchair.com</p><label style={labelStyle}>主题</label><input required value={subject} onChange={e => setSubject(e.target.value)} style={inputStyle}/><label style={labelStyle}>邮件内容</label><textarea required value={message} onChange={e => setMessage(e.target.value)} style={{ ...inputStyle, minHeight: 240, lineHeight: 1.6, resize: 'vertical' }}/><div style={{ marginTop: 14, display: 'flex', gap: 12, alignItems: 'center' }}><button disabled={sending} style={primaryButton}>{sending ? '发送中...' : '发送官方回复'}</button>{notice && <span style={{ color: notice.includes('失败') || notice.includes('Unable') ? '#b91c1c' : '#047857', fontSize: 13 }}>{notice}</span>}</div></form>
+          <form onSubmit={sendReply}><h3 style={{ margin: '22px 0 8px' }}>以 MiniElephant 官方名义回复</h3><p style={muted}>发件人：MiniElephant B2B &lt;contact@semwheelchair.com&gt; · 客户回复会回到 johnson@semwheelchair.com</p><label style={labelStyle}>主题</label><input required value={subject} onChange={e => setSubject(e.target.value)} style={inputStyle}/><label style={labelStyle}>邮件内容</label><textarea required value={message} onChange={e => setMessage(e.target.value)} style={{ ...inputStyle, minHeight: 240, lineHeight: 1.6, resize: 'vertical' }}/><label style={labelStyle}>附件（PDF / 图片 / DOCX / XLSX，单个不超过 25MB，最多 5 个，合计不超过 40MB）</label><input type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.webp,.docx,.xlsx" onChange={e => setAttachments(Array.from(e.target.files || []))} style={{ ...inputStyle, padding: 8 }}/>{attachments.length > 0 && <div style={muted}>已选择：{attachments.map(file => `${file.name} (${(file.size / 1024 / 1024).toFixed(1)}MB)`).join('、')}</div>}<div style={{ marginTop: 14, display: 'flex', gap: 12, alignItems: 'center' }}><button disabled={sending} style={primaryButton}>{sending ? '发送中...' : '发送官方回复'}</button>{notice && <span style={{ color: notice.includes('失败') || notice.includes('Unable') ? '#b91c1c' : '#047857', fontSize: 13 }}>{notice}</span>}</div></form>
           <div style={{ marginTop: 26 }}><h3 style={{ margin: '0 0 10px' }}>回复记录 ({replies.length})</h3>{replies.length ? replies.map(reply => <div key={reply.id} style={historyStyle}><b>{reply.subject}</b><div style={muted}>{new Date(reply.sent_at).toLocaleString()} · 发给 {reply.recipient_email}</div><div style={{ whiteSpace: 'pre-wrap', marginTop: 8 }}>{reply.message}</div></div>) : <p style={muted}>还没有官方回复记录。</p>}</div>
         </>}
       </section>

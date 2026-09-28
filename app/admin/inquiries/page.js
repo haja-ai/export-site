@@ -38,6 +38,11 @@ function InquiryManager() {
     try {
       const res = await fetch('/api/admin/inquiries', { headers: authHeaders() });
       const data = await res.json();
+      if (res.status === 401) {
+        localStorage.removeItem('admin_token');
+        window.location.reload();
+        return;
+      }
       if (!res.ok || !data.ok) throw new Error(data.error || '无法读取询盘');
       setItems(data.inquiries);
       setSelectedId(current => current || data.inquiries[0]?.id || '');

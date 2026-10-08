@@ -20,12 +20,6 @@ const CATEGORY_BY_ID = Object.fromEntries(CATEGORIES.map((category) => [category
 export default function NewsPageClient() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [showCount, setShowCount] = useState(PER_PAGE);
-  const categoryCounts = useMemo(() => newsArticles.reduce((result, article) => {
-    const category = article.category || 'buyer-resources';
-    result[category] = (result[category] || 0) + 1;
-    return result;
-  }, {}), []);
-
   const filtered = useMemo(() => {
     const list = [...newsArticles].sort((a, b) => b.date.localeCompare(a.date));
     return activeCategory === 'all' ? list : list.filter((article) => (article.category || 'buyer-resources') === activeCategory);
@@ -56,7 +50,6 @@ export default function NewsPageClient() {
           <div className="grid sm:grid-cols-2 xl:grid-cols-5 gap-3">
             {CATEGORIES.map((category) => {
               const active = activeCategory === category.id;
-              const count = category.id === 'all' ? newsArticles.length : (categoryCounts[category.id] || 0);
               return (
                 <button
                   key={category.id}
@@ -65,7 +58,6 @@ export default function NewsPageClient() {
                   aria-pressed={active}
                   className={`relative min-h-36 p-4 rounded-2xl border text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 ${active ? `${category.active} border-transparent text-white shadow-lg -translate-y-0.5` : `${category.idle} hover:shadow-md hover:-translate-y-0.5`}`}
                 >
-                  <span className={`inline-flex items-center justify-center min-w-7 h-7 px-2 rounded-full text-xs font-bold mb-5 ${active ? 'bg-white/20 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>{count}</span>
                   <span className="block text-sm font-bold leading-snug">{category.label}</span>
                   <span className={`block mt-1.5 text-xs leading-relaxed ${active ? 'text-white/80' : 'text-gray-500'}`}>{category.description}</span>
                 </button>

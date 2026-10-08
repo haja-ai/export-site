@@ -29,15 +29,15 @@ export default function PulseFitPage({
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="sticky top-0 z-50 flex flex-row justify-between items-center px-8 lg:px-16"
         style={{
-          paddingTop: "16px",
-          paddingBottom: "16px",
+          paddingTop: "1rem",
+          paddingBottom: "1rem",
           background: "#FFFFFF",
           borderBottom: "1px solid #e5e7eb",
         }}
       >
         {/* Full brand logo */}
         <Link href="/" style={{ textDecoration: 'none' }} className="flex items-center">
-          <img src="/logo-black.png" alt="MiniElephant Electric Wheelchair" style={{ height: "56px", width: "auto" }} />
+          <img src="/logo-black.png" alt="MiniElephant Electric Wheelchair" style={{ height: "3.5rem", width: "auto" }} />
         </Link>
 
         <nav className="hidden lg:flex flex-row items-center gap-10" aria-label="Main navigation">
@@ -47,7 +47,7 @@ export default function PulseFitPage({
               href={item.href}
               style={{
                 fontFamily: "Inter, sans-serif",
-                fontSize: "20px",
+                fontSize: "1.25rem",
                 fontWeight: 600,
                 color: "#1a1a1a",
                 textDecoration: 'none',
@@ -66,7 +66,7 @@ export default function PulseFitPage({
             background: "#FFFFFF",
             border: "1px solid #e2e8f0",
             fontFamily: "Inter, sans-serif",
-            fontSize: "17px",
+            fontSize: "1.0625rem",
             fontWeight: 500,
             color: "#1a1a1a",
             boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
@@ -78,7 +78,7 @@ export default function PulseFitPage({
       </motion.header>
 
       {/* ===== Banner hero region ===== */}
-      <div className="relative flex flex-col overflow-hidden min-h-[460px] sm:min-h-[520px] lg:min-h-[600px]">
+      <div className="relative flex flex-col overflow-hidden min-h-[28.75rem] sm:min-h-[32.5rem] lg:min-h-[37.5rem]">
         {/* Banner image */}
         <img src={bannerImage} alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" fetchPriority="high" />
         {/* Cinematic overlay */}

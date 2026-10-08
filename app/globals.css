@@ -23,6 +23,12 @@
 
 html {
   scroll-behavior: smooth;
+  /* Server-rendered fallback. BrowserZoomCompensator only raises this at desktop zoom below 100%. */
+  font-size: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 body {

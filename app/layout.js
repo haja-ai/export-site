@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from 'next/font/google';
+import BrowserZoomCompensator from './components/BrowserZoomCompensator';
 import './globals.css';
 
 const geistSans = Geist({
@@ -168,13 +169,14 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <BrowserZoomCompensator />
         <main className="flex-1">{children}</main>
         <footer className="bg-gray-900 text-gray-400 py-12 px-4">
           <div className="max-w-[1600px] mx-auto">
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 text-left">
               <div>
                 <div className="mb-3">
-                  <img src="/logo-white.png" alt="MiniElephant" style={{ height: '60px', width: 'auto' }} />
+                  <img src="/logo-white.png" alt="MiniElephant" style={{ height: '3.75rem', width: 'auto' }} />
                   <h3 className="sr-only">MiniElephant</h3>
                 </div>
                 <p className="text-sm text-gray-400 leading-relaxed">

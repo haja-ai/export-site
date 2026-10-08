@@ -54,10 +54,10 @@ export function PulseFitHero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="sticky top-0 left-0 right-0 z-50 flex flex-row justify-between items-center px-8 lg:px-16"
-          style={{ paddingTop: "16px", paddingBottom: "16px", background: "#FFFFFF", borderBottom: "1px solid #e5e7eb" }}
+          style={{ paddingTop: "1rem", paddingBottom: "1rem", background: "#FFFFFF", borderBottom: "1px solid #e5e7eb" }}
         >
           <Link href="/" style={{ textDecoration: 'none' }} className="flex items-center">
-            <img src="/logo-black.png" alt="MiniElephant Electric Wheelchair" style={{ height: "56px", width: "auto" }} />
+            <img src="/logo-black.png" alt="MiniElephant Electric Wheelchair" style={{ height: "3.5rem", width: "auto" }} />
           </Link>
 
           <nav className="hidden lg:flex flex-row items-center gap-10" aria-label="Main navigation">
@@ -67,7 +67,7 @@ export function PulseFitHero({
                   key={index}
                   href={item.href}
                   className="flex flex-row items-center gap-1 hover:opacity-70 hover:scale-110 transition-all duration-200"
-                  style={{ fontFamily: "Inter, sans-serif", fontSize: "20px", fontWeight: 600, color: "#1a1a1a", textDecoration: 'none' }}
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "1.25rem", fontWeight: 600, color: "#1a1a1a", textDecoration: 'none' }}
                 >
                   {item.label}
                   {item.hasDropdown && (
@@ -81,7 +81,7 @@ export function PulseFitHero({
                   key={index}
                   onClick={item.onClick}
                   className="flex flex-row items-center gap-1 hover:opacity-70 hover:scale-110 transition-all duration-200"
-                  style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 400, color: "#1a1a1a" }}
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "1.125rem", fontWeight: 400, color: "#1a1a1a" }}
                 >
                   {item.label}
                   {item.hasDropdown && (
@@ -101,7 +101,7 @@ export function PulseFitHero({
                 className="px-6 py-3 rounded-full transition-all hover:scale-105 hidden sm:inline-block"
                 style={{
                   background: "#FFFFFF", border: "1px solid #e2e8f0",
-                  fontFamily: "Inter, sans-serif", fontSize: "17px", fontWeight: 500,
+                  fontFamily: "Inter, sans-serif", fontSize: "1.0625rem", fontWeight: 500,
                   color: "#1a1a1a", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
                   textDecoration: 'none',
                 }}
@@ -114,7 +114,7 @@ export function PulseFitHero({
                 className="px-6 py-3 rounded-full transition-all hover:scale-105 hidden sm:inline-block"
                 style={{
                   background: "#FFFFFF", border: "1px solid #e2e8f0",
-                  fontFamily: "Inter, sans-serif", fontSize: "17px", fontWeight: 500,
+                  fontFamily: "Inter, sans-serif", fontSize: "1.0625rem", fontWeight: 500,
                   color: "#1a1a1a", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
                 }}
               >
@@ -126,7 +126,7 @@ export function PulseFitHero({
     <div className="relative">
       {/* ===== Sticky full-screen video/image hero — stays pinned while content scrolls over ===== */}
       <div
-        className="sticky top-[88px] h-[calc(100vh-88px)] w-full overflow-hidden"
+        className="sticky top-[5.5rem] h-[calc(100vh-5.5rem)] w-full overflow-hidden"
         style={{ zIndex: 0 }}
         role="banner"
         aria-label="Hero section"

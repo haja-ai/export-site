@@ -31,7 +31,7 @@ export default function ProductCard({ product, index = 0, animate = false }) {
 
       {/* Info */}
       <div className="p-4 pt-3 flex flex-col flex-1">
-        <span className="text-[11px] font-semibold uppercase tracking-widest text-teal">MiniRedone Series</span>
+        <span className="text-[0.6875rem] font-semibold uppercase tracking-widest text-teal">MiniRedone Series</span>
         <h3 className="text-lg font-bold text-gray-900 mt-0.5 mb-1 group-hover:text-teal transition-colors">
           {product.name}
         </h3>

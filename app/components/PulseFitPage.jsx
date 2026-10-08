@@ -110,7 +110,7 @@ export default function PulseFitPage({
               </h1>
             )}
             {description && (
-              <p className="text-base lg:text-lg" style={{ fontFamily: "Inter, sans-serif", color: "#4a5568", maxWidth: "640px" }}>
+              <p className="text-base lg:text-lg" style={{ fontFamily: "Inter, sans-serif", color: "#4a5568", maxWidth: "40rem" }}>
                 {description}
               </p>
             )}

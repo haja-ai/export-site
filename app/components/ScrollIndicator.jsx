@@ -21,7 +21,7 @@ export default function ScrollIndicator() {
         transition={{ repeat: Infinity, duration: 1.6, ease: EASE }}
         className="flex flex-col items-center"
       >
-        <span className="text-[9px] uppercase tracking-[0.2em] text-white/35 mb-1">Scroll</span>
+        <span className="text-[0.5625rem] uppercase tracking-[0.2em] text-white/35 mb-1">Scroll</span>
         <svg width="14" height="18" viewBox="0 0 14 14" fill="none" className="text-white/30">
           <path d="M2 5L7 10L12 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>

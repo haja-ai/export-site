@@ -86,7 +86,7 @@ export default async function NewsArticlePage({ params }) {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             <Link href="/news" className="hover:text-teal transition-colors">News</Link>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            <span className="text-gray-700 font-medium truncate max-w-[200px]">{article.title}</span>
+            <span className="text-gray-700 font-medium truncate max-w-[12.5rem]">{article.title}</span>
           </nav>
         </div>
       </div>
@@ -108,7 +108,7 @@ export default async function NewsArticlePage({ params }) {
               <img
                 src={`${article.bannerImage}?v=4`}
                 alt={article.title}
-                className="w-full h-auto max-h-[400px] object-cover"
+                className="w-full h-auto max-h-[25rem] object-cover"
                 loading="eager"
                 fetchPriority="high"
               />

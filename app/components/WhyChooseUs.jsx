@@ -27,7 +27,7 @@ function AdvantageCard({ item, index }) {
     <FadeUpItem index={index}>
       <div className="bg-white rounded-xl border border-gray-200 hover:border-teal/30 hover:shadow-lg transition-all duration-300 group">
         {!imgError ? (
-          <div className="max-h-40 group-hover:max-h-[600px] overflow-hidden transition-all duration-500 ease-out relative">
+          <div className="max-h-40 group-hover:max-h-[37.5rem] overflow-hidden transition-all duration-500 ease-out relative">
             <img
               src={imgSrc}
               alt={item.title}

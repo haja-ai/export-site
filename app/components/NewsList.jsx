@@ -33,7 +33,7 @@ export default function NewsList({ articles }) {
                   {/* Tags */}
                   <div className="flex flex-wrap gap-x-3 gap-y-1 mb-2">
                     {article.tags.slice(0, 2).map((tag) => (
-                      <span key={tag} className="text-[11px] text-teal font-medium">{tag}</span>
+                      <span key={tag} className="text-[0.6875rem] text-teal font-medium">{tag}</span>
                     ))}
                   </div>
                   {/* Title */}

@@ -181,7 +181,7 @@ export function PulseFitHero({
 
         {/* Top scrim for the nav */}
         <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none" style={{
-          height: "200px",
+          height: "12.5rem",
           background: "linear-gradient(180deg, rgba(17,24,39,0.85) 0%, rgba(17,24,39,0.5) 30%, rgba(17,24,39,0.12) 65%, rgba(17,24,39,0) 100%)",
         }} />
 
@@ -189,7 +189,7 @@ export function PulseFitHero({
 
         {/* Scroll-down cue */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none">
-          <span style={{ fontFamily: "Inter, sans-serif", fontSize: "13px", fontWeight: 500, color: "rgba(255,255,255,0.9)", letterSpacing: "0.08em" }}>
+          <span style={{ fontFamily: "Inter, sans-serif", fontSize: "0.8125rem", fontWeight: 500, color: "rgba(255,255,255,0.9)", letterSpacing: "0.08em" }}>
             SCROLL
           </span>
           <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
@@ -212,13 +212,13 @@ export function PulseFitHero({
               style={{
                 opacity: titleOpacity,
                 y: titleY,
-                paddingTop: "22vh", paddingBottom: "10vh", gap: "28px",
+                paddingTop: "22vh", paddingBottom: "10vh", gap: "1.75rem",
               }}
               className="flex flex-col items-center text-center px-6 sm:px-8 lg:px-16"
             >
               <motion.h1 className="text-[1.9rem] sm:text-[2.4rem] lg:text-[3.2rem]" style={{
                 fontFamily: "Inter, sans-serif", fontWeight: 800,
-                lineHeight: "1.12", color: "#FFFFFF", letterSpacing: "-0.02em", maxWidth: "920px",
+                lineHeight: "1.12", color: "#FFFFFF", letterSpacing: "-0.02em", maxWidth: "57.5rem",
                 fontSize: "clamp(1.75rem, 4.2vw, 3.4rem)",
                 textShadow: "0 2px 16px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.65)",
               }}>
@@ -227,7 +227,7 @@ export function PulseFitHero({
 
               <motion.p className="text-[1.0625rem] lg:text-[1.125rem]" style={{
                 fontFamily: "Inter, sans-serif", fontWeight: 500,
-                lineHeight: "1.7", color: "rgba(255,255,255,0.92)", maxWidth: "720px",
+                lineHeight: "1.7", color: "rgba(255,255,255,0.92)", maxWidth: "45rem",
                 fontSize: "clamp(0.95rem, 1.6vw, 1.2rem)",
                 textShadow: "0 1px 10px rgba(0,0,0,0.55)",
               }}>
@@ -239,13 +239,13 @@ export function PulseFitHero({
                   {primaryAction && (
                     primaryAction.href ? (
                       <Link href={primaryAction.href} className="flex flex-row items-center gap-2 px-8 py-4 rounded-full transition-all hover:scale-105"
-                        style={{ background: "#1a1a1a", fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 500, color: "#FFFFFF", boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)", textDecoration: 'none' }}>
+                        style={{ background: "#1a1a1a", fontFamily: "Inter, sans-serif", fontSize: "1.125rem", fontWeight: 500, color: "#FFFFFF", boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)", textDecoration: 'none' }}>
                         {primaryAction.label}
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       </Link>
                     ) : (
                       <button onClick={primaryAction.onClick} className="flex flex-row items-center gap-2 px-8 py-4 rounded-full transition-all hover:scale-105"
-                        style={{ background: "#1a1a1a", fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 500, color: "#FFFFFF", boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)" }}>
+                        style={{ background: "#1a1a1a", fontFamily: "Inter, sans-serif", fontSize: "1.125rem", fontWeight: 500, color: "#FFFFFF", boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)" }}>
                         {primaryAction.label}
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       </button>
@@ -254,12 +254,12 @@ export function PulseFitHero({
                   {secondaryAction && (
                     secondaryAction.href ? (
                       <Link href={secondaryAction.href} className="px-8 py-4 rounded-full transition-all hover:scale-105"
-                        style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 600, color: "#FFFFFF", textDecoration: 'none', backdropFilter: "blur(4px)" }}>
+                        style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif", fontSize: "1.125rem", fontWeight: 600, color: "#FFFFFF", textDecoration: 'none', backdropFilter: "blur(4px)" }}>
                         {secondaryAction.label}
                       </Link>
                     ) : (
                       <button onClick={secondaryAction.onClick} className="px-8 py-4 rounded-full transition-all hover:scale-105"
-                        style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 600, color: "#FFFFFF", backdropFilter: "blur(4px)" }}>
+                        style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif", fontSize: "1.125rem", fontWeight: 600, color: "#FFFFFF", backdropFilter: "blur(4px)" }}>
                         {secondaryAction.label}
                       </button>
                     )
@@ -269,7 +269,7 @@ export function PulseFitHero({
 
               {disclaimer && (
                 <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.6 }}
-                  style={{ fontFamily: "Inter, sans-serif", fontSize: "13px", color: "#718096", fontStyle: "italic" }}>
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "0.8125rem", color: "#718096", fontStyle: "italic" }}>
                   {disclaimer}
                 </motion.p>
               )}
@@ -286,15 +286,15 @@ export function PulseFitHero({
                   <div
                     key={index}
                     className="relative overflow-hidden"
-                    style={{ borderRadius: "20px", boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)", aspectRatio: '3/4' }}
+                    style={{ borderRadius: "1.25rem", boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)", aspectRatio: '3/4' }}
                   >
                     {program.href ? (
                       <Link href={program.href} style={{ textDecoration: 'none', display: 'block' }} className="w-full h-full relative overflow-hidden group">
                         <img src={program.image} alt={program.title} loading={index < 2 ? "eager" : "lazy"} fetchPriority={index < 2 ? "high" : "auto"} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%)" }} />
                         <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1.5">
-                          <span style={{ fontFamily: "Inter, sans-serif", fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.8)", textTransform: "uppercase", letterSpacing: "0.1em" }}>{program.category}</span>
-                          <h3 style={{ fontFamily: "Inter, sans-serif", fontSize: "20px", fontWeight: 600, color: "#FFFFFF" }}>{program.title}</h3>
+                          <span style={{ fontFamily: "Inter, sans-serif", fontSize: "0.75rem", fontWeight: 500, color: "rgba(255,255,255,0.8)", textTransform: "uppercase", letterSpacing: "0.1em" }}>{program.category}</span>
+                          <h3 style={{ fontFamily: "Inter, sans-serif", fontSize: "1.25rem", fontWeight: 600, color: "#FFFFFF" }}>{program.title}</h3>
                         </div>
                       </Link>
                     ) : (
@@ -302,8 +302,8 @@ export function PulseFitHero({
                         <img src={program.image} alt={program.title} loading={index < 2 ? "eager" : "lazy"} fetchPriority={index < 2 ? "high" : "auto"} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%)" }} />
                         <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1.5">
-                          <span style={{ fontFamily: "Inter, sans-serif", fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.8)", textTransform: "uppercase", letterSpacing: "0.1em" }}>{program.category}</span>
-                          <h3 style={{ fontFamily: "Inter, sans-serif", fontSize: "20px", fontWeight: 600, color: "#FFFFFF" }}>{program.title}</h3>
+                          <span style={{ fontFamily: "Inter, sans-serif", fontSize: "0.75rem", fontWeight: 500, color: "rgba(255,255,255,0.8)", textTransform: "uppercase", letterSpacing: "0.1em" }}>{program.category}</span>
+                          <h3 style={{ fontFamily: "Inter, sans-serif", fontSize: "1.25rem", fontWeight: 600, color: "#FFFFFF" }}>{program.title}</h3>
                         </div>
                       </div>
                     )}

@@ -112,7 +112,7 @@ export default function NewsPageClient() {
                               <span className="text-xs font-semibold text-gray-500">MiniElephant Insights</span>
                             </div>
                           )}
-                          <span className="absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-1 rounded-full shadow-sm bg-white/95 text-gray-800">
+                          <span className="absolute top-3 left-3 text-[0.6875rem] font-semibold px-2.5 py-1 rounded-full shadow-sm bg-white/95 text-gray-800">
                             {category.label}
                           </span>
                         </div>

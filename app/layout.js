@@ -172,7 +172,7 @@ export default function RootLayout({ children }) {
         <BrowserZoomCompensator />
         <main className="flex-1">{children}</main>
         <footer className="bg-gray-900 text-gray-400 py-12 px-4">
-          <div className="max-w-[1600px] mx-auto">
+          <div className="max-w-[100rem] mx-auto">
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 text-left">
               <div>
                 <div className="mb-3">

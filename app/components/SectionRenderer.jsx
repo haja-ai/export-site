@@ -267,7 +267,7 @@ export default function SectionRenderer({ section, className }) {
                   className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md hover:border-teal/20 transition-all group">
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {article.tags.slice(0, 2).map((tag) => (
-                      <span key={tag} className="text-[10px] bg-teal/10 text-teal px-2 py-0.5 rounded-full font-medium">{tag}</span>
+                      <span key={tag} className="text-[0.625rem] bg-teal/10 text-teal px-2 py-0.5 rounded-full font-medium">{tag}</span>
                     ))}
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-teal transition-colors line-clamp-2">{article.title}</h3>

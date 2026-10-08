@@ -134,7 +134,7 @@ export default function IntellectualPropertySection() {
                     />
                   </div>
                   <div className="p-3">
-                    <div className="text-[11px] text-slate-300 leading-snug line-clamp-2">{p.name}</div>
+                    <div className="text-[0.6875rem] text-slate-300 leading-snug line-clamp-2">{p.name}</div>
                   </div>
                 </button>
               ))}

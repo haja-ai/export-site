@@ -212,40 +212,40 @@ export function PulseFitHero({
               style={{
                 opacity: titleOpacity,
                 y: titleY,
-                paddingTop: "22vh", paddingBottom: "10vh", gap: "1.75rem",
+                paddingTop: "18vh", paddingBottom: "8vh", gap: "2.25rem",
               }}
               className="flex flex-col items-center text-center px-6 sm:px-8 lg:px-16"
             >
-              <motion.h1 className="text-[1.9rem] sm:text-[2.4rem] lg:text-[3.2rem]" style={{
+              <motion.h1 className="text-[2.25rem] sm:text-[3rem] lg:text-[4rem]" style={{
                 fontFamily: "Inter, sans-serif", fontWeight: 800,
-                lineHeight: "1.12", color: "#FFFFFF", letterSpacing: "-0.02em", maxWidth: "57.5rem",
-                fontSize: "clamp(1.75rem, 4.2vw, 3.4rem)",
+                lineHeight: "1.06", color: "#FFFFFF", letterSpacing: "-0.035em", maxWidth: "68rem",
+                fontSize: "clamp(2.25rem, 5.6vw, 4.9rem)",
                 textShadow: "0 2px 16px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.65)",
               }}>
                 {title}
               </motion.h1>
 
-              <motion.p className="text-[1.0625rem] lg:text-[1.125rem]" style={{
+              <motion.p className="text-[1.125rem] lg:text-[1.375rem]" style={{
                 fontFamily: "Inter, sans-serif", fontWeight: 500,
-                lineHeight: "1.7", color: "rgba(255,255,255,0.92)", maxWidth: "45rem",
-                fontSize: "clamp(0.95rem, 1.6vw, 1.2rem)",
+                lineHeight: "1.62", color: "rgba(255,255,255,0.95)", maxWidth: "min(78vw, 68rem)",
+                fontSize: "clamp(1.125rem, 2vw, 1.45rem)",
                 textShadow: "0 1px 10px rgba(0,0,0,0.55)",
               }}>
                 {subtitle}
               </motion.p>
 
               {(primaryAction || secondaryAction) && (
-                <motion.div className="flex flex-col sm:flex-row items-center gap-4">
+                <motion.div className="flex flex-col sm:flex-row items-center gap-5">
                   {primaryAction && (
                     primaryAction.href ? (
-                      <Link href={primaryAction.href} className="flex flex-row items-center gap-2 px-8 py-4 rounded-full transition-all hover:scale-105"
-                        style={{ background: "#1a1a1a", fontFamily: "Inter, sans-serif", fontSize: "1.125rem", fontWeight: 500, color: "#FFFFFF", boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)", textDecoration: 'none' }}>
+                      <Link href={primaryAction.href} className="flex flex-row items-center gap-3 px-10 py-5 rounded-full transition-all hover:scale-105"
+                        style={{ background: "#1a1a1a", fontFamily: "Inter, sans-serif", fontSize: "1.375rem", fontWeight: 500, color: "#FFFFFF", boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)", textDecoration: 'none' }}>
                         {primaryAction.label}
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       </Link>
                     ) : (
-                      <button onClick={primaryAction.onClick} className="flex flex-row items-center gap-2 px-8 py-4 rounded-full transition-all hover:scale-105"
-                        style={{ background: "#1a1a1a", fontFamily: "Inter, sans-serif", fontSize: "1.125rem", fontWeight: 500, color: "#FFFFFF", boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)" }}>
+                      <button onClick={primaryAction.onClick} className="flex flex-row items-center gap-3 px-10 py-5 rounded-full transition-all hover:scale-105"
+                        style={{ background: "#1a1a1a", fontFamily: "Inter, sans-serif", fontSize: "1.375rem", fontWeight: 500, color: "#FFFFFF", boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)" }}>
                         {primaryAction.label}
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       </button>
@@ -253,13 +253,13 @@ export function PulseFitHero({
                   )}
                   {secondaryAction && (
                     secondaryAction.href ? (
-                      <Link href={secondaryAction.href} className="px-8 py-4 rounded-full transition-all hover:scale-105"
-                        style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif", fontSize: "1.125rem", fontWeight: 600, color: "#FFFFFF", textDecoration: 'none', backdropFilter: "blur(4px)" }}>
+                      <Link href={secondaryAction.href} className="px-10 py-5 rounded-full transition-all hover:scale-105"
+                        style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif", fontSize: "1.375rem", fontWeight: 600, color: "#FFFFFF", textDecoration: 'none', backdropFilter: "blur(4px)" }}>
                         {secondaryAction.label}
                       </Link>
                     ) : (
-                      <button onClick={secondaryAction.onClick} className="px-8 py-4 rounded-full transition-all hover:scale-105"
-                        style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif", fontSize: "1.125rem", fontWeight: 600, color: "#FFFFFF", backdropFilter: "blur(4px)" }}>
+                      <button onClick={secondaryAction.onClick} className="px-10 py-5 rounded-full transition-all hover:scale-105"
+                        style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif", fontSize: "1.375rem", fontWeight: 600, color: "#FFFFFF", backdropFilter: "blur(4px)" }}>
                         {secondaryAction.label}
                       </button>
                     )

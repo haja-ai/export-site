@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getProductBySlug, wheelchairs } from '@/lib/products';
 import ProductJsonLd from '@/app/components/ProductJsonLd';
 import ImageGallery from '@/app/components/ImageGallery';
+import FloatingInquiry from '@/app/components/FloatingInquiry';
 
 export async function generateStaticParams() {
   return wheelchairs.map((p) => ({ slug: p.slug }));
@@ -193,6 +194,7 @@ export default async function ProductDetailPage({ params }) {
           </div>
         </div>
       </section>
+      <FloatingInquiry product={product.name} />
     </div>
   );
 }

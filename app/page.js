@@ -1,5 +1,6 @@
 import { siteSections } from '@/lib/site-sections';
 import SectionRenderer from './components/SectionRenderer';
+import FloatingInquiry from './components/FloatingInquiry';
 
 export const metadata = {
   title: 'Electric Wheelchair Manufacturer',
@@ -26,6 +27,7 @@ export default function HomePage() {
       {sections.map((section) => (
         <SectionRenderer key={section.id} section={section} />
       ))}
+      <FloatingInquiry />
     </div>
   );
 }

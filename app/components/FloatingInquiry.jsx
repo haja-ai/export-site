@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export default function FloatingInquiry({ product = '' }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(Boolean(product));
   const [form, setForm] = useState(initialState);
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');

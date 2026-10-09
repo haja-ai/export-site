@@ -57,70 +57,75 @@ export default function FloatingInquiry({ product = '' }) {
     }
   };
 
-  const title = product ? `Ask about ${product}` : 'Request a B2B Quote';
+  const title = product ? `Get a quote for ${product}` : 'Request a quote';
 
   return (
     <aside
-      className="fixed bottom-4 right-4 z-50 w-[calc(100vw-2rem)] max-w-[23rem]"
+      className="fixed bottom-5 right-5 z-50 w-[calc(100vw-2.5rem)] max-w-[22rem]"
       aria-label="Quick B2B inquiry"
     >
       {!open ? (
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="ml-auto flex items-center gap-3 rounded-full bg-teal px-5 py-3.5 text-left text-white shadow-[0_16px_44px_rgba(15,118,110,0.32)] transition hover:-translate-y-0.5 hover:bg-teal/90 focus:outline-none focus-visible:ring-4 focus-visible:ring-teal/30"
+          className="ml-auto block border border-[#2c8e39] bg-[#3ab54a] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2c9a3c] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3ab54a] focus-visible:ring-offset-2"
           aria-label="Open quick inquiry form"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/15">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" /></svg>
-          </span>
-          <span><span className="block text-xs font-medium text-white/80">MiniElephant B2B</span><span className="block font-semibold">Get a Quick Quote</span></span>
+          Get a Quote
         </button>
       ) : (
-        <div className="overflow-hidden rounded-2xl border border-white/70 bg-white shadow-[0_18px_55px_rgba(15,23,42,0.24)]">
-          <div className="flex items-start justify-between gap-3 bg-gray-900 px-5 py-4 text-white">
+        <div className="border border-[#dce4df] bg-white shadow-[0_12px_30px_rgba(24,33,29,0.10)]">
+          <div className="flex items-start justify-between gap-5 border-b border-[#dce4df] px-5 py-4">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-200">MiniElephant B2B</p>
-              <h2 className="mt-1 text-lg font-bold leading-tight">{title}</h2>
-              <p className="mt-1 text-xs text-gray-300">Share your requirement. Our export team will reply within 24 hours.</p>
+              <h2 className="text-base font-semibold tracking-[-0.01em] text-[#18211d]">{title}</h2>
+              <p className="mt-1 max-w-[17rem] text-xs leading-5 text-[#64706a]">Tell us your model and market. Our export team will reply within 24 hours.</p>
             </div>
-            <button type="button" onClick={() => setOpen(false)} className="rounded-full p-1 text-gray-300 transition hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-label="Minimize quick inquiry form">
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 12H6" /></svg>
+            <button type="button" onClick={() => setOpen(false)} className="-mr-1 -mt-1 flex h-7 w-7 shrink-0 items-center justify-center border border-transparent text-[#64706a] transition-colors hover:border-[#dce4df] hover:text-[#18211d] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3ab54a]" aria-label="Minimize quick inquiry form">
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M18 12H6" /></svg>
             </button>
           </div>
 
           {status === 'success' ? (
-            <div className="px-5 py-7 text-center">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-teal/10 text-teal">
-                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <h3 className="mt-3 font-bold text-gray-900">Inquiry received</h3>
-              <p className="mt-1 text-sm leading-relaxed text-gray-600">Thank you. We will review your request and reply within 24 hours.</p>
-              <button type="button" onClick={() => setOpen(false)} className="mt-4 text-sm font-semibold text-teal hover:underline">Close</button>
+            <div className="px-5 py-8">
+              <h3 className="text-base font-semibold text-[#18211d]">Inquiry received</h3>
+              <p className="mt-2 text-sm leading-6 text-[#64706a]">Thank you. We will review your request and reply within 24 hours.</p>
+              <button type="button" onClick={() => setOpen(false)} className="mt-5 text-sm font-semibold text-[#2c8e39] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3ab54a]">Close</button>
             </div>
           ) : (
-            <form onSubmit={submit} className="space-y-3 p-4">
-              {error && <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-xs text-red-700">{error}</p>}
+            <form onSubmit={submit} className="space-y-3 px-5 py-4">
+              {error && <p role="alert" className="border-l-2 border-red-600 bg-red-50 px-3 py-2 text-xs leading-5 text-red-700">{error}</p>}
               <div className="grid grid-cols-2 gap-3">
-                <label className="sr-only" htmlFor="floating-inquiry-name">Name</label>
-                <input id="floating-inquiry-name" name="name" value={form.name} onChange={update} required placeholder="Name *" className="min-w-0 rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-teal focus:ring-2 focus:ring-teal/20" />
-                <label className="sr-only" htmlFor="floating-inquiry-email">Business email</label>
-                <input id="floating-inquiry-email" name="email" type="email" value={form.email} onChange={update} required placeholder="Business email *" className="min-w-0 rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-teal focus:ring-2 focus:ring-teal/20" />
+                <div>
+                  <label className="mb-1 block text-xs font-medium text-[#45514b]" htmlFor="floating-inquiry-name">Name <span className="text-[#3ab54a]">*</span></label>
+                  <input id="floating-inquiry-name" name="name" value={form.name} onChange={update} required placeholder="Your name" className="min-w-0 w-full border border-[#dce4df] bg-white px-3 py-2.5 text-sm text-[#18211d] outline-none transition-colors placeholder:text-[#8d9791] focus:border-[#3ab54a] focus:ring-1 focus:ring-[#3ab54a]" />
+                </div>
+                <div>
+                  <label className="mb-1 block text-xs font-medium text-[#45514b]" htmlFor="floating-inquiry-email">Business email <span className="text-[#3ab54a]">*</span></label>
+                  <input id="floating-inquiry-email" name="email" type="email" value={form.email} onChange={update} required placeholder="name@company.com" className="min-w-0 w-full border border-[#dce4df] bg-white px-3 py-2.5 text-sm text-[#18211d] outline-none transition-colors placeholder:text-[#8d9791] focus:border-[#3ab54a] focus:ring-1 focus:ring-[#3ab54a]" />
+                </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
-                <label className="sr-only" htmlFor="floating-inquiry-company">Company</label>
-                <input id="floating-inquiry-company" name="company" value={form.company} onChange={update} placeholder="Company" className="min-w-0 rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-teal focus:ring-2 focus:ring-teal/20" />
-                <label className="sr-only" htmlFor="floating-inquiry-quantity">Quantity</label>
-                <input id="floating-inquiry-quantity" name="quantity" value={form.quantity} onChange={update} placeholder="Quantity" className="min-w-0 rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-teal focus:ring-2 focus:ring-teal/20" />
+                <div>
+                  <label className="mb-1 block text-xs font-medium text-[#45514b]" htmlFor="floating-inquiry-company">Company</label>
+                  <input id="floating-inquiry-company" name="company" value={form.company} onChange={update} placeholder="Company name" className="min-w-0 w-full border border-[#dce4df] bg-white px-3 py-2.5 text-sm text-[#18211d] outline-none transition-colors placeholder:text-[#8d9791] focus:border-[#3ab54a] focus:ring-1 focus:ring-[#3ab54a]" />
+                </div>
+                <div>
+                  <label className="mb-1 block text-xs font-medium text-[#45514b]" htmlFor="floating-inquiry-quantity">Quantity</label>
+                  <input id="floating-inquiry-quantity" name="quantity" value={form.quantity} onChange={update} placeholder="Estimated qty." className="min-w-0 w-full border border-[#dce4df] bg-white px-3 py-2.5 text-sm text-[#18211d] outline-none transition-colors placeholder:text-[#8d9791] focus:border-[#3ab54a] focus:ring-1 focus:ring-[#3ab54a]" />
+                </div>
               </div>
-              <label className="sr-only" htmlFor="floating-inquiry-phone">WhatsApp</label>
-              <input id="floating-inquiry-phone" name="phone" value={form.phone} onChange={update} placeholder="WhatsApp (optional)" className="w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-teal focus:ring-2 focus:ring-teal/20" />
-              <label className="sr-only" htmlFor="floating-inquiry-message">Requirement</label>
-              <textarea id="floating-inquiry-message" name="message" value={form.message} onChange={update} required rows={3} placeholder="Requirements, destination, or questions *" className="w-full resize-none rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-teal focus:ring-2 focus:ring-teal/20" />
-              <button type="submit" disabled={status === 'loading'} className="btn-primary w-full py-3 text-sm disabled:cursor-not-allowed disabled:opacity-60">
-                {status === 'loading' ? 'Sending...' : 'Request a Quote'}
+              <div>
+                <label className="mb-1 block text-xs font-medium text-[#45514b]" htmlFor="floating-inquiry-phone">WhatsApp</label>
+                <input id="floating-inquiry-phone" name="phone" value={form.phone} onChange={update} placeholder="Optional" className="w-full border border-[#dce4df] bg-white px-3 py-2.5 text-sm text-[#18211d] outline-none transition-colors placeholder:text-[#8d9791] focus:border-[#3ab54a] focus:ring-1 focus:ring-[#3ab54a]" />
+              </div>
+              <div>
+                <label className="mb-1 block text-xs font-medium text-[#45514b]" htmlFor="floating-inquiry-message">Requirements <span className="text-[#3ab54a]">*</span></label>
+                <textarea id="floating-inquiry-message" name="message" value={form.message} onChange={update} required rows={3} placeholder="Model, destination, or requirements" className="w-full resize-none border border-[#dce4df] bg-white px-3 py-2.5 text-sm text-[#18211d] outline-none transition-colors placeholder:text-[#8d9791] focus:border-[#3ab54a] focus:ring-1 focus:ring-[#3ab54a]" />
+              </div>
+              <button type="submit" disabled={status === 'loading'} className="w-full bg-[#3ab54a] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2c9a3c] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3ab54a] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60">
+                {status === 'loading' ? 'Sending inquiry...' : 'Send inquiry'}
               </button>
-              <p className="px-1 text-center text-[0.68rem] leading-relaxed text-gray-400">By submitting, you agree to our <a className="underline hover:text-teal" href="/privacy">Privacy Policy</a>.</p>
+              <p className="pt-0.5 text-[0.68rem] leading-4 text-[#7a857f]">By submitting, you agree to our <a className="underline underline-offset-2 hover:text-[#2c8e39]" href="/privacy">Privacy Policy</a>.</p>
             </form>
           )}
         </div>

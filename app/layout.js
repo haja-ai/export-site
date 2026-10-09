@@ -231,6 +231,11 @@ export default function RootLayout({ children }) {
             </div>
 
             <div className="border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+              <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-3 text-xs">
+                <a href="/privacy" className="text-gray-400 hover:text-teal transition-colors">Privacy Policy</a>
+                <a href="/terms" className="text-gray-400 hover:text-teal transition-colors">Terms of Use</a>
+                <a href="/cookie-policy" className="text-gray-400 hover:text-teal transition-colors">Cookie Policy</a>
+              </div>
               <p>&copy; 2026 Jiaxing Small Elephant Medical Technology Co., Ltd. All rights reserved.</p>
               <p className="mt-1">MiniElephant MiniRedone folding electric wheelchairs for global B2B export.</p>
             </div>

@@ -19,6 +19,7 @@ export default function HomeRedesign() {
             <img src="/logo-white.png" alt="MiniElephant" className="h-14 w-auto object-contain object-left" />
           </Link>
           <nav className="hidden items-center gap-7 text-sm font-semibold lg:flex" aria-label="Main navigation">
+            <Link href="/" aria-current="page" className="border-b border-white pb-1 transition-opacity hover:opacity-70">Home</Link>
             <Link href="/products" className="transition-opacity hover:opacity-70">Products</Link>
             <Link href="#company" className="transition-opacity hover:opacity-70">Company</Link>
             <Link href="#location" className="transition-opacity hover:opacity-70">Location</Link>

@@ -89,7 +89,7 @@ export default function ContactForm() {
     );
   }
 
-  const inputClass = 'w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal focus:border-teal outline-none transition-colors';
+  const inputClass = 'w-full px-4 py-2.5 border border-[#dbe3dd] bg-white focus:ring-2 focus:ring-[#3ab54a] focus:border-[#3ab54a] outline-none transition-colors';
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
@@ -161,10 +161,10 @@ export default function ContactForm() {
 
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">Message / Requirements <span className="text-red-500">*</span></label>
-        <textarea name="message" required rows={5} value={formData.message} onChange={handleChange} className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal focus:border-teal outline-none transition-colors resize-y" placeholder="Tell us about your requirements, target market, or any specific questions..." />
+        <textarea name="message" required rows={5} value={formData.message} onChange={handleChange} className="w-full px-4 py-2.5 border border-[#dbe3dd] bg-white focus:ring-2 focus:ring-[#3ab54a] focus:border-[#3ab54a] outline-none transition-colors resize-y" placeholder="Tell us about your requirements, target market, or any specific questions..." />
       </div>
 
-      <button type="submit" disabled={loading} className="btn-primary w-full py-3 text-base disabled:opacity-50">
+      <button type="submit" disabled={loading} className="w-full bg-[#3ab54a] px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-[#278a36] disabled:opacity-50">
         {loading ? 'Sending...' : 'Request a Wholesale Quote'}
       </button>
     </form>

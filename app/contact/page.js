@@ -1,7 +1,7 @@
 import { siteSections } from '@/lib/site-sections';
 import { siteContent as sc } from '@/lib/site-content';
 import PulseFitPage from '../components/PulseFitPage';
-import SectionRenderer from '../components/SectionRenderer';
+import { ExportContact } from '../components/UtilityPageContent';
 
 export const metadata = {
   title: 'Wholesale Electric Wheelchair Quote',
@@ -24,10 +24,8 @@ export default function ContactPage() {
   const sections = siteSections.contact || [];
 
   return (
-    <PulseFitPage bannerImage={sc.contact.bannerImage} badge={sc.contact.badge} title={sc.contact.title} description={sc.contact.description}>
-      {sections.map((section) => (
-        <SectionRenderer key={section.id} section={section} />
-      ))}
+    <PulseFitPage plainHero badge={sc.contact.badge} title={sc.contact.title} description={sc.contact.description}>
+          <ExportContact />
     </PulseFitPage>
   );
 }

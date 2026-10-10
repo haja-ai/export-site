@@ -10,6 +10,7 @@ export default function PulseFitPage({
   logo = "MiniElephant",
   bannerImage = "/images/wheelchair-banner.webp",
   compactSplitHero = false,
+  plainHero = false,
 }) {
   const navLinks = [
     { label: "Home", href: '/' },
@@ -49,7 +50,13 @@ export default function PulseFitPage({
       </header>
 
       {/* ===== Banner hero region ===== */}
-      {compactSplitHero ? (
+      {plainHero ? (
+        <div className="border-b border-[#dbe3dd] bg-[#f4f7f4] px-6 py-14 sm:px-8 lg:px-16 lg:py-16">
+          {badge && <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">{badge}</p>}
+          <h1 className="mt-4 max-w-4xl text-[clamp(2.4rem,4.6vw,4rem)] font-extrabold leading-[1.02] tracking-[-0.055em] text-[#152019]">{title}</h1>
+          {description && <p className="mt-6 max-w-2xl text-base leading-8 text-[#657069]">{description}</p>}
+        </div>
+      ) : compactSplitHero ? (
         <div className="grid min-h-[23.5rem] border-b border-[#dbe3dd] bg-[#f4f7f4] lg:grid-cols-[1.04fr_0.96fr]">
           <div className="flex flex-col justify-center px-6 py-14 sm:px-8 lg:px-16 lg:py-[3.75rem]">
             {badge && <span className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">{badge}</span>}

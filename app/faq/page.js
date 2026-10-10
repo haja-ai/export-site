@@ -1,7 +1,7 @@
 import { siteSections } from '@/lib/site-sections';
 import { siteContent as sc } from '@/lib/site-content';
 import PulseFitPage from '../components/PulseFitPage';
-import SectionRenderer from '../components/SectionRenderer';
+import { GroupedFaq } from '../components/UtilityPageContent';
 
 export const metadata = {
   title: 'Electric Wheelchair FAQ',
@@ -41,10 +41,8 @@ export default function FaqPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <PulseFitPage bannerImage={sc.faq.bannerImage} badge={sc.faq.badge} title={sc.faq.title} description={sc.faq.description}>
-        {sections.map((section) => (
-          <SectionRenderer key={section.id} section={section} />
-        ))}
+      <PulseFitPage plainHero badge={sc.faq.badge} title={sc.faq.title} description={sc.faq.description}>
+              <GroupedFaq faqs={faqs} />
       </PulseFitPage>
     </>
   );

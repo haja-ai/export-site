@@ -98,19 +98,19 @@ export default async function ProductDetailPage({ params }) {
         }),
       }} />
 
-      <div className="bg-cream border-b border-gray-100">
+      <div className="bg-[#f4f7f4] border-b border-[#dbe3dd]">
         <div className="px-6 sm:px-8 lg:px-16 py-4">
-          <nav className="flex items-center gap-2 text-sm text-gray-500" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-teal transition-colors">Home</Link>
+          <nav className="flex items-center gap-2 text-sm text-[#627067]" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-[#3ab54a] transition-colors">Home</Link>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            <Link href="/products" className="hover:text-teal transition-colors">Products</Link>
+            <Link href="/products" className="hover:text-[#3ab54a] transition-colors">Products</Link>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            <span className="text-gray-700 font-medium">{product.name}</span>
+            <span className="text-[#152019] font-medium">{product.name}</span>
           </nav>
         </div>
       </div>
 
-      <section className="py-12 lg:py-16 bg-cream">
+      <section className="py-12 lg:py-16 bg-[#f4f7f4]">
         <div className="px-6 sm:px-8 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
@@ -118,35 +118,35 @@ export default async function ProductDetailPage({ params }) {
             </div>
 
             <div>
-              <span className="text-teal font-semibold text-xs uppercase tracking-wider">{product.category}</span>
-              <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mt-1 mb-2">{product.fullName}</h1>
-              <p className="text-teal font-medium mb-4">{product.tagline}</p>
-              <p className="text-gray-600 leading-relaxed mb-6">{product.description}</p>
+              <span className="text-[#3ab54a] font-bold text-xs uppercase tracking-[0.16em]">{product.category}</span>
+              <h1 className="text-2xl lg:text-3xl font-bold text-[#152019] mt-2 mb-3">{product.fullName}</h1>
+              <p className="text-[#152019] font-medium mb-4">{product.tagline}</p>
+              <p className="text-[#526158] leading-relaxed mb-6">{product.description}</p>
 
               {product.keyDifference && (
-                <div className="bg-teal/5 border border-teal/10 rounded-lg p-4 mb-6">
-                  <span className="text-xs font-semibold text-teal uppercase tracking-wider">Key Difference</span>
-                  <p className="text-sm text-gray-700 mt-1">{product.keyDifference}</p>
+                <div className="border-l-2 border-[#3ab54a] bg-white p-4 mb-6">
+                  <span className="text-xs font-bold text-[#3ab54a] uppercase tracking-[0.16em]">Key Difference</span>
+                  <p className="text-sm text-[#344239] mt-1">{product.keyDifference}</p>
                 </div>
               )}
 
-              <Link href={`/contact?product=${encodeURIComponent(product.name)}`} className="btn-primary px-6 py-3 inline-flex items-center gap-2">
+              <Link href={`/contact?product=${encodeURIComponent(product.name)}`} className="px-6 py-3 inline-flex items-center gap-2 bg-[#3ab54a] border border-[#3ab54a] text-white font-semibold text-sm hover:bg-[#2d963c] hover:border-[#2d963c] transition-colors">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                 Request a Wholesale Quote
               </Link>
             </div>
           </div>
 
-          <div className="mt-16 grid lg:grid-cols-2 gap-12">
+          <div className="mt-16 pt-12 border-t border-[#dbe3dd] grid lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Technical Specifications</h2>
-              <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+              <h2 className="text-xl font-bold text-[#152019] mb-6">Technical Specifications</h2>
+              <div className="bg-white border border-[#dbe3dd] overflow-hidden">
                 <table className="w-full text-sm">
                   <tbody>
                     {product.specs.map((spec, i) => (
-                      <tr key={spec.label} className={i % 2 === 0 ? 'bg-gray-50/50' : ''}>
-                        <td className="py-3 px-4 font-medium text-gray-700 w-1/2">{spec.label}</td>
-                        <td className="py-3 px-4 text-gray-600">{spec.value}</td>
+                      <tr key={spec.label} className={i % 2 === 0 ? 'bg-[#f4f7f4]' : 'bg-white'}>
+                        <td className="py-3 px-4 font-medium text-[#344239] w-1/2">{spec.label}</td>
+                        <td className="py-3 px-4 text-[#526158]">{spec.value}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -155,14 +155,14 @@ export default async function ProductDetailPage({ params }) {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Key Features</h2>
+              <h2 className="text-xl font-bold text-[#152019] mb-6">Key Features</h2>
               <ul className="space-y-3">
                 {product.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-teal/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <svg className="w-3.5 h-3.5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
+                    <div className="w-6 h-6 border border-[#dbe3dd] bg-white flex items-center justify-center shrink-0 mt-0.5">
+                      <svg className="w-3.5 h-3.5 text-[#3ab54a]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
                     </div>
-                    <span className="text-gray-600">{feature}</span>
+                    <span className="text-[#526158]">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -171,23 +171,23 @@ export default async function ProductDetailPage({ params }) {
         </div>
       </section>
 
-      <section className="py-12 lg:py-16 bg-white">
+      <section className="py-12 lg:py-16 bg-white border-t border-[#dbe3dd]">
         <div className="px-6 sm:px-8 lg:px-16">
           <div className="max-w-4xl mx-auto mb-14">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Buyer Questions About {product.name}</h2>
-            <div className="space-y-4">
+            <h2 className="text-xl font-bold text-[#152019] mb-6">Buyer Questions About {product.name}</h2>
+            <div className="border-t border-[#dbe3dd]">
               {buyerFaqs.map((faq) => (
-                <div key={faq.q} className="rounded-xl border border-gray-200 bg-cream/40 p-5">
-                  <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{faq.a}</p>
+                <div key={faq.q} className="border-b border-[#dbe3dd] bg-[#f4f7f4] px-5 py-5">
+                  <h3 className="font-semibold text-[#152019] mb-2">{faq.q}</h3>
+                  <p className="text-sm text-[#526158] leading-relaxed">{faq.a}</p>
                 </div>
               ))}
             </div>
           </div>
-          <h2 className="text-xl font-bold text-gray-900 mb-6">Explore Other Models</h2>
+          <h2 className="text-xl font-bold text-[#152019] mb-6">Explore Other Models</h2>
           <div className="flex flex-wrap gap-3">
             {wheelchairs.filter((p) => p.slug !== slug).map((p) => (
-              <Link key={p.slug} href={`/products/${p.slug}`} className="px-4 py-2 bg-cream border border-gray-200 rounded-full text-sm text-gray-600 hover:border-teal hover:text-teal transition-colors">
+              <Link key={p.slug} href={`/products/${p.slug}`} className="px-4 py-2 bg-[#f4f7f4] border border-[#dbe3dd] text-sm text-[#526158] hover:border-[#3ab54a] hover:text-[#152019] transition-colors">
                 {p.name}
               </Link>
             ))}

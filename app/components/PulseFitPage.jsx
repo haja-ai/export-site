@@ -9,6 +9,7 @@ export default function PulseFitPage({
   description,
   logo = "MiniElephant",
   bannerImage = "/images/wheelchair-banner.webp",
+  compactSplitHero = false,
 }) {
   const navLinks = [
     { label: "Home", href: '/' },
@@ -48,32 +49,32 @@ export default function PulseFitPage({
       </header>
 
       {/* ===== Banner hero region ===== */}
-      <div className="relative flex min-h-[25rem] overflow-hidden border-b border-[#dbe3dd] bg-[#f4f7f4] sm:min-h-[29rem] lg:min-h-[33rem]">
-        {/* Banner image */}
-        <img src={bannerImage} alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" fetchPriority="high" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(244,247,244,0.95),rgba(244,247,244,0.72)_52%,rgba(244,247,244,0.18))]" />
-
-        {/* Title block — centered over the banner */}
-        {(badge || title) && (
-          <div className="relative z-10 flex min-h-[25rem] max-w-3xl flex-col justify-end px-6 pb-12 pt-28 sm:min-h-[29rem] sm:px-8 lg:min-h-[33rem] lg:px-16 lg:pb-16">
-            {badge && (
-              <span className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">
-                {badge}
-              </span>
-            )}
-            {title && (
-              <h1 className="mt-3 text-[clamp(2.7rem,5.4vw,5.8rem)] font-extrabold leading-[0.94] tracking-[-0.07em] text-[#152019]">
-                {title}
-              </h1>
-            )}
-            {description && (
-              <p className="mt-6 max-w-xl text-base leading-7 text-[#55625b] sm:text-lg">
-                {description}
-              </p>
-            )}
+      {compactSplitHero ? (
+        <div className="grid min-h-[23.5rem] border-b border-[#dbe3dd] bg-[#f4f7f4] lg:grid-cols-[1.04fr_0.96fr]">
+          <div className="flex flex-col justify-center px-6 py-14 sm:px-8 lg:px-16 lg:py-[3.75rem]">
+            {badge && <span className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">{badge}</span>}
+            {title && <h1 className="mt-3 max-w-3xl text-[clamp(2.65rem,4.8vw,4.4rem)] font-extrabold leading-[0.93] tracking-[-0.07em] text-[#152019]">{title}</h1>}
+            {description && <p className="mt-5 max-w-xl text-[0.95rem] leading-7 text-[#55625b]">{description}</p>}
+            <p className="mt-5 max-w-xl text-sm font-semibold leading-6 text-[#278a36]">The Saudi SFDA market authorization is presented immediately below as this page&apos;s featured credential.</p>
           </div>
-        )}
-      </div>
+          <div className="relative min-h-[14rem] overflow-hidden bg-[#dde5df] lg:min-h-0">
+            <img src={bannerImage} alt="MiniElephant manufacturing environment" className="h-full w-full object-cover object-center" loading="eager" fetchPriority="high" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(244,247,244,0.95),rgba(244,247,244,0.08)_42%,rgba(244,247,244,0))] lg:block" />
+          </div>
+        </div>
+      ) : (
+        <div className="relative flex min-h-[25rem] overflow-hidden border-b border-[#dbe3dd] bg-[#f4f7f4] sm:min-h-[29rem] lg:min-h-[33rem]">
+          <img src={bannerImage} alt="" className="absolute inset-0 h-full w-full object-cover" loading="eager" fetchPriority="high" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(244,247,244,0.95),rgba(244,247,244,0.72)_52%,rgba(244,247,244,0.18))]" />
+          {(badge || title) && (
+            <div className="relative z-10 flex min-h-[25rem] max-w-3xl flex-col justify-end px-6 pb-12 pt-28 sm:min-h-[29rem] sm:px-8 lg:min-h-[33rem] lg:px-16 lg:pb-16">
+              {badge && <span className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">{badge}</span>}
+              {title && <h1 className="mt-3 text-[clamp(2.7rem,5.4vw,5.8rem)] font-extrabold leading-[0.94] tracking-[-0.07em] text-[#152019]">{title}</h1>}
+              {description && <p className="mt-6 max-w-xl text-base leading-7 text-[#55625b] sm:text-lg">{description}</p>}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Page content */}
       {children}

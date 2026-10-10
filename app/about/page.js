@@ -24,7 +24,7 @@ export default function AboutPage() {
   const sections = siteSections.about || [];
 
   return (
-    <PulseFitPage bannerImage={sc.about.bannerImage} badge={sc.about.badge} title={sc.about.title} description={sc.about.description}>
+    <PulseFitPage compactSplitHero bannerImage={sc.about.bannerImage} badge={sc.about.badge} title={sc.about.title} description={sc.about.description}>
       {sections.map((section) => (
         <SectionRenderer key={section.id} section={section} />
       ))}

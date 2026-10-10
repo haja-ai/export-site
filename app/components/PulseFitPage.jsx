@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from "framer-motion";
 import Link from 'next/link';
 
 export default function PulseFitPage({
@@ -22,37 +21,18 @@ export default function PulseFitPage({
 
   return (
     <section className="relative flex flex-col">
-      {/* ===== Sticky white nav bar (independent row) ===== */}
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="sticky top-0 z-50 flex flex-row justify-between items-center px-8 lg:px-16"
-        style={{
-          paddingTop: "1rem",
-          paddingBottom: "1rem",
-          background: "#FFFFFF",
-          borderBottom: "1px solid #e5e7eb",
-        }}
-      >
+      <header className="sticky top-0 z-50 flex h-[4.875rem] items-center justify-between border-b border-[#dbe3dd] bg-white px-6 sm:px-8 lg:px-16">
         {/* Full brand logo */}
         <Link href="/" style={{ textDecoration: 'none' }} className="flex items-center">
-          <img src="/logo-black.png" alt="MiniElephant Electric Wheelchair" style={{ height: "3.5rem", width: "auto" }} />
+          <img src="/logo-black.png" alt="MiniElephant Electric Wheelchair" className="h-14 w-auto object-contain object-left" />
         </Link>
 
-        <nav className="hidden lg:flex flex-row items-center gap-10" aria-label="Main navigation">
+        <nav className="hidden items-center gap-7 text-sm font-semibold text-[#334139] lg:flex" aria-label="Main navigation">
           {navLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontSize: "1.25rem",
-                fontWeight: 600,
-                color: "#1a1a1a",
-                textDecoration: 'none',
-              }}
-              className="hover:opacity-70 hover:scale-110 transition-all duration-200 inline-block"
+              className="transition-colors hover:text-[#278a36]"
             >
               {item.label}
             </Link>
@@ -61,60 +41,37 @@ export default function PulseFitPage({
 
         <Link
           href="/contact"
-          className="px-7 py-3 rounded-full transition-all hover:scale-105 hidden sm:inline-block"
-          style={{
-            background: "#FFFFFF",
-            border: "1px solid #e2e8f0",
-            fontFamily: "Inter, sans-serif",
-            fontSize: "1.0625rem",
-            fontWeight: 500,
-            color: "#1a1a1a",
-            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
-            textDecoration: 'none',
-          }}
+          className="hidden border border-[#3ab54a] bg-[#3ab54a] px-5 py-2 text-sm font-bold text-white transition-colors hover:bg-[#278a36] sm:inline-block"
         >
           Get a Quote
         </Link>
-      </motion.header>
+      </header>
 
       {/* ===== Banner hero region ===== */}
-      <div className="relative flex flex-col overflow-hidden min-h-[28.75rem] sm:min-h-[32.5rem] lg:min-h-[37.5rem]">
+      <div className="relative flex min-h-[25rem] overflow-hidden border-b border-[#dbe3dd] bg-[#f4f7f4] sm:min-h-[29rem] lg:min-h-[33rem]">
         {/* Banner image */}
         <img src={bannerImage} alt="" className="absolute inset-0 w-full h-full object-cover" loading="eager" fetchPriority="high" />
-        {/* Cinematic overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.48) 38%, rgba(255,255,255,0.80) 72%, #FFFFFF 100%)",
-          }}
-        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(244,247,244,0.95),rgba(244,247,244,0.72)_52%,rgba(244,247,244,0.18))]" />
 
         {/* Title block — centered over the banner */}
         {(badge || title) && (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto pb-14"
-            style={{ gap: "16px" }}
-          >
+          <div className="relative z-10 flex min-h-[25rem] max-w-3xl flex-col justify-end px-6 pb-12 pt-28 sm:min-h-[29rem] sm:px-8 lg:min-h-[33rem] lg:px-16 lg:pb-16">
             {badge && (
-              <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: "#5EEAD4" }}>
+              <span className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">
                 {badge}
               </span>
             )}
             {title && (
-              <h1 className="text-3xl lg:text-4xl font-bold" style={{ fontFamily: "Inter, sans-serif", color: "#1a1a1a" }}>
+              <h1 className="mt-3 text-[clamp(2.7rem,5.4vw,5.8rem)] font-extrabold leading-[0.94] tracking-[-0.07em] text-[#152019]">
                 {title}
               </h1>
             )}
             {description && (
-              <p className="text-base lg:text-lg" style={{ fontFamily: "Inter, sans-serif", color: "#4a5568", maxWidth: "40rem" }}>
+              <p className="mt-6 max-w-xl text-base leading-7 text-[#55625b] sm:text-lg">
                 {description}
               </p>
             )}
-          </motion.div>
+          </div>
         )}
       </div>
 

@@ -24,7 +24,7 @@ export default function ContactPage() {
   const sections = siteSections.contact || [];
 
   return (
-    <PulseFitPage plainHero badge={sc.contact.badge} title={sc.contact.title} description={sc.contact.description}>
+    <PulseFitPage bannerImage={sc.contact.bannerImage} badge={sc.contact.badge} title={sc.contact.title} description={sc.contact.description}>
           <ExportContact />
     </PulseFitPage>
   );

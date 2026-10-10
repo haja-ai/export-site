@@ -365,12 +365,14 @@ export default function SectionRenderer({ section, className }) {
       return (
         <section className={wrapCls}>
           <div className="px-6 sm:px-8 lg:px-16">
-            <div className="text-center mb-12">
-              {c.badge && <span className="text-teal font-semibold text-sm uppercase tracking-widest">{c.badge}</span>}
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2 mb-4">{c.title}</h2>
-              {c.description && <p className="text-gray-500 max-w-2xl mx-auto">{c.description}</p>}
+            <div className="mb-10 flex flex-col justify-between gap-5 border-b border-[#dbe3dd] pb-8 lg:flex-row lg:items-end">
+              <div>
+                {c.badge && <span className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">{c.badge}</span>}
+                <h2 className="mt-3 text-[clamp(2.35rem,4vw,4.5rem)] font-extrabold leading-[1.01] tracking-[-0.06em] text-[#152019]">{c.title}</h2>
+              </div>
+              {c.description && <p className="max-w-md text-sm leading-6 text-[#657069]">{c.description}</p>}
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {wheelchairs.map((product, i) => (
                 <ProductCard key={product.slug} product={product} index={i} />
               ))}

@@ -1,113 +1,35 @@
-'use client';
-
-import { useState } from 'react';
-
-const certificates = [
-  {
-    id: 'sfda-mdma',
-    name: 'Saudi SFDA Medical Device Marketing Authorization',
-    desc: 'Authorization No. MDMA-2-2026-4108 · Issuing date 25/8/2026 · Expiry date 25/8/2029',
-    pdf: '/certificates/MDMA-2-2026-4108.pdf',
-    preview: '/certificates/MDMA-2-2026-4108-preview.webp',
-    type: 'pdf',
-  },
-  {
-    id: 'ce',
-    name: 'CE Marking',
-    desc: 'European conformity document preview',
-    image: '/images/cert-ce.webp',
-    fullSize: '/images/cert-ce.webp',
-    type: 'image',
-  },
-  {
-    id: 'iso',
-    name: 'ISO 13485',
-    desc: 'Medical devices quality management system certification',
-    image: '/images/cert-iso13485-2.webp',
-    fullSize: '/images/cert-iso13485-2.webp',
-    type: 'image',
-  },
-  {
-    id: 'fda',
-    name: 'FDA Registration',
-    desc: 'US Food and Drug Administration establishment registration',
-    image: '/images/cert-fda.webp',
-    fullSize: '/images/cert-fda.webp',
-    type: 'image',
-  },
-];
+import Link from 'next/link';
 
 export default function CertificatesSection() {
-  const [expanded, setExpanded] = useState(null);
-
   return (
-    <>
-      <section className="py-16 lg:py-20 bg-cream">
-        <div className="px-6 sm:px-8 lg:px-16">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Quality Certifications & Authorizations</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              Document previews and authorizations available for buyer review. Please request the exact scope and validity for your market before ordering.
-            </p>
+    <section className="border-y border-[#dbe3dd] bg-[#f4f7f4] py-20 lg:py-28">
+      <div className="px-6 sm:px-8 lg:px-16">
+        <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:gap-[9vw]">
+          <div>
+            <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">Documented authorization</p>
+            <h2 className="mt-3 max-w-xl text-[clamp(2.35rem,4vw,4.4rem)] font-extrabold leading-[1.01] tracking-[-0.06em] text-[#152019]">Company certifications and authorizations.</h2>
+            <p className="mt-6 max-w-md text-base leading-8 text-[#657069]">We publish only documentation that can be identified and reviewed. Buyers should confirm the applicable product scope and market requirements for their own project before ordering.</p>
           </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {certificates.map((cert) => (
-              <div
-                key={cert.id}
-                className="group text-left bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg hover:border-teal/30 transition-all duration-300"
-              >
-                {cert.type === 'pdf' ? (
-                  <a href={cert.pdf} target="_blank" rel="noopener noreferrer" className="block">
-                    <div className="aspect-[3/4] bg-gray-50 flex items-center justify-center p-3 overflow-hidden">
-                      <img
-                        src={cert.preview}
-                        alt={`${cert.name} document preview`}
-                        className="w-full h-full object-contain border-2 border-red-500 rounded-sm shadow-sm group-hover:scale-[1.02] transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-bold text-gray-900 mb-1">{cert.name}</h3>
-                      <p className="text-sm text-gray-500 leading-relaxed">{cert.desc}</p>
-                      <p className="text-xs text-red-600 mt-2 font-medium">Open full certificate PDF ↗</p>
-                    </div>
-                  </a>
-                ) : (
-                  <button
-                    onClick={() => setExpanded(expanded === cert.id ? null : cert.id)}
-                    className="w-full text-left"
-                  >
-                    <div className="aspect-[3/4] bg-gray-50 flex items-center justify-center p-4 overflow-hidden">
-                      <img
-                        src={cert.image}
-                        alt={cert.name}
-                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-bold text-gray-900 mb-1">{cert.name}</h3>
-                      <p className="text-sm text-gray-500 leading-relaxed">{cert.desc}</p>
-                    </div>
-                  </button>
-                )}
+          <article className="grid overflow-hidden border border-[#dbe3dd] bg-white sm:grid-cols-[0.8fr_1.2fr]">
+            <a href="/certificates/MDMA-2-2026-4108.pdf" target="_blank" rel="noopener noreferrer" className="flex min-h-[26rem] items-center justify-center border-b border-[#dbe3dd] bg-white p-6 transition-colors hover:bg-[#f7faf7] sm:border-b-0 sm:border-r">
+              <img src="/certificates/MDMA-2-2026-4108-preview.webp" alt="Saudi SFDA Medical Device Marketing Authorization document preview" className="max-h-[23rem] w-full object-contain" />
+            </a>
+            <div className="flex flex-col justify-between p-7 sm:p-10">
+              <div>
+                <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">Saudi Arabia</p>
+                <h3 className="mt-3 text-2xl font-bold leading-tight tracking-[-0.04em] text-[#152019]">Saudi SFDA Medical Device Marketing Authorization</h3>
+                <dl className="mt-7 border-t border-[#dbe3dd] text-sm">
+                  <div className="grid gap-1 border-b border-[#dbe3dd] py-3 sm:grid-cols-[9rem_1fr]"><dt className="text-[#657069]">Authorization No.</dt><dd className="font-bold text-[#152019]">MDMA-2-2026-4108</dd></div>
+                  <div className="grid gap-1 border-b border-[#dbe3dd] py-3 sm:grid-cols-[9rem_1fr]"><dt className="text-[#657069]">Validity</dt><dd className="font-bold text-[#152019]">25/8/2026 – 25/8/2029</dd></div>
+                  <div className="grid gap-1 border-b border-[#dbe3dd] py-3 sm:grid-cols-[9rem_1fr]"><dt className="text-[#657069]">Document type</dt><dd className="font-bold text-[#152019]">Medical Device Marketing Authorization</dd></div>
+                </dl>
               </div>
-            ))}
-          </div>
+              <a href="/certificates/MDMA-2-2026-4108.pdf" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex self-start border border-[#152019] px-5 py-3 text-sm font-bold transition-colors hover:bg-[#152019] hover:text-white">Open document PDF ↗</a>
+            </div>
+          </article>
         </div>
-      </section>
-
-      {expanded && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={() => setExpanded(null)}>
-          <div className="relative max-w-4xl max-h-[90vh] w-full" onClick={(e) => e.stopPropagation()}>
-            <button onClick={() => setExpanded(null)} className="absolute -top-10 right-0 text-white/80 hover:text-white text-sm">Close ✕</button>
-            <img
-              src={certificates.find((c) => c.id === expanded)?.fullSize}
-              alt={certificates.find((c) => c.id === expanded)?.name}
-              className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl"
-            />
-          </div>
-        </div>
-      )}
-    </>
+        <div className="mt-8 border-l-2 border-[#3ab54a] bg-white px-5 py-4 text-sm leading-6 text-[#526158]">Need documents for a different market? <Link href="/contact" className="font-bold text-[#278a36] hover:underline">Contact the export team</Link> to discuss the required product and market documentation. No other market approval is implied by this page.</div>
+      </div>
+    </section>
   );
 }

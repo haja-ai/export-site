@@ -1,76 +1,30 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from 'framer-motion';
 
 export default function ProductCard({ product, index = 0, animate = false }) {
-  const reduce = useReducedMotion();
-
-  const cardContent = (
+  const reduceMotion = useReducedMotion();
+  const content = (
     <>
-      {/* Product Image */}
-      <div className="relative aspect-[4/3] bg-gradient-to-b from-gray-50 to-white rounded-t-2xl overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden border-b border-[#dbe3dd] bg-[#f4f7f4]">
         {product.images ? (
-          <img
-            src={product.images[0]}
-            alt={`${product.fullName}: ${product.tagline}`}
-            width={400} height={300}
-            loading="lazy"
-            className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-gray-300 text-sm">No Image</div>
-        )}
-        {/* Overlay label: Weight badge */}
-        {product.specs?.[0] && (
-          <span className="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-bold text-gray-900 px-2.5 py-1 rounded-lg shadow-sm">
-            {product.specs[0].value}
-          </span>
-        )}
+          <img src={product.images[0]} alt={`${product.fullName}: ${product.tagline}`} width={400} height={300} loading="lazy" className="h-full w-full object-contain p-5 transition-transform duration-500 group-hover:scale-[1.035]" />
+        ) : <div className="flex h-full items-center justify-center text-sm text-[#7a857f]">No image available</div>}
+        {product.specs?.[0] && <span className="absolute left-4 top-4 border border-[#dbe3dd] bg-white px-2.5 py-1 text-[0.68rem] font-bold text-[#152019]">{product.specs[0].value}</span>}
       </div>
-
-      {/* Info */}
-      <div className="p-4 pt-3 flex flex-col flex-1">
-        <span className="text-[0.6875rem] font-semibold uppercase tracking-widest text-teal">MiniRedone Series</span>
-        <h3 className="text-lg font-bold text-gray-900 mt-0.5 mb-1 group-hover:text-teal transition-colors">
-          {product.name}
-        </h3>
-        <p className="text-sm text-gray-400 leading-snug line-clamp-2 flex-1">
-          {product.tagline}
-        </p>
-        {/* Key specs in a compact row */}
-        <div className="flex gap-3 mt-3 pt-3 border-t border-gray-100 text-xs text-gray-500">
-          {product.specs?.slice(0, 3).map((s) => (
-            <span key={s.label} className="flex items-baseline gap-1">
-              <span className="font-semibold text-gray-700">{s.value}</span>
-              <span>{s.label.replace('Net ', '')}</span>
-            </span>
-          ))}
+      <div className="flex flex-1 flex-col p-5">
+        <span className="text-[0.65rem] font-extrabold uppercase tracking-[0.13em] text-[#278a36]">MiniRedone series</span>
+        <h3 className="mt-2 text-xl font-bold tracking-[-0.035em] text-[#152019] transition-colors group-hover:text-[#278a36]">{product.name}</h3>
+        <p className="mt-2 flex-1 text-sm leading-6 text-[#657069]">{product.tagline}</p>
+        <div className="mt-5 grid grid-cols-3 border-t border-[#dbe3dd] pt-3 text-[0.65rem] leading-4 text-[#657069]">
+          {product.specs?.slice(0, 3).map((spec) => <span key={spec.label} className="pr-2"><b className="block text-xs text-[#152019]">{spec.value}</b>{spec.label.replace('Net ', '')}</span>)}
         </div>
+        <span className="mt-5 inline-flex items-center gap-2 text-xs font-bold text-[#278a36]">View model <span aria-hidden="true">→</span></span>
       </div>
     </>
   );
-
-  const baseClass = "product-card group bg-white rounded-2xl border border-gray-100 hover:border-teal/20 hover:shadow-lg transition-[box-shadow,transform,color,background-color,border-color] duration-300 flex flex-col overflow-hidden";
-
-  if (animate && !reduce) {
-    return (
-      <motion.a
-        href={`/products/${product.slug}`}
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
-        className={baseClass}
-      >
-        {cardContent}
-      </motion.a>
-    );
-  }
-
-  return (
-    <Link href={`/products/${product.slug}`} className={baseClass}>
-      {cardContent}
-    </Link>
-  );
+  const className = 'group flex flex-col overflow-hidden border border-[#dbe3dd] bg-white transition-colors duration-200 hover:border-[#3ab54a]';
+  if (animate && !reduceMotion) return <motion.a href={`/products/${product.slug}`} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.16 }} transition={{ duration: 0.42, delay: index * 0.05 }} className={className}>{content}</motion.a>;
+  return <Link href={`/products/${product.slug}`} className={className}>{content}</Link>;
 }

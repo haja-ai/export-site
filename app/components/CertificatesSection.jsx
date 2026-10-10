@@ -9,34 +9,32 @@ const credentials = [
 
 export default function CertificatesSection() {
   return (
-    <section className="border-y border-[#dbe3dd] bg-[#f4f7f4] py-20 lg:py-28">
+    <section className="border-y border-[#dbe3dd] bg-white py-20 lg:py-28">
       <div className="px-6 sm:px-8 lg:px-16">
-        <div className="grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:gap-[9vw]">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-[7vw]">
+          <a href="/certificates/MDMA-2-2026-4108.pdf" target="_blank" rel="noopener noreferrer" className="relative flex min-h-[31rem] items-center justify-center border border-[#dbe3dd] bg-[#f4f7f4] p-8 transition-colors hover:bg-[#edf4ee] lg:min-h-[39rem]">
+            <span className="absolute left-5 top-4 text-[0.62rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">Primary market authorization</span>
+            <img src="/certificates/MDMA-2-2026-4108-preview.webp" alt="Saudi SFDA Medical Device Marketing Authorization document preview" className="max-h-[34rem] w-full object-contain drop-shadow-[0_15px_12px_rgba(15,29,20,0.12)]" />
+          </a>
           <div>
-            <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">Credentials archive</p>
-            <h2 className="mt-3 max-w-xl text-[clamp(2.35rem,4vw,4.4rem)] font-extrabold leading-[1.01] tracking-[-0.06em] text-[#152019]">Company certifications and authorizations.</h2>
-            <p className="mt-6 max-w-md text-base leading-8 text-[#657069]">Our credentials archive presents the company documents available for buyer review, including quality-system, declaration, registration and market-authorization records.</p>
+            <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">Featured authorization · Saudi Arabia</p>
+            <h2 className="mt-3 max-w-3xl text-[clamp(2.6rem,4.7vw,5rem)] font-extrabold leading-[0.98] tracking-[-0.065em] text-[#152019]">Saudi SFDA Medical Device Marketing Authorization.</h2>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-[#657069]">This is the lead document in the MiniElephant credentials archive: a published Saudi medical-device marketing authorization for the electric wheelchair product family.</p>
+            <dl className="mt-8 max-w-2xl border-t border-[#dbe3dd] text-sm">
+              <div className="grid gap-1 border-b border-[#dbe3dd] py-3 sm:grid-cols-[10.5rem_1fr]"><dt className="text-[#657069]">Authorization No.</dt><dd className="font-bold text-[#152019]">MDMA-2-2026-4108</dd></div>
+              <div className="grid gap-1 border-b border-[#dbe3dd] py-3 sm:grid-cols-[10.5rem_1fr]"><dt className="text-[#657069]">Issuing date</dt><dd className="font-bold text-[#152019]">25/8/2026</dd></div>
+              <div className="grid gap-1 border-b border-[#dbe3dd] py-3 sm:grid-cols-[10.5rem_1fr]"><dt className="text-[#657069]">Expiry date</dt><dd className="font-bold text-[#152019]">25/8/2029</dd></div>
+              <div className="grid gap-1 border-b border-[#dbe3dd] py-3 sm:grid-cols-[10.5rem_1fr]"><dt className="text-[#657069]">Document type</dt><dd className="font-bold text-[#152019]">Medical Device Marketing Authorization</dd></div>
+            </dl>
+            <a href="/certificates/MDMA-2-2026-4108.pdf" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex border border-[#152019] bg-[#152019] px-5 py-3 text-sm font-bold text-white transition-colors hover:border-[#3ab54a] hover:bg-[#3ab54a]">Open authorization PDF ↗</a>
           </div>
-          <article className="grid overflow-hidden border border-[#dbe3dd] bg-white sm:grid-cols-[0.8fr_1.2fr]">
-            <a href="/certificates/MDMA-2-2026-4108.pdf" target="_blank" rel="noopener noreferrer" className="flex min-h-[26rem] items-center justify-center border-b border-[#dbe3dd] bg-white p-6 transition-colors hover:bg-[#f7faf7] sm:border-b-0 sm:border-r">
-              <img src="/certificates/MDMA-2-2026-4108-preview.webp" alt="Saudi SFDA Medical Device Marketing Authorization document preview" className="max-h-[23rem] w-full object-contain" />
-            </a>
-            <div className="flex flex-col justify-between p-7 sm:p-10">
-              <div>
-                <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">Saudi Arabia</p>
-                <h3 className="mt-3 text-2xl font-bold leading-tight tracking-[-0.04em] text-[#152019]">Saudi SFDA Medical Device Marketing Authorization</h3>
-                <dl className="mt-7 border-t border-[#dbe3dd] text-sm">
-                  <div className="grid gap-1 border-b border-[#dbe3dd] py-3 sm:grid-cols-[9rem_1fr]"><dt className="text-[#657069]">Authorization No.</dt><dd className="font-bold text-[#152019]">MDMA-2-2026-4108</dd></div>
-                  <div className="grid gap-1 border-b border-[#dbe3dd] py-3 sm:grid-cols-[9rem_1fr]"><dt className="text-[#657069]">Validity</dt><dd className="font-bold text-[#152019]">25/8/2026 – 25/8/2029</dd></div>
-                  <div className="grid gap-1 border-b border-[#dbe3dd] py-3 sm:grid-cols-[9rem_1fr]"><dt className="text-[#657069]">Document type</dt><dd className="font-bold text-[#152019]">Medical Device Marketing Authorization</dd></div>
-                </dl>
-              </div>
-              <a href="/certificates/MDMA-2-2026-4108.pdf" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex self-start border border-[#152019] px-5 py-3 text-sm font-bold transition-colors hover:bg-[#152019] hover:text-white">Open document PDF ↗</a>
-            </div>
-          </article>
         </div>
 
-        <div className="mt-12 grid border-l border-t border-[#dbe3dd] sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-16 grid gap-6 border-t border-[#dbe3dd] pt-8 lg:grid-cols-[1fr_1fr] lg:gap-[7vw]">
+          <div><p className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">Supporting credentials</p><h2 className="mt-3 max-w-2xl text-[clamp(2rem,3.3vw,3.5rem)] font-extrabold leading-[1.02] tracking-[-0.055em] text-[#152019]">Quality, registration and supporting documents.</h2></div>
+          <p className="self-end text-base leading-8 text-[#657069]">These files remain available for buyer due diligence. The Saudi SFDA authorization above is the featured market-specific authorization on this page.</p>
+        </div>
+        <div className="mt-10 grid border-l border-t border-[#dbe3dd] sm:grid-cols-2 xl:grid-cols-4">
           {credentials.map((credential) => (
             <article key={`${credential.title}-${credential.image}`} className="group border-b border-r border-[#dbe3dd] bg-white p-5 transition-colors hover:bg-[#f8fbf8] sm:p-6">
               <div className="flex h-64 items-center justify-center border border-[#e5ebe6] bg-[#fbfcfb] p-3">

@@ -66,36 +66,25 @@ export default function IntellectualPropertySection() {
 
   return (
     <>
-      <section className="py-20 lg:py-28 bg-gradient-to-b from-slate-950 to-slate-900 text-white">
+      <section className="border-y border-[#dbe3dd] bg-[#17231b] py-20 text-white lg:py-28">
         <div className="px-6 sm:px-8 lg:px-16">
-          {/* Heading (no eyebrow by design) */}
-          <motion.div {...fade} className="max-w-2xl mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Intellectual Property</h2>
-            <p className="text-slate-300 leading-relaxed">
-              The company presents selected patent and trademark documents for buyer review. Please request
-              the exact registration scope and ownership details for any project or destination market.
-            </p>
-          </motion.div>
-
-          {/* Trust stats */}
-          <motion.div {...fade} className="grid grid-cols-3 gap-4 sm:gap-10 mb-16 max-w-2xl">
-            {stats.map((s) => (
-              <div key={s.l}>
-                <div className="text-3xl lg:text-5xl font-bold text-teal-light">{s.v}</div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-1">{s.l}</div>
-              </div>
-            ))}
+          <motion.div {...fade} className="grid gap-8 border-b border-white/15 pb-12 lg:grid-cols-[0.86fr_1.14fr] lg:gap-[9vw]">
+            <div>
+              <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#74cf80]">Intellectual property archive</p>
+              <h2 className="mt-3 text-[clamp(2.35rem,4vw,4.4rem)] font-extrabold leading-[1.01] tracking-[-0.06em]">Two trademarks. Sixteen patent files.</h2>
+            </div>
+            <p className="self-end text-base leading-8 text-slate-300">These company archive documents remain visible for buyer review. Select a trademark or patent file to inspect the full document, and request the exact registration scope and ownership details for your project.</p>
           </motion.div>
 
           {/* Registered Trademarks */}
-          <motion.div {...fade} className="mb-16">
+          <motion.div {...fade} className="mb-16 mt-12">
             <h3 className="text-lg font-semibold text-slate-200 mb-5">Registered Trademarks</h3>
             <div className="grid grid-cols-2 gap-5 max-w-md">
               {trademarks.map((tm) => (
                 <button
                   key={tm.id}
                   onClick={() => setActive(tm)}
-                  className="group text-left rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-teal/50 transition-all duration-300"
+                  className="group border border-white/15 bg-white/[0.035] text-left transition-colors duration-300 hover:border-[#3ab54a] hover:bg-white/[0.07]"
                 >
                   <div className="aspect-[3/4] bg-white flex items-center justify-center overflow-hidden">
                     <img
@@ -116,14 +105,14 @@ export default function IntellectualPropertySection() {
           <motion.div {...fade}>
             <div className="flex items-end justify-between mb-5">
               <h3 className="text-lg font-semibold text-slate-200">Patent Certificates</h3>
-              <span className="text-xs text-slate-500 hidden sm:inline">Scroll to explore →</span>
+              <span className="hidden text-xs text-slate-400 sm:inline">Select a document to enlarge</span>
             </div>
-            <div ref={scrollRef} className="flex gap-5 overflow-x-scroll pb-4 -mx-4 px-4" style={{scrollbarWidth:'none',msOverflowStyle:'none'}}>
+            <div className="grid border-l border-t border-white/15 sm:grid-cols-2 lg:grid-cols-4">
               {patents.map((p) => (
                 <button
                   key={p.id}
                   onClick={() => setActive(p)}
-                  className="group shrink-0 w-44 sm:w-52 text-left rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-teal/50 transition-all duration-300"
+                  className="group border-b border-r border-white/15 bg-white/[0.035] p-3 text-left transition-colors duration-300 hover:border-[#3ab54a] hover:bg-white/[0.07] sm:p-4"
                 >
                   <div className="aspect-[3/4] bg-white overflow-hidden">
                     <img

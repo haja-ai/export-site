@@ -13,7 +13,7 @@ export default function PulseFitPage({
   const navLinks = [
     { label: "Home", href: '/' },
     { label: "Products", href: '/products' },
-    { label: "About Us", href: '/about' },
+    { label: "Company Honors", href: '/about' },
     { label: "FAQ", href: '/faq' },
     { label: "News", href: '/news' },
     { label: "Contact", href: '/contact' },

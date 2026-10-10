@@ -1,6 +1,4 @@
-import { siteSections } from '@/lib/site-sections';
-import SectionRenderer from './components/SectionRenderer';
-import FloatingInquiry from './components/FloatingInquiry';
+import HomeRedesign from './components/HomeRedesign';
 
 export const metadata = {
   title: 'Electric Wheelchair Manufacturer',
@@ -20,14 +18,5 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  const sections = siteSections.home || [];
-
-  return (
-    <div>
-      {sections.map((section) => (
-        <SectionRenderer key={section.id} section={section} />
-      ))}
-      <FloatingInquiry />
-    </div>
-  );
+  return <HomeRedesign />;
 }

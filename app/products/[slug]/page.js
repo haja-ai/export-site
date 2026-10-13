@@ -5,6 +5,32 @@ import ProductJsonLd from '@/app/components/ProductJsonLd';
 import ImageGallery from '@/app/components/ImageGallery';
 import FloatingInquiry from '@/app/components/FloatingInquiry';
 
+// Keep SEO copy tied to the same model data as the specification table.
+function productIntent(product) {
+  const spec = (label) => product.specs.find((item) => item.label === label)?.value;
+  const color = spec('Color Options') || spec('Color');
+  const focus = color
+    ? `${color} finish`
+    : spec('Seat Width')
+      ? 'extra-wide seating configuration'
+      : spec('Back Height')
+        ? (spec('Back Height').startsWith('Extra tall') ? 'tall-back seating configuration' : 'high-back seating configuration')
+        : product.features.some((feature) => feature.startsWith('Upgraded memory foam'))
+          ? 'upgraded comfort components'
+          : spec('Net Weight') === '42 KG'
+            ? '42 KG configuration'
+            : product.name.endsWith('II-Plus')
+              ? 'wider seating configuration'
+              : 'base magnesium alloy configuration';
+
+  return {
+    title: `${product.name} Electric Wheelchair`,
+    description: `${product.name} folding electric wheelchair with ${focus}. Compare power chair specs and request a wholesale or OEM/ODM quote.`,
+    tagline: `Folding electric wheelchair with ${focus}`,
+    overview: `${product.name} is a MiniRedone foldable electric wheelchair with ${focus}. This power wheelchair is listed at ${spec('Net Weight') || 'a net weight to be confirmed'}, with folded dimensions of ${spec('Folded Dimensions') || 'a size to be confirmed'}. Review the seating and controls for your premium mobility range; confirm the final configuration, storage space and transport arrangements before ordering.`,
+  };
+}
+
 export async function generateStaticParams() {
   return wheelchairs.map((p) => ({ slug: p.slug }));
 }
@@ -14,14 +40,14 @@ export async function generateMetadata({ params }) {
   const product = getProductBySlug(slug);
   if (!product) return { title: 'Product Not Found' };
 
-  const specs = product.specs.map((s) => `${s.label}: ${s.value}`).join(', ');
+  const intent = productIntent(product);
 
   return {
-    title: `${product.fullName}`,
-    description: `${product.tagline}. ${specs}. MiniElephant MiniRedone B2B export product page.`,
+    title: intent.title,
+    description: intent.description,
     openGraph: {
-      title: `${product.fullName}`,
-      description: `${product.tagline}. ${specs}. MiniElephant MiniRedone B2B export product page.`,
+      title: intent.title,
+      description: intent.description,
       url: `https://www.semwheelchair.com/products/${slug}`,
       type: 'website',
       images: product.images && product.images.length > 0
@@ -30,8 +56,8 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${product.fullName}`,
-      description: `${product.tagline}. ${specs}`,
+      title: intent.title,
+      description: intent.description,
       images: product.images && product.images.length > 0
         ? [`https://www.semwheelchair.com${product.images[0]}`]
         : ['https://www.semwheelchair.com/og-image.jpg'],
@@ -48,11 +74,13 @@ export default async function ProductDetailPage({ params }) {
 
   if (!product) notFound();
 
+  const intent = productIntent(product);
+
   const specValue = (label) => product.specs.find((spec) => spec.label === label)?.value || 'Please confirm in the quotation';
   const buyerFaqs = [
     {
       q: `Who is the ${product.name} electric wheelchair designed for?`,
-      a: `${product.name} is presented as a MiniRedone folding electric wheelchair for distributors, importers, mobility retailers, and OEM/ODM buyers. Its recommended market positioning should be confirmed against the selected configuration and local requirements.`,
+      a: `${intent.tagline}. It is offered for distributors, importers, mobility retailers and OEM/ODM projects building a comfort-focused power chair range. Suitability for an individual user and destination requirements must be reviewed for the selected configuration.`,
     },
     {
       q: `What makes the ${product.name} different from other MiniRedone models?`,
@@ -61,6 +89,10 @@ export default async function ProductDetailPage({ params }) {
     {
       q: `What are the key ${product.name} specifications?`,
       a: `The listed specification includes ${specValue('Net Weight')} net weight, ${specValue('Max Load')} maximum load, ${specValue('Range')} approximate range, ${specValue('Battery')} battery, and ${specValue('Frame Material')} frame material. Confirm the final configuration before ordering.`,
+    },
+    {
+      q: `Is ${product.name} a foldable power wheelchair or motorized wheelchair?`,
+      a: `Power wheelchair and motorized wheelchair are alternative terms for this electric wheelchair. The listed ${product.name} folded dimensions are ${specValue('Folded Dimensions')} and net weight is ${specValue('Net Weight')}. Check these figures against storage space and transport arrangements; a folding design does not mean the chair is suitable for one-person lifting or airline travel.`,
     },
     {
       q: `Can I request a sample or wholesale quotation for ${product.name}?`,
@@ -119,9 +151,9 @@ export default async function ProductDetailPage({ params }) {
 
             <div>
               <span className="text-[#3ab54a] font-bold text-xs uppercase tracking-[0.16em]">{product.category}</span>
-              <h1 className="text-2xl lg:text-3xl font-bold text-[#152019] mt-2 mb-3">{product.fullName}</h1>
-              <p className="text-[#152019] font-medium mb-4">{product.tagline}</p>
-              <p className="text-[#526158] leading-relaxed mb-6">{product.description}</p>
+              <h1 className="text-2xl lg:text-3xl font-bold text-[#152019] mt-2 mb-3">{product.fullName} Electric Wheelchair</h1>
+              <p className="text-[#152019] font-medium mb-4">{intent.tagline}</p>
+              <p className="text-[#526158] leading-relaxed mb-6">{intent.overview}</p>
 
               {product.keyDifference && (
                 <div className="border-l-2 border-[#3ab54a] bg-white p-4 mb-6">

@@ -1,13 +1,13 @@
 import HomeRedesign from './components/HomeRedesign';
 
 export const metadata = {
-  title: 'Electric Wheelchair Manufacturer',
+  title: 'Folding Electric Wheelchair Manufacturer',
   description:
-    'MiniElephant manufactures MiniRedone folding electric wheelchairs for distributors, importers, and OEM/ODM buyers. Factory-direct B2B inquiry site.',
+    'Premium MiniRedone folding electric wheelchairs and power chairs from MiniElephant. Compare comfort-focused models for wholesale and OEM/ODM projects.',
   openGraph: {
-    title: 'Electric Wheelchair Manufacturer',
+    title: 'Folding Electric Wheelchair Manufacturer',
     description:
-      'MiniElephant manufactures MiniRedone folding electric wheelchairs for distributors, importers, and OEM/ODM buyers. Factory-direct B2B inquiry site.',
+      'Premium MiniRedone folding electric wheelchairs and power chairs from MiniElephant. Compare comfort-focused models for wholesale and OEM/ODM projects.',
     url: 'https://www.semwheelchair.com',
     type: 'website',
     images: [{ url: 'https://www.semwheelchair.com/og-image.jpg', width: 1200, height: 630, alt: 'MiniElephant MiniRedone folding electric wheelchairs' }],

@@ -1,16 +1,19 @@
 import Link from 'next/link';
 import ContactForm from './ContactForm';
+import { faqTopics } from '@/lib/site-sections';
 
 const eyebrow = 'text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]';
 const heading = 'mt-3 mb-7 text-[clamp(1.8rem,2.8vw,2.6rem)] font-extrabold leading-tight tracking-[-0.045em] text-[#152019]';
 
 export function GroupedFaq({ faqs }) {
-  const groups = [
-    { id: 'model-configuration', title: 'Model & configuration', questions: faqs.slice(0,8) },
-    { id: 'samples-ordering', title: 'Samples & ordering', questions: faqs.slice(8,13) },
-    { id: 'oem-odm', title: 'OEM / ODM', questions: faqs.slice(13,16) },
-    { id: 'after-sales', title: 'After-sales & parts', questions: faqs.slice(16) },
-  ];
+  // Unknown or newly added admin topics fall back to the first group so no answer is hidden.
+  const topicIds = new Set(faqTopics.map((topic) => topic.id));
+  const groups = faqTopics.map((topic) => ({
+    ...topic,
+    questions: faqs.filter((faq) =>
+      (topicIds.has(faq.topic) ? faq.topic : 'model-configuration') === topic.id
+    ),
+  })).filter((group) => group.questions.length > 0);
   return <>
     <main className="grid gap-10 bg-white px-6 py-14 sm:px-8 lg:grid-cols-[17.5rem_1fr] lg:gap-[7vw] lg:px-16 lg:py-20">
       <aside><nav aria-label="FAQ topics" className="lg:sticky lg:top-28">
@@ -20,7 +23,7 @@ export function GroupedFaq({ faqs }) {
       </nav></aside>
       <div>{groups.map(g => <section key={g.id} id={g.id} className="mb-16 scroll-mt-28 last:mb-0">
         <p className={eyebrow}>MiniElephant buyer guidance</p><h2 className={heading}>{g.title}</h2>
-        <div className="border-b border-[#dbe3dd]">{g.questions.map((faq,i) => <details key={faq.q} open={i===0} className="group border-t border-[#dbe3dd]">
+        <div className="border-b border-[#dbe3dd]">{g.questions.map((faq,i) => <details key={faq.q} id={`faq-${faq.sourceId || faqs.indexOf(faq) + 1}`} open={i===0} className="group scroll-mt-28 border-t border-[#dbe3dd]">
           <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-6 text-base font-bold text-[#152019] hover:text-[#278a36]">{faq.q}<span aria-hidden="true" className="text-[#278a36] group-open:rotate-45">+</span></summary>
           <p className="mb-7 max-w-3xl text-base leading-8 text-[#657069]">{faq.a}</p>
         </details>)}</div>

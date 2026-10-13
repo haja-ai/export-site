@@ -30,6 +30,7 @@ export default function FaqPage() {
     '@type': 'FAQPage',
     mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
+      '@id': `https://www.semwheelchair.com/faq#faq-${faq.sourceId || faqs.indexOf(faq) + 1}`,
       name: faq.q,
       acceptedAnswer: {
         '@type': 'Answer',
@@ -40,7 +41,7 @@ export default function FaqPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c') }} />
       <PulseFitPage plainHero badge={sc.faq.badge} title={sc.faq.title} description={sc.faq.description}>
               <GroupedFaq faqs={faqs} />
       </PulseFitPage>

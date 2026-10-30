@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getArticleBySlug, newsArticles } from '@/lib/news';
+import { getNewsMeta } from '@/lib/news-meta';
 
 export async function generateStaticParams() {
   return newsArticles.map((a) => ({ slug: a.slug }));
@@ -11,12 +12,16 @@ export async function generateMetadata({ params }) {
   const article = getArticleBySlug(slug);
   if (!article) return { title: 'Article Not Found' };
 
+  const meta = getNewsMeta(slug);
+  const seoTitle = meta?.title || article.title;
+  const seoDescription = meta?.description || article.summary;
+
   return {
-    title: article.title,
-    description: article.summary,
+    title: meta?.title ? { absolute: meta.title } : article.title,
+    description: seoDescription,
     openGraph: {
-      title: article.title,
-      description: article.summary,
+      title: seoTitle,
+      description: seoDescription,
       url: `https://www.semwheelchair.com/news/${slug}`,
       type: 'article',
       images: article.bannerImage
@@ -25,8 +30,8 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: 'summary_large_image',
-      title: article.title,
-      description: article.summary,
+      title: seoTitle,
+      description: seoDescription,
       images: article.bannerImage ? [`https://www.semwheelchair.com${article.bannerImage}`] : ['https://www.semwheelchair.com/og-image.jpg'],
     },
     alternates: {

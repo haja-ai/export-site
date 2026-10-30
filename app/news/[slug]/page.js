@@ -3,6 +3,20 @@ import { notFound } from 'next/navigation';
 import { getArticleBySlug, newsArticles } from '@/lib/news';
 import { getNewsMeta } from '@/lib/news-meta';
 
+function pickRelated(article, all, limit = 3) {
+  const tags = new Set(article.tags || []);
+  return all
+    .filter((a) => a.slug !== article.slug && a.title)
+    .map((a) => ({
+      article: a,
+      score: (a.tags || []).filter((t) => tags.has(t)).length,
+    }))
+    .filter((x) => x.score > 0)
+    .sort((x, y) => y.score - x.score || String(y.article.date || '').localeCompare(String(x.article.date || '')))
+    .slice(0, limit)
+    .map((x) => x.article);
+}
+
 export async function generateStaticParams() {
   return newsArticles.map((a) => ({ slug: a.slug }));
 }
@@ -45,6 +59,8 @@ export default async function NewsArticlePage({ params }) {
   const article = getArticleBySlug(slug);
 
   if (!article) notFound();
+
+  const related = pickRelated(article, newsArticles, 3);
 
   return (
     <div>
@@ -145,6 +161,21 @@ export default async function NewsArticlePage({ params }) {
               return <p key={i} dangerouslySetInnerHTML={{ __html: content }} />;
             })}
           </div>
+
+          {related.length > 0 && (
+            <div className="mt-12 border-t border-gray-200 pt-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Related reading</h3>
+              <ul className="space-y-2">
+                {related.map((r) => (
+                  <li key={r.slug}>
+                    <Link href={`/news/${r.slug}`} className="text-teal hover:underline text-sm">
+                      {r.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="mt-12 p-6 bg-cream rounded-2xl border border-gray-200 text-center">
             <h3 className="text-lg font-bold text-gray-900 mb-2">Interested in MiniElephant Electric Wheelchairs?</h3>

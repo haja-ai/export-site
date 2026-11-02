@@ -40,8 +40,8 @@ export default function HomeRedesign() {
         <div className="relative z-10 w-full px-6 pb-16 pt-36 sm:px-8 lg:px-16 lg:pb-20">
           <div className="grid items-end gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.9fr)] lg:gap-[8vw]">
             <div>
-              <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#a5e7ad]">MiniElephant electric wheelchair manufacturer</p>
-              <h1 className="mt-4 max-w-5xl text-[clamp(3.35rem,6vw,6.5rem)] font-extrabold leading-[0.9] tracking-[-0.075em]">Electric wheelchairs.<br />Comfort, engineered.</h1>
+              <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#a5e7ad]">MiniElephant folding electric wheelchair manufacturer</p>
+              <h1 className="mt-4 max-w-5xl text-[clamp(3.35rem,6vw,6.5rem)] font-extrabold leading-[0.9] tracking-[-0.075em]">Folding electric wheelchairs.<br />Comfort, engineered.</h1>
               <p className="mt-6 max-w-xl text-base leading-7 text-white/85 sm:text-lg">MiniRedone folding electric wheelchairs and power chairs for distributors, importers and OEM projects that value premium comfort and considered engineering.</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="#models" className="bg-[#3ab54a] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#278a36]">Explore the series</Link>

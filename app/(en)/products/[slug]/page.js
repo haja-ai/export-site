@@ -46,7 +46,7 @@ function productIntent(product) {
               : 'base magnesium alloy configuration';
 
   return {
-    title: `${product.name} Electric Wheelchair`,
+    title: `${product.name} Folding Electric Wheelchair`,
     description: `${product.name} folding electric wheelchair with ${focus}. Compare power chair specs and request a wholesale or OEM/ODM quote.`,
     tagline: `Folding electric wheelchair with ${focus}`,
     overview: `${product.name} is a MiniRedone foldable electric wheelchair with ${focus}. This power wheelchair is listed at ${spec('Net Weight') || 'a net weight to be confirmed'}, with folded dimensions of ${spec('Folded Dimensions') || 'a size to be confirmed'}. Review the seating and controls for your premium mobility range; confirm the final configuration, storage space and transport arrangements before ordering.`,
@@ -173,7 +173,7 @@ export default async function ProductDetailPage({ params }) {
 
             <div>
               <span className="text-[#3ab54a] font-bold text-xs uppercase tracking-[0.16em]">{product.category}</span>
-              <h1 className="text-2xl lg:text-3xl font-bold text-[#152019] mt-2 mb-3">{product.fullName} Electric Wheelchair</h1>
+              <h1 className="text-2xl lg:text-3xl font-bold text-[#152019] mt-2 mb-3">{product.fullName} Folding Electric Wheelchair</h1>
               <p className="text-[#152019] font-medium mb-4">{intent.tagline}</p>
               <p className="text-[#526158] leading-relaxed mb-6">{intent.overview}</p>
 

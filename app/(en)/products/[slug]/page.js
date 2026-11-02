@@ -231,7 +231,7 @@ export default async function ProductDetailPage({ params }) {
         title={`Before you buy the ${product.name}: compliance, inspection and service.`}
         intro={`Every ${product.name} quotation sits inside the same B2B framework: import documents, quality inspection before shipment, spare parts support and an after-sales commitment. These guides explain what to ask for.`}
         tone="plain"
-        columns={4}
+        columns={3}
         slugs={buyerGuidesFor(slug)}
       />
 

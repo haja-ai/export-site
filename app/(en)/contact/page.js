@@ -1,0 +1,31 @@
+import { siteSections } from '@/lib/site-sections';
+import { siteContent as sc } from '@/lib/site-content';
+import PulseFitPage from '@/app/components/PulseFitPage';
+import { ExportContact } from '@/app/components/UtilityPageContent';
+
+export const metadata = {
+  title: 'Wholesale Electric Wheelchair Quote',
+  description:
+    'Contact MiniElephant for MiniRedone product pricing, samples, OEM/ODM requests, and export inquiries. Our team replies within 24 hours.',
+  openGraph: {
+    title: 'Wholesale Electric Wheelchair Quote',
+    description:
+      'Contact MiniElephant for MiniRedone product pricing, samples, OEM/ODM requests, and export inquiries. Our team replies within 24 hours.',
+    url: 'https://www.semwheelchair.com/contact',
+    type: 'website',
+    images: [{ url: 'https://www.semwheelchair.com/images/banner-contact.webp', width: 1200, height: 630, alt: 'MiniElephant contact page' }],
+  },
+  alternates: {
+    canonical: 'https://www.semwheelchair.com/contact',
+  },
+};
+
+export default function ContactPage() {
+  const sections = siteSections.contact || [];
+
+  return (
+    <PulseFitPage bannerImage={sc.contact.bannerImage} badge={sc.contact.badge} title={sc.contact.title} description={sc.contact.description}>
+          <ExportContact />
+    </PulseFitPage>
+  );
+}

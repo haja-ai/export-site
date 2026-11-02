@@ -5,6 +5,7 @@ import { getNewsMeta } from '@/lib/news-meta';
 import { autoMeta } from '@/lib/news-auto-meta';
 import { addContextualLinks } from '@/lib/news-inline-links';
 import { wheelchairs } from '@/lib/products';
+import NewsBody from '@/app/components/NewsBody';
 
 function pickRelated(article, all, limit = 3) {
   const tags = new Set(article.tags || []);
@@ -142,33 +143,7 @@ export default async function NewsArticlePage({ params }) {
           )}
 
           <div className="prose prose-gray max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-600 prose-p:leading-relaxed prose-ul:text-gray-600 prose-li:leading-relaxed prose-strong:text-gray-900 prose-a:text-teal prose-a:no-underline hover:prose-a:underline prose-table:text-sm prose-th:font-semibold prose-th:text-gray-700 prose-td:text-gray-600 prose-blockquote:border-teal prose-blockquote:text-gray-600">
-            {linked.content.split('\n').map((line, i) => {
-              if (line.startsWith('## ')) return <h2 key={i}>{line.slice(3)}</h2>;
-              if (line.startsWith('### ')) return <h3 key={i}>{line.slice(4)}</h3>;
-              if (line.startsWith('#### ')) return <h4 key={i}>{line.slice(5)}</h4>;
-              if (line.startsWith('> ')) return <blockquote key={i} className="border-l-4 border-teal pl-4 italic text-gray-600 my-4"><p>{line.slice(2)}</p></blockquote>;
-
-              let content = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-              content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, label, href) =>
-                href.startsWith('/')
-                  ? '<a href="' + href + '" class="text-teal hover:underline">' + label + '</a>'
-                  : '<a href="' + href + '" target="_blank" rel="noopener" class="text-teal hover:underline">' + label + '</a>'
-              );
-
-              if (content.startsWith('|') && content.endsWith('|') && !content.includes('---')) {
-                const cells = content.split('|').filter((c) => c.trim());
-                return (
-                  <div key={i} className="grid grid-cols-3 gap-2 py-1 text-sm border-b border-gray-100">
-                    {cells.map((cell, j) => (
-                      <span key={j} className={j === 0 ? 'font-semibold text-gray-700' : 'text-gray-600'} dangerouslySetInnerHTML={{ __html: cell.trim().replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
-                    ))}
-                  </div>
-                );
-              }
-
-              if (!content.trim()) return <br key={i} />;
-              return <p key={i} dangerouslySetInnerHTML={{ __html: content }} />;
-            })}
+                        <NewsBody content={linked.content} />
           </div>
 
           {related.length > 0 && (

@@ -4,6 +4,28 @@ import { getProductBySlug, wheelchairs } from '@/lib/products';
 import ProductJsonLd from '@/app/components/ProductJsonLd';
 import ImageGallery from '@/app/components/ImageGallery';
 import FloatingInquiry from '@/app/components/FloatingInquiry';
+import GuideLinks from '@/app/components/GuideLinks';
+
+// Procurement and after-sales guides that sit around every model quotation.
+// Rotated by product index so the pool is linked evenly across the series.
+const BUYER_GUIDE_POOL = [
+  'electric-wheelchair-certification-guide-2026-b2b',
+  'electric-wheelchair-import-compliance-document-checklist',
+  'electric-wheelchair-wholesale-pricing-guide',
+  'electric-wheelchair-pre-shipment-inspection-quality-checklist',
+  'electric-wheelchair-spare-parts-planning-guide',
+  'electric-wheelchair-battery-range-buying-guide',
+  'electric-wheelchair-container-loading-guide',
+  'electric-wheelchair-after-sales-service-sla-guide',
+  'electric-wheelchair-hs-code-import-classification-guide-b2b',
+  'electric-wheelchair-warranty-after-sales-guide',
+];
+
+function buyerGuidesFor(slug, count = 4) {
+  const index = Math.max(0, wheelchairs.findIndex((item) => item.slug === slug));
+  const start = (index * 3) % BUYER_GUIDE_POOL.length;
+  return Array.from({ length: count }, (_, offset) => BUYER_GUIDE_POOL[(start + offset) % BUYER_GUIDE_POOL.length]);
+}
 
 // Keep SEO copy tied to the same model data as the specification table.
 function productIntent(product) {
@@ -202,6 +224,16 @@ export default async function ProductDetailPage({ params }) {
           </div>
         </div>
       </section>
+
+      <GuideLinks
+        id="buyer-guides"
+        eyebrow="Buyer resources"
+        title={`Before you buy the ${product.name}: compliance, inspection and service.`}
+        intro={`Every ${product.name} quotation sits inside the same B2B framework: import documents, quality inspection before shipment, spare parts support and an after-sales commitment. These guides explain what to ask for.`}
+        tone="plain"
+        columns={4}
+        slugs={buyerGuidesFor(slug)}
+      />
 
       <section className="py-12 lg:py-16 bg-white border-t border-[#dbe3dd]">
         <div className="px-6 sm:px-8 lg:px-16">

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import FloatingInquiry from './FloatingInquiry';
+import GuideLinks from './GuideLinks';
 
 const models = [
   { index: '02', name: 'MiniRedone-II', href: '/products/miniredone-ii' },
@@ -79,6 +80,19 @@ export default function HomeRedesign() {
         </div>
         <div className="grid border-b border-[#dbe3dd] sm:grid-cols-3">{models.map((model) => <Link key={model.name} href={model.href} className="min-h-24 border-b border-[#dbe3dd] p-5 transition-colors hover:bg-[#f4f7f4] sm:border-b-0 sm:border-r sm:last:border-r-0"><span className="block text-[0.68rem] font-extrabold tracking-[0.1em] text-[#278a36]">{model.index}</span><b className="mt-2 block text-base">{model.name}</b></Link>)}</div>
       </section>
+
+      <GuideLinks
+        id="guides"
+        eyebrow="Buyer resources"
+        title="Before you order: certification, compliance and pricing."
+        intro="Folding electric wheelchair procurement raises the same questions in every market. These three guides cover the paperwork, the standards and the cost structure that decide whether a container arrives clean."
+        tone="plain"
+        slugs={[
+          'electric-wheelchair-import-compliance-document-checklist',
+          'electric-wheelchair-certification-guide-2026-b2b',
+          'electric-wheelchair-wholesale-pricing-guide',
+        ]}
+      />
 
       <section className="bg-[#f4f7f4] px-6 py-20 sm:px-8 lg:px-16 lg:py-28"><div className="grid gap-8 lg:grid-cols-2 lg:gap-[8vw]"><div><p className="text-[0.68rem] font-extrabold uppercase tracking-[0.13em] text-[#278a36]">Our product approach</p><h2 className="mt-3 max-w-xl text-[clamp(2.35rem,4vw,4.5rem)] font-extrabold leading-[1.01] tracking-[-0.06em]">Premium comfort is not an added feature.</h2></div><p className="pt-2 text-base leading-8 text-[#657069] lg:pt-7">Choosing a premium electric wheelchair starts with seating, drive controls and everyday interaction. For buyers comparing electric wheel chairs, we review comfort preferences alongside the actual configuration rather than making one-size-fits-all promises.</p></div><div className="mt-12 grid border-t border-[#dbe3dd] sm:grid-cols-3">{[['Comfort', 'Seating and ride experience stay central to product conversations.'], ['Engineering', 'Materials, motors and configurations are presented with clear information.'], ['Partnership', 'Wholesale, private-label and market requirements are reviewed project by project.']].map(([title, copy]) => <article key={title} className="border-b border-[#dbe3dd] py-5 sm:mr-6 sm:border-b-0 sm:border-r sm:pr-6 sm:last:mr-0 sm:last:border-r-0"><b className="text-base">{title}</b><p className="mt-2 text-sm leading-6 text-[#657069]">{copy}</p></article>)}</div></section>
 

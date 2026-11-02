@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getArticleBySlug, newsArticles } from '@/lib/news';
 import { getNewsMeta } from '@/lib/news-meta';
+import { autoMeta } from '@/lib/news-auto-meta';
+import { addContextualLinks } from '@/lib/news-inline-links';
+import { wheelchairs } from '@/lib/products';
 
 function pickRelated(article, all, limit = 3) {
   const tags = new Set(article.tags || []);
@@ -26,12 +29,13 @@ export async function generateMetadata({ params }) {
   const article = getArticleBySlug(slug);
   if (!article) return { title: 'Article Not Found' };
 
-  const meta = getNewsMeta(slug);
-  const seoTitle = meta?.title || article.title;
-  const seoDescription = meta?.description || article.summary;
+  const override = getNewsMeta(slug);
+  const fitted = autoMeta(article);
+  const seoTitle = (override?.title || fitted.title || article.title).trim();
+  const seoDescription = (override?.description || fitted.description || article.summary).trim();
 
   return {
-    title: meta?.title ? { absolute: meta.title } : article.title,
+    title: { absolute: seoTitle },
     description: seoDescription,
     openGraph: {
       title: seoTitle,
@@ -61,6 +65,7 @@ export default async function NewsArticlePage({ params }) {
   if (!article) notFound();
 
   const related = pickRelated(article, newsArticles, 3);
+  const linked = addContextualLinks(article.content, article, newsArticles, wheelchairs);
 
   return (
     <div>
@@ -137,14 +142,18 @@ export default async function NewsArticlePage({ params }) {
           )}
 
           <div className="prose prose-gray max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-600 prose-p:leading-relaxed prose-ul:text-gray-600 prose-li:leading-relaxed prose-strong:text-gray-900 prose-a:text-teal prose-a:no-underline hover:prose-a:underline prose-table:text-sm prose-th:font-semibold prose-th:text-gray-700 prose-td:text-gray-600 prose-blockquote:border-teal prose-blockquote:text-gray-600">
-            {article.content.split('\n').map((line, i) => {
+            {linked.content.split('\n').map((line, i) => {
               if (line.startsWith('## ')) return <h2 key={i}>{line.slice(3)}</h2>;
               if (line.startsWith('### ')) return <h3 key={i}>{line.slice(4)}</h3>;
               if (line.startsWith('#### ')) return <h4 key={i}>{line.slice(5)}</h4>;
               if (line.startsWith('> ')) return <blockquote key={i} className="border-l-4 border-teal pl-4 italic text-gray-600 my-4"><p>{line.slice(2)}</p></blockquote>;
 
               let content = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-              content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="text-teal hover:underline">$1</a>');
+              content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, label, href) =>
+                href.startsWith('/')
+                  ? '<a href="' + href + '" class="text-teal hover:underline">' + label + '</a>'
+                  : '<a href="' + href + '" target="_blank" rel="noopener" class="text-teal hover:underline">' + label + '</a>'
+              );
 
               if (content.startsWith('|') && content.endsWith('|') && !content.includes('---')) {
                 const cells = content.split('|').filter((c) => c.trim());

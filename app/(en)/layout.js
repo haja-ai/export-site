@@ -161,11 +161,6 @@ export default function RootLayout({ children }) {
               description:
                 'MiniElephant MiniRedone folding electric wheelchairs for B2B export, OEM/ODM, and wholesale inquiries.',
               publisher: { '@id': 'https://www.semwheelchair.com/#organization' },
-              potentialAction: {
-                '@type': 'SearchAction',
-                target: 'https://www.semwheelchair.com/search?q={search_term_string}',
-                'query-input': 'required name=search_term_string',
-              },
             }),
           }}
         />

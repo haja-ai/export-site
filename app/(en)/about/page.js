@@ -3,6 +3,7 @@ import { siteContent as sc } from '@/lib/site-content';
 import PulseFitPage from '@/app/components/PulseFitPage';
 import SectionRenderer from '@/app/components/SectionRenderer';
 import AboutSeoContent from '@/app/components/AboutSeoContent';
+import SiteLinksStrip from '@/app/components/SiteLinksStrip';
 
 const SEO_TITLE = 'Electric Wheelchair Manufacturer: MiniElephant Factory';
 const SEO_DESCRIPTION =
@@ -32,6 +33,7 @@ export default function AboutPage() {
         <SectionRenderer key={section.id} section={section} />
       ))}
       <AboutSeoContent />
+      <SiteLinksStrip id="commercial" eyebrow="Buying from MiniElephant" title="Compliance, private label and wholesale supply." />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

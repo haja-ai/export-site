@@ -41,6 +41,9 @@ export default function SiteFooter() {
               <li><a href="/about" className="text-gray-400 hover:text-teal transition-colors">About Us</a></li>
               <li><a href="/faq" className="text-gray-400 hover:text-teal transition-colors">FAQ</a></li>
               <li><a href="/news" className="text-gray-400 hover:text-teal transition-colors">News & Insights</a></li>
+              <li><a href="/certifications" className="text-gray-400 hover:text-teal transition-colors">Certifications</a></li>
+              <li><a href="/oem-odm" className="text-gray-400 hover:text-teal transition-colors">OEM / ODM</a></li>
+              <li><a href="/wholesale" className="text-gray-400 hover:text-teal transition-colors">Wholesale</a></li>
               <li><a href="/contact" className="text-gray-400 hover:text-teal transition-colors">Contact & Quotation</a></li>
             </ul>
           </div>

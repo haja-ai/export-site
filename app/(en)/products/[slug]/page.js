@@ -5,6 +5,7 @@ import ProductJsonLd from '@/app/components/ProductJsonLd';
 import ImageGallery from '@/app/components/ImageGallery';
 import FloatingInquiry from '@/app/components/FloatingInquiry';
 import GuideLinks from '@/app/components/GuideLinks';
+import SiteLinksStrip from '@/app/components/SiteLinksStrip';
 
 // Procurement and after-sales guides that sit around every model quotation.
 // Rotated by product index so the pool is linked evenly across the series.
@@ -234,6 +235,8 @@ export default async function ProductDetailPage({ params }) {
         columns={3}
         slugs={buyerGuidesFor(slug)}
       />
+
+      <SiteLinksStrip id="commercial" eyebrow="Buying from MiniElephant" title="Compliance files, private label and wholesale supply." />
 
       <section className="py-12 lg:py-16 bg-white border-t border-[#dbe3dd]">
         <div className="px-6 sm:px-8 lg:px-16">

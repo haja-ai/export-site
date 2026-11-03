@@ -6,19 +6,38 @@ import { autoMeta } from '@/lib/news-auto-meta';
 import { addContextualLinks } from '@/lib/news-inline-links';
 import { wheelchairs } from '@/lib/products';
 import NewsBody from '@/app/components/NewsBody';
+import { categoryOf, CATEGORY_BY_SLUG } from '@/lib/news-taxonomy';
 
-function pickRelated(article, all, limit = 3) {
+function pickRelated(article, all, limit = 4) {
+  const articleCategory = categoryOf(article);
   const tags = new Set(article.tags || []);
   return all
     .filter((a) => a.slug !== article.slug && a.title)
     .map((a) => ({
       article: a,
-      score: (a.tags || []).filter((t) => tags.has(t)).length,
+      sameCategory: categoryOf(a) === articleCategory ? 1 : 0,
+      tagScore: (a.tags || []).filter((t) => tags.has(t)).length,
     }))
-    .filter((x) => x.score > 0)
-    .sort((x, y) => y.score - x.score || String(y.article.date || '').localeCompare(String(x.article.date || '')))
+    .sort(
+      (x, y) =>
+        y.sameCategory - x.sameCategory ||
+        y.tagScore - x.tagScore ||
+        String(y.article.date || '').localeCompare(String(x.article.date || '')),
+    )
     .slice(0, limit)
     .map((x) => x.article);
+}
+
+// Three product pages per article, rotated deterministically so the 158 articles
+// spread links across all ten models instead of pointing at the same three.
+function pickProducts(article, list, count = 3) {
+  const seed = Array.from(String(article.slug || '')).reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
+  const picked = [];
+  for (let i = 0; picked.length < Math.min(count, list.length); i += 1) {
+    const candidate = list[(seed + i * 3) % list.length];
+    if (!picked.some((p) => p.slug === candidate.slug)) picked.push(candidate);
+  }
+  return picked;
 }
 
 export async function generateStaticParams() {
@@ -65,7 +84,9 @@ export default async function NewsArticlePage({ params }) {
 
   if (!article) notFound();
 
-  const related = pickRelated(article, newsArticles, 3);
+  const related = pickRelated(article, newsArticles, 4);
+  const topicCategory = CATEGORY_BY_SLUG[categoryOf(article)] || CATEGORY_BY_SLUG['buying-guides'];
+  const relatedProducts = pickProducts(article, wheelchairs, 3);
   const linked = addContextualLinks(article.content, article, newsArticles, wheelchairs);
 
   return (
@@ -158,8 +179,35 @@ export default async function NewsArticlePage({ params }) {
                   </li>
                 ))}
               </ul>
+              <p className="mt-4 text-sm text-gray-600">
+                More in this topic:{' '}
+                <Link href={`/news/category/${topicCategory.slug}`} className="text-teal font-semibold hover:underline">
+                  {topicCategory.label}
+                </Link>
+                {' · '}
+                <Link href="/news" className="text-teal font-semibold hover:underline">
+                  All articles
+                </Link>
+              </p>
             </div>
           )}
+
+          <div className="mt-10 border-t border-gray-200 pt-6">
+            <h3 className="text-lg font-bold text-gray-900 mb-3">MiniRedone models</h3>
+            <ul className="grid gap-2 sm:grid-cols-3">
+              {relatedProducts.map((product) => (
+                <li key={product.slug}>
+                  <Link
+                    href={`/products/${product.slug}`}
+                    className="block border border-gray-200 px-4 py-3 text-sm text-gray-700 transition-colors hover:border-teal hover:text-teal"
+                  >
+                    <span className="font-semibold">{product.name}</span>
+                    <span className="mt-1 block text-xs text-gray-500">Folding electric wheelchair</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <div className="mt-12 p-6 bg-cream rounded-2xl border border-gray-200 text-center">
             <h3 className="text-lg font-bold text-gray-900 mb-2">Interested in MiniElephant Electric Wheelchairs?</h3>

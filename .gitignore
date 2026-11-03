@@ -48,3 +48,15 @@ next-env.d.ts
 *.secret
 .env
 .claude/
+
+# local scratch / probe helpers (agent tooling, archive outside the repo)
+/_*.mjs
+/_*.json
+/_*.txt
+/_*.log
+/_*.py
+/_*.jpg
+/_tmp_out*
+/_refs/
+/_expand/
+/_tmp_seo/

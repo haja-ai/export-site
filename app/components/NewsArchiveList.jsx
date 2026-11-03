@@ -1,7 +1,11 @@
-import Link from 'next/link';
-import { categoryOf, CATEGORY_BY_SLUG } from '@/lib/news-taxonomy';
+'use client';
 
-// Server-rendered archive list used by /news, /news/page/N and /news/category/<slug>.
+import Link from 'next/link';
+import { CATEGORY_BY_SLUG } from '@/lib/news-taxonomy';
+
+// Archive list used by /news, /news/page/N and /news/category/<slug>. It is a client
+// component so the card markup is emitted once (HTML) instead of twice (HTML + RSC
+// payload); only the projected card fields travel as props.
 // Every row links to an article, and the category label links to its topic hub.
 export default function NewsArchiveList({ articles = [], showCategory = true }) {
   if (!articles.length) {
@@ -18,7 +22,7 @@ export default function NewsArchiveList({ articles = [], showCategory = true }) 
   return (
     <div className="border-t border-[#dbe3dd]">
       {articles.map((article) => {
-        const category = CATEGORY_BY_SLUG[categoryOf(article)] || CATEGORY_BY_SLUG['buying-guides'];
+        const category = CATEGORY_BY_SLUG[article.category] || CATEGORY_BY_SLUG['buying-guides'];
         return (
           <article
             key={article.slug}

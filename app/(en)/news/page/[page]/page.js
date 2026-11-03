@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import PulseFitPage from '@/app/components/PulseFitPage';
 import { siteContent as sc } from '@/lib/site-content';
 import { newsArticles } from '@/lib/news';
-import { paginate, sortByDateDesc, PER_PAGE } from '@/lib/news-taxonomy';
+import { paginate, sortByDateDesc, toCards, PER_PAGE } from '@/lib/news-taxonomy';
 import NewsArchiveList from '@/app/components/NewsArchiveList';
 import NewsCategoryNav from '@/app/components/NewsCategoryNav';
 import NewsPager from '@/app/components/NewsPager';
@@ -59,7 +59,7 @@ export default async function NewsPaginatedPage({ params }) {
             </p>
           </div>
 
-          <NewsArchiveList articles={items} showCategory />
+          <NewsArchiveList articles={toCards(items)} showCategory />
           <NewsPager current={current} pages={pages} />
         </div>
       </section>

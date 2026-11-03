@@ -1,6 +1,6 @@
 import { wheelchairs } from '@/lib/products';
 import { newsArticles } from '@/lib/news';
-import { NEWS_CATEGORIES, PER_PAGE } from '@/lib/news-taxonomy';
+import { NEWS_CATEGORIES, PER_PAGE, topicPageParams } from '@/lib/news-taxonomy';
 
 const BASE_URL = 'https://www.semwheelchair.com';
 
@@ -55,8 +55,22 @@ const newsCategoryPages = NEWS_CATEGORIES.map((c) => ({
   lastModified: today,
 }));
 
+const newsTopicPageUrls = topicPageParams(newsArticles).map(({ slug, page }) => ({
+  url: `/news/category/${slug}/page/${page}`,
+  priority: '0.5',
+  changefreq: 'weekly',
+  lastModified: today,
+}));
+
 export default async function sitemap() {
-  const allPages = [...staticPages, ...productPages, ...newsCategoryPages, ...newsArchivePages, ...newsPages];
+  const allPages = [
+    ...staticPages,
+    ...productPages,
+    ...newsCategoryPages,
+    ...newsTopicPageUrls,
+    ...newsArchivePages,
+    ...newsPages,
+  ];
 
   return allPages.map((page) => ({
     url: `${BASE_URL}${page.url}`,

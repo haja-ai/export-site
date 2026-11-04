@@ -2,6 +2,7 @@ import Link from 'next/link';
 import FloatingInquiry from './FloatingInquiry';
 import GuideLinks from './GuideLinks';
 import SiteLinksStrip from './SiteLinksStrip';
+import NewsCategoryNav from './NewsCategoryNav';
 
 const models = [
   { index: '02', name: 'MiniRedone-II', href: '/products/miniredone-ii' },
@@ -42,7 +43,8 @@ export default function HomeRedesign() {
           <div className="grid items-end gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.9fr)] lg:gap-[8vw]">
             <div>
               <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#a5e7ad]">MiniElephant folding electric wheelchair manufacturer</p>
-              <h1 className="mt-4 max-w-5xl text-[clamp(3.35rem,6vw,6.5rem)] font-extrabold leading-[0.9] tracking-[-0.075em]">Folding electric wheelchairs.<br />Comfort, engineered.</h1>
+              <h1 className="mt-4 max-w-5xl text-[clamp(2.9rem,5.2vw,5.6rem)] font-extrabold leading-[0.92] tracking-[-0.07em]">Folding Electric Wheelchair Manufacturer</h1>
+              <p className="mt-5 max-w-3xl text-[clamp(1.35rem,2.2vw,2.1rem)] font-extrabold leading-[1.15] tracking-[-0.05em] text-white">Comfort, engineered.</p>
               <p className="mt-6 max-w-xl text-base leading-7 text-white/85 sm:text-lg">MiniRedone folding electric wheelchairs and power chairs for distributors, importers and OEM projects that value premium comfort and considered engineering.</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="#models" className="bg-[#3ab54a] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#278a36]">Explore the series</Link>
@@ -86,18 +88,28 @@ export default function HomeRedesign() {
         id="guides"
         eyebrow="Buyer resources"
         title="Before you order: certification, compliance and pricing."
-        intro="Folding electric wheelchair procurement raises the same questions in every market. These three guides cover the paperwork, the standards and the cost structure that decide whether a container arrives clean."
+        intro="Folding electric wheelchair procurement raises the same questions in every market. These six guides cover the paperwork, the standards, the cost structure, the customs classification and the inspection routine that decide whether a container arrives clean."
         tone="plain"
         slugs={[
           'electric-wheelchair-import-compliance-document-checklist',
           'electric-wheelchair-certification-guide-2026-b2b',
           'electric-wheelchair-wholesale-pricing-guide',
+          'electric-wheelchair-hs-code-import-classification-guide-b2b',
+          'electric-wheelchair-pre-shipment-inspection-quality-checklist',
+          'electric-wheelchair-battery-range-buying-guide',
         ]}
       />
 
+      <NewsCategoryNav showAll={false} />
+
       <section className="bg-[#f4f7f4] px-6 py-20 sm:px-8 lg:px-16 lg:py-28"><div className="grid gap-8 lg:grid-cols-2 lg:gap-[8vw]"><div><p className="text-[0.68rem] font-extrabold uppercase tracking-[0.13em] text-[#278a36]">Our product approach</p><h2 className="mt-3 max-w-xl text-[clamp(2.35rem,4vw,4.5rem)] font-extrabold leading-[1.01] tracking-[-0.06em]">Premium comfort is not an added feature.</h2></div><p className="pt-2 text-base leading-8 text-[#657069] lg:pt-7">Choosing a premium electric wheelchair starts with seating, drive controls and everyday interaction. For buyers comparing electric wheel chairs, we review comfort preferences alongside the actual configuration rather than making one-size-fits-all promises.</p></div><div className="mt-12 grid border-t border-[#dbe3dd] sm:grid-cols-3">{[['Comfort', 'Seating and ride experience stay central to product conversations.'], ['Engineering', 'Materials, motors and configurations are presented with clear information.'], ['Partnership', 'Wholesale, private-label and market requirements are reviewed project by project.']].map(([title, copy]) => <article key={title} className="border-b border-[#dbe3dd] py-5 sm:mr-6 sm:border-b-0 sm:border-r sm:pr-6 sm:last:mr-0 sm:last:border-r-0"><b className="text-base">{title}</b><p className="mt-2 text-sm leading-6 text-[#657069]">{copy}</p></article>)}</div></section>
 
-      <SiteLinksStrip id="commercial" eyebrow="Buying from MiniElephant" title="Compliance, private label and wholesale supply." />
+      <SiteLinksStrip
+        id="commercial"
+        eyebrow="Buying from MiniElephant"
+        title="Compliance, private label and wholesale supply."
+        note="MOQ 30 units. Single-unit buyers: contact us for your nearest distributor."
+      />
 
       <section id="location" className="grid gap-10 px-6 py-20 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-[7vw] lg:px-16 lg:py-28">
         <div><p className="text-[0.68rem] font-extrabold uppercase tracking-[0.13em] text-[#278a36]">Visit our location</p><h2 className="mt-3 text-[clamp(2.35rem,4vw,4.3rem)] font-extrabold leading-[1.02] tracking-[-0.06em]">Located in Jiaxing, Zhejiang.</h2><p className="mt-6 text-base leading-8 text-[#657069]">Our company is based in Jiashan County, Jiaxing City, Zhejiang Province, China. The map uses the verified company coordinates.</p><div className="mt-8 border-t border-[#dbe3dd] text-sm"><div className="border-b border-[#dbe3dd] py-3"><span className="block text-[0.65rem] font-extrabold uppercase tracking-[0.1em] text-[#278a36]">Company</span>Jiaxing Small Elephant Medical Technology Co., Ltd.</div><div className="border-b border-[#dbe3dd] py-3"><span className="block text-[0.65rem] font-extrabold uppercase tracking-[0.1em] text-[#278a36]">Address</span>No. 18 Zhenzhong East Road (振中东路), Weitang Subdistrict, Jiashan County, Jiaxing City, Zhejiang Province, China</div></div><a href={mapLink} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex border border-[#152019] px-5 py-3 text-sm font-bold transition-colors hover:bg-[#152019] hover:text-white">Open in Google Maps ↗</a></div>

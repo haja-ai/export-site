@@ -18,7 +18,7 @@ const LINKS = [
   },
 ];
 
-export default function SiteLinksStrip({ id = 'commercial', eyebrow = 'Buying from MiniElephant', title = 'Compliance, private label and wholesale supply.' }) {
+export default function SiteLinksStrip({ id = 'commercial', eyebrow = 'Buying from MiniElephant', title = 'Compliance, private label and wholesale supply.', note }) {
   return (
     <section id={id} className="border-t border-[#dbe3dd] bg-white px-6 py-16 sm:px-8 lg:px-16 lg:py-20">
       <div className="flex flex-wrap items-end justify-between gap-4 border-b border-[#dbe3dd] pb-5">
@@ -32,6 +32,9 @@ export default function SiteLinksStrip({ id = 'commercial', eyebrow = 'Buying fr
           Talk to the export team →
         </Link>
       </div>
+      {note ? (
+        <p className="mt-5 max-w-3xl text-sm font-semibold leading-6 text-[#152019]">{note}</p>
+      ) : null}
       <div className="grid border-l border-[#dbe3dd] sm:grid-cols-3">
         {LINKS.map((item) => (
           <Link

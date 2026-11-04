@@ -22,10 +22,34 @@ const BUYER_GUIDE_POOL = [
   'electric-wheelchair-warranty-after-sales-guide',
 ];
 
+// Model-level topics: battery and range, folding and transport, terrain and
+// ride comfort. Kept separate from the procurement pool so one page never shows
+// the same guide twice.
+const MODEL_GUIDE_POOL = [
+  'electric-wheelchair-folding-mechanism-guide-b2b',
+  'electric-wheelchair-suspension-selection-guide',
+  'power-wheelchair-indoor-outdoor-selection-guide',
+  'electric-wheelchair-outdoor-terrain-guide',
+  'electric-wheelchair-portability-folded-size-vs-lifting-weight',
+  'electric-wheelchair-hill-climbing-comparison-b2b',
+  'power-wheelchair-tire-selection-b2b',
+  'electric-wheelchair-transit-transportation-guide',
+  'electric-wheelchair-weight-net-vs-transport-comparison-b2b',
+  'electric-wheelchair-charging-time-comparison-b2b',
+];
+
 function buyerGuidesFor(slug, count = 4) {
   const index = Math.max(0, wheelchairs.findIndex((item) => item.slug === slug));
   const start = (index * 3) % BUYER_GUIDE_POOL.length;
   return Array.from({ length: count }, (_, offset) => BUYER_GUIDE_POOL[(start + offset) % BUYER_GUIDE_POOL.length]);
+}
+
+// Two model-specific guides per chair, rotated so neighbouring models do not
+// repeat the same pair.
+function modelGuidesFor(slug, count = 2) {
+  const index = Math.max(0, wheelchairs.findIndex((item) => item.slug === slug));
+  const start = (index * 3) % MODEL_GUIDE_POOL.length;
+  return Array.from({ length: count }, (_, offset) => MODEL_GUIDE_POOL[(start + offset) % MODEL_GUIDE_POOL.length]);
 }
 
 // Keep SEO copy tied to the same model data as the specification table.
@@ -119,7 +143,7 @@ export default async function ProductDetailPage({ params }) {
     },
     {
       q: `Can I request a sample or wholesale quotation for ${product.name}?`,
-      a: `Yes. Contact MiniElephant with your target market, quantity, packaging needs, and destination. Sample terms, MOQ, lead time, shipping, and warranty scope are confirmed in the quotation for the selected model.`,
+      a: `Yes. Wholesale orders start at 30 units per order, and mixed models can share that total in one container. Contact MiniElephant with your target market, quantity, packaging needs, and destination; sample terms, lead time, shipping, and warranty scope are confirmed in the quotation for the selected model.`,
     },
     {
       q: `Does MiniElephant support OEM or ODM for ${product.name}?`,
@@ -230,10 +254,12 @@ export default async function ProductDetailPage({ params }) {
         id="buyer-guides"
         eyebrow="Buyer resources"
         title={`Before you buy the ${product.name}: compliance, inspection and service.`}
-        intro={`Every ${product.name} quotation sits inside the same B2B framework: import documents, quality inspection before shipment, spare parts support and an after-sales commitment. These guides explain what to ask for.`}
+        intro={`Every ${product.name} quotation sits inside the same B2B framework: import documents, quality inspection before shipment, spare parts support and an after-sales commitment. The last two guides cover this model's own selling points — range and battery, folding, transport and ride comfort.`}
         tone="plain"
         columns={3}
-        slugs={buyerGuidesFor(slug)}
+        slugs={[...buyerGuidesFor(slug), ...modelGuidesFor(slug)]}
+        categoryHref="/news/category/product-technology"
+        categoryHrefLabel="product & technology"
       />
 
       <SiteLinksStrip id="commercial" eyebrow="Buying from MiniElephant" title="Compliance files, private label and wholesale supply." />

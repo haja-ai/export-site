@@ -4,7 +4,7 @@ import { newsArticles } from '@/lib/news';
 
 const counts = categoryCounts(newsArticles);
 
-export default function NewsCategoryNav({ active = '' }) {
+export default function NewsCategoryNav({ active = '', showAll = true }) {
   return (
     <section className="border-b border-[#dbe3dd] bg-white py-5">
       <div className="px-6 sm:px-8 lg:px-16">
@@ -12,12 +12,14 @@ export default function NewsCategoryNav({ active = '' }) {
           <span className="mr-2 text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-[#278a36]">
             Browse by topic
           </span>
-          <Link
-            href="/news"
-            className={`border px-3 py-2 text-xs font-bold transition-colors ${active === '' ? 'border-[#152019] bg-[#152019] text-white' : 'border-[#dbe3dd] bg-white text-[#526158] hover:border-[#3ab54a] hover:text-[#278a36]'}`}
-          >
-            All articles
-          </Link>
+          {showAll ? (
+            <Link
+              href="/news"
+              className={`border px-3 py-2 text-xs font-bold transition-colors ${active === '' ? 'border-[#152019] bg-[#152019] text-white' : 'border-[#dbe3dd] bg-white text-[#526158] hover:border-[#3ab54a] hover:text-[#278a36]'}`}
+            >
+              All articles
+            </Link>
+          ) : null}
           {NEWS_CATEGORIES.map((category) => {
             const on = active === category.slug;
             return (

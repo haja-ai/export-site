@@ -35,6 +35,10 @@ export default function GuideLinks({
   intro,
   tone = 'muted',
   columns = 3,
+  blurbs,
+  labels,
+  categoryHref,
+  categoryHrefLabel = 'related',
 }) {
   const items = slugs
     .map((slug) => newsArticles.find((article) => article.slug === slug))
@@ -72,17 +76,25 @@ export default function GuideLinks({
               <div className="flex items-center gap-3 text-[0.65rem] font-extrabold uppercase tracking-[0.12em] text-[#278a36]">
                 <span>Guide</span>
                 <span className="h-px w-6 bg-[#dbe3dd]" />
-                <span className="font-bold uppercase tracking-[0.04em] text-[#8a968d]">{categoryLabel(article.category)}</span>
+                <span className="font-bold uppercase tracking-[0.04em] text-[#8a968d]">{(labels && labels[article.slug]) || categoryLabel(article.category)}</span>
               </div>
               <h3 className="mt-3 text-base font-bold leading-6 tracking-[-0.02em] text-[#152019] transition-colors group-hover:text-[#278a36]">
                 {article.title}
               </h3>
-              <p className="mt-3 text-sm leading-6 text-[#657069]">{excerpt(article.summary, 130)}</p>
+              <p className="mt-3 text-sm leading-6 text-[#657069]">{(blurbs && blurbs[article.slug]) || excerpt(article.summary, 130)}</p>
             </div>
             <span className="mt-5 text-xs font-extrabold uppercase tracking-[0.1em] text-[#152019] group-hover:text-[#278a36]">Read the guide &rarr;</span>
           </Link>
         ))}
       </div>
+      {categoryHref ? (
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#dbe3dd] pt-5">
+          <p className="text-sm text-[#657069]">More buying, compliance and technical guides in the news archive.</p>
+          <Link href={categoryHref} className="border-b border-[#3ab54a] pb-1 text-sm font-bold text-[#152019] transition-colors hover:text-[#278a36]">
+            Browse all {categoryHrefLabel} articles &rarr;
+          </Link>
+        </div>
+      ) : null}
     </section>
   );
 }

@@ -29,8 +29,6 @@ export const metadata = {
   },
   description:
     'MiniElephant manufactures MiniRedone folding electric wheelchairs for B2B export. Factory-direct inquiry site for distributors, importers, OEM/ODM buyers, and mobility partners.',
-  keywords:
-    'electric wheelchair, electric wheelchair manufacturer, folding electric wheelchair, MiniElephant, MiniRedone, wheelchair supplier, B2B wheelchair export, OEM wheelchair, ODM wheelchair, magnesium alloy wheelchair, electric wheelchair factory',
   robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   alternates: {
     canonical: 'https://www.semwheelchair.com',

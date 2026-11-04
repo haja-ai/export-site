@@ -44,6 +44,9 @@ export default function SiteFooter() {
               <li><a href="/certifications" className="text-gray-400 hover:text-teal transition-colors">Certifications</a></li>
               <li><a href="/oem-odm" className="text-gray-400 hover:text-teal transition-colors">OEM / ODM</a></li>
               <li><a href="/wholesale" className="text-gray-400 hover:text-teal transition-colors">Wholesale</a></li>
+              <li><a href="/solutions/airport-travel" className="text-gray-400 hover:text-teal transition-colors">Solutions: airport &amp; travel</a></li>
+              <li><a href="/solutions/home-indoor" className="text-gray-400 hover:text-teal transition-colors">Solutions: home &amp; indoor</a></li>
+              <li><a href="/solutions/senior-care-facilities" className="text-gray-400 hover:text-teal transition-colors">Solutions: care facilities</a></li>
               <li><a href="/contact" className="text-gray-400 hover:text-teal transition-colors">Contact & Quotation</a></li>
             </ul>
           </div>

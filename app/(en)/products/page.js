@@ -3,6 +3,7 @@ import { siteContent as sc } from '@/lib/site-content';
 import PulseFitPage from '@/app/components/PulseFitPage';
 import SectionRenderer from '@/app/components/SectionRenderer';
 import GuideLinks from '@/app/components/GuideLinks';
+import SolutionsLinks from '@/app/components/SolutionsLinks';
 
 // Eight guides across four buying themes. Every slug below resolves to a live
 // article; the short line under each title is written for this page, not pulled
@@ -71,6 +72,8 @@ export default function ProductsPage() {
       {sections.map((section) => (
         <SectionRenderer key={section.id} section={section} />
       ))}
+
+      <SolutionsLinks id="solutions" tone="muted" />
 
       <GuideLinks
         id="buyer-guides"

@@ -3,6 +3,7 @@ import FloatingInquiry from './FloatingInquiry';
 import GuideLinks from './GuideLinks';
 import SiteLinksStrip from './SiteLinksStrip';
 import NewsCategoryNav from './NewsCategoryNav';
+import SolutionsLinks from './SolutionsLinks';
 
 const models = [
   { index: '02', name: 'MiniRedone-II', href: '/products/miniredone-ii' },
@@ -83,6 +84,8 @@ export default function HomeRedesign() {
         </div>
         <div className="grid border-b border-[#dbe3dd] sm:grid-cols-3">{models.map((model) => <Link key={model.name} href={model.href} className="min-h-24 border-b border-[#dbe3dd] p-5 transition-colors hover:bg-[#f4f7f4] sm:border-b-0 sm:border-r sm:last:border-r-0"><span className="block text-[0.68rem] font-extrabold tracking-[0.1em] text-[#278a36]">{model.index}</span><b className="mt-2 block text-base">{model.name}</b></Link>)}</div>
       </section>
+
+      <SolutionsLinks id="solutions" tone="muted" />
 
       <GuideLinks
         id="guides"

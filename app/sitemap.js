@@ -1,6 +1,7 @@
 import { wheelchairs } from '@/lib/products';
 import { newsArticles } from '@/lib/news';
 import { NEWS_CATEGORIES, PER_PAGE, topicPageParams } from '@/lib/news-taxonomy';
+import { SOLUTION_SLUGS } from '@/lib/solutions';
 
 const BASE_URL = 'https://www.semwheelchair.com';
 
@@ -24,6 +25,13 @@ const staticPages = [
   { url: '/es', priority: '0.7', changefreq: 'monthly', lastModified: today },
   { url: '/fr', priority: '0.7', changefreq: 'monthly', lastModified: today },
 ];
+
+const solutionPages = SOLUTION_SLUGS.map((slug) => ({
+  url: `/solutions/${slug}`,
+  priority: '0.8',
+  changefreq: 'monthly',
+  lastModified: today,
+}));
 
 const productPages = wheelchairs.map((p) => ({
   url: `/products/${p.slug}`,
@@ -65,6 +73,7 @@ const newsTopicPageUrls = topicPageParams(newsArticles).map(({ slug, page }) => 
 export default async function sitemap() {
   const allPages = [
     ...staticPages,
+    ...solutionPages,
     ...productPages,
     ...newsCategoryPages,
     ...newsTopicPageUrls,

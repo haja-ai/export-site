@@ -137,7 +137,11 @@ export default function ContactForm() {
           <select name="product" value={formData.product} onChange={handleChange} className={`${inputClass} bg-white`}>
             <option value="">Select a model...</option>
             <optgroup label="MiniRedone Series">
-              {wheelchairs.map((p) => <option key={p.slug} value={p.name}>{p.name}</option>)}
+              {wheelchairs.map((p) => {
+            const color = p.specs?.find((item) => item.label === 'Color Options')?.value;
+            const label = color ? `${p.name} (${color})` : p.name;
+            return <option key={p.slug} value={label}>{label}</option>;
+          })}
             </optgroup>
             <option value="Multiple / Not Sure">Multiple / Not Sure</option>
           </select>

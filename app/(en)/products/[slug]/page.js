@@ -70,9 +70,19 @@ function productIntent(product) {
               ? 'wider seating configuration'
               : 'base magnesium alloy configuration';
 
+  // A colour variant reuses the model name, so the finish has to carry the
+  // title - otherwise two product pages would publish an identical <title>.
+  const titleModel = color ? `${product.name} ${color}` : product.name;
+
   return {
-    title: `${product.name} Folding Electric Wheelchair`,
-    description: `${product.name} folding electric wheelchair with ${focus}. Compare power chair specs and request a wholesale or OEM/ODM quote.`,
+    // A colour variant drops the site-name suffix so the title stays under 60
+    // characters; the base model keeps the existing templated title.
+    title: color
+      ? { absolute: `${titleModel} Folding Electric Wheelchair` }
+      : `${titleModel} Folding Electric Wheelchair`,
+    description: color
+      ? `${product.name} folding electric wheelchair in ${color}. Compare power chair specs, seating and folded size, then request a wholesale or OEM/ODM quote.`
+      : `${product.name} folding electric wheelchair with ${focus}. Compare power chair specs and request a wholesale or OEM/ODM quote.`,
     tagline: `Folding electric wheelchair with ${focus}`,
     overview: `${product.name} is a MiniRedone foldable electric wheelchair with ${focus}. This power wheelchair is listed at ${spec('Net Weight') || 'a net weight to be confirmed'}, with folded dimensions of ${spec('Folded Dimensions') || 'a size to be confirmed'}. Review the seating and controls for your premium mobility range; confirm the final configuration, storage space and transport arrangements before ordering.`,
   };
@@ -124,6 +134,8 @@ export default async function ProductDetailPage({ params }) {
   const intent = productIntent(product);
 
   const specValue = (label) => product.specs.find((spec) => spec.label === label)?.value || 'Please confirm in the quotation';
+  // Colour variant of an existing model: keep the model name, show the finish.
+  const colorName = product.specs.find((spec) => spec.label === 'Color Options')?.value;
   const buyerFaqs = [
     {
       q: `Who is the ${product.name} electric wheelchair designed for?`,
@@ -184,7 +196,7 @@ export default async function ProductDetailPage({ params }) {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             <Link href="/products" className="hover:text-[#3ab54a] transition-colors">Products</Link>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            <span className="text-[#152019] font-medium">{product.name}</span>
+            <span className="text-[#152019] font-medium">{product.name}{colorName ? ` · ${colorName}` : ''}</span>
           </nav>
         </div>
       </div>
@@ -198,7 +210,7 @@ export default async function ProductDetailPage({ params }) {
 
             <div>
               <span className="text-[#3ab54a] font-bold text-xs uppercase tracking-[0.16em]">{product.category}</span>
-              <h1 className="text-2xl lg:text-3xl font-bold text-[#152019] mt-2 mb-3">{product.fullName} Folding Electric Wheelchair</h1>
+              <h1 className="text-2xl lg:text-3xl font-bold text-[#152019] mt-2 mb-3">{product.fullName}{colorName ? ` (${colorName})` : ''} Folding Electric Wheelchair</h1>
               <p className="text-[#152019] font-medium mb-4">{intent.tagline}</p>
               <p className="text-[#526158] leading-relaxed mb-6">{intent.overview}</p>
 
@@ -209,7 +221,7 @@ export default async function ProductDetailPage({ params }) {
                 </div>
               )}
 
-              <Link href={`/contact?product=${encodeURIComponent(product.name)}`} className="px-6 py-3 inline-flex items-center gap-2 bg-[#3ab54a] border border-[#3ab54a] text-white font-semibold text-sm hover:bg-[#2d963c] hover:border-[#2d963c] transition-colors">
+              <Link href={`/contact?product=${encodeURIComponent(product.name + (colorName ? ` (${colorName})` : ''))}`} className="px-6 py-3 inline-flex items-center gap-2 bg-[#3ab54a] border border-[#3ab54a] text-white font-semibold text-sm hover:bg-[#2d963c] hover:border-[#2d963c] transition-colors">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                 Request a Wholesale Quote
               </Link>

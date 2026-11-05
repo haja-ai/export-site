@@ -15,7 +15,14 @@ export default function ProductCard({ product, index = 0, animate = false }) {
       </div>
       <div className="flex flex-1 flex-col p-5">
         <span className="text-[0.65rem] font-extrabold uppercase tracking-[0.13em] text-[#278a36]">MiniRedone series</span>
-        <h3 className="mt-2 text-xl font-bold tracking-[-0.035em] text-[#152019] transition-colors group-hover:text-[#278a36]">{product.name}</h3>
+        <h3 className="mt-2 flex flex-wrap items-baseline gap-2 text-xl font-bold tracking-[-0.035em] text-[#152019] transition-colors group-hover:text-[#278a36]">
+          {product.name}
+          {product.specs?.find((s) => s.label === 'Color Options') && (
+            <span className="border border-[#dbe3dd] px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-[0.1em] text-[#657069]">
+              {product.specs.find((s) => s.label === 'Color Options').value}
+            </span>
+          )}
+        </h3>
         <p className="mt-2 flex-1 text-sm leading-6 text-[#657069]">{product.tagline}</p>
         <div className="mt-5 grid grid-cols-3 border-t border-[#dbe3dd] pt-3 text-[0.65rem] leading-4 text-[#657069]">
           {product.specs?.slice(0, 3).map((spec) => <span key={spec.label} className="pr-2"><b className="block text-xs text-[#152019]">{spec.value}</b>{spec.label.replace('Net ', '')}</span>)}

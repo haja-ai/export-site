@@ -139,7 +139,7 @@ export default function ContactForm() {
             <optgroup label="MiniRedone Series">
               {wheelchairs.map((p) => {
             const color = p.specs?.find((item) => item.label === 'Color Options')?.value;
-            const label = color ? `${p.name} (${color})` : p.name;
+            const label = color && !p.colorInName ? `${p.name} (${color})` : p.name;
             return <option key={p.slug} value={label}>{label}</option>;
           })}
             </optgroup>

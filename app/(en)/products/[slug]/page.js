@@ -72,7 +72,7 @@ function productIntent(product) {
 
   // A colour variant reuses the model name, so the finish has to carry the
   // title - otherwise two product pages would publish an identical <title>.
-  const titleModel = color ? `${product.name} ${color}` : product.name;
+  const titleModel = color && !product.colorInName ? `${product.name} ${color}` : product.name;
 
   return {
     // A colour variant drops the site-name suffix so the title stays under 60
@@ -196,7 +196,7 @@ export default async function ProductDetailPage({ params }) {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             <Link href="/products" className="hover:text-[#3ab54a] transition-colors">Products</Link>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            <span className="text-[#152019] font-medium">{product.name}{colorName ? ` · ${colorName}` : ''}</span>
+            <span className="text-[#152019] font-medium">{product.name}{colorName && !product.colorInName ? ` · ${colorName}` : ''}</span>
           </nav>
         </div>
       </div>
@@ -210,7 +210,7 @@ export default async function ProductDetailPage({ params }) {
 
             <div>
               <span className="text-[#3ab54a] font-bold text-xs uppercase tracking-[0.16em]">{product.category}</span>
-              <h1 className="text-2xl lg:text-3xl font-bold text-[#152019] mt-2 mb-3">{product.fullName}{colorName ? ` (${colorName})` : ''} Folding Electric Wheelchair</h1>
+              <h1 className="text-2xl lg:text-3xl font-bold text-[#152019] mt-2 mb-3">{product.fullName}{colorName && !product.colorInName ? ` (${colorName})` : ''} Folding Electric Wheelchair</h1>
               <p className="text-[#152019] font-medium mb-4">{intent.tagline}</p>
               <p className="text-[#526158] leading-relaxed mb-6">{intent.overview}</p>
 

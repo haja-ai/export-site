@@ -17,7 +17,7 @@ export default function ProductCard({ product, index = 0, animate = false }) {
         <span className="text-[0.65rem] font-extrabold uppercase tracking-[0.13em] text-[#278a36]">MiniRedone series</span>
         <h3 className="mt-2 flex flex-wrap items-baseline gap-2 text-xl font-bold tracking-[-0.035em] text-[#152019] transition-colors group-hover:text-[#278a36]">
           {product.name}
-          {product.specs?.find((s) => s.label === 'Color Options') && (
+          {!product.colorInName && product.specs?.find((s) => s.label === 'Color Options') && (
             <span className="border border-[#dbe3dd] px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-[0.1em] text-[#657069]">
               {product.specs.find((s) => s.label === 'Color Options').value}
             </span>

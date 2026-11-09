@@ -61,7 +61,7 @@ function groupByFamily(products) {
 // One row per model: 4+ finishes spread across one desktop row, fewer keep the
 // original four-column rhythm so a single model is not stretched full width.
 function familyGridClass(count) {
-  if (count >= 5) return 'grid gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-5';
+  if (count >= 5) return 'grid gap-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5';
   if (count === 4) return 'grid gap-5 grid-cols-2 lg:grid-cols-4';
   if (count === 3) return 'grid gap-5 sm:grid-cols-2 lg:grid-cols-3';
   return 'grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';

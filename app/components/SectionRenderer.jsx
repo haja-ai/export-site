@@ -27,6 +27,46 @@ const bgMap = {
   dark: 'bg-gray-900',
 };
 
+// Product catalogue grouping: every finish of one model shares a single row.
+// Order matters - the more specific families must be tested before MiniRedone-I.
+const FAMILY_RULES = [
+  { key: 'MiniRedone-I-Plus', test: (slug) => slug === 'miniredone-i-plus' || slug.startsWith('miniredone-i-plus-') },
+  { key: 'MiniRedone-III', test: (slug) => slug === 'miniredone-iii' || slug.startsWith('miniredone-iii-') },
+  { key: 'MiniRedone-II-Plus', test: (slug) => slug === 'miniredone-ii-plus' },
+  { key: 'MiniRedone-I', test: (slug) => slug === 'miniredone-i' || /^miniredone-i-(w|br|r)$/.test(slug) },
+  { key: 'MiniRedone-II', test: (slug) => slug === 'miniredone-ii' },
+  { key: 'MiniRedone-IV', test: (slug) => slug === 'miniredone-iv' },
+  { key: 'MiniRedone-V', test: (slug) => slug === 'miniredone-v' },
+];
+
+function familyOf(slug) {
+  const hit = FAMILY_RULES.find((rule) => rule.test(slug));
+  return hit ? hit.key : 'Other models';
+}
+
+function groupByFamily(products) {
+  const order = [];
+  const map = new Map();
+  products.forEach((product) => {
+    const key = familyOf(product.slug);
+    if (!map.has(key)) {
+      map.set(key, []);
+      order.push(key);
+    }
+    map.get(key).push(product);
+  });
+  return order.map((key) => ({ key, items: map.get(key) }));
+}
+
+// One row per model: 4+ finishes spread across one desktop row, fewer keep the
+// original four-column rhythm so a single model is not stretched full width.
+function familyGridClass(count) {
+  if (count >= 5) return 'grid gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-5';
+  if (count === 4) return 'grid gap-5 grid-cols-2 lg:grid-cols-4';
+  if (count === 3) return 'grid gap-5 sm:grid-cols-2 lg:grid-cols-3';
+  return 'grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
+}
+
 export default function SectionRenderer({ section, className }) {
   const c = section.content || {};
   const style = section.style || {};
@@ -372,9 +412,22 @@ export default function SectionRenderer({ section, className }) {
               </div>
               {c.description && <p className="max-w-md text-sm leading-6 text-[#657069]">{c.description}</p>}
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {wheelchairs.map((product, i) => (
-                <ProductCard key={product.slug} product={product} index={i} />
+            <div className="space-y-14 lg:space-y-16">
+              {groupByFamily(wheelchairs).map((family, familyIndex) => (
+                <div key={family.key}>
+                  <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3 border-b border-[#dbe3dd] pb-3">
+                    <div className="flex items-baseline gap-3">
+                      <span className="text-[0.62rem] font-extrabold uppercase tracking-[0.16em] text-[#278a36]">{String(familyIndex + 1).padStart(2, '0')}</span>
+                      <h3 className="text-xl font-bold tracking-[-0.03em] text-[#152019] sm:text-2xl">{family.key}</h3>
+                    </div>
+                    <span className="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-[#657069]">{family.items.length} {family.items.length > 1 ? 'finishes' : 'model'}</span>
+                  </div>
+                  <div className={familyGridClass(family.items.length)}>
+                    {family.items.map((product, i) => (
+                      <ProductCard key={product.slug} product={product} index={i} />
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>

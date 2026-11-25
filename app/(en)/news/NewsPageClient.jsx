@@ -80,7 +80,7 @@ export default function NewsPageClient() {
                 return (
                   <Link key={article.slug} href={`/news/${article.slug}`} className="group grid gap-5 border-b border-[#dbe3dd] py-7 transition-colors hover:bg-[#f8fbf8] sm:grid-cols-[12rem_1fr] sm:gap-7 lg:grid-cols-[19.5rem_1fr_2.5rem] lg:items-center lg:gap-8">
                     <div className="relative h-48 overflow-hidden bg-[#f4f7f4] sm:h-32 lg:h-48">
-                      {article.bannerImage ? <img src={`${article.bannerImage}?v=4`} alt={article.title} onError={(event) => { event.currentTarget.classList.add('hidden'); }} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]" /> : <div className="flex h-full items-center justify-center text-xs font-bold text-[#657069]">MiniElephant Insights</div>}
+                      {article.bannerImage ? <img src={`${article.bannerImage}?v=5`} alt={article.title} onError={(event) => { event.currentTarget.classList.add('hidden'); }} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]" /> : <div className="flex h-full items-center justify-center text-xs font-bold text-[#657069]">MiniElephant Insights</div>}
                     </div>
                     <article>
                       <p className="text-[0.66rem] font-extrabold uppercase tracking-[0.12em] text-[#278a36]">{category.label} <span className="mx-1 text-[#a1aaa4]">·</span> <time className="text-[#657069]">{article.date}</time></p>

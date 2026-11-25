@@ -31,7 +31,7 @@ export default function NewsArchiveList({ articles = [], showCategory = true }) 
             <div className="relative h-48 overflow-hidden bg-[#f4f7f4] sm:h-32 lg:h-48">
               {article.bannerImage ? (
                 <img
-                  src={`${article.bannerImage}?v=4`}
+                  src={`${article.bannerImage}?v=5`}
                   alt={article.title}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"

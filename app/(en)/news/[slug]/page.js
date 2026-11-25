@@ -154,7 +154,7 @@ export default async function NewsArticlePage({ params }) {
           {article.bannerImage && (
             <div className="mb-8 -mx-4 sm:-mx-6 lg:-mx-8 rounded-xl overflow-hidden">
               <img
-                src={`${article.bannerImage}?v=4`}
+                src={`${article.bannerImage}?v=5`}
                 alt={article.title}
                 className="w-full h-auto max-h-[25rem] object-cover"
                 loading="eager"
